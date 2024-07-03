@@ -1,0 +1,16 @@
+/* fontes importada */
+
+
+
+
+
+/* reset  da página */
+* {
+    box-sizing: border-box;
+    font-family: "Source Sans 3", sans-serif;
+    list-style-type: none;
+    scroll-behavior: smooth;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
