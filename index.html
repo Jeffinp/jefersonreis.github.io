@@ -4,55 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeferson Reis - Developer</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <script src="https://kit.fontawesome.com/5e18f82f31.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- header com informações  -->
+    <!-- Header com informações -->
     <header class="header">
         <div class="container">
-            
-            <span>Jeferson Reis</span>
-
+            <span class="logo">Jeferson Reis</span>
             <nav>
-                <ul>
-                    <li>Sobre</li>
-                    <li>Projetos</li>
-                    <li>Contatos</li>
+                <ul class="nav-links">
+                    <li><a href="#sobre-mim">Sobre</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contatos">Contatos</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ícone lateral da página -->
-    <section>
-        <aside class="menulateral">
-
-        </aside>
-    </section>
+    <!-- Ícone lateral da página -->
+    <aside class="menulateral">
+        <!-- Conteúdo do menu lateral -->
+    </aside>
 
     <!-- Começo da página -->
     <main class="mainclass" id="mainclass">
-        <section></section>
-        <div></div>
+        <section class="intro">
+            <h1>Bem-vindo(a)! Sou Jeferson Reis Almeida desenvolvedor  Front-End</h1>
+        </section>
     </main>
 
-    <!-- sobre mim -->
-    <section class="sobre-mim">
-
+    <!-- Sobre mim -->
+    <section class="sobre-mim" id="sobre-mim">
+        <div class="container">
+            <h2>Sobre mim</h2>
+            <p>Sou Jeferson Reis Almeida, desenvolvedor front-end desde 2024, com
+                experiência em criar sites para portfólios, e-commerce e comunicação,
+                sempre focado em desempenho e otimização de busca. Realizei diversos
+                projetos como freelancer, aprimorando vendas e garantindo a satisfação
+                dos clientes. Além disso, atuo como designer gráfico e artista digital,
+                criando logotipos, banners e artes digitais. Como técnico em
+                informática, conserto computadores e otimizo sistemas e servidores.
+                </p>
+        </div>
     </section>
 
-    <!-- projetos -->
-    <div class="projetos"></div>
-    <section></section>
-    <section></section>
-    <section></section>
+    <!-- Projetos -->
+    <section class="projetos" id="projetos">
+        <div class="container">
+            <h2>Projetos</h2>
+            <div class="projeto">
+                <img src="notebook.png" alt="Notebook" class="notebook-img">
+                <div class="descricao-projeto">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição do projeto.</p>
+                    <a href="https://github.com/Jeffinp/projeto1" target="_blank">Ver no GitHub</a>
+                </div>
+            </div>
+            <!-- Adicione mais projetos conforme necessário -->
+        </div>
+    </section>
 
-    <!-- contato -->
-    <section>
+    <!-- Contato -->
+    <section class="contatos" id="contatos">
         <div class="contatos-container">
             <div class="contatos-content">
-                <h1></h1>
-                <p></p>
-                <p></p>
+                <h2>Contatos</h2>
+                <p>Email: jeferson@example.com</p>
+                <p>Telefone: (xx) xxxx-xxxx</p>
             </div>
         </div>
     </section> 
@@ -61,21 +80,23 @@
     <footer>
         <section class="footer-container">
             <div class="footer-content">
-                <div class="social">
-                    <h2 class="title-footer">Jeferson Reis</h2>
-                    <p class="p-info"></p>
-                </div>
-                <div></div>
-
-                <div>
-                    <p class="texto-social">Redes sociais</p>
-                    <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/"></a>
-                    <a href="https://github.com/Jeffinp"></a>
-                </div>
+              <div class="social">
+                <h2 class="title-footer">Jeferson Reis</h2>
+                <p class="p-info">Desenvolvedor Front-End apaixonado por aprender e crescer, focado em desenvolvimento web e em constante evolução para me tornar um desenvolvedor full-stack!</p>
+              </div>
+              <div class="social-links">
+                <p class="texto-social">Redes sociais</p>
+                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank">
+                  <i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/Jeffinp" target="_blank">
+                  <i class="fa fa-github"></i></a>
+                <a href="https://www.instagram.com/jeffinx__/" target="_blank">
+                  <i class="fa fa-instagram"></i></a>
+              </div>
             </div>
-        </section>
+          </section>
+          
     </footer>
-
-
+    <script src="./src/script.js"></script>
 </body>
 </html>

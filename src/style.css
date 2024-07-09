@@ -2,15 +2,192 @@
 
 
 
-
-
-/* reset  da página */
+/* Reset CSS */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: "Source Sans 3", sans-serif;
-    list-style-type: none;
-    scroll-behavior: smooth;
-    margin: 0px;
-    padding: 0px;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header styles */
+.header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header .logo {
+    font-size: 1.5em;
+}
+
+.header .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.header .nav-links li {
+    margin-left: 20px;
+}
+
+.header .nav-links a {
+    color: #fff;
     text-decoration: none;
+}
+
+.header .nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Main styles */
+.mainclass {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f4f4f4;
+}
+
+/* Sobre mim section styles */
+.sobre-mim {
+    background: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.sobre-mim .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Projetos section styles */
+.projetos {
+    background: #f4f4f4;
+    padding: 50px 20px;
+}
+
+.projetos .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projetos .projeto {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.projetos .projeto img.notebook-img {
+    width: 150px;
+    margin-right: 20px;
+}
+
+.projetos .descricao-projeto {
+    flex: 1;
+}
+
+.projetos .descricao-projeto a {
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.projetos .descricao-projeto a:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Contatos section styles */
+.contatos {
+    background: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contatos .contatos-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Footer styles */
+.footer-container {
+  background: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.title-footer {
+    text-align: left;
+}
+.p-info {
+    text-align: left;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer-content .social {
+  flex: 1;
+}
+
+.footer-content .social-links {
+  flex: 1;
+}
+
+.footer-content .social-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Hover effects for icons */
+.footer-content .social-links a:hover i {
+  color: #0077b5; /* LinkedIn blue */
+  transition: 0.3s;
+}
+
+.footer-content .social-links a:hover .fa-github {
+  color: #fff; /* GitHub white */
+}
+
+.footer-content .social-links a:hover .fa-instagram {
+  color: #e13062; /* Instagram pink */
+  transition: 0.3s;
+}
+.footer-content .social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Animações */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
