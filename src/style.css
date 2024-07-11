@@ -1,193 +1,490 @@
-/* fontes importada */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
+:root {
+    --primary-color: #01315B;
+    --secondary-color: #3DD5FA;
+    --text-color: #ecf0f1;
+    --background-color: #001227;
+    --hover-color: #054D8A;
+    --dark-color: #01070F;
+}
 
-
-/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Source Sans 3", sans-serif;
     line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
-/* Header styles */
-.header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.header .logo {
-    font-size: 1.5em;
+/* Header */
+header {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-.header .nav-links {
-    list-style: none;
+header .container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header .nav-links li {
-    margin-left: 20px;
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
 }
 
-.header .nav-links a {
-    color: #fff;
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
     text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    font-family: "Source Sans 3", sans-serif;
 }
 
-.header .nav-links a:hover {
-    text-decoration: underline;
+nav ul li a:hover {
+    color: var(--secondary-color);
 }
 
-/* Main styles */
-.mainclass {
-    text-align: center;
-    padding: 50px 20px;
-    background: #f4f4f4;
-}
-
-/* Sobre mim section styles */
-.sobre-mim {
-    background: #fff;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.sobre-mim .container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Projetos section styles */
-.projetos {
-    background: #f4f4f4;
-    padding: 50px 20px;
-}
-
-.projetos .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.projetos .projeto {
+/* Hero Section */
+.hero {
+    height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(1, 7, 14, 0.7), rgba(1, 7, 14, 0.7)), url('https://img.freepik.com/fotos-gratis/papel-de-parede-de-lua-de-arte-digital_23-2150918877.jpg?t=st=1720678963~exp=1720682563~hmac=6e040c819b32b762372fc83d6559c9a2f26b3d11cd134ff76237167e471147c7&w=1380') no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#home p {
+    font-size: 1.2rem;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.profile-pic {
+    width: 220px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cta-button:hover {
+    background-color: var(--hover-color);
+}
+
+#sobre p {
+    font-size: 1.2rem;
+    margin-top: -20px;
     margin-bottom: 20px;
 }
 
-.projetos .projeto img.notebook-img {
-    width: 150px;
-    margin-right: 20px;
+/* Sections */
+section {
+    padding: 5rem 0;
 }
 
-.projetos .descricao-projeto {
-    flex: 1;
-}
-
-.projetos .descricao-projeto a {
-    color: #333;
-    text-decoration: none;
-    border: 1px solid #333;
-    padding: 5px 10px;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.projetos .descricao-projeto a:hover {
-    background: #333;
-    color: #fff;
-}
-
-/* Contatos section styles */
-.contatos {
-    background: #fff;
-    padding: 50px 20px;
+section h2 {
     text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
 }
 
-.contatos .contatos-container {
-    max-width: 800px;
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+}
+
+.skill-item {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.skill-item i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+/* Cores para cada tecnologia */
+.html5 { color: #E44D26; }
+.css3 { color: #264DE4; }
+.javascript { color: #F0DB4F; }
+.react { color: #61DAFB; }
+.php { color: #8892BF; }
+.vuejs { color: #4FC08D; }
+.bootstrap { color: #7952B3; }
+.nodejs { color: #339933; }
+.angular {color: red;}
+/* Estilos de hover */
+.skill-item:hover .html5 { color: #FF8C69; transition: 0.3s; }
+.skill-item:hover .css3 { color: #6C8CD5; transition: 0.3s; }
+.skill-item:hover .javascript { color: #FCEB69; transition: 0.3s; }
+.skill-item:hover .react { color: #7DDFFF; transition: 0.3s; }
+.skill-item:hover .php { color: #A5ABCF; transition: 0.3s; }
+.skill-item:hover .vuejs { color: #7EE0B2; transition: 0.3s; }
+.skill-item:hover .bootstrap { color: #9B7ED8; transition: 0.3s; }
+.skill-item:hover .nodejs { color: #5FCC5F; transition: 0.3s; }
+.skill-item:hover .angular {color: rgb(255, 97, 97); transition: 0.3s;}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-item {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-item h3 {
+    padding: 1rem;
+}
+
+.project-item p {
+    padding: 0 1rem 1rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin: 0 1rem 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: var(--hover-color);
+}
+
+/* Contact Section */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
     margin: 0 auto;
 }
 
-/* Footer styles */
-.footer-container {
-  background: #333;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
+form input,
+form textarea {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
-.title-footer {
-    text-align: left;
-}
-.p-info {
-    text-align: left;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+.submit-btn {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: none;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.footer-content .social {
-  flex: 1;
+.submit-btn:hover {
+    background-color: var(--hover-color);
 }
 
-.footer-content .social-links {
-  flex: 1;
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    padding: 2rem 0;
+    text-align: center;
 }
 
-.footer-content .social-links a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
+.social-links {
+    margin-top: 1rem;
 }
 
-/* Hover effects for icons */
-.footer-content .social-links a:hover i {
-  color: #0077b5; /* LinkedIn blue */
-  transition: 0.3s;
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
 }
 
-.footer-content .social-links a:hover .fa-github {
-  color: #fff; /* GitHub white */
+.social-links a:hover {
+    color: var(--secondary-color);
 }
 
-.footer-content .social-links a:hover .fa-instagram {
-  color: #e13062; /* Instagram pink */
-  transition: 0.3s;
-}
-.footer-content .social-links a:hover {
-    text-decoration: underline;
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
 }
 
-/* Animações */
-.fade-in-section {
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    transition: opacity 0.3s, visibility 0.3s;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    visibility: hidden;
 }
 
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
+#scrollToTopBtn:hover {
+    background-color: var(--hover-color);
 }
+
+#scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.skills .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.technical-skills, .soft-skills {
+    flex: 1;
+}
+
+.technical-skills h3, .soft-skills h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-item {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-item h4 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.soft-skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.soft-skills li {
+    background-color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.soft-skills li:hover {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 20px 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+textarea {
+    resize: none; /* Impede o redimensionamento */
+    width: 100%; /* Opcional: para ocupar a largura total do container */
+    height: 150px; /* Opcional: define uma altura fixa */
+    padding: 10px; /* Opcional: adiciona padding interno */
+    box-sizing: border-box; /* Garante que o padding seja incluído na largura e altura total */
+}
+
+body.dark-mode {
+    --background-color: #000;
+    --text-color: #fff;
+    /* Ajuste outras variáveis de cor conforme necessário */
+  }
+  
+  .toggle-dark-mode {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+  }
+
+  .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .button-hover {
+    transition: transform 0.3s ease;
+  }
+  
+  .button-hover:hover {
+    transform: translateY(-3px);
+  }
