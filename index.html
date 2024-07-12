@@ -17,6 +17,7 @@
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#habilidades">Habilidades</a></li>
                     <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#timeline">Timeline</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
 
@@ -29,157 +30,204 @@
         </div>
     </header>
 
+    <button id="darkModeToggle" class="toggle-dark-mode">🌓</button>
+
     <main>
-        <section id="home" class="hero">
+        <section id="home" class="hero parallax">
             <div id="particles-js"></div>
             <div class="container">
                 <img src="./src/image/Linkedin-foto.png" alt="Jeferson Reis" class="profile-pic" id="profilePic">
-                <h1 id="heroTitle">Jeferson Reis Almeida</h1>
-                <p id="heroSubtitle">Desenvolvedor Full-Stack</p>
-                <a href="#projetos" class="cta-button" id="ctaButton">Ver Projetos</a>
+                <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
+                <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack</p>
+                <a href="#projetos" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver Projetos</a>
             </div>
         </section>
 
         <section id="sobre" class="about">
             <div class="container">
-                <h2>Sobre Mim</h2>
-                <p>Me chamo Jeferson Reis, tenho 18 anos e desde meus 3 anos de idade, quando tive meu primeiro contato com um computador, me apaixonei muito pela computação. Sempre fui fã de computadores. Antes de me tornar programador, fui técnico de informática, otimizando o Windows para várias pessoas que precisavam de um sistema mais rápido. Depois, comecei a consertar a parte física de computadores, além de trabalhar com impressoras, consoles e até celulares. No entanto, o que eu realmente queria era programação. Tentei desenvolver jogos na linguagem C#, mas, na época, não tive sucesso devido à falta de conhecimento. Hoje em dia, estudei e me tornei um desenvolvedor Full-Stack, sempre buscando aprender mais, me esforçando, estudando e aprimorando minhas habilidades naquilo que amo fazer.</p>
-                <p>Também já trabalhei como designer gráfico, criando banners e logotipos para gráficas, empresas e freelancers. Além disso, fui artista digital, fazendo ilustrações para diversas pessoas e empresas que me solicitavam artes digitais.</p>
-                
+                <h2 data-aos="fade-up">Sobre Mim</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Me chamo Jeferson Reis, tenho 18 anos e desde meus 3 anos de idade, quando tive meu primeiro contato com um computador, me apaixonei muito pela computação. Sempre fui fã de computadores. Antes de me tornar programador, fui técnico de informática, otimizando o Windows para várias pessoas que precisavam de um sistema mais rápido. Depois, comecei a consertar a parte física de computadores, além de trabalhar com impressoras, consoles e até celulares. No entanto, o que eu realmente queria era programação. Tentei desenvolver jogos na linguagem C#, mas, na época, não tive sucesso devido à falta de conhecimento. Hoje em dia, estudei e me tornei um desenvolvedor Full-Stack, sempre buscando aprender mais, me esforçando, estudando e aprimorando minhas habilidades naquilo que amo fazer.</p>
+                <p data-aos="fade-up" data-aos-delay="400">Também já trabalhei como designer gráfico, criando banners e logotipos para gráficas, empresas e freelancers. Além disso, fui artista digital, fazendo ilustrações para diversas pessoas e empresas que me solicitavam artes digitais.</p>
             </div>
         </section>
 
         <section id="habilidades" class="skills">
             <div class="container">
-                <h2>Habilidades</h2>
+                <h2 data-aos="fade-up">Habilidades</h2>
                 <div class="skills-container">
                     <div class="technical-skills">
-                        <h3>Habilidades Técnicas</h3>
-                                <div class="skills-grid">
-                                    <div class="skill-item">
-                                        <i class="fab fa-html5 html5"></i>
-                                        <h4>HTML5</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-css3-alt css3"></i>
-                                        <h4>CSS3</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-js javascript"></i>
-                                        <h4>JavaScript</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-react react"></i>
-                                        <h4>React</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-php php"></i>
-                                        <h4>PHP</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-vuejs vuejs"></i>
-                                        <h4>Vue.js</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-bootstrap bootstrap"></i>
-                                        <h4>Bootstrap</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-node-js nodejs"></i>
-                                        <h4>Node.js</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-angular angular"></i>
-                                        <h4>Angular</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fab fa-git git"></i>
-                                        <h4>Git</h4>
-                                    </div>
-                                    <div class="skill-item">
-                                        <i class="fas fa-database mysql"></i>
-                                        <h4>MySQL</h4>
-                                    </div>
+                        <h3 data-aos="fade-up">Habilidades Técnicas</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                                <i class="fab fa-html5 html5"></i>
+                                <h4>HTML5</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%;"></div>
                                 </div>
-
+                            </div>
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                                <i class="fab fa-css3-alt css3"></i>
+                                <h4>CSS3</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                                <i class="fab fa-js javascript"></i>
+                                <h4>JavaScript</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+                                <i class="fab fa-react react"></i>
+                                <h4>React</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="600">
+                                <i class="fab fa-php php"></i>
+                                <h4>PHP</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="700">
+                                <i class="fab fa-vuejs vuejs"></i>
+                                <h4>Vue.js</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 65%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="800">
+                                <i class="fab fa-bootstrap bootstrap"></i>
+                                <h4>Bootstrap</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-aos="fade-up" data-aos-delay="900">
+                                <i class="fab fa-node-js nodejs"></i>
+                                <h4>Node.js</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 70%;"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="soft-skills">
-                        <h3>Soft Skills</h3>
+                        <h3 data-aos="fade-up">Soft Skills</h3>
                         <ul>
-                                <li>Analítico</li>
-                                <li>Comunicativo</li>
-                                <li>Organizado</li>
-                                <li>Paixão em resolver problemas</li>
-                                <li>Paciente</li>
-                                <li>Prático</li>
-                                <li>Proativo</li>
-                                <li>Sempre buscando aprender mais</li>
-                                <li>Trabalho em equipe</li>
+                            <li data-aos="fade-up" data-aos-delay="200">Analítico</li>
+                            <li data-aos="fade-up" data-aos-delay="300">Comunicativo</li>
+                            <li data-aos="fade-up" data-aos-delay="400">Organizado</li>
+                            <li data-aos="fade-up" data-aos-delay="500">Paixão em resolver problemas</li>
+                            <li data-aos="fade-up" data-aos-delay="600">Paciente</li>
+                            <li data-aos="fade-up" data-aos-delay="700">Prático</li>
+                            <li data-aos="fade-up" data-aos-delay="800">Proativo</li>
+                            <li data-aos="fade-up" data-aos-delay="900">Sempre buscando aprender mais</li>
+                            <li data-aos="fade-up" data-aos-delay="1000">Trabalho em equipe</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-
-
-
-        
         <section id="projetos" class="projects">
             <div class="container">
-                <h2>Projetos</h2>
+                <h2 data-aos="fade-up">Projetos</h2>
                 <div class="project-grid">
-                    <div class="project-item">
-                        <img src="./src/image/Screenshot_983.png" alt="Projeto 1">
-                        <h3>The Batman Part II</h3>
-                        <p>Um site de treino para a venda de ingressos do filme do Batman.</p>
-                        <a href="#" class="project-link">Ver Projeto</a>
+                    <div class="project-item" data-aos="fade-up">
+                        <div class="project-image project-1"></div>
+                        <div class="project-info">
+                            <h3>The Batman Part II</h3>
+                            <p>Um site de treino para a venda de ingressos do filme do Batman.</p>
+                            <a href="#" class="project-link button-hover">Ver Projeto</a>
+                            <p class="project-details-btn button-hover"></p>
+                        </div>
                     </div>
-                    <div class="project-item">
-                        <img src="./src/image/Screenshot_987.png" alt="Projeto 2">
-                        <h3>Curso de Desenho</h3>
-                        <p>Um site que criei utilizando HTML5, CSS3 e JavaScript para um cliente que é professor de desenho.</p>
-                        <a href="#" class="project-link">Ver Projeto</a>
+                    <div class="project-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-image project-2"></div>
+                        <div class="project-info">
+                            <h3>Curso de Desenho</h3>
+                            <p>Um site que criei utilizando HTML5, CSS3 e JavaScript para um cliente que é professor de desenho.</p>
+                            <a href="#" class="project-link button-hover">Ver Projeto</a>
+                            <p class="project-details-btn button-hover"></p>
+                        </div>
                     </div>
+                    <div class="project-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="project-image project-3"></div>
+                        <div class="project-info">
+                            <h3>Justly</h3>
+                            <p>Mais um site de treinamento super responsivo utilizando HTML e CSS apenas.</p>
+                            <a href="#" class="project-link button-hover">Ver Projeto</a>
+                            <p class="project-details-btn button-hover"></p>
+                        </div>
+                    </div>
+                    <div class="project-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="project-image project-4"></div>
+                        <div class="project-info">
+                            <h3>Meu Portfólio</h3>
+                            <p>Meu próprio site onde estão meus projetos e tecnologias atuais conhecidas.</p>
+                            <a href="#" class="project-link button-hover">Ver Projeto</a>
+                            <p class="project-details-btn button-hover"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="project-item">
-                        <img src="./src/image/Screenshot_987.png" alt="Projeto 3">
-                        <h3>Justly</h3>
-                        <p>Mais um site de treinamento super responstivo utilizando HTML E CSS apenas.</p>
-                        <a href="#" class="project-link">Ver Projeto</a>
+        <section id="timeline" class="timeline">
+            <div class="container">
+                <h2 data-aos="fade-up">Minha Jornada</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h3>2024</h3>
+                            <p>Desenvolvedor Full-Stack</p>
+                        </div>
                     </div>
-
-                    <div class="project-item">
-                        <img src="./src/image/Screenshot_988.png" alt="Projeto 4">
-                        <h3>Meu Portfólio</h3>
-                        <p>Meu próprio site onde está meus projetos e tecnologias atuais conhecidas.</p>
-                        <a href="#" class="project-link">Ver Projeto</a>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h3>2023</h3>
+                            <p>Início dos estudos em desenvolvimento web</p>
+                        </div>
                     </div>
-                </div>                
-                    <!-- Adicione mais projetos conforme necessário -->
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h3>2022</h3>
+                            <p>Designer Gráfico e Artista Digital</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h3>2021</h3>
+                            <p>Técnico em Informática</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="contato" class="contact">
             <div class="container">
-                <h2>Contato</h2>
-                <form id="contact-form">
+                <h2 data-aos="fade-up">Contato</h2>
+                <form id="contact-form" data-aos="fade-up" data-aos-delay="200">
                     <div class="form-group">
-                      <input type="text" name="name" id="name" placeholder="Seu Nome" required>
-                      <span class="error-message"></span>
+                        <input type="text" name="name" id="name" placeholder="Seu Nome" required>
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group">
-                      <input type="email" name="email" id="email" placeholder="Seu Email" required>
-                      <span class="error-message"></span>
+                        <input type="email" name="email" id="email" placeholder="Seu Email" required>
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group">
-                      <textarea name="message" id="message" placeholder="Sua Mensagem" required></textarea>
-                      <span class="error-message"></span>
+                        <textarea name="message" id="message" placeholder="Sua Mensagem" required></textarea>
+                        <span class="error-message"></span>
                     </div>
-                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                  </form>
+                    <button type="submit" class="submit-btn button-hover">Enviar Mensagem</button>
+                </form>
             </div>
         </section>
     </main>
@@ -195,58 +243,20 @@
         </div>
     </footer>
 
-    <script src="./src/script.js"></script>
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="">
+            <p id="modal-description"></p>
+            <ul id="modal-technologies"></ul>
+        </div>
+    </div>
 
     <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const profilePic = document.getElementById('profilePic');
-            const heroTitle = document.getElementById('heroTitle');
-            const heroSubtitle = document.getElementById('heroSubtitle');
-            const ctaButton = document.getElementById('ctaButton');
-        
-            // Fade in animation
-            setTimeout(() => {
-                profilePic.style.opacity = '1';
-                profilePic.style.transform = 'scale(1)';
-            }, 200);
-        
-            setTimeout(() => {
-                heroTitle.style.opacity = '1';
-                heroTitle.style.transform = 'translateY(0)';
-            }, 400);
-        
-            setTimeout(() => {
-                heroSubtitle.style.opacity = '1';
-                heroSubtitle.style.transform = 'translateY(0)';
-            }, 600);
-        
-            setTimeout(() => {
-                ctaButton.style.opacity = '1';
-                ctaButton.style.transform = 'translateY(0)';
-            }, 800);
-        
-            // Floating animation for profile picture
-            let floatY = 0;
-            let floatDirection = 1;
-        
-            function floatAnimation() {
-                floatY += 0.05 * floatDirection;
-                if (Math.abs(floatY) > 5) {
-                    floatDirection *= -1;
-                }
-                profilePic.style.transform = `translateY(${floatY}px)`;
-                requestAnimationFrame(floatAnimation);
-            }
-        
-            floatAnimation();
-        });
-        </script>
-
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>
-        AOS.init();
-        </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./src/script.js"></script>
 </body>
 </html>
