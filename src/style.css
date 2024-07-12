@@ -218,6 +218,35 @@ section h2 {
 .skill-item:hover .bootstrap { color: #9B7ED8; transition: 0.3s; }
 .skill-item:hover .nodejs { color: #5FCC5F; transition: 0.3s; }
 
+.soft-skills {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.soft-skills h3 {
+    color: var( --text-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.soft-skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.soft-skills li {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+
+.soft-skills li:hover {
+    transform: scale(1.1);
+}
+
+
+
 /* Projects Section */
 .project-grid {
     display: grid;
@@ -455,7 +484,7 @@ footer {
     cursor: pointer;
 }
 
-/* Scroll to Top Button */
+/* button scroll */
 #scrollToTopBtn {
     position: fixed;
     bottom: 20px;
@@ -506,7 +535,7 @@ footer {
     transform: rotate(360deg);
 }
 
-/* Responsive Design */
+/* Responsivo */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
@@ -738,4 +767,27 @@ textarea {
     @page {
         margin: 2cm;
     }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.animated {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.parallax {
+    will-change: transform;
 }

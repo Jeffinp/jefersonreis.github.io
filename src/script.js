@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('project-modal');
     const closeModal = document.getElementsByClassName('close')[0];
 
-    // Menu toggle
+    // Menu botão
     menuToggle.addEventListener('click', function() {
         this.classList.toggle('active');
         navMenu.classList.toggle('show');
@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', smoothScroll);
     });
 
-    // Scroll to top button
+    // subir página butão
     window.addEventListener('scroll', toggleScrollToTopButton);
     scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
 
-    // Dark mode toggle
+    // Dark mode troca
     darkModeToggle.addEventListener('click', toggleDarkMode);
 
     // Project modal
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Intersection Observer for fade-in effect
+    // fade-in effect
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Lazy loading for images
+    // carregamento lerdo das imagens
     const lazyImages = document.querySelectorAll('img.lazy');
     const lazyImageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lazyImageObserver.observe(image);
     });
 
-    // Form validation
+    // validação de form
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', validateForm);
 
@@ -154,7 +154,7 @@ function openModal(projectItem) {
     modalImage.src = projectItem.querySelector('img').src;
     modalDescription.textContent = projectItem.querySelector('p').textContent;
 
-    // Assuming you have a data attribute for technologies on each project item
+
     const technologies = projectItem.dataset.technologies.split(',');
     modalTechnologies.innerHTML = technologies.map(tech => `<li>${tech.trim()}</li>`).join('');
 
@@ -219,7 +219,37 @@ function isValidEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-// Check for saved dark mode preference
+// Dark mode salvo
 if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
 }
+
+// Animação de entrada
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+
+function addAnimationClass() {
+    const sectionsToAnimate = document.querySelectorAll('section, .project-item, .skill-item, .timeline-item');
+    sectionsToAnimate.forEach(element => {
+        element.classList.add('animate-on-scroll');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    addAnimationClass();
+    animateOnScroll();
+});
