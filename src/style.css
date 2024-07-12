@@ -89,7 +89,7 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(1, 7, 14, 0.7), rgba(1, 7, 14, 0.7)), url('https://img.freepik.com/fotos-gratis/papel-de-parede-de-lua-de-arte-digital_23-2150918877.jpg?t=st=1720678963~exp=1720682563~hmac=6e040c819b32b762372fc83d6559c9a2f26b3d11cd134ff76237167e471147c7&w=1380') no-repeat center center/cover;
+    background: linear-gradient(rgba(1, 7, 14, 0.7), rgba(1, 7, 14, 0.7)), url('./image/imagemfundo.jpg') no-repeat center center/cover;
     position: relative;
     overflow: hidden;
 }
