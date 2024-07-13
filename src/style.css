@@ -772,6 +772,22 @@ textarea {
     }
 }
 
+@supports not (-webkit-touch-callout: none) {
+    @page {
+        margin: 2cm;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    /* Estilos específicos para Safari ou fallback */
+    @media print {
+        body {
+            margin: 2cm;
+        }
+    }
+}
+
+
 @keyframes fadeInUp {
     from {
         opacity: 0;

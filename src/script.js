@@ -253,3 +253,11 @@ document.addEventListener('DOMContentLoaded', function() {
     addAnimationClass();
     animateOnScroll();
 });
+
+//verificar se o navegadoar é safari
+(function() {
+    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+        document.body.classList.add('safari');
+    }
+})();
