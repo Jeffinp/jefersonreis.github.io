@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
+/* Variables */
 :root {
     --primary-color: #01315B;
     --secondary-color: #3DD5FA;
@@ -18,12 +19,14 @@ body.dark-mode {
     --dark-color: #0A192F;
 }
 
+/* Resets */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Global Styles */
 body {
     font-family: "Source Sans 3", sans-serif;
     line-height: 1.6;
@@ -110,8 +113,7 @@ nav ul li a:hover {
 
 #home p {
     font-size: 1.2rem;
-    margin-top: -20px;
-    margin-bottom: 20px;
+    margin: -20px 0 20px;
     position: relative;
     z-index: 1;
 }
@@ -144,8 +146,7 @@ nav ul li a:hover {
 
 #sobre p {
     font-size: 1.2rem;
-    margin-top: -20px;
-    margin-bottom: 20px;
+    margin: -20px 0 20px;
 }
 
 /* Sections */
@@ -198,8 +199,13 @@ section h2 {
     transition: width 1s ease-in-out;
 }
 
+.skill-level-100 { width: 100%; }
+.skill-level-95  { width: 95%; }
+.skill-level-90  { width: 90%; }
+.skill-level-85  { width: 85%; }
+.skill-level-80  { width: 80%; }
 
-/* Cores para cada tecnologia */
+/* Colors for each technology */
 .html5 { color: #E44D26; }
 .css3 { color: #264DE4; }
 .javascript { color: #F0DB4F; }
@@ -210,7 +216,7 @@ section h2 {
 .nodejs { color: #339933; }
 .dom { color: #8E44AD; }
 
-/* Estilos de hover */
+/* Hover Styles */
 .skill-item:hover .html5 { color: #FF8C69; transition: 0.3s; }
 .skill-item:hover .css3 { color: #6C8CD5; transition: 0.3s; }
 .skill-item:hover .javascript { color: #FCEB69; transition: 0.3s; }
@@ -219,7 +225,7 @@ section h2 {
 .skill-item:hover .vuejs { color: #7EE0B2; transition: 0.3s; }
 .skill-item:hover .bootstrap { color: #9B7ED8; transition: 0.3s; }
 .skill-item:hover .nodejs { color: #5FCC5F; transition: 0.3s; }
-.skill-item:hover .dom { color: #BB8FCE; transition: 0.3s; } 
+.skill-item:hover .dom { color: #BB8FCE; transition: 0.3s; }
 
 .soft-skills {
     text-align: center;
@@ -227,7 +233,7 @@ section h2 {
 }
 
 .soft-skills h3 {
-    color: var( --text-color);
+    color: var(--text-color);
     font-size: 2rem;
     margin-bottom: 1rem;
 }
@@ -247,8 +253,6 @@ section h2 {
 .soft-skills li:hover {
     transform: scale(1.1);
 }
-
-
 
 /* Projects Section */
 .project-grid {
@@ -276,21 +280,10 @@ section h2 {
     background-repeat: no-repeat;
 }
 
-.project-1 {
-    background-image: url('./image/Screenshot_983.png');
-}
-
-.project-2 {
-    background-image: url('./image/Screenshot_987.png');
-}
-
-.project-3 {
-    background-image: url('./image/Screenshot_993.png');
-}
-
-.project-4 {
-    background-image: url('./image/Screenshot_988.png');
-}
+.project-1 { background-image: url('./image/Screenshot_983.png'); }
+.project-2 { background-image: url('./image/Screenshot_987.png'); }
+.project-3 { background-image: url('./image/Screenshot_993.png'); }
+.project-4 { background-image: url('./image/Screenshot_988.png'); }
 
 .project-item h3 {
     padding: 1rem;
@@ -300,7 +293,7 @@ section h2 {
     padding: 0 1rem 1rem;
 }
 
-.project-details-btn{
+.project-details-btn {
     background-color: transparent;
 }
 
@@ -321,6 +314,7 @@ section h2 {
     color: white;
     transition: 0.3s;
 }
+
 /* Timeline Section */
 .timeline-container {
     position: relative;
@@ -487,7 +481,7 @@ footer {
     cursor: pointer;
 }
 
-/* button scroll */
+/* Scroll to Top Button */
 #scrollToTopBtn {
     position: fixed;
     bottom: 20px;
@@ -538,7 +532,7 @@ footer {
     transform: rotate(360deg);
 }
 
-/* Responsivo */
+/* Responsive Styles */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
@@ -593,7 +587,8 @@ footer {
 
 .menu-toggle {
     display: none;
-    flex-direction: column;cursor: pointer;
+    flex-direction: column;
+    cursor: pointer;
 }
 
 .bar {
@@ -670,7 +665,7 @@ textarea {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Apply animations */
+/* Apply Animations */
 .fade-in {
     animation: fadeIn 1s ease-out;
 }
@@ -687,7 +682,7 @@ textarea {
     animation: slideInFromBottom 1s ease-out;
 }
 
-/* Lazy loading */
+/* Lazy Loading */
 .lazy {
     opacity: 0;
     transition: opacity 0.3s;
@@ -697,12 +692,13 @@ textarea {
     opacity: 1;
 }
 
-/* Parallax effect */
+/* Parallax Effect */
 .parallax {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    will-change: transform;
 }
 
 /* Microinteractions */
@@ -724,7 +720,7 @@ textarea {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Accessibility improvements */
+/* Accessibility Improvements */
 :focus {
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
@@ -742,7 +738,7 @@ textarea {
     border-width: 0;
 }
 
-/* Print styles */
+/* Print Styles */
 @media print {
     body {
         color: #000;
@@ -766,12 +762,9 @@ textarea {
     img {
         max-width: 100% !important;
     }
-
-    @page {
-        margin: 2cm;
-    }
 }
 
+/* Safari Specific Styles */
 @supports not (-webkit-touch-callout: none) {
     @page {
         margin: 2cm;
@@ -779,7 +772,6 @@ textarea {
 }
 
 @supports (-webkit-touch-callout: none) {
-    /* Estilos específicos para Safari ou fallback */
     @media print {
         body {
             margin: 2cm;
@@ -787,11 +779,11 @@ textarea {
     }
 }
 
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
+        will-change: opacity, transform;
     }
     to {
         opacity: 1;
@@ -799,14 +791,20 @@ textarea {
     }
 }
 
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.slide-in-up {
+    animation: fadeInUp 1s ease-out;
+    will-change: opacity, transform;
+}
+
+
 .animate-on-scroll {
     opacity: 0;
 }
 
 .animate-on-scroll.animated {
     animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.parallax {
-    will-change: transform;
 }
