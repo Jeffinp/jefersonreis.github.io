@@ -198,6 +198,7 @@ section h2 {
     transition: width 1s ease-in-out;
 }
 
+
 /* Cores para cada tecnologia */
 .html5 { color: #E44D26; }
 .css3 { color: #264DE4; }
@@ -207,6 +208,7 @@ section h2 {
 .vuejs { color: #4FC08D; }
 .bootstrap { color: #7952B3; }
 .nodejs { color: #339933; }
+.dom { color: #8E44AD; }
 
 /* Estilos de hover */
 .skill-item:hover .html5 { color: #FF8C69; transition: 0.3s; }
@@ -217,6 +219,7 @@ section h2 {
 .skill-item:hover .vuejs { color: #7EE0B2; transition: 0.3s; }
 .skill-item:hover .bootstrap { color: #9B7ED8; transition: 0.3s; }
 .skill-item:hover .nodejs { color: #5FCC5F; transition: 0.3s; }
+.skill-item:hover .dom { color: #BB8FCE; transition: 0.3s; } 
 
 .soft-skills {
     text-align: center;
