@@ -208,47 +208,47 @@ section h2 {
 .skill-level-85  { width: 85%; }
 .skill-level-80  { width: 80%; }
 
- /* Definição das cores padrão para cada tecnologia */
-    .html5 { color: #E44D26; }
-    .css3 { color: #264DE4; }
-    .javascript { color: #F0DB4F; }
-    .react { color: #61DAFB; }
-    .php { color: #8892BF; }
-    .vuejs { color: #4FC08D; }
-    .bootstrap { color: #7952B3; }
-    .nodejs { color: #339933; }
-    .dom { color: #8E44AD; }
-    .jquery { color: #0769AD; }
-    .mysql { color: #4479A1; }
-    .postgres { color: #336791; }
-    .mongodb { color: #47A248; }
-    .gulp { color: #CF4647; }
-    .webpack { color: #8DD6F9; }
-    .angular { color: #DD0031; }
+/* Definição das cores padrão para cada tecnologia */
+.html5 { color: #E44D26; }
+.css3 { color: #264DE4; }
+.javascript { color: #F0DB4F; }
+.react { color: #61DAFB; }
+.php { color: #8892BF; }
+.vuejs { color: #4FC08D; }
+.bootstrap { color: #7952B3; }
+.nodejs { color: #339933; }
+.dom { color: #8E44AD; }
+.jquery { color: #0769AD; }
+.mysql { color: #4479A1; }
+.postgres { color: #336791; }
+.mongodb { color: #47A248; }
+.gulp { color: #CF4647; }
+.webpack { color: #8DD6F9; }
+.angular { color: #DD0031; }
 
-    /* Efeito de hover para cada tecnologia */
-    .skill-item:hover .html5 { color: #FF8C69; transition: 0.3s; }
-    .skill-item:hover .css3 { color: #6C8CD5; transition: 0.3s; }
-    .skill-item:hover .javascript { color: #FCEB69; transition: 0.3s; }
-    .skill-item:hover .react { color: #7DDFFF; transition: 0.3s; }
-    .skill-item:hover .php { color: #A5ABCF; transition: 0.3s; }
-    .skill-item:hover .vuejs { color: #7EE0B2; transition: 0.3s; }
-    .skill-item:hover .bootstrap { color: #9B7ED8; transition: 0.3s; }
-    .skill-item:hover .nodejs { color: #5FCC5F; transition: 0.3s; }
-    .skill-item:hover .dom { color: #BB8FCE; transition: 0.3s; }
-    .skill-item:hover .jquery { color: #4A8AD4; transition: 0.3s; }
-    .skill-item:hover .mysql { color: #72A1C5; transition: 0.3s; }
-    .skill-item:hover .postgres { color: #4F8BB2; transition: 0.3s; }
-    .skill-item:hover .mongodb { color: #71B98A; transition: 0.3s; }
-    .skill-item:hover .gulp { color: #E6756A; transition: 0.3s; }
-    .skill-item:hover .webpack { color: #B0E1F9; transition: 0.3s; }
-    .skill-item:hover .angular { color: #E0554B; transition: 0.3s; }
+/* Efeito de hover para cada tecnologia */
+.skill-item:hover .html5 { color: #FF8C69; transition: 0.3s; }
+.skill-item:hover .css3 { color: #6C8CD5; transition: 0.3s; }
+.skill-item:hover .javascript { color: #FCEB69; transition: 0.3s; }
+.skill-item:hover .react { color: #7DDFFF; transition: 0.3s; }
+.skill-item:hover .php { color: #A5ABCF; transition: 0.3s; }
+.skill-item:hover .vuejs { color: #7EE0B2; transition: 0.3s; }
+.skill-item:hover .bootstrap { color: #9B7ED8; transition: 0.3s; }
+.skill-item:hover .nodejs { color: #5FCC5F; transition: 0.3s; }
+.skill-item:hover .dom { color: #BB8FCE; transition: 0.3s; }
+.skill-item:hover .jquery { color: #4A8AD4; transition: 0.3s; }
+.skill-item:hover .mysql { color: #72A1C5; transition: 0.3s; }
+.skill-item:hover .postgres { color: #4F8BB2; transition: 0.3s; }
+.skill-item:hover .mongodb { color: #71B98A; transition: 0.3s; }
+.skill-item:hover .gulp { color: #E6756A; transition: 0.3s; }
+.skill-item:hover .webpack { color: #B0E1F9; transition: 0.3s; }
+.skill-item:hover .angular { color: #E0554B; transition: 0.3s; }
 
-    /* Efeito de hover para o ícone específico do Webpack */
-    .skill-item:hover .webpack-icon path {
-        fill: #B0E1F9; /* Cor do Webpack ao passar o mouse */
-        transition: 0.3s;
-    }
+    
+.skill-item:hover .webpack-icon path {
+    fill: #B0E1F9; 
+    transition: 0.3s;
+}
 
 .icon-path {
     fill: var(--secondary-color); 
@@ -260,14 +260,13 @@ section h2 {
     transition: 0.3s;
 }
 
- /* Definição da cor padrão para todos os ícones */
  .icon-path {
-    fill: var(--secondary-color); /* Substitua pela sua cor padrão */
+    fill: var(--secondary-color); 
 }
 
-/* Efeito ao passar o mouse para o Webpack */
+
 .skill-item:hover .icon-path.webpack {
-    fill: #8DD6F9; /* Cor do Webpack ao passar o mouse */
+    fill: #8DD6F9; 
     transition: 0.3s;
 }
 /* Hover Styles */
