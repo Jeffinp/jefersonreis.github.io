@@ -153,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
 
     // Dark mode saved state
     if (localStorage.getItem('darkMode') === 'true') {
