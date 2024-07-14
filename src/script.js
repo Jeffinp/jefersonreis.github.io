@@ -1,62 +1,64 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('nav ul');
-    const links = document.querySelectorAll('a[href^="#"]');
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    const projectItems = document.querySelectorAll('.project-item');
-    const modal = document.getElementById('project-modal');
-    const closeModal = document.getElementsByClassName('close')[0];
+document.addEventListener('DOMContentLoaded', () => {
+    const elements = {
+        menuToggle: document.querySelector('.menu-toggle'),
+        navMenu: document.querySelector('nav ul'),
+        links: document.querySelectorAll('a[href^="#"]'),
+        scrollToTopBtn: document.getElementById("scrollToTopBtn"),
+        darkModeToggle: document.getElementById("darkModeToggle"),
+        projectItems: document.querySelectorAll('.project-item'),
+        modal: document.getElementById('project-modal'),
+        closeModal: document.querySelector('.close'),
+        form: document.getElementById('contact-form'),
+        lazyImages: document.querySelectorAll('img.lazy'),
+        fadeInSections: document.querySelectorAll(".fade-in-section"),
+        animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
+    };
 
-    // Menu botão
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navMenu.classList.toggle('show');
+    // Menu toggle
+    elements.menuToggle.addEventListener('click', () => {
+        elements.menuToggle.classList.toggle('active');
+        elements.navMenu.classList.toggle('show');
     });
 
     // Smooth scroll
-    links.forEach(link => {
-        link.addEventListener('click', smoothScroll);
-    });
+    elements.links.forEach(link => link.addEventListener('click', smoothScroll));
 
-    // subir página butão
-    window.addEventListener('scroll', toggleScrollToTopButton);
-    scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
+    // Scroll to top button
+    window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
+    elements.scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
 
-    // Dark mode troca
-    darkModeToggle.addEventListener('click', toggleDarkMode);
+    // Dark mode toggle
+    elements.darkModeToggle.addEventListener('click', toggleDarkMode);
 
     // Project modal
-    projectItems.forEach(item => {
+    elements.projectItems.forEach(item => {
         const detailsBtn = item.querySelector('.project-details-btn');
         detailsBtn.addEventListener('click', () => openModal(item));
     });
 
-    closeModal.addEventListener('click', () => {
-        modal.style.display = "none";
+    elements.closeModal.addEventListener('click', () => {
+        elements.modal.style.display = "none";
     });
 
     window.addEventListener('click', (event) => {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == elements.modal) {
+            elements.modal.style.display = "none";
         }
     });
 
-    // fade-in effect
-    const observer = new IntersectionObserver((entries) => {
+    // Fade-in effect
+    const fadeInObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("fade-in");
+                fadeInObserver.unobserve(entry.target);
             }
         });
-    });
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll(".fade-in-section").forEach(section => {
-        observer.observe(section);
-    });
+    elements.fadeInSections.forEach(section => fadeInObserver.observe(section));
 
-    // carregamento lerdo das imagens
-    const lazyImages = document.querySelectorAll('img.lazy');
+    // Lazy loading images
     const lazyImageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -64,37 +66,119 @@ document.addEventListener('DOMContentLoaded', function() {
                 lazyImage.src = lazyImage.dataset.src;
                 lazyImage.classList.remove('lazy');
                 lazyImage.classList.add('loaded');
-                lazyImageObserver.unobserve(lazyImage);
+                observer.unobserve(lazyImage);
             }
         });
     });
 
-    lazyImages.forEach(image => {
-        lazyImageObserver.observe(image);
+    elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
+
+    // Form validation
+    elements.form.addEventListener('submit', validateForm);
+
+    // Particles.js (if you're using it)
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5, // Reduzido de 0.5 para 0.3
+                    random: true,
+                    anim: {
+                        enable: false
+                    }
+                },
+                size: {
+                    value: 3, // Reduzido de 3 para 2
+                    random: true,
+                    anim: {
+                        enable: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.2, // Reduzido de 0.4 para 0.2
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2, // Reduzido de 6 para 2
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 2 // Reduzido de 4 para 2
+                    }
+                }
+            },
+            retina_detect: false // Desativado para melhorar o desempenho
+        });
+    }
+
+    
+
+    // Dark mode saved state
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Animation on scroll
+    const animateOnScrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                animateOnScrollObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.animateOnScrollElements.forEach(element => {
+        element.classList.add('animate-on-scroll');
+        animateOnScrollObserver.observe(element);
     });
 
-    // validação de form
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', validateForm);
-
-    // Particles.js
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: "#ffffff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5, random: false },
-            size: { value: 3, random: true },
-            line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-            move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
-            modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
-        },
-        retina_detect: true
-    });
+    // Check if browser is Safari
+    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        document.body.classList.add('safari');
+    }
 });
 
 function smoothScroll(e) {
@@ -104,14 +188,12 @@ function smoothScroll(e) {
     smoothScrollTo(0, targetPosition);
 }
 
-function smoothScrollTo(endX, endY) {
+function smoothScrollTo(endX, endY, duration = 1000) {
     const startX = window.pageXOffset || window.scrollX || document.documentElement.scrollLeft;
     const startY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
     const distanceX = endX - startX;
     const distanceY = endY - startY;
     const startTime = new Date().getTime();
-
-    duration = 1000;
 
     const easeInOutQuart = (time, from, distance, duration) => {
         if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
@@ -154,7 +236,6 @@ function openModal(projectItem) {
     modalImage.src = projectItem.querySelector('img').src;
     modalDescription.textContent = projectItem.querySelector('p').textContent;
 
-
     const technologies = projectItem.dataset.technologies.split(',');
     modalTechnologies.innerHTML = technologies.map(tech => `<li>${tech.trim()}</li>`).join('');
 
@@ -168,35 +249,24 @@ function validateForm(e) {
     const messageInput = document.getElementById('message');
     let isValid = true;
 
-    if (nameInput.value.trim() === '') {
-        showError(nameInput, 'Nome é obrigatório');
-        isValid = false;
-    } else {
-        clearError(nameInput);
-    }
-
-    if (emailInput.value.trim() === '') {
-        showError(emailInput, 'Email é obrigatório');
-        isValid = false;
-    } else if (!isValidEmail(emailInput.value)) {
-        showError(emailInput, 'Email inválido');
-        isValid = false;
-    } else {
-        clearError(emailInput);
-    }
-
-    if (messageInput.value.trim() === '') {
-        showError(messageInput, 'Mensagem é obrigatória');
-        isValid = false;
-    } else {
-        clearError(messageInput);
-    }
+    isValid = validateField(nameInput, 'Nome é obrigatório') && isValid;
+    isValid = validateField(emailInput, 'Email é obrigatório', isValidEmail) && isValid;
+    isValid = validateField(messageInput, 'Mensagem é obrigatória') && isValid;
 
     if (isValid) {
-        // Here you would typically send the form data to a server
         console.log('Form is valid. Sending data...');
-        // Reset form after successful submission
         e.target.reset();
+    }
+}
+
+function validateField(input, errorMessage, validationFunction = null) {
+    const value = input.value.trim();
+    if (value === '' || (validationFunction && !validationFunction(value))) {
+        showError(input, errorMessage);
+        return false;
+    } else {
+        clearError(input);
+        return true;
     }
 }
 
@@ -219,45 +289,14 @@ function isValidEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-// Dark mode salvo
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
-
-// Animação de entrada
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    elements.forEach(element => {
-        observer.observe(element);
-    });
-}
-
-
-function addAnimationClass() {
-    const sectionsToAnimate = document.querySelectorAll('section, .project-item, .skill-item, .timeline-item');
-    sectionsToAnimate.forEach(element => {
-        element.classList.add('animate-on-scroll');
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    addAnimationClass();
-    animateOnScroll();
-});
-
-//verificar se o navegadoar é safari
-(function() {
-    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if (isSafari) {
-        document.body.classList.add('safari');
-    }
-})();
