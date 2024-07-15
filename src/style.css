@@ -868,3 +868,65 @@ textarea {
 .animate-on-scroll.animated {
     animation: fadeInUp 0.6s ease-out forwards;
 }
+
+
+.language-switch {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Alterado de right para left */
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.language-switch a {
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.language-switch a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.language-switch a.active {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #333;
+}
+
+/* Dark mode styles */
+body.dark-mode .language-switch a {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .language-switch a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .language-switch a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .language-switch {
+        top: 10px;
+        left: 10px; /* Alterado de right para left */
+    }
+
+    .language-switch a {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}

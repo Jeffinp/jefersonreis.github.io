@@ -300,9 +300,15 @@ function debounce(func, wait) {
     };
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    var userLang = navigator.language || navigator.userLanguage; 
-    if (userLang.startsWith("en")) {
-        window.location.href = "index-en.html";
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.href;
+    const languageLinks = document.querySelectorAll('.language-switch a');
+    
+    languageLinks.forEach(link => {
+        if (currentPage.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 });
