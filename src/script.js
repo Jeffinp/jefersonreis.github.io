@@ -299,3 +299,10 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var userLang = navigator.language || navigator.userLanguage; 
+    if (userLang.startsWith("en")) {
+        window.location.href = "index-en.html";
+    }
+});
