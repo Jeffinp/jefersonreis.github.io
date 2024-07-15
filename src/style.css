@@ -659,8 +659,6 @@ footer {
     }
 }
 
-
-
 @media (width: 820px) {
     header .container {
         padding: 0 10px;
@@ -698,7 +696,6 @@ footer {
         font-size: 10px;
     }
 }
-
 
 @media (max-width: 768px) {
     header .container {
