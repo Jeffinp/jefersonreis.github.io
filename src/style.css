@@ -294,23 +294,6 @@ section h2 {
     fill: #8DD6F9; 
     transition: 0.3s;
 }
-/* Hover Styles */
-.skill-item:hover .html5 { color: #FF8C69; transition: 0.3s; }
-.skill-item:hover .css3 { color: #6C8CD5; transition: 0.3s; }
-.skill-item:hover .javascript { color: #FCEB69; transition: 0.3s; }
-.skill-item:hover .react { color: #7DDFFF; transition: 0.3s; }
-.skill-item:hover .php { color: #A5ABCF; transition: 0.3s; }
-.skill-item:hover .vuejs { color: #7EE0B2; transition: 0.3s; }
-.skill-item:hover .bootstrap { color: #9B7ED8; transition: 0.3s; }
-.skill-item:hover .nodejs { color: #5FCC5F; transition: 0.3s; }
-.skill-item:hover .dom { color: #BB8FCE; transition: 0.3s; }
-.skill-item:hover .jquery { color: #4A8AD4; transition: 0.3s; }
-.skill-item:hover .mysql { color: #72A1C5; transition: 0.3s; }
-.skill-item:hover .postgres { color: #4F8BB2; transition: 0.3s; }
-.skill-item:hover .mongodb { color: #71B98A; transition: 0.3s; }
-.skill-item:hover .gulp { color: #E6756A; transition: 0.3s; }
-.skill-item:hover .webpack { color: #B0E1F9; transition: 0.3s; }
-.skill-item:hover .angular { color: #E0554B; transition: 0.3s; }
 
 .soft-skills {
     text-align: center;
