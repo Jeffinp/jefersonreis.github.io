@@ -873,7 +873,7 @@ textarea {
 .language-switch {
     position: fixed;
     top: 20px;
-    left: 20px; /* Alterado de right para left */
+    left: 20px; 
     z-index: 1000;
     display: flex;
     gap: 10px;
@@ -902,7 +902,7 @@ textarea {
     color: #333;
 }
 
-/* Dark mode styles */
+
 body.dark-mode .language-switch a {
     background-color: rgba(0, 0, 0, 0.2);
     color: #fff;
@@ -918,11 +918,11 @@ body.dark-mode .language-switch a.active {
     color: #fff;
 }
 
-/* Responsive styles */
+
 @media (max-width: 768px) {
     .language-switch {
         top: 10px;
-        left: 10px; /* Alterado de right para left */
+        left: 10px; 
     }
 
     .language-switch a {
