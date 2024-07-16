@@ -1,1 +1,314 @@
-function smoothScroll(e){e.preventDefault();const t=this.getAttribute("href");smoothScrollTo(0,document.querySelector(t).offsetTop)}function smoothScrollTo(e,t,o=1e3){const n=window.pageXOffset||window.scrollX||document.documentElement.scrollLeft,l=window.pageYOffset||window.scrollY||document.documentElement.scrollTop,r=e-n,a=t-l,c=(new Date).getTime(),s=(e,t,o,n)=>(e/=n/2)<1?o/2*e*e*e*e+t:-o/2*((e-=2)*e*e*e-2)+t,d=setInterval(()=>{const e=(new Date).getTime()-c,t=s(e,n,r,o),i=s(e,l,a,o);e>=o&&clearInterval(d),window.scroll(t,i)},1e3/60)}function toggleScrollToTopButton(){const e=document.getElementById("scrollToTopBtn");document.body.scrollTop>100||document.documentElement.scrollTop>100?e.classList.add("show"):e.classList.remove("show")}function toggleDarkMode(){document.body.classList.toggle("dark-mode"),localStorage.setItem("darkMode",document.body.classList.contains("dark-mode"))}function openModal(e){const t=document.getElementById("project-modal"),o=document.getElementById("modal-title"),n=document.getElementById("modal-image"),l=document.getElementById("modal-description"),r=document.getElementById("modal-technologies");o.textContent=e.querySelector("h3").textContent,n.src=e.querySelector("img").src,l.textContent=e.querySelector("p").textContent;const a=e.dataset.technologies.split(",");r.innerHTML=a.map(e=>`<li>${e.trim()}</li>`).join(""),t.style.display="block"}function validateForm(e){e.preventDefault();const t=document.getElementById("name"),o=document.getElementById("email"),n=document.getElementById("message");let l=!0;l=validateField(t,"Nome é obrigatório")&&l,l=validateField(o,"Email é obrigatório",isValidEmail)&&l,(l=validateField(n,"Mensagem é obrigatória")&&l)&&(console.log("Form is valid. Sending data..."),e.target.reset())}function validateField(e,t,o=null){const n=e.value.trim();return""===n||o&&!o(n)?(showError(e,t),!1):(clearError(e),!0)}function showError(e,t){const o=e.parentElement;o.querySelector(".error-message").textContent=t,o.classList.add("error")}function clearError(e){const t=e.parentElement;t.querySelector(".error-message").textContent="",t.classList.remove("error")}function isValidEmail(e){return/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(e).toLowerCase())}function debounce(e,t){let o;return function(...n){clearTimeout(o),o=setTimeout(()=>{clearTimeout(o),e(...n)},t)}}document.addEventListener("DOMContentLoaded",()=>{const e={menuToggle:document.querySelector(".menu-toggle"),navMenu:document.querySelector("nav ul"),links:document.querySelectorAll('a[href^="#"]'),scrollToTopBtn:document.getElementById("scrollToTopBtn"),darkModeToggle:document.getElementById("darkModeToggle"),projectItems:document.querySelectorAll(".project-item"),modal:document.getElementById("project-modal"),closeModal:document.querySelector(".close"),form:document.getElementById("contact-form"),lazyImages:document.querySelectorAll("img.lazy"),fadeInSections:document.querySelectorAll(".fade-in-section"),animateOnScrollElements:document.querySelectorAll("section, .project-item, .skill-item, .timeline-item")};e.menuToggle.addEventListener("click",()=>{e.menuToggle.classList.toggle("active"),e.navMenu.classList.toggle("show")}),e.links.forEach(e=>e.addEventListener("click",smoothScroll)),window.addEventListener("scroll",debounce(toggleScrollToTopButton,100)),e.scrollToTopBtn.addEventListener("click",()=>smoothScrollTo(0,0)),e.darkModeToggle.addEventListener("click",toggleDarkMode),e.projectItems.forEach(e=>{e.querySelector(".project-details-btn").addEventListener("click",()=>openModal(e))}),e.closeModal.addEventListener("click",()=>{e.modal.style.display="none"}),window.addEventListener("click",t=>{t.target==e.modal&&(e.modal.style.display="none")});const t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add("fade-in"),t.unobserve(e.target))})},{threshold:.1});e.fadeInSections.forEach(e=>t.observe(e));const o=new IntersectionObserver((e,t)=>{e.forEach(e=>{if(e.isIntersecting){const o=e.target;o.src=o.dataset.src,o.classList.remove("lazy"),o.classList.add("loaded"),t.unobserve(o)}})});e.lazyImages.forEach(e=>o.observe(e)),e.form.addEventListener("submit",validateForm),"undefined"!=typeof particlesJS&&particlesJS("particles-js",{particles:{number:{value:100,density:{enable:!0,value_area:800}},color:{value:"#ffffff"},shape:{type:"circle"},opacity:{value:.5,random:!0,anim:{enable:!1}},size:{value:3,random:!0,anim:{enable:!1}},line_linked:{enable:!0,distance:150,color:"#ffffff",opacity:.2,width:1},move:{enable:!0,speed:2,direction:"none",random:!1,straight:!1,out_mode:"out",bounce:!1}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},onclick:{enable:!0,mode:"push"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:1}},push:{particles_nb:2}}},retina_detect:!1}),"true"===localStorage.getItem("darkMode")&&document.body.classList.add("dark-mode");const n=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add("animated"),n.unobserve(e.target))})},{threshold:.1});e.animateOnScrollElements.forEach(e=>{e.classList.add("animate-on-scroll"),n.observe(e)}),/^((?!chrome|android).)*safari/i.test(navigator.userAgent)&&document.body.classList.add("safari")}),document.addEventListener("DOMContentLoaded",function(){const e=window.location.href;document.querySelectorAll(".language-switch a").forEach(t=>{e.includes(t.getAttribute("href"))?t.classList.add("active"):t.classList.remove("active")})});
+document.addEventListener('DOMContentLoaded', () => {
+    const elements = {
+        menuToggle: document.querySelector('.menu-toggle'),
+        navMenu: document.querySelector('nav ul'),
+        links: document.querySelectorAll('a[href^="#"]'),
+        scrollToTopBtn: document.getElementById("scrollToTopBtn"),
+        darkModeToggle: document.getElementById("darkModeToggle"),
+        projectItems: document.querySelectorAll('.project-item'),
+        modal: document.getElementById('project-modal'),
+        closeModal: document.querySelector('.close'),
+        form: document.getElementById('contact-form'),
+        lazyImages: document.querySelectorAll('img.lazy'),
+        fadeInSections: document.querySelectorAll(".fade-in-section"),
+        animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
+    };
+
+    // Menu toggle
+    elements.menuToggle.addEventListener('click', () => {
+        elements.menuToggle.classList.toggle('active');
+        elements.navMenu.classList.toggle('show');
+    });
+
+    // Smooth scroll
+    elements.links.forEach(link => link.addEventListener('click', smoothScroll));
+
+    // Scroll to top button
+    window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
+    elements.scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
+
+    // Dark mode toggle
+    elements.darkModeToggle.addEventListener('click', toggleDarkMode);
+
+    // Project modal
+    elements.projectItems.forEach(item => {
+        const detailsBtn = item.querySelector('.project-details-btn');
+        detailsBtn.addEventListener('click', () => openModal(item));
+    });
+
+    elements.closeModal.addEventListener('click', () => {
+        elements.modal.style.display = "none";
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == elements.modal) {
+            elements.modal.style.display = "none";
+        }
+    });
+
+    // Fade-in effect
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in");
+                fadeInObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.fadeInSections.forEach(section => fadeInObserver.observe(section));
+
+    // Lazy loading images
+    const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const lazyImage = entry.target;
+                lazyImage.src = lazyImage.dataset.src;
+                lazyImage.classList.remove('lazy');
+                lazyImage.classList.add('loaded');
+                observer.unobserve(lazyImage);
+            }
+        });
+    });
+
+    elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
+
+    // Form validation
+    elements.form.addEventListener('submit', validateForm);
+
+    // Particles.js (if you're using it)
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5, // Reduzido de 0.5 para 0.3
+                    random: true,
+                    anim: {
+                        enable: false
+                    }
+                },
+                size: {
+                    value: 3, // Reduzido de 3 para 2
+                    random: true,
+                    anim: {
+                        enable: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.2, // Reduzido de 0.4 para 0.2
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2, // Reduzido de 6 para 2
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 2 // Reduzido de 4 para 2
+                    }
+                }
+            },
+            retina_detect: false // Desativado para melhorar o desempenho
+        });
+    }
+
+
+    // Dark mode saved state
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Animation on scroll
+    const animateOnScrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                animateOnScrollObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.animateOnScrollElements.forEach(element => {
+        element.classList.add('animate-on-scroll');
+        animateOnScrollObserver.observe(element);
+    });
+
+    // Check if browser is Safari
+    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        document.body.classList.add('safari');
+    }
+});
+
+function smoothScroll(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    const targetPosition = document.querySelector(targetId).offsetTop;
+    smoothScrollTo(0, targetPosition);
+}
+
+function smoothScrollTo(endX, endY, duration = 1000) {
+    const startX = window.pageXOffset || window.scrollX || document.documentElement.scrollLeft;
+    const startY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    const distanceX = endX - startX;
+    const distanceY = endY - startY;
+    const startTime = new Date().getTime();
+
+    const easeInOutQuart = (time, from, distance, duration) => {
+        if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
+        return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
+    };
+
+    const timer = setInterval(() => {
+        const time = new Date().getTime() - startTime;
+        const newX = easeInOutQuart(time, startX, distanceX, duration);
+        const newY = easeInOutQuart(time, startY, distanceY, duration);
+        if (time >= duration) {
+            clearInterval(timer);
+        }
+        window.scroll(newX, newY);
+    }, 1000 / 60);
+}
+
+function toggleScrollToTopButton() {
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.classList.add("show");
+    } else {
+        scrollToTopBtn.classList.remove("show");
+    }
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+}
+
+function openModal(projectItem) {
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalDescription = document.getElementById('modal-description');
+    const modalTechnologies = document.getElementById('modal-technologies');
+
+    modalTitle.textContent = projectItem.querySelector('h3').textContent;
+    modalImage.src = projectItem.querySelector('img').src;
+    modalDescription.textContent = projectItem.querySelector('p').textContent;
+
+    const technologies = projectItem.dataset.technologies.split(',');
+    modalTechnologies.innerHTML = technologies.map(tech => `<li>${tech.trim()}</li>`).join('');
+
+    modal.style.display = "block";
+}
+
+function validateForm(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    let isValid = true;
+
+    isValid = validateField(nameInput, 'Nome é obrigatório') && isValid;
+    isValid = validateField(emailInput, 'Email é obrigatório', isValidEmail) && isValid;
+    isValid = validateField(messageInput, 'Mensagem é obrigatória') && isValid;
+
+    if (isValid) {
+        console.log('Form is valid. Sending data...');
+        e.target.reset();
+    }
+}
+
+function validateField(input, errorMessage, validationFunction = null) {
+    const value = input.value.trim();
+    if (value === '' || (validationFunction && !validationFunction(value))) {
+        showError(input, errorMessage);
+        return false;
+    } else {
+        clearError(input);
+        return true;
+    }
+}
+
+function showError(input, message) {
+    const formGroup = input.parentElement;
+    const errorElement = formGroup.querySelector('.error-message');
+    errorElement.textContent = message;
+    formGroup.classList.add('error');
+}
+
+function clearError(input) {
+    const formGroup = input.parentElement;
+    const errorElement = formGroup.querySelector('.error-message');
+    errorElement.textContent = '';
+    formGroup.classList.remove('error');
+}
+
+function isValidEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.href;
+    const languageLinks = document.querySelectorAll('.language-switch a');
+    
+    languageLinks.forEach(link => {
+        if (currentPage.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});
