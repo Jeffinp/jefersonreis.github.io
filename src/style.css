@@ -525,7 +525,7 @@ footer {
 }
 
 /* Social Links - Mobile */
-@media (max-width: 820px) {
+@media (width: 820px) {
     .social-links {
         position: static;
         transform: none;
