@@ -348,10 +348,10 @@ section h2 {
     background-repeat: no-repeat;
 }
 
-.project-1 { background-image: url('./image/Screenshot_983.png'); }
-.project-2 { background-image: url('./image/Screenshot_987.png'); }
-.project-3 { background-image: url('./image/Screenshot_993.png'); }
-.project-4 { background-image: url('./image/Screenshot_988.png'); }
+.project-1 { background-image: url('./image/Screenshot_983.webp'); }
+.project-2 { background-image: url('./image/Screenshot_987.webp'); }
+.project-3 { background-image: url('./image/Screenshot_993.webp'); }
+.project-4 { background-image: url('./image/Screenshot_988.webp'); }
 
 .project-item h3 {
     padding: 1rem;
