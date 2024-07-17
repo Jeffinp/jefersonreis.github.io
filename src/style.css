@@ -524,6 +524,41 @@ footer {
     transform: translateY(-3px);
 }
 
+/* Social Links - Mobile */
+@media (max-width: 820px) {
+    .social-links {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+}
+
+/* Social Links - Mobile */
+@media (max-width: 768px) {
+    .social-links {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+}
 
 /* Modal */
 .modal {
