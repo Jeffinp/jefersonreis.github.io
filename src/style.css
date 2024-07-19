@@ -6,7 +6,7 @@
     --primary-color: #01315B;
     --secondary-color: #3DD5FA;
     --text-color: #ecf0f1;
-    --background-color: #001227;
+    --background-color: rgb(0, 18, 39);
     --hover-color: #054D8A;
     --dark-color: #01070F;
 }
@@ -66,7 +66,7 @@ header .container {
 
 /* Gradiente no elemento main */
 main {
-    background: linear-gradient(190deg, rgba(0, 18, 39, 0.7), rgba(0, 0, 0, 0.7) 100%), url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    background: linear-gradient(190deg, rgba(0, 18, 39, 0.7), rgb(0, 18, 39) 100%), url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
     min-height: 100vh; /* Garantir que o gradiente cubra toda a altura da página */
 }
 
