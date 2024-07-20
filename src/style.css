@@ -62,6 +62,7 @@ header .container {
     font-weight: 700;
     color: var(--secondary-color);
     transition: color 0.3s ease;
+    z-index: 999;
 }
 
 /* Gradiente no elemento main */
