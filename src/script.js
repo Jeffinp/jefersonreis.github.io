@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.menuToggle.classList.toggle('active');
         elements.navMenu.classList.toggle('show');
         
-    // Animate menu items
-    const menuItems = elements.navMenu.querySelectorAll('li');
-    menuItems.forEach((item, index) => {
-        if (elements.navMenu.classList.contains('show')) {
+        // Animate menu items
+        const menuItems = elements.navMenu.querySelectorAll('li');
+        menuItems.forEach((item, index) => {
+            if (elements.navMenu.classList.contains('show')) {
                 setTimeout(() => {
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0)';
@@ -167,10 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     // Dark mode saved state
     if (localStorage.getItem('darkMode') === 'true') {
         document.body.classList.add('dark-mode');
+        elements.darkModeToggle.classList.add('active');
     }
 
     // Animation on scroll
@@ -192,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
         document.body.classList.add('safari');
     }
-});
 
 function smoothScroll(e) {
     e.preventDefault();
@@ -235,7 +234,22 @@ function toggleScrollToTopButton() {
 
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    elements.darkModeToggle.classList.toggle('active');
+    
+    // Salvar a preferência do usuário
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    // Aguardar a animação de rotação antes de reverter
+    if (!isDarkMode) {
+        setTimeout(() => {
+            elements.darkModeToggle.style.transition = 'none';
+            elements.darkModeToggle.classList.remove('active');
+            setTimeout(() => {
+                elements.darkModeToggle.style.transition = '';
+            }, 10);
+        }, 500); // Este tempo deve corresponder à duração da transição no CSS
+    }
 }
 
 function openModal(projectItem) {
@@ -314,7 +328,7 @@ function debounce(func, wait) {
     };
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+    // Language switch
     const currentPage = window.location.href;
     const languageLinks = document.querySelectorAll('.language-switch a');
     

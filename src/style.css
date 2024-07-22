@@ -650,11 +650,14 @@ footer {
     height: 40px;
     font-size: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.5s ease;
 }
 
 .toggle-dark-mode:hover {
     background-color: var(--hover-color);
+}
+
+.toggle-dark-mode.active {
     transform: rotate(360deg);
 }
 
