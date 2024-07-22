@@ -34,21 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (event) => {
-        if (!event.target.closest('nav') && !event.target.closest('.menu-toggle')) {
-            elements.menuToggle.classList.remove('active');
-            elements.navMenu.classList.remove('show');
-            
-            // Reset menu items animation
-            const menuItems = elements.navMenu.querySelectorAll('li');
-            menuItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(-20px)';
-            });
-        }
-    });
-
     // Smooth scroll
     elements.links.forEach(link => link.addEventListener('click', smoothScroll));
 
@@ -105,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form validation
     elements.form.addEventListener('submit', validateForm);
 
-    // Particles.js
+    // Particles.js (if you're using it)
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {

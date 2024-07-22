@@ -1,5 +1,6 @@
 /* Importação de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 /* Variáveis */
 :root {
@@ -28,12 +29,13 @@ body.dark-mode {
 }
 
 body {
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "Montserrat", "Source Sans 3", sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 .container {
     max-width: 1200px;
@@ -150,6 +152,8 @@ nav ul li a:hover {
 .cta-button:hover {
     background-color: var(--hover-color);
     transform: translateY(-3px);
+    color: white;
+    transition: 0.3S;
 }
 
 /* Seção Sobre */
@@ -285,7 +289,6 @@ section h2 {
     fill: #47A248; 
     transition: 0.3s;
 }
-
 
 .skill-item:hover .webpack-icon path {
     fill: #B0E1F9; 
