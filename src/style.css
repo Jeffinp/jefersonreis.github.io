@@ -44,7 +44,7 @@ body {
 /* Header */
 header {
     background-color: var(--primary-color);
-    padding: 1rem 0;
+    padding: 0.2rem 0;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -636,7 +636,7 @@ footer {
 /* Toggle Dark Mode */
 .toggle-dark-mode {
     position: fixed;
-    top: 20px;
+    top: 0.5rem;
     right: 20px;
     z-index: 1001;
     background-color: var(--primary-color);
@@ -1081,7 +1081,7 @@ textarea {
 /* Seletor de Idioma */
 .language-switch {
     position: fixed;
-    top: 20px;
+    top: 0.5rem;
     left: 20px; 
     z-index: 1000;
     display: flex;

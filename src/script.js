@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form validation
     elements.form.addEventListener('submit', validateForm);
 
-    // Particles.js (if you're using it)
+    // Particles.js
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
