@@ -100,11 +100,6 @@ window.addEventListener('load', () => { // Mudar para window.load para garantir 
         elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
     }
 
-    // Form validation
-    if (elements.form) {
-        elements.form.addEventListener('submit', validateForm);
-    }
-
     // Particles.js
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
@@ -321,60 +316,6 @@ function openModal(projectItem) {
             modal.style.display = "block";
         }
     }
-}
-
-function validateForm(e) {
-    e.preventDefault();
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    let isValid = true;
-
-    isValid = validateField(nameInput, 'Nome é obrigatório') && isValid;
-    isValid = validateField(emailInput, 'Email é obrigatório', isValidEmail) && isValid;
-    isValid = validateField(messageInput, 'Mensagem é obrigatória') && isValid;
-
-    if (isValid) {
-        console.log('Form is valid. Sending data...');
-        e.target.reset();
-    }
-}
-
-function validateField(input, errorMessage, validationFunction = null) {
-    if (input) {
-        const value = input.value.trim();
-        if (value === '' || (validationFunction && !validationFunction(value))) {
-            showError(input, errorMessage);
-            return false;
-        } else {
-            clearError(input);
-            return true;
-        }
-    }
-    return false;
-}
-
-function showError(input, message) {
-    const formGroup = input.parentElement;
-    const errorElement = formGroup.querySelector('.error-message');
-    if (errorElement) {
-        errorElement.textContent = message;
-    }
-    formGroup.classList.add('error');
-}
-
-function clearError(input) {
-    const formGroup = input.parentElement;
-    const errorElement = formGroup.querySelector('.error-message');
-    if (errorElement) {
-        errorElement.textContent = '';
-    }
-    formGroup.classList.remove('error');
-}
-
-function isValidEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
 }
 
 function debounce(func, wait) {
