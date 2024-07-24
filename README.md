@@ -2,7 +2,7 @@
 
 Bem-vindo ao meu portfólio online! Este site foi criado para mostrar minhas habilidades e projetos como desenvolvedor full stack.
 
-![Screenshot do Site](https://github.com/Jeffinp/jefersonreis.github.io/blob/main/src/image/Screenshot_988.webp)
+![Screenshot do Site](https://github.com/Jeffinp/jefersonreis.github.io/blob/main/src/image/site.png)
 
 ## 🚀 Sobre Mim
 
@@ -15,14 +15,13 @@ Este portfólio foi desenvolvido utilizando as seguintes tecnologias:
 - **HTML5** e **CSS3** para estrutura e estilo
 - **JavaScript** para interatividade
 - **React** para componentes dinâmicos
-- **Node.js** para back-end
 - **Git** para controle de versão
 
 ## 📂 Seções do Site
 
 - **Sobre Mim**: Um resumo das minhas experiências e habilidades.
 - **Projetos**: Uma coleção dos meus projetos mais recentes e notáveis.
-- **Contato**: Links para minhas redes sociais e email para entrar em contato.
+- **Timeline**: Minha linha do tempo das minhas profissões.
 
 ## 🛠️ Instalação e Uso
 
