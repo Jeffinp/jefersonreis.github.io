@@ -22,7 +22,9 @@ Este portfólio foi desenvolvido utilizando as seguintes tecnologias:
 
 - **Sobre Mim**: Um resumo das minhas experiências e habilidades.
 - **Projetos**: Uma coleção dos meus projetos mais recentes e notáveis.
+- **Timeline**: Minha linha do tempo das minhas profissões.
 - **Contato**: Links para minhas redes sociais e email para entrar em contato.
+
 
 ## 🛠️ Instalação e Uso
 
