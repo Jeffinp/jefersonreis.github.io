@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeferson Reis - Desenvolvedor Full-Stack</title>
+    <meta name="description" content="Desenvolvedor Full-Stack apaixonado por tecnologia. Confira meu portfólio de projetos e habilidades.">
+    <meta name="keywords" content="Desenvolvedor, Full-Stack, Tecnologia, Programação, Projetos, Habilidades">
+    <meta property="og:title" content="Jeferson Reis - Desenvolvedor Full-Stack">
+    <meta property="og:description" content="Desenvolvedor Full-Stack apaixonado por tecnologia. Confira meu portfólio de projetos e habilidades.">
+    <meta property="og:image" content="./src/image/Linkedin-foto.webp">
+    <meta property="og:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="./src/style.css">
     <script defer src="https://kit.fontawesome.com/5e18f82f31.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
@@ -11,11 +18,11 @@
 <body>
     <header>
         <div class="language-switch">
-            <a href="index.html" class="active">PT</a>
-            <a href="index-en.html">EN</a>
+            <a href="index.html" class="active" aria-label="Portuguese">PT</a>
+            <a href="index-en.html" aria-label="English">EN</a>
         </div>
         <div class="container">
-            <h1 class="logo">JR</h1>
+            <h1 class="logo" aria-label="Logo Jeferson Reis">JR</h1>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -26,7 +33,7 @@
                     <li><a href="#contato">Contato</a></li>
                 </ul>
 
-                <div class="menu-toggle">
+                <div class="menu-toggle" aria-label="Toggle menu">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
@@ -35,20 +42,20 @@
         </div>
     </header>
 
-    <button id="darkModeToggle" class="toggle-dark-mode">☀️</button>
+    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Toggle dark mode">☀️</button>
 
     <main>
-        <section id="home" class="hero parallax">
+        <section id="home" class="hero parallax" aria-label="Home">
             <div id="particles-js"></div>
             <div class="container">
-                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy">
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="300" height="300">
                 <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
                 <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack</p>
                 <a href="#projetos" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver Projetos</a>
             </div>
         </section>
         
-        <section id="sobre" class="about">
+        <section id="sobre" class="about" aria-label="Sobre Mim">
             <div class="container">
                 <h2 data-aos="fade-up">Sobre Mim</h2>
                 <p data-aos="fade-up" data-aos-delay="200">
@@ -65,9 +72,8 @@
             </div>
         </section>        
         
-
         <!-- HABILIDADES -->
-        <section id="habilidades" class="skills">
+        <section id="habilidades" class="skills" aria-label="Habilidades">
             <div class="container">
                 <h2 data-aos="fade-up">Habilidades</h2>
                 <div class="skills-container">
@@ -226,12 +232,12 @@
         </section>
 
         <!-- PROJETOS -->
-        <section id="projetos" class="projects">
+        <section id="projetos" class="projects" aria-label="Projetos">
             <div class="container">
                 <h2 data-aos="fade-up">Projetos</h2>
                 <div class="project-grid">
                     <div class="project-item" data-aos="fade-up">
-                        <div class="project-image project-1"></div>
+                        <div class="project-image project-1" aria-label="Project The Batman Part II"></div>
                         <div class="project-info">
                             <h3>The Batman Part II</h3>
                             <p>Um site de treino para a venda de ingressos do filme do Batman.</p>
@@ -240,7 +246,7 @@
                         </div>
                     </div>
                     <div class="project-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="project-image project-2"></div>
+                        <div class="project-image project-2" aria-label="Project Curso de Desenho"></div>
                         <div class="project-info">
                             <h3>Curso de Desenho</h3>
                             <p>Um site que criei utilizando HTML5, CSS3 e JavaScript para um cliente que é professor de desenho.</p>
@@ -249,7 +255,7 @@
                         </div>
                     </div>
                     <div class="project-item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="project-image project-3"></div>
+                        <div class="project-image project-3" aria-label="Project Justly"></div>
                         <div class="project-info">
                             <h3>Justly</h3>
                             <p>Mais um site de treinamento bem responsivo utilizando HTML e CSS apenas.</p>
@@ -258,7 +264,7 @@
                         </div>
                     </div>
                     <div class="project-item" data-aos="fade-up" data-aos-delay="600">
-                        <div class="project-image project-4"></div>
+                        <div class="project-image project-4" aria-label="Project Meu Portfólio"></div>
                         <div class="project-info">
                             <h3>Meu Portfólio</h3>
                             <p>Meu próprio site onde estão meus projetos e tecnologias atuais conhecidas.</p>
@@ -270,7 +276,7 @@
             </div>
         </section>
 
-        <section id="timeline" class="timeline">
+        <section id="timeline" class="timeline" aria-label="Minha Jornada">
             <div class="container">
                 <h2 data-aos="fade-up">Minha Jornada</h2>
                 <div class="timeline-container">
@@ -324,17 +330,17 @@
         </div>
     </footer>
 
-    <div id="project-modal" class="modal">
+    <div id="project-modal" class="modal" aria-hidden="true">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" aria-label="Close">&times;</span>
             <h2 id="modal-title"></h2>
-            <img id="modal-image" src="" alt="">
+            <img id="modal-image" src="" alt="Project image">
             <p id="modal-description"></p>
             <ul id="modal-technologies"></ul>
         </div>
     </div>
 
-    <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
+    <button id="scrollToTopBtn" title="Ir para o topo" aria-label="Scroll to top">↑</button>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script async src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
