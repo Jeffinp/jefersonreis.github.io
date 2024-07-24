@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeferson Reis - Desenvolvedor Full-Stack</title>
+    <title>Jeferson Reis - Full-Stack Developer</title>
+    <meta name="description" content="Full-Stack Developer passionate about technology. Check out my portfolio of projects and skills.">
+    <meta name="keywords" content="Developer, Full-Stack, Technology, Programming, Projects, Skills">
+    <meta property="og:title" content="Jeferson Reis - Full-Stack Developer">
+    <meta property="og:description" content="Full-Stack Developer passionate about technology. Check out my portfolio of projects and skills.">
+    <meta property="og:image" content="./src/image/Linkedin-foto.webp">
+    <meta property="og:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="./src/style.css">
     <script defer src="https://kit.fontawesome.com/5e18f82f31.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
@@ -11,22 +18,21 @@
 <body>
     <header>
         <div class="language-switch">
-            <a href="index.html" class="active">PT</a>
-            <a href="index-en.html">EN</a>
+            <a href="index.html" aria-label="Portuguese">PT</a>
+            <a href="index-en.html" class="active" aria-label="English">EN</a>
         </div>
         <div class="container">
-            <h1 class="logo">JR</h1>
+            <h1 class="logo" aria-label="Logo Jeferson Reis">JR</h1>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">About</a></li>
-                    <li><a href="#habilidades">Skills</a></li>
-                    <li><a href="#projetos">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#timeline">Timeline</a></li>
-                    <li><a href="#contato">Contact</a></li>
                 </ul>
 
-                <div class="menu-toggle">
+                <div class="menu-toggle" aria-label="Toggle menu">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
@@ -35,207 +41,214 @@
         </div>
     </header>
 
-    <button id="darkModeToggle" class="toggle-dark-mode">🌓</button>
+    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Toggle dark mode">☀️</button>
 
     <main>
-        <section id="home" class="hero parallax" alt="Designed by Freepik">
+        <section id="home" class="hero parallax" aria-label="Home">
             <div id="particles-js"></div>
             <div class="container">
-                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic">
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
                 <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
                 <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Full-Stack Developer</p>
-                <a href="#projetos" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">View Projects</a>
+                <a href="#projects" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">View Projects</a>
             </div>
         </section>
-
-        <section id="about" class="about">
+        
+        <section id="about" class="about" aria-label="About Me">
             <div class="container">
                 <h2 data-aos="fade-up">About Me</h2>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    My name is Jeferson Reis, I am 18 years old, and I'm from Brazil, born in Camaçari, Bahia. I've been passionate about technology since I first encountered a computer at the age of 3. I started my journey as an IT technician, helping people optimize their Windows systems for better performance. I also learned how to repair the hardware of computers and worked with printers, consoles, and even mobile phones.
-                </p>
+                <article>
+                    <p data-aos="fade-up" data-aos-delay="200">
+                        My name is Jeferson Reis, I'm 18 years old and I'm from Brazil, born in Camaçari, Bahia. Since I had my first contact with a computer at the age of 3, I fell in love with technology. I started my journey as an IT technician, helping people optimize Windows for better performance. I learned to repair the physical parts of computers, as well as working with printers, consoles, and cell phones.
+                    </p>
+                </article>
                 <br>
-                <p data-aos="fade-up" data-aos-delay="400">
-                    However, my true interest has always been in programming. I initially tried developing games in C#, but I didn't succeed at the time due to a lack of knowledge. Through dedication and study, I became a Full-Stack developer with skills in both Front-end and Back-end development. I'm always eager to learn more and improve my skills in what I love doing.
-                </p>
+                <article>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        However, my true interest has always been programming. I started developing games in C#, but at the time, I wasn't successful due to lack of knowledge. With dedication and study, I became a Full-Stack developer, with skills in Front-end and Back-end. I'm always learning and improving in what I love to do.
+                    </p>
+                </article>
                 <br>
-                <p data-aos="fade-up" data-aos-delay="600">
-                    I have also worked as a graphic designer, creating banners and logos for printing companies, businesses, and freelancers. Additionally, I have experience as a digital artist, creating illustrations for various clients and companies.
-                </p>
+                <article>
+                    <p data-aos="fade-up" data-aos-delay="600">
+                        I also worked as a graphic designer, creating banners and logos for printing shops, companies, and freelancers. Additionally, I work as a digital artist, producing illustrations for various people and companies.
+                    </p>
+                </article>
             </div>
         </section>        
-
-         <!-- HABILIDADES -->
-        <section id="habilidades" class="skills">
+        
+        <!-- SKILLS -->
+        <section id="skills" class="skills" aria-label="Skills">
             <div class="container">
                 <h2 data-aos="fade-up">Skills</h2>
                 <div class="skills-container">
-                    <div class="technical-skills">
-                        <h3 class="HabTec" data-aos="fade-up">Technical Skills</h3>            
-                        <div class="skills-grid">
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
-                                <i class="fab fa-html5 html5"></i>
-                                <h4>HTML5</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-100"></div>
-                                </div>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fab fa-html5 html5"></i>
+                            <h4>HTML5</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-100"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
-                                <i class="fab fa-css3-alt css3"></i>
-                                <h4>CSS3</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-100"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fab fa-css3-alt css3"></i>
+                            <h4>CSS3</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-100"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
-                                <i class="fab fa-js javascript"></i>
-                                <h4>JavaScript</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-100"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fab fa-js javascript"></i>
+                            <h4>JavaScript</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-100"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
-                                <i class="fab fa-react react"></i>
-                                <h4>React</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-95"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+                            <i class="fab fa-react react"></i>
+                            <h4>React</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-95"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="600">
-                                <i class="fab fa-php php"></i>
-                                <h4>PHP</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-85"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="600">
+                            <i class="fab fa-php php"></i>
+                            <h4>PHP</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-85"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="700">
-                                <i class="fab fa-vuejs vuejs"></i>
-                                <h4>Vue.js</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-85"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="700">
+                            <i class="fab fa-vuejs vuejs"></i>
+                            <h4>Vue.js</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-85"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="800">
-                                <i class="fab fa-bootstrap bootstrap"></i>
-                                <h4>Bootstrap</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-80"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="800">
+                            <i class="fab fa-bootstrap bootstrap"></i>
+                            <h4>Bootstrap</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-80"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="900">
-                                <i class="fab fa-node-js nodejs"></i>
-                                <h4>Node.js</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="900">
+                            <i class="fab fa-node-js nodejs"></i>
+                            <h4>Node.js</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1000">
-                                <i class="fas fa-code dom"></i>
-                                <h4>DOM</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1000">
+                            <i class="fas fa-code dom"></i>
+                            <h4>DOM</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1100">
-                                <i class="fab fa-js-square jquery"></i>
-                                <h4>jQuery</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1100">
+                            <i class="fab fa-js-square jquery"></i>
+                            <h4>jQuery</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1200">
-                                <i class="fas fa-database mysql"></i>
-                                <h4>MySQL</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1200">
+                            <i class="fas fa-database mysql"></i>
+                            <h4>MySQL</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1300">
-                                <i class="fas fa-database postgres"></i>
-                                <h4>PostgreSQL</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1300">
+                            <i class="fas fa-database postgres"></i>
+                            <h4>PostgreSQL</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1400">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 598.88 1333.33" width="3rem" height="3rem" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="icon">
-                                    <g fill-rule="nonzero">
-                                        <path class="icon-path" d="M295.27 3.65l35.58 66.83c8 12.33 16.67 23.25 26.87 33.42 29.79 29.79 58.08 60.99 83.5 94.41 60.28 79.16 100.95 167.07 129.98 262.14 17.42 58.08 26.87 117.66 27.58 177.9 2.91 180.11-58.83 334.76-183.31 463.28-20.33 20.33-42.08 39.16-65.41 55.91-12.33 0-18.17-9.46-23.25-18.16-9.45-15.96-15.25-34.17-18.16-52.29-4.38-21.8-7.25-43.58-5.83-66.08v-10.16c-1-2.17-11.87-1002.07-7.54-1007.19v.01z"/>
-                                        <path class="icon-path" d="M295.27 1.43c-1.46-2.91-2.91-.71-4.38.71.71 14.58-4.38 27.58-12.33 40-8.75 12.33-20.33 21.8-31.96 31.96-64.57 55.91-115.4 123.45-156.11 198.98C36.33 374.74 8.41 483.68.5 598.38c-3.62 41.37 13.09 187.36 26.13 229.48 35.58 111.82 99.49 205.52 182.27 286.84 20.33 19.58 42.08 37.74 64.58 55.2 6.54 0 7.25-5.83 8.74-10.17 2.85-9.28 5.06-18.76 6.54-28.34l14.58-108.9L295.26 1.43z"/>
-                                        <path class="icon-path" d="M330.85 1201.77c1.46-16.67 9.46-30.5 18.17-44.29-8.75-3.62-15.25-10.83-20.33-18.87-4.38-7.25-8-15.96-10.83-23.96-10.17-30.5-12.33-62.5-15.25-93.66v-18.87c-3.62 2.91-4.38 27.58-4.38 31.25-2.03 32.85-6.54 65.8-13.08 98.05-2.17 13.08-3.62 26.12-11.67 37.74 0 1.46 0 2.91.71 5.09 13.08 38.5 16.67 77.7 18.87 117.66v14.58c0 17.41-.71 13.74 13.75 19.58 5.83 2.17 12.33 2.91 18.16 7.25 4.38 0 5.09-3.62 5.09-6.54l-2.17-23.96v-66.83c-.71-11.67 1.46-23.25 2.91-34.16l.05-.06z"/>
-                                    </g>
-                                </svg>
-                                <h4>MongoDB</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1400">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 598.88 1333.33" width="3rem" height="3rem" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="icon">
+                                <g fill-rule="nonzero">
+                                    <path class="icon-path" d="M295.27 3.65l35.58 66.83c8 12.33 16.67 23.25 26.87 33.42 29.79 29.79 58.08 60.99 83.5 94.41 60.28 79.16 100.95 167.07 129.98 262.14 17.42 58.08 26.87 117.66 27.58 177.9 2.91 180.11-58.83 334.76-183.31 463.28-20.33 20.33-42.08 39.16-65.41 55.91-12.33 0-18.17-9.46-23.25-18.16-9.45-15.96-15.25-34.17-18.16-52.29-4.38-21.8-7.25-43.58-5.83-66.08v-10.16c-1-2.17-11.87-1002.07-7.54-1007.19v.01z"/>
+                                    <path class="icon-path" d="M295.27 1.43c-1.46-2.91-2.91-.71-4.38.71.71 14.58-4.38 27.58-12.33 40-8.75 12.33-20.33 21.8-31.96 31.96-64.57 55.91-115.4 123.45-156.11 198.98C36.33 374.74 8.41 483.68.5 598.38c-3.62 41.37 13.09 187.36 26.13 229.48 35.58 111.82 99.49 205.52 182.27 286.84 20.33 19.58 42.08 37.74 64.58 55.2 6.54 0 7.25-5.83 8.74-10.17 2.85-9.28 5.06-18.76 6.54-28.34l14.58-108.9L295.26 1.43z"/>
+                                    <path class="icon-path" d="M330.85 1201.77c1.46-16.67 9.46-30.5 18.17-44.29-8.75-3.62-15.25-10.83-20.33-18.87-4.38-7.25-8-15.96-10.83-23.96-10.17-30.5-12.33-62.5-15.25-93.66v-18.87c-3.62 2.91-4.38 27.58-4.38 31.25-2.03 32.85-6.54 65.8-13.08 98.05-2.17 13.08-3.62 26.12-11.67 37.74 0 1.46 0 2.91.71 5.09 13.08 38.5 16.67 77.7 18.87 117.66v14.58c0 17.41-.71 13.74 13.75 19.58 5.83 2.17 12.33 2.91 18.16 7.25 4.38 0 5.09-3.62 5.09-6.54l-2.17-23.96v-66.83c-.71-11.67 1.46-23.25 2.91-34.16l.05-.06z"/>
+                                </g>
+                            </svg>
+                            <h4>MongoDB</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1500">
-                                <i class="fab fa-gulp gulp"></i>
-                                <h4>Gulp</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1500">
+                            <i class="fab fa-gulp gulp"></i>
+                            <h4>Gulp</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1600">
-                                <svg class="webpack-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.8 122.88" width="3rem" height="3rem">
-                                    <title>webpack</title>
-                                    <path class="a" d="M107.39,94.71l-49.8,28.17V100.94l31-17.07L107.39,94.7Zm3.41-3.09V32.71L92.58,43.24V81.11L110.8,91.62ZM3.41,94.71l49.8,28.17V100.94l-31-17.07L3.41,94.71ZM0,91.62V32.71L18.22,43.24V81.11L0,91.62ZM2.14,28.89,53.21,0V21.2l-32.73,18-.26.14L2.14,28.89Zm106.52,0L57.59,0V21.2l32.73,18,.26.15,18.08-10.45Z"/>
-                                    <path class="b" d="M53.21,96,22.59,79.1V45.75L53.21,63.43V96Zm4.38,0L88.21,79.12V45.75L57.59,63.43V96Zm-32.93-54L55.4,25,86.14,41.9,55.4,59.64,24.66,41.9Z"/>
-                                </svg>
-                                <h4>Webpack</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1600">
+                            <svg class="webpack-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.8 122.88" width="3rem" height="3rem">
+                                <title>webpack</title>
+                                <path class="a" d="M107.39,94.71l-49.8,28.17V100.94l31-17.07L107.39,94.7Zm3.41-3.09V32.71L92.58,43.24V81.11L110.8,91.62ZM3.41,94.71l49.8,28.17V100.94l-31-17.07L3.41,94.71ZM0,91.62V32.71L18.22,43.24V81.11L0,91.62ZM2.14,28.89,53.21,0V21.2l-32.73,18-.26.14L2.14,28.89Zm106.52,0L57.59,0V21.2l32.73,18,.26.15,18.08-10.45Z"/>
+                                <path class="b" d="M53.21,96,22.59,79.1V45.75L53.21,63.43V96Zm4.38,0L88.21,79.12V45.75L57.59,63.43V96Zm-32.93-54L55.4,25,86.14,41.9,55.4,59.64,24.66,41.9Z"/>
+                            </svg>
+                            <h4>Webpack</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1700">
-                                <i class="fab fa-angular angular"></i>
-                                <h4>Angular</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-90"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1700">
+                            <i class="fab fa-angular angular"></i>
+                            <h4>Angular</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-90"></div>
                             </div>
-                            
-                            <div class="skill-item" data-aos="fade-up" data-aos-delay="1800">
-                                <i class="fas fa-pencil-ruler"></i>
-                                <h4>UX Design</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-level skill-level-85"></div>
-                                </div>
+                        </div>
+                        
+                        <div class="skill-item" data-aos="fade-up" data-aos-delay="1800">
+                            <i class="fas fa-pencil-ruler"></i> 
+                            <h4>UX Design</h4>
+                            <div class="skill-bar">
+                                <div class="skill-level skill-level-85"></div>
                             </div>
-                        </div>                        
-                    </div>
+                        </div>                            
+                    </div>   
                     <div class="soft-skills">
                         <h3 data-aos="fade-up">Soft Skills</h3>
                         <ul>
                             <li data-aos="fade-up" data-aos-delay="200">Analytical</li>
                             <li data-aos="fade-up" data-aos-delay="300">Communicative</li>
                             <li data-aos="fade-up" data-aos-delay="400">Organized</li>
-                            <li data-aos="fade-up" data-aos-delay="500">Passionate about Problem Solving</li>
+                            <li data-aos="fade-up" data-aos-delay="500">Passion for problem-solving</li>
                             <li data-aos="fade-up" data-aos-delay="600">Patient</li>
                             <li data-aos="fade-up" data-aos-delay="700">Practical</li>
                             <li data-aos="fade-up" data-aos-delay="800">Proactive</li>
-                            <li data-aos="fade-up" data-aos-delay="900">Always Seeking to Learn More</li>
+                            <li data-aos="fade-up" data-aos-delay="900">Always seeking to learn more</li>
                             <li data-aos="fade-up" data-aos-delay="1000">Teamwork</li>
-                        </ul>                        
+                        </ul>
                     </div>
+                    
+                </div>
+            </div>
         </section>
 
-        <section id="projetos" class="projects">
+        <!-- PROJECTS -->
+        <section id="projects" class="projects" aria-label="Projects">
             <div class="container">
                 <h2 data-aos="fade-up">Projects</h2>
                 <div class="project-grid">
                     <div class="project-item" data-aos="fade-up">
-                        <div class="project-image project-1"></div>
+                        <div class="project-image project-1" aria-label="Project The Batman Part II"></div>
                         <div class="project-info">
                             <h3>The Batman Part II</h3>
-                            <p>A practice website for selling tickets to the Batman movie.</p>
+                            <p>A training site for selling tickets to the Batman movie.</p>
                             <a href="https://thebatmanpartll.netlify.app/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">View Project</a>
                             <p class="project-details-btn button-hover"></p>
                         </div>
                     </div>
                     <div class="project-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="project-image project-2"></div>
+                        <div class="project-image project-2" aria-label="Project Drawing Course"></div>
                         <div class="project-info">
                             <h3>Drawing Course</h3>
                             <p>A website I created using HTML5, CSS3, and JavaScript for a client who is a drawing teacher.</p>
@@ -244,20 +257,20 @@
                         </div>
                     </div>
                     <div class="project-item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="project-image project-3"></div>
+                        <div class="project-image project-3" aria-label="Project Justly"></div>
                         <div class="project-info">
                             <h3>Justly</h3>
-                            <p>Another highly responsive training website using HTML and CSS only.</p>
+                            <p>Another highly responsive training site using HTML and CSS only.</p>
                             <a href="https://justly.netlify.app/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">View Project</a>
                             <p class="project-details-btn button-hover"></p>
                         </div>
                     </div>
                     <div class="project-item" data-aos="fade-up" data-aos-delay="600">
-                        <div class="project-image project-4"></div>
+                        <div class="project-image project-4" aria-label="Project My Portfolio"></div>
                         <div class="project-info">
                             <h3>My Portfolio</h3>
-                            <p>My own website showcasing my projects and current known technologies.</p>
-                            <a href="https://jeffinp.github.io/jefersonreis.github.io/index-en.html" class="project-link button-hover" rel="noopener noreferrer">View Project</a>
+                            <p>My own website where my projects and current known technologies are showcased.</p>
+                            <a href="https://jeffinp.github.io/jefersonreis.github.io/" class="project-link button-hover" rel="noopener noreferrer">View Project</a>
                             <p class="project-details-btn button-hover"></p>
                         </div>
                     </div>                    
@@ -265,7 +278,7 @@
             </div>
         </section>
 
-        <section id="timeline" class="timeline">
+        <section id="timeline" class="timeline" aria-label="My Journey">
             <div class="container">
                 <h2 data-aos="fade-up">My Journey</h2>
                 <div class="timeline-container">
@@ -296,39 +309,47 @@
                 </div>
             </div>
         </section>
+        
     </main>
 
     <footer>
         <div class="container">
             <p>&copy; 2024 Jeferson Reis. All rights reserved.</p>
             <div class="social-links">
-                    <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="Jeferson Reis Almeida's LinkedIn"><i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span></a>
-                    <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="Jeferson Reis Almeida's GitHub">
-                        <i class="fab fa-github"></i><span class="sr-only">GitHub</span></a>
-                    <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Jeferson Reis Almeida's Instagram"><i class="fab fa-instagram"></i><span class="sr-only">Instagram</span></a>
-                    <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="Jeferson Reis Almeida's WhatsApp"><i class="fab fa-whatsapp"></i><span class="sr-only">WhatsApp</span></a>
-            </div>            
+                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn of Jeferson Reis Almeida">
+                    <i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span>
+                </a>
+                <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub of Jeferson Reis Almeida">
+                    <i class="fab fa-github"></i><span class="sr-only">GitHub</span>
+                </a>
+                <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram of Jeferson Reis Almeida">
+                    <i class="fab fa-instagram"></i><span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp of Jeferson Reis Almeida">
+                    <i class="fab fa-whatsapp"></i><span class="sr-only">WhatsApp</span>
+                </a>
+            </div>                     
         </div>
     </footer>
 
-    <div id="project-modal" class="modal">
+    <div id="project-modal" class="modal" aria-hidden="true">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" aria-label="Close">&times;</span>
             <h2 id="modal-title"></h2>
-            <img id="modal-image" src="" alt="">
+            <img id="modal-image" src="" alt="Project image">
             <p id="modal-description"></p>
             <ul id="modal-technologies"></ul>
         </div>
     </div>
 
-    <button id="scrollToTopBtn" title="Go to top">↑</button>
+    <button id="scrollToTopBtn" title="Go to top" aria-label="Scroll to top">↑</button>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script async src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script defer src="./src/script.js"></script>
 
     <noscript>
-        <p>Printing with custom margins is not supported in Safari. Consider using a different browser for best results.</p>
+        <p>Printing with custom margins is not supported in Safari. Consider using a different browser for better results.</p>
     </noscript>
     
 </body>
