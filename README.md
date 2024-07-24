@@ -15,7 +15,6 @@ Este portfólio foi desenvolvido utilizando as seguintes tecnologias:
 - **HTML5** e **CSS3** para estrutura e estilo
 - **JavaScript** para interatividade
 - **React** para componentes dinâmicos
-- **Node.js** para back-end
 - **Git** para controle de versão
 
 ## 📂 Seções do Site
