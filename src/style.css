@@ -1,6 +1,6 @@
 /* Importação de fontes */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /* Variáveis */
 :root {
@@ -29,13 +29,12 @@ body.dark-mode {
 }
 
 body {
-    font-family: "Montserrat", "Source Sans 3", sans-serif;
+    font-family: "Roboto", sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 .container {
     max-width: 1200px;
@@ -87,7 +86,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 1.1rem;
     transition: color 0.3s ease;
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 nav ul li a:hover {
@@ -106,7 +105,6 @@ nav ul li a:hover {
     overflow: hidden;
 }
 
-
 #particles-js {
     position: absolute;
     width: 100%;
@@ -116,6 +114,7 @@ nav ul li a:hover {
 }
 
 .hero h1 {
+    font-family: "Poppins", sans-serif;
     font-size: 3rem;
     position: relative;
     z-index: 1;
