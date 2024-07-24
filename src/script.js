@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => { // Mudar para window.load para garantir que o DOM e todos os recursos estejam carregados
     const elements = {
         menuToggle: document.querySelector('.menu-toggle'),
         navMenu: document.querySelector('nav ul'),
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 100,
+                    value: 50, // Reduce the number of particles for better performance on mobile
                     density: {
                         enable: true,
                         value_area: 800
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 move: {
                     enable: true,
-                    speed: 2,
+                    speed: 1, // Reduce the speed of particles for better performance
                     direction: "none",
                     random: false,
                     straight: false,
@@ -294,7 +294,7 @@ function toggleDarkMode() {
 }
 
 // Initialize icon based on saved state
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const darkModeToggle = document.getElementById("darkModeToggle");
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (darkModeToggle) {
