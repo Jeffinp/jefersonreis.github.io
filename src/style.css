@@ -527,7 +527,7 @@ footer {
     font-size: 1.5rem;
     margin: 0.5rem 0;
     transition: color 0.3s ease, transform 0.3s ease;
-    outline: none; /* Remove o contorno de foco */
+    outline: none; 
 }
 
 .social-links a:hover {
@@ -536,7 +536,7 @@ footer {
 }
 
 .social-links a:focus {
-    outline: none; /* Remove o contorno quando focado */
+    outline: none; 
 }
 
 /* Social Links - Mobile */
@@ -621,7 +621,7 @@ footer {
     z-index: 99;
     font-size: 18px;
     border: none;
-    outline: none; /* Remove o contorno de foco */
+    outline: none; 
     background-color: var(--secondary-color);
     color: var(--dark-color);
     cursor: pointer;
@@ -637,7 +637,7 @@ footer {
 }
 
 #scrollToTopBtn:focus {
-    outline: none; /* Remove o contorno quando focado */
+    outline: none; 
 }
 
 #scrollToTopBtn.show {
@@ -852,7 +852,7 @@ footer {
     font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.5s ease;
-    outline: none; /* Remove o contorno de foco */
+    outline: none; 
 }
 
 .toggle-dark-mode:hover {
@@ -860,7 +860,7 @@ footer {
 }
 
 .toggle-dark-mode:focus {
-    outline: none; /* Remove o contorno quando focado */
+    outline: none; 
 }
 
 .toggle-dark-mode.active {
@@ -1111,7 +1111,7 @@ textarea {
     font-weight: bold;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    outline: none; /* Remove o contorno de foco */
+    outline: none; 
 }
 
 .language-switch a:hover {
@@ -1121,7 +1121,7 @@ textarea {
 }
 
 .language-switch a:focus {
-    outline: none; /* Remove o contorno quando focado */
+    outline: none;
 }
 
 body.dark-mode .language-switch a {
