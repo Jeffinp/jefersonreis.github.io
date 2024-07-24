@@ -2,7 +2,7 @@
 
 Bem-vindo ao meu portfólio online! Este site foi criado para mostrar minhas habilidades e projetos como desenvolvedor full stack.
 
-![Screenshot do Site](https://github.com/Jeffinp/jefersonreis.github.io/blob/main/src/image/Screenshot_988.webp)
+![Screenshot do Site](https://github.com/Jeffinp/jefersonreis.github.io/blob/main/src/image/site.png)
 
 ## 🚀 Sobre Mim
 
