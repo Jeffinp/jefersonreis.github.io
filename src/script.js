@@ -329,3 +329,69 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    let clickCount = 0;
+    const triggerElement = document.getElementById('profilePic');
+    const easterEgg = document.getElementById('easter-egg');
+    const fireworksContainer = document.getElementById('fireworks-container');
+    const fireworkSound = document.getElementById('firework-sound');
+
+    if (!easterEgg) {
+        console.error('Elemento com ID "easter-egg" não encontrado.');
+        return;
+    }
+
+    if (triggerElement) {
+        triggerElement.addEventListener('click', function() {
+            clickCount++;
+
+            // Exibir o easter egg após 5 cliques
+            if (clickCount === 5) {
+                easterEgg.style.display = 'block';
+                triggerFireworks();
+                clickCount = 0; // Resetar contador
+            }
+        });
+    } else {
+        console.error('Elemento com ID "profilePic" não encontrado.');
+    }
+
+    function triggerFireworks() {
+        if (fireworksContainer && fireworkSound) {
+            fireworksContainer.style.display = 'block';
+            fireworkSound.currentTime = 0; // Reinicia o som
+            fireworkSound.play();
+
+            const fireworks = fireworksContainer.querySelectorAll('.firework');
+
+            fireworks.forEach(firework => {
+                // Posicionamento aleatório
+                firework.style.top = `${Math.random() * 60 + 20}%`;
+                firework.style.left = `${Math.random() * 80 + 10}%`;
+                
+                // Cor aleatória do arco-íris
+                const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+                const randomColors = [getRandomColor(colors), getRandomColor(colors), getRandomColor(colors)];
+                firework.style.background = `radial-gradient(circle, ${randomColors[0]} var(--particleSize), transparent 50%),
+                                            radial-gradient(circle, ${randomColors[1]} var(--particleSize), transparent 50%),
+                                            radial-gradient(circle, ${randomColors[2]} var(--particleSize), transparent 50%)`;
+                
+                // Reiniciar a animação
+                firework.style.animation = 'none';
+                firework.offsetHeight; // Força o reflow
+                firework.style.animation = 'firework 2s infinite';
+            });
+
+            setTimeout(() => {
+                fireworksContainer.style.display = 'none';
+            }, 2000); // Duração dos fogos de artifício
+        } else {
+            console.error('Elemento com ID "fireworks-container" não encontrado.');
+        }
+    }
+
+    function getRandomColor(colors) {
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+});
