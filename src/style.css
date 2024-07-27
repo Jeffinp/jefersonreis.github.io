@@ -4,21 +4,22 @@
 
 /* Variáveis */
 :root {
-    --primary-color: #01315B;
-    --secondary-color: #3DD5FA;
-    --text-color: #ecf0f1;
-    --background-color: rgb(0, 18, 39);
-    --hover-color: #054D8A;
-    --dark-color: #01070F;
+    --primary-color: #1E3A8A; 
+    --secondary-color: #60A5FA; 
+    --text-color: #F3F4F6; 
+    --background-color: #1F2937;
+    --hover-color: #1E40AF; 
+    --dark-color: #1E293B; 
 }
 
+
 body.dark-mode {
-    --primary-color: #0A192F;
-    --secondary-color: #64FFDA;
-    --text-color: #E6F1FF;
-    --background-color: #020C1B;
-    --hover-color: #112240;
-    --dark-color: #0A192F;
+    --primary-color: #121212;
+    --secondary-color: #1DB954; 
+    --text-color: #E0E0E0; 
+    --background-color: #181818; 
+    --hover-color: #2C2C2C; 
+    --dark-color: #121212; 
 }
 
 /* Reset e estilos globais */
@@ -65,12 +66,6 @@ header .container {
     transition: color 0.3s ease;
     z-index: 999;
     margin-left: 1.5rem;
-}
-
-/* Gradiente no elemento main */
-main {
-    background: linear-gradient(190deg, rgba(0, 18, 39, 0.938), rgb(0, 18, 39) 100%), url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-    min-height: 100vh;
 }
 
 nav ul {
