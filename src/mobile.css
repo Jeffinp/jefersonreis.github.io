@@ -1,0 +1,396 @@
+/* Estilos Responsivos */
+
+/* Para telas de 1280px de largura */
+@media (width: 1280px) {
+    header .container {
+        padding: 0 15px;
+        margin-right: 5rem;
+    }
+
+    nav ul li {
+        margin-left: 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        margin-left: 12rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    .language-switch {
+        top: 0.5rem;
+        left: 20px;
+        z-index: 1000;
+        display: flex;
+        gap: 10px;
+    }
+
+    .language-switch a {
+        padding: 8px 12px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        outline: none;
+    }
+
+    .language-switch a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-switch a:focus {
+        outline: none;
+    }
+
+    .language-switch img {
+        width: 20px; /* Tamanho das bandeiras */
+        height: 20px; /* Tamanho das bandeiras */
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+}
+
+/* Para telas de 1024px de largura */
+@media (width: 1024px) {
+    header .container {
+        padding: 0 10px;
+        margin-right: 5rem;
+    }
+
+    .container p {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        box-sizing: border-box;
+    }
+
+    nav ul li {
+        margin-left: 1rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        margin-left: 10rem;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .toggle-dark-mode {
+        top: 10px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .language-switch {
+        top: 10px;
+        left: 15px;
+    }
+
+    .language-switch a {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .language-switch img {
+        width: 20px; /* Ajuste o tamanho das bandeiras */
+        height: 20px; /* Ajuste o tamanho das bandeiras */
+    }
+}
+
+/* Para telas de 820px de largura (tablets) */
+@media (width: 820px) {
+    header .container {
+        padding: 0 10px;
+        margin-right: 5rem;
+    }
+
+    nav ul li {
+        margin-left: 1rem;
+    }
+
+    .container p {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        margin-left: 9rem;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .toggle-dark-mode {
+        top: 10px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .language-switch {
+        top: 10px;
+        left: 15px;
+    }
+
+    .language-switch a {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    .language-switch img {
+        width: 18px; /* Ajuste o tamanho das bandeiras */
+        height: 18px; /* Ajuste o tamanho das bandeiras */
+    }
+
+    /* Social Links - Tablet */
+    .social-links {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+}
+
+/* Para telas menores que 768px (dispositivos móveis) */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+
+    .container p {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+    }
+
+    nav ul li {
+        margin: 0 1rem;
+    }
+
+    .logo {
+        margin-left: 0rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    /* Ajustes para a timeline em telas menores */
+    .timeline-container::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    .timeline-item::after {
+        left: 15px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+        left: 16px;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0%;
+    }
+
+    .toggle-dark-mode {
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .language-switch {
+        top: 10px;
+        left: 10px;
+    }
+
+    .language-switch a {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+
+    .language-switch img {
+        width: 16px; /* Ajuste o tamanho das bandeiras */
+        height: 16px; /* Ajuste o tamanho das bandeiras */
+    }
+
+    /* Menu responsivo para dispositivos móveis */
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(1, 49, 91, 0.74);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    nav ul.show {
+        display: flex;
+        opacity: 1;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.281);
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    nav ul.show li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Social Links - Mobile */
+    .social-links {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+
+    /* Ajustes para a seção 'about' em dispositivos móveis */
+    .about {
+        padding: 30px 0;
+    }
+
+    .about h2 {
+        font-size: 2em;
+    }
+
+    .about p {
+        font-size: 1em;
+        margin-bottom: 15px;
+    }
+}
+
+/* Para telas muito pequenas (smartphones menores) */
+@media (max-width: 480px) {
+    .about {
+        padding: 20px 0;
+    }
+
+    .about h2 {
+        font-size: 1.5em;
+    }
+
+    .about p {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+}
+
+/* Estilos para Impressão */
+@media print {
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    header, footer, #scrollToTopBtn, .toggle-dark-mode {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+}
+
+/* Estilos Específicos para Safari */
+@supports not (-webkit-touch-callout: none) {
+    @page {
+        margin: 2cm;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    @media print {
+        body {
+            margin: 2cm;
+        }
+    }
+}

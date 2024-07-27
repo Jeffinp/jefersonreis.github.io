@@ -64,6 +64,7 @@ header .container {
     color: var(--secondary-color);
     transition: color 0.3s ease;
     z-index: 999;
+    margin-left: 1.5rem;
 }
 
 /* Gradiente no elemento main */
@@ -197,9 +198,10 @@ section h2 {
 
 /* Seção de Habilidades */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens se movam para a linha abaixo quando necessário */
     gap: 2rem;
+    justify-content: center; /* Alinha os itens ao centro */
 }
 
 .skill-item {
@@ -208,6 +210,8 @@ section h2 {
     padding: 1rem;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    flex: 1 1 150px; /* Ajusta o crescimento e a largura mínima dos itens */
+    max-width: 200px; /* Define um tamanho máximo para os itens */
 }
 
 .skill-item:hover {
@@ -220,12 +224,12 @@ section h2 {
     color: var(--secondary-color);
 }
 
-
-/* mongodb */
-.a, .b { 
-    fill: var(--secondary-color);
+.skill-icon {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    margin-bottom: 1rem;
 }
-
 
 .skill-bar {
     background-color: var(--dark-color);
@@ -239,6 +243,11 @@ section h2 {
     height: 100%;
     background-color: var(--secondary-color);
     transition: width 1s ease-in-out;
+}
+
+/* mongodb */
+.a, .b { 
+    fill: var(--secondary-color);
 }
 
 .skill-level-100 { width: 100%; }
@@ -265,6 +274,10 @@ section h2 {
 .webpack { color: #8DD6F9; }
 .angular { color: #DD0031; }
 
+/* Cores das novas tecnologias */
+.cplusplus { color: #00599C; } /* Escolha uma cor apropriada para C++ */
+.csharp { color: #6C3438; }  /* Escolha uma cor apropriada para C# */
+
 /* Efeito hover nas tecnologias */
 .skill-item:hover .html5 { color: #FF8C69; transition: 0.3s; }
 .skill-item:hover .css3 { color: #6C8CD5; transition: 0.3s; }
@@ -282,6 +295,11 @@ section h2 {
 .skill-item:hover .gulp { color: #E6756A; transition: 0.3s; }
 .skill-item:hover .webpack { color: #B0E1F9; transition: 0.3s; }
 .skill-item:hover .angular { color: #E0554B; transition: 0.3s; }
+
+/* Efeito hover nas novas tecnologias */
+.skill-item:hover .cplusplus { color: #007ACC; transition: 0.3s; } /* Escolha um tom para C++ */
+.skill-item:hover .csharp { color: #E44D26; transition: 0.3s; } /* Escolha um tom para C# */
+
 
 .skill-item:hover .webpack-icon path,
 .skill-item:hover .icon-path {
@@ -538,42 +556,6 @@ footer {
     outline: none; 
 }
 
-/* Social Links - Mobile */
-@media (width: 820px) {
-    .social-links {
-        position: static;
-        transform: none;
-        flex-direction: row;
-        background-color: transparent;
-        padding: 0;
-        border-radius: 0;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-
-    .social-links a {
-        margin: 0 0.5rem;
-    }
-}
-
-/* Social Links - Mobile */
-@media (max-width: 768px) {
-    .social-links {
-        position: static;
-        transform: none;
-        flex-direction: row;
-        background-color: transparent;
-        padding: 0;
-        border-radius: 0;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-
-    .social-links a {
-        margin: 0 0.5rem;
-    }
-}
-
 /* Modal */
 .modal {
     display: none;
@@ -669,172 +651,6 @@ footer {
     transform: rotate(360deg);
 }
 
-/* Estilos Responsivos */
-@media (width: 1280px) {
-    header .container {
-        padding: 0 15px;
-        margin-right: 5rem;
-    }
-
-    nav ul li {
-        margin-left: 1.5rem;
-    }
-
-    .logo {
-        font-size: 1.8rem;
-        margin-left: 8rem;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-    }
-}
-
-@media (width: 1024px) {
-    header .container {
-        padding: 0 10px;
-        margin-right: 5rem;
-    }
-
-    nav ul li {
-        margin-left: 1rem;
-    }
-
-    .logo {
-        font-size: 1.8rem;
-        margin-left: 8rem;
-    }
-
-    nav ul li a {
-        font-size: 0.9rem;
-    }
-
-    .toggle-dark-mode {
-        top: 19px;
-        right: 15px;
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-
-    .language-switch {
-        top: 15px;
-        left: 15px;
-    }
-
-    .language-switch a {
-        padding: 6px 10px;
-        font-size: 10px;
-    }
-}
-
-@media (width: 820px) {
-    header .container {
-        padding: 0 10px;
-        margin-right: 5rem;
-    }
-
-    nav ul li {
-        margin-left: 1rem;
-    }
-
-    .logo {
-        font-size: 1.8rem;
-        margin-left: 8rem;
-    }
-
-    nav ul li a {
-        font-size: 0.9rem;
-    }
-
-    .toggle-dark-mode {
-        top: 19px;
-        right: 15px;
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-
-    .language-switch {
-        top: 15px;
-        left: 15px;
-    }
-
-    .language-switch a {
-        padding: 6px 10px;
-        font-size: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-    }
-
-    nav ul {
-        margin-top: 1rem;
-    }
-    
-    nav ul li {
-        margin: 0 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    section h2 {
-        font-size: 2rem;
-    }
-
-    .timeline-container::after {
-        left: 31px;
-    }
-
-    .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-
-    .timeline-item::before {
-        left: 60px;
-        border: medium solid white;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
-    }
-
-    .timeline-item::after {
-        left: 15px;
-    }
-
-    .timeline-item:nth-child(even)::after {
-        left: 16px;
-    }
-
-    .timeline-item:nth-child(even) {
-        left: 0%;
-    }
-
-    .toggle-dark-mode {
-        top: 10px;
-        right: 10px;
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-    }
-
-    .language-switch {
-        top: 10px;
-        left: 10px;
-    }
-
-    .language-switch a {
-        padding: 5px 8px;
-        font-size: 11px;
-    }
-}
-
 /* Toggle Dark Mode */
 .toggle-dark-mode {
     position: fixed;
@@ -864,73 +680,6 @@ footer {
 .toggle-dark-mode.active {
     transform: rotate(360deg);
 }
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color:  rgba(1, 49, 91, 0.74);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    nav ul.show {
-        display: flex;
-        opacity: 1;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 10px 20px;
-        border-radius: 10px;
-        background-color: rgba(255, 255, 255, 0.281);
-        text-align: center;
-        font-size: 1.2em;
-    }
-
-    nav ul.show li {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    nav ul.show li:nth-child(1) { transition-delay: 0.1s; }
-    nav ul.show li:nth-child(2) { transition-delay: 0.2s; }
-    nav ul.show li:nth-child(3) { transition-delay: 0.3s; }
-    nav ul.show li:nth-child(4) { transition-delay: 0.4s; }
-    nav ul.show li:nth-child(5) { transition-delay: 0.5s; }
-}
-
 
 /* Estilos para textarea */
 textarea {
@@ -1035,47 +784,6 @@ textarea {
     border-width: 0;
 }
 
-/* Estilos para Impressão */
-@media print {
-    body {
-        color: #000;
-        background: #fff;
-    }
-
-    header, footer, #scrollToTopBtn, .toggle-dark-mode {
-        display: none;
-    }
-
-    main {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    h1, h2, h3 {
-        page-break-after: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-}
-
-/* Estilos Específicos para Safari */
-@supports not (-webkit-touch-callout: none) {
-    @page {
-        margin: 2cm;
-    }
-}
-
-@supports (-webkit-touch-callout: none) {
-    @media print {
-        body {
-            margin: 2cm;
-        }
-    }
-}
-
 /* Animações adicionais */
 @keyframes fadeInUp {
     from {
@@ -1104,19 +812,29 @@ textarea {
     z-index: 1000;
     display: flex;
     gap: 10px;
+    align-items: center; /* Alinha ícones e texto verticalmente */
 }
 
 .language-switch a {
+    display: flex;
+    align-items: center;
     padding: 8px 12px;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     text-decoration: none;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 14px; /* Ajustado para melhor compatibilidade com o ícone */
     font-weight: bold;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    outline: none; 
+    outline: none;
+    gap: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.language-switch img {
+    width: 24px; /* Ajuste o tamanho da bandeira aqui */
+    height: 24px; /* Ajuste o tamanho da bandeira aqui */
+    object-fit: cover; /* Mantém a proporção e evita distorções */
 }
 
 .language-switch a:hover {
@@ -1126,7 +844,7 @@ textarea {
 }
 
 .language-switch a:focus {
-    outline: none; 
+    outline: none;
 }
 
 
@@ -1143,47 +861,6 @@ body.dark-mode .language-switch a:hover {
 body.dark-mode .language-switch a.active {
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
-}
-
-/* Responsividade adicional */
-@media (max-width: 768px) {
-    .language-switch {
-        top: 10px;
-        left: 10px; 
-    }
-
-    .language-switch a {
-        padding: 6px 10px;
-        font-size: 12px;
-    }
-
-    .about {
-        padding: 30px 0;
-    }
-
-    .about h2 {
-        font-size: 2em;
-    }
-
-    .about p {
-        font-size: 1em;
-        margin-bottom: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .about {
-        padding: 20px 0;
-    }
-
-    .about h2 {
-        font-size: 1.5em;
-    }
-
-    .about p {
-        font-size: 0.9em;
-        margin-bottom: 10px;
-    }
 }
 
 #easter-egg {
