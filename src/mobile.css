@@ -160,13 +160,6 @@
         margin-left: 1rem;
     }
 
-    /* Container e Texto */
-    .container p {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        box-sizing: border-box;
-    }
-
     .logo {
         font-size: 1.8rem;
         margin-left: 9rem;
@@ -262,13 +255,6 @@
     /* Navegação */
     nav ul {
         margin-top: 1rem;
-    }
-
-    /* Container e Texto */
-    .container p {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        box-sizing: border-box;
     }
 
     nav ul li {

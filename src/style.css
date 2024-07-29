@@ -197,7 +197,8 @@ nav ul li a:hover::after {
 
 #home p {
     font-size: 1.4rem;
-    margin-bottom: 2rem;
+    margin-top: -30px;   
+    margin-bottom: 20px;
     color: var(--text-color);
     opacity: 0.9;
 }
