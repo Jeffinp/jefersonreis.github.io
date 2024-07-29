@@ -56,6 +56,8 @@
         vertical-align: middle;
         margin-right: 5px;
     }
+
+    
 }
 
 /* Para telas de 1024px de largura */
@@ -87,8 +89,8 @@
         font-size: 0.9rem;
     }
 
-       /* Social Links - Mobile */
-       .social-links {
+    /* Social Links - Mobile */
+    .social-links {
         position: static;
         transform: none;
         flex-direction: row;
