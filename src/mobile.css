@@ -392,7 +392,6 @@
     .about p {
         font-size: 0.9em;
         margin-bottom: 10px;
-        text-align: justify;
     }
     
     .timeline-container::after {
