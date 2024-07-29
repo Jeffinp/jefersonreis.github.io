@@ -197,35 +197,49 @@ section h2 {
     text-align: center;
     margin-bottom: 1rem;
 }
+
 /* Seção de Habilidades */
 .skills {
-    padding: 2rem 1rem;
+    padding: 4rem 2rem;
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
 .skills h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.skills h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
 }
 
 .skills-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 3rem;
     justify-content: center;
 }
 
 .technical-skills,
 .soft-skills {
     flex: 1;
-    min-width: 300px; /* Ajusta a largura mínima das seções */
+    min-width: 300px;
 }
 
 .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2rem;
     justify-content: center;
 }
@@ -233,51 +247,91 @@ section h2 {
 .skill-item {
     text-align: center;
     background-color: var(--primary-color);
-    padding: 1rem;
-    border-radius: 8px;
-    transition: transform 0.3s, background-color 0.3s;
-    flex: 1 1 150px;
-    max-width: 200px;
+    padding: 1.5rem;
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Animação de cor ao passar o mouse */
-.skill-item i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--secondary-color);
-    transition: color 0.3s ease;
+.skill-item:hover::before {
+    opacity: 0.1;
+}
+
+.skill-item i,
+.skill-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease, color 0.3s ease;
 }
 
 .skill-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     object-fit: contain;
+}
+
+.skill-item:hover i,
+.skill-item:hover .skill-icon {
+    transform: scale(1.2);
+}
+
+.skill-item h4 {
+    font-size: 1.2rem;
     margin-bottom: 1rem;
+    color: var(--heading-color);
+    transition: color 0.3s ease;
+}
+
+.skill-item:hover h4 {
+    color: var(--accent-color);
 }
 
 .skill-bar {
     background-color: var(--dark-color);
-    height: 10px;
-    border-radius: 5px;
+    height: 8px;
+    border-radius: 4px;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .skill-level {
     height: 100%;
     background-color: var(--secondary-color);
-    transition: width 1s ease-in-out;
+    transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.skill-level-100 { width: 100%; }
-.skill-level-95  { width: 95%; }
-.skill-level-90  { width: 90%; }
-.skill-level-85  { width: 85%; }
-.skill-level-80  { width: 80%; }
+.skill-level-100 { width: 0; }
+.skill-level-95  { width: 0; }
+.skill-level-90  { width: 0; }
+.skill-level-85  { width: 0; }
+.skill-level-80  { width: 0; }
+.skill-level-75  { width: 0; }
+
+.skill-item:hover .skill-level-100 { width: 100%; }
+.skill-item:hover .skill-level-95  { width: 95%; }
+.skill-item:hover .skill-level-90  { width: 90%; }
+.skill-item:hover .skill-level-85  { width: 85%; }
+.skill-item:hover .skill-level-80  { width: 80%; }
+.skill-item:hover .skill-level-75  { width: 75%; }
 
 /* Cores das tecnologias */
 .html5 { color: #E44D26; }
@@ -321,7 +375,7 @@ section h2 {
 
 .skill-item:hover .webpack-icon path,
 .skill-item:hover .icon-path {
-    fill: #47A248; 
+    transition: fill 0.3s ease;
 }
 
 .skill-item:hover .webpack-icon path {
@@ -335,79 +389,119 @@ section h2 {
 .skill-item:hover .icon-path.webpack {
     fill: #8DD6F9; 
 }
-
 /* Seção de Soft Skills */
 .soft-skills {
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
 .soft-skills h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.soft-skills h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
 }
 
 .skills-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     justify-content: center;
 }
 
-/* Estilo padrão para soft skill items */
 .soft-skill-item {
     text-align: center;
     background-color: var(--primary-color);
-    padding: 1rem;
-    border-radius: 8px;
-    transition: transform 0.3s, background-color 0.3s;
-    flex: 1 1 200px; /* Ajuste conforme necessário */
-    max-width: 250px;
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Hover effects */
+.soft-skill-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
 .soft-skill-item:hover {
-    transform: translateY(-5px);
-    background-color: var(--secondary-color);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.soft-skill-item:hover::before {
+    opacity: 0.1;
 }
 
 .soft-skill-item i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-    transition: color 0.3s ease;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    transition: transform 0.4s ease;
 }
 
 .soft-skill-item:hover i {
-    color: var(--background-color);
+    transform: scale(1.2);
 }
 
 .soft-skill-item h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+    transition: color 0.3s ease;
+}
+
+.soft-skill-item:hover h3 {
+    color: var(--accent-color);
 }
 
 .soft-skill-item p {
     font-size: 1rem;
     color: var(--text-color);
+    line-height: 1.6;
+    transition: opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.soft-skill-item:hover p {
+    opacity: 1;
 }
 
 /* Seção de Projetos */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
+    gap: 2.5rem;
+    padding: 3rem 0;
 }
 
 .project-item {
     background-color: var(--primary-color);
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
 }
 
@@ -418,9 +512,9 @@ section h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    transition: opacity 0.3s ease;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
     opacity: 0;
+    transition: opacity 0.4s ease;
     z-index: 1;
 }
 
@@ -429,53 +523,57 @@ section h2 {
 }
 
 .project-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .project-image {
     width: 100%;
-    height: 200px;
+    height: 250px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .project-item:hover .project-image {
     transform: scale(1.1);
 }
 
-.project-1 { background-image: url('./image/Screenshot_983.webp'); }
-.project-2 { background-image: url('./image/Screenshot_987.webp'); }
-.project-3 { background-image: url('./image/Screenshot_993.webp'); }
-.project-4 { background-image: url('./image/site.png'); }
-.project-5 { background-image: url('./image/bookmark.png'); }
-.project-6 {background-image: url('./image/acsendoflex.png');}
-
 .project-info {
-    padding: 1rem;
+    padding: 1.5rem;
     position: relative;
     z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.project-item:hover .project-info {
+    transform: translateY(-10px);
 }
 
 .project-info h3 {
     margin-top: 0;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
 }
 
 .project-info p {
-    margin: 0 0 1rem;
+    margin: 0 0 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 .project-link {
     display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     background-color: var(--secondary-color);
     color: var(--dark-color);
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
@@ -487,8 +585,8 @@ section h2 {
     left: 50%;
     width: 300%;
     height: 300%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    transition: transform 0.5s ease;
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
 }
@@ -501,36 +599,45 @@ section h2 {
     background-color: var(--hover-color);
     transform: translateY(-3px);
     color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-1 { background-image: url('./image/Screenshot_983.webp'); }
+.project-2 { background-image: url('./image/Screenshot_987.webp'); }
+.project-3 { background-image: url('./image/Screenshot_993.webp'); }
+.project-4 { background-image: url('./image/site.png'); }
+.project-5 { background-image: url('./image/bookmark.png'); }
+.project-6 {background-image: url('./image/acsendoflex.png');}
+
+.project-item.training-site::after,
+.project-item.cliente-site::after {
+    content: attr(data-type);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
 }
 
 .project-item.training-site::after {
-    content: 'Desenvolvimento Pessoal';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(54, 13, 105, 0.8);
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    z-index: 10;
-    opacity: 1; /* Sempre visível */
-    pointer-events: none;
 }
 
 .project-item.cliente-site::after {
-    content: 'Projeto Contratado';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(1, 72, 15, 0.7);
+    background-color: rgba(1, 72, 15, 0.8);
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    z-index: 10;
-    opacity: 1; /* Sempre visível */
-    pointer-events: none;
+}
+
+.project-item:hover::after {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Seção Timeline */

@@ -395,3 +395,4 @@ document.addEventListener('DOMContentLoaded', function() {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 });
+

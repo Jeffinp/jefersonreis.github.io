@@ -50,10 +50,6 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .language-switch a:focus {
-        outline: none;
-    }
-
     .language-switch img {
         width: 20px; /* Tamanho das bandeiras */
         height: 20px; /* Tamanho das bandeiras */
@@ -91,6 +87,22 @@
         font-size: 0.9rem;
     }
 
+       /* Social Links - Mobile */
+       .social-links {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+
     /* Modo Escuro */
     .toggle-dark-mode {
         top: 10px;
@@ -119,6 +131,23 @@
 
 /* Para telas de 820px de largura (tablets) */
 @media (width: 820px) {
+
+       /* Social Links - Mobile */
+       .social-links {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+
     /* Header e Container */
     header .container {
         padding: 0 10px;
@@ -208,6 +237,26 @@
     /* Header e Container */
     header .container {
         flex-direction: column;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .soft-skill-item {
+        padding: 1.5rem;
+    }
+
+    .soft-skill-item i {
+        font-size: 3rem;
+    }
+
+    .soft-skill-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .soft-skill-item p {
+        font-size: 0.9rem;
     }
 
     /* Navegação */
@@ -347,8 +396,8 @@
         transform: translateY(0);
     }
 
-    /* Social Links - Mobile */
-    .social-links {
+       /* Social Links - Mobile */
+       .social-links {
         position: static;
         transform: none;
         flex-direction: row;
@@ -363,20 +412,8 @@
         margin: 0 0.5rem;
     }
 
-    /* Ajustes para a seção 'about' em dispositivos móveis */
-    .about {
-        padding: 30px 0;
-    }
-
-    .about h2 {
-        font-size: 2em;
-    }
-
-    .about p {
-        font-size: 1em;
-        margin-bottom: 15px;
-    }
 }
+
 
 /* Para telas muito pequenas (smartphones menores) */
 @media (max-width: 480px) {
@@ -384,6 +421,23 @@
     .about {
         padding: 20px 0;
     }
+
+       /* Social Links - Mobile */
+       .social-links {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        margin: 0 0.5rem;
+    }
+
 
     .about h2 {
         font-size: 1.5em;
