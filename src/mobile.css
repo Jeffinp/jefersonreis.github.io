@@ -24,7 +24,6 @@
 
     /* Troca de Idiomas */
     .language-switch {
-        top: 0.5rem;
         left: 20px;
         z-index: 1000;
         display: flex;
@@ -116,7 +115,7 @@
 
     /* Troca de Idiomas */
     .language-switch {
-        top: 10px;
+    
         left: 15px;
     }
 
@@ -188,7 +187,6 @@
 
     /* Troca de Idiomas */
     .language-switch {
-        top: 10px;
         left: 15px;
     }
 
@@ -338,7 +336,7 @@
 
     /* Troca de Idiomas */
     .language-switch {
-        top: 10px;
+      
         left: 10px;
     }
 

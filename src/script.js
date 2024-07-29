@@ -265,30 +265,28 @@ function toggleScrollToTopButton() {
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const darkModeToggle = document.getElementById("darkModeToggle");
+
     if (darkModeToggle) {
-        darkModeToggle.classList.toggle('active');
-        if (document.body.classList.contains('dark-mode')) {
-            darkModeToggle.textContent = '🌙';  // Moon icon for dark mode
-        } else {
-            darkModeToggle.textContent = '☀️';  // Sun icon for light mode
-        }
+        // Adiciona a classe 'rotate' para iniciar a animação
+        darkModeToggle.classList.add('rotate');
+        darkModeToggle.classList.add('no-hover'); // Adiciona a classe para desativar o hover
+
+        // Atualiza o ícone do botão
+        darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
     }
-    
+
+    // Remove a classe 'rotate' após a animação
+    setTimeout(() => {
+        if (darkModeToggle) {
+            darkModeToggle.classList.remove('rotate');
+        }
+    }, 500);
+
     const isDarkMode = document.body.classList.contains('dark-mode');
     localStorage.setItem('darkMode', isDarkMode);
-    
-    if (!isDarkMode && darkModeToggle) {
-        setTimeout(() => {
-            darkModeToggle.style.transition = 'none';
-            darkModeToggle.classList.remove('active');
-            setTimeout(() => {
-                darkModeToggle.style.transition = '';
-            }, 10);
-        }, 500);
-    }
 }
 
-// Initialize icon based on saved state
+// Inicializa o ícone com base no estado salvo
 window.addEventListener('load', () => {
     const darkModeToggle = document.getElementById("darkModeToggle");
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
@@ -297,26 +295,6 @@ window.addEventListener('load', () => {
     }
 });
 
-function openModal(projectItem) {
-    const modal = document.getElementById('project-modal');
-    if (modal) {
-        const modalTitle = document.getElementById('modal-title');
-        const modalImage = document.getElementById('modal-image');
-        const modalDescription = document.getElementById('modal-description');
-        const modalTechnologies = document.getElementById('modal-technologies');
-
-        if (modalTitle && modalImage && modalDescription && modalTechnologies) {
-            modalTitle.textContent = projectItem.querySelector('h3').textContent;
-            modalImage.src = projectItem.querySelector('img').src;
-            modalDescription.textContent = projectItem.querySelector('p').textContent;
-
-            const technologies = projectItem.dataset.technologies.split(',');
-            modalTechnologies.innerHTML = technologies.map(tech => `<li>${tech.trim()}</li>`).join('');
-
-            modal.style.display = "block";
-        }
-    }
-}
 
 function debounce(func, wait) {
     let timeout;

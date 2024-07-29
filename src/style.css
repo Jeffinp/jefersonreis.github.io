@@ -46,58 +46,60 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
 /* Header */
 header {
     background-color: var(--primary-color);
-    padding: 1rem 0;
+    height: 60px;
     position: fixed;
     width: 100%;
     z-index: 1000;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center; /* Alinhamento vertical dos itens internos */
 }
 
+/* Container */
 header .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Distribui espaço entre itens */
+    align-items: center; /* Alinha itens verticalmente no centro */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%; /* Garante que o contêiner ocupe a largura total */
 }
 
+/* Logo */
 .logo {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--secondary-color);
     transition: all 0.3s ease;
     text-decoration: none;
-    margin-left: 35px;
+    margin-left: 0; /* Remove a margem se necessário */
+    /* Ajuste do alinhamento do logo à esquerda */
 }
-
-.logo:hover {
-    transform: scale(1.05);
-    text-shadow: 0 0 10px rgba(var(--secondary-color-rgb), 0.5);
-}
-
 
 /* Navigation */
 nav ul {
     display: flex;
     list-style-type: none;
-    gap: 2rem;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
 }
 
+/* Estilos dos links de navegação */
 nav ul li a {
     font-family: 'Roboto', sans-serif;
     color: var(--text-color);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
     position: relative;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
 }
 
 nav ul li a::after {
@@ -117,27 +119,28 @@ nav ul li a:hover::after {
 
 /* Language Switch */
 .language-switch {
-    position: fixed;
-    top: 1rem;
+    position: absolute;
+    top: 50%;
     left: 2rem;
+    transform: translateY(-50%);
     z-index: 1001;
     display: flex;
     gap: 10px;
     background-color: var(--dark-color);
     padding: 5px;
     border-radius: 25px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .language-switch a {
     display: flex;
     align-items: center;
-    padding: 8px 12px;
+    padding: 4px 8px;
     background-color: transparent;
     color: var(--text-color);
     text-decoration: none;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     transition: all 0.3s ease;
     gap: 5px;
@@ -145,8 +148,8 @@ nav ul li a:hover::after {
 }
 
 .language-switch img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -252,14 +255,11 @@ nav ul li a:hover::after {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-
 /* Dark Mode Toggle */
 #darkModeToggle {
     position: fixed;
-    top: 1.5rem;
+    top: 0.5rem;
     right: 2rem;
-    background-color: var(--dark-color);
-    color: var(--text-color);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -268,7 +268,6 @@ nav ul li a:hover::after {
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -279,6 +278,21 @@ nav ul li a:hover::after {
     color: var(--dark-color);
     transform: scale(1.1);
 }
+
+/* Adiciona a rotação */
+.rotate {
+    animation: rotate 0.5s ease;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 /* Seção Sobre */
 .about {
