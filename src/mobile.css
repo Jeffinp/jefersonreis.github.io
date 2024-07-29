@@ -2,11 +2,13 @@
 
 /* Para telas de 1280px de largura */
 @media (width: 1280px) {
+    /* Header e Container */
     header .container {
         padding: 0 15px;
         margin-right: 5rem;
     }
 
+    /* Navegação */
     nav ul li {
         margin-left: 1.5rem;
     }
@@ -20,6 +22,7 @@
         font-size: 1rem;
     }
 
+    /* Troca de Idiomas */
     .language-switch {
         top: 0.5rem;
         left: 20px;
@@ -61,17 +64,20 @@
 
 /* Para telas de 1024px de largura */
 @media (width: 1024px) {
+    /* Header e Container */
     header .container {
         padding: 0 10px;
         margin-right: 5rem;
     }
 
+    /* Container e Texto */
     .container p {
         padding-left: 4rem;
         padding-right: 4rem;
         box-sizing: border-box;
     }
 
+    /* Navegação */
     nav ul li {
         margin-left: 1rem;
     }
@@ -85,6 +91,7 @@
         font-size: 0.9rem;
     }
 
+    /* Modo Escuro */
     .toggle-dark-mode {
         top: 10px;
         right: 15px;
@@ -93,6 +100,7 @@
         font-size: 18px;
     }
 
+    /* Troca de Idiomas */
     .language-switch {
         top: 10px;
         left: 15px;
@@ -111,15 +119,18 @@
 
 /* Para telas de 820px de largura (tablets) */
 @media (width: 820px) {
+    /* Header e Container */
     header .container {
         padding: 0 10px;
         margin-right: 5rem;
     }
 
+    /* Navegação */
     nav ul li {
         margin-left: 1rem;
     }
 
+    /* Container e Texto */
     .container p {
         padding-left: 2rem;
         padding-right: 2rem;
@@ -135,6 +146,7 @@
         font-size: 0.9rem;
     }
 
+    /* Modo Escuro */
     .toggle-dark-mode {
         top: 10px;
         right: 15px;
@@ -143,6 +155,7 @@
         font-size: 18px;
     }
 
+    /* Troca de Idiomas */
     .language-switch {
         top: 10px;
         left: 15px;
@@ -173,18 +186,36 @@
     .social-links a {
         margin: 0 0.5rem;
     }
+
+    /* Soft Skills */
+    .soft-skills .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .soft-skill-item {
+        text-align: center;
+        background-color: var(--primary-color);
+        padding: 1rem;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
 }
 
 /* Para telas menores que 768px (dispositivos móveis) */
 @media (max-width: 768px) {
+    /* Header e Container */
     header .container {
         flex-direction: column;
     }
 
+    /* Navegação */
     nav ul {
         margin-top: 1rem;
     }
 
+    /* Container e Texto */
     .container p {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -199,6 +230,7 @@
         margin-left: 0rem;
     }
 
+    /* Hero e Títulos */
     .hero h1 {
         font-size: 1.5rem;
         margin-bottom: 15px;
@@ -209,35 +241,42 @@
     }
 
     /* Ajustes para a timeline em telas menores */
+    .timeline-container {
+        padding: 0;
+    }
+
     .timeline-container::after {
-        left: 31px;
+        left: 20px;
     }
 
     .timeline-item {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-
-    .timeline-item::before {
-        left: 60px;
-        border: medium solid white;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
-    }
-
-    .timeline-item::after {
-        left: 15px;
-    }
-
-    .timeline-item:nth-child(even)::after {
-        left: 16px;
+        padding: 1rem;
+        transform: none;
+        position: relative;
     }
 
     .timeline-item:nth-child(even) {
-        left: 0%;
+        left: 0;
+        transform: none;
     }
 
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        transform: none;
+    }
+
+    .timeline-item:nth-child(even)::after {
+        right: auto;
+        left: -10px;
+    }
+
+    .timeline-content {
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Modo Escuro */
     .toggle-dark-mode {
         top: 10px;
         right: 10px;
@@ -246,6 +285,7 @@
         font-size: 16px;
     }
 
+    /* Troca de Idiomas */
     .language-switch {
         top: 10px;
         left: 10px;
@@ -340,6 +380,7 @@
 
 /* Para telas muito pequenas (smartphones menores) */
 @media (max-width: 480px) {
+    /* Ajustes na Seção 'About' */
     .about {
         padding: 20px 0;
     }
@@ -351,6 +392,20 @@
     .about p {
         font-size: 0.9em;
         margin-bottom: 10px;
+        text-align: justify;
+    }
+    
+    .timeline-container::after {
+        left: 10px;
+    }
+
+    .timeline-item {
+        padding: 0.75rem;
+    }
+
+    .timeline-content {
+        padding: 0.75rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -361,16 +416,19 @@
         background: #fff;
     }
 
+    /* Elementos a não serem exibidos na impressão */
     header, footer, #scrollToTopBtn, .toggle-dark-mode {
         display: none;
     }
 
+    /* Ajustes na Main */
     main {
         width: 100%;
         margin: 0;
         padding: 0;
     }
 
+    /* Quebras de Página */
     h1, h2, h3 {
         page-break-after: avoid;
     }
