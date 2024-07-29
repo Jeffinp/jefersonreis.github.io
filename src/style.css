@@ -190,13 +190,37 @@ section h2 {
     text-align: center;
     margin-bottom: 1rem;
 }
-
 /* Seção de Habilidades */
+.skills {
+    padding: 2rem 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.skills h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.technical-skills,
+.soft-skills {
+    flex: 1;
+    min-width: 300px; /* Ajusta a largura mínima das seções */
+}
+
 .skills-grid {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens se movam para a linha abaixo quando necessário */
+    flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center; /* Alinha os itens ao centro */
+    justify-content: center;
 }
 
 .skill-item {
@@ -204,19 +228,21 @@ section h2 {
     background-color: var(--primary-color);
     padding: 1rem;
     border-radius: 8px;
-    transition: transform 0.3s ease;
-    flex: 1 1 150px; /* Ajusta o crescimento e a largura mínima dos itens */
-    max-width: 200px; /* Define um tamanho máximo para os itens */
+    transition: transform 0.3s, background-color 0.3s;
+    flex: 1 1 150px;
+    max-width: 200px;
 }
 
 .skill-item:hover {
     transform: translateY(-5px);
 }
 
+/* Animação de cor ao passar o mouse */
 .skill-item i {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--secondary-color);
+    transition: color 0.3s ease;
 }
 
 .skill-icon {
@@ -238,11 +264,6 @@ section h2 {
     height: 100%;
     background-color: var(--secondary-color);
     transition: width 1s ease-in-out;
-}
-
-/* mongodb */
-.a, .b { 
-    fill: var(--secondary-color);
 }
 
 .skill-level-100 { width: 100%; }
@@ -269,42 +290,35 @@ section h2 {
 .webpack { color: #8DD6F9; }
 .angular { color: #DD0031; }
 
-/* Cores das novas tecnologias */
-.cplusplus { color: #00599C; } /* Escolha uma cor apropriada para C++ */
-.csharp { color: #6C3438; }  /* Escolha uma cor apropriada para C# */
+/* mongodb */
+.a, .b { 
+    fill: var(--secondary-color);
+}
 
-/* Efeito hover nas tecnologias */
-.skill-item:hover .html5 { color: #FF8C69; transition: 0.3s; }
-.skill-item:hover .css3 { color: #6C8CD5; transition: 0.3s; }
-.skill-item:hover .javascript { color: #FCEB69; transition: 0.3s; }
-.skill-item:hover .react { color: #7DDFFF; transition: 0.3s; }
-.skill-item:hover .php { color: #A5ABCF; transition: 0.3s; }
-.skill-item:hover .vuejs { color: #7EE0B2; transition: 0.3s; }
-.skill-item:hover .bootstrap { color: #9B7ED8; transition: 0.3s; }
-.skill-item:hover .nodejs { color: #5FCC5F; transition: 0.3s; }
-.skill-item:hover .dom { color: #BB8FCE; transition: 0.3s; }
-.skill-item:hover .jquery { color: #4A8AD4; transition: 0.3s; }
-.skill-item:hover .mysql { color: #72A1C5; transition: 0.3s; }
-.skill-item:hover .postgres { color: #4F8BB2; transition: 0.3s; }
-.skill-item:hover .mongodb { color: #71B98A; transition: 0.3s; }
-.skill-item:hover .gulp { color: #E6756A; transition: 0.3s; }
-.skill-item:hover .webpack { color: #B0E1F9; transition: 0.3s; }
-.skill-item:hover .angular { color: #E0554B; transition: 0.3s; }
-
-/* Efeito hover nas novas tecnologias */
-.skill-item:hover .cplusplus { color: #007ACC; transition: 0.3s; } /* Escolha um tom para C++ */
-.skill-item:hover .csharp { color: #E44D26; transition: 0.3s; } /* Escolha um tom para C# */
-
+.skill-item:hover .html5 { color: #FF8C69; }
+.skill-item:hover .css3 { color: #6C8CD5; }
+.skill-item:hover .javascript { color: #FCEB69; }
+.skill-item:hover .react { color: #7DDFFF; }
+.skill-item:hover .php { color: #A5ABCF; }
+.skill-item:hover .vuejs { color: #7EE0B2; }
+.skill-item:hover .bootstrap { color: #9B7ED8; }
+.skill-item:hover .nodejs { color: #5FCC5F; }
+.skill-item:hover .dom { color: #BB8FCE; }
+.skill-item:hover .jquery { color: #4A8AD4; }
+.skill-item:hover .mysql { color: #72A1C5; }
+.skill-item:hover .postgres { color: #4F8BB2; }
+.skill-item:hover .mongodb { color: #71B98A; }
+.skill-item:hover .gulp { color: #E6756A; }
+.skill-item:hover .webpack { color: #B0E1F9; }
+.skill-item:hover .angular { color: #E0554B; }
 
 .skill-item:hover .webpack-icon path,
 .skill-item:hover .icon-path {
     fill: #47A248; 
-    transition: 0.3s;
 }
 
 .skill-item:hover .webpack-icon path {
     fill: #B0E1F9; 
-    transition: 0.3s;
 }
 
 .icon-path {
@@ -313,36 +327,57 @@ section h2 {
 
 .skill-item:hover .icon-path.webpack {
     fill: #8DD6F9; 
-    transition: 0.3s;
 }
 
-/* Soft Skills */
 .soft-skills {
-    text-align: center;
-    margin-top: 3rem;
+    padding: 2rem 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-.soft-skills h3 {
-    color: var(--text-color);
+.soft-skills h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
-.soft-skills ul {
-    list-style-type: none;
-    padding: 0;
+.soft-skills .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
-.soft-skills li {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--secondary-color);
+.soft-skill-item {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
     transition: transform 0.3s ease;
+    flex: 1 1 200px; /* Ajusta a largura mínima dos itens */
+    max-width: 250px;
 }
 
-.soft-skills li:hover {
-    transform: scale(1.1);
+.soft-skill-item:hover {
+    transform: translateY(-5px);
 }
+
+.soft-skill-item i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.soft-skill-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.soft-skill-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
 
 /* Seção de Projetos */
 .project-grid {
