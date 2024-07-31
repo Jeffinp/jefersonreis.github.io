@@ -396,12 +396,17 @@ document.addEventListener('DOMContentLoaded', function() {
             readMoreButton.addEventListener('click', function() {
                 if (paragraph.classList.contains('expanded')) {
                     paragraph.classList.remove('expanded');
+                    paragraph.classList.add('collapsed');
                     readMoreButton.textContent = lang === 'en' ? 'read more' : 'ler mais';
                 } else {
+                    paragraph.classList.remove('collapsed');
                     paragraph.classList.add('expanded');
                     readMoreButton.textContent = lang === 'en' ? 'show less' : 'mostrar menos';
                 }
             });
+
+            // Inicialmente define o parágrafo como colapsado
+            paragraph.classList.add('collapsed');
 
             project.appendChild(readMoreButton);
         }

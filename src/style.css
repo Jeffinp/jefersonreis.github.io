@@ -748,6 +748,7 @@ section h2 {
 .project-4 { background-image: url('./image/site.png'); }
 .project-5 { background-image: url('./image/bookmark.png'); }
 .project-6 {background-image: url('./image/acsendoflex.png');}
+.project-7 {background-image: url('./image/Zomato.png');}
 
 .project-item.training-site::after,
 .project-item.cliente-site::after {
@@ -780,6 +781,7 @@ section h2 {
     transform: translateY(0);
 }
 
+
 /* Estilo para o botão "ler mais" */
 .read-more {
     color: var(--secondary-color);
@@ -791,19 +793,25 @@ section h2 {
 
 /* Estilo para o parágrafo truncado */
 .project-info p {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+    display: block;
+    max-height: 4.8em; /* Ajuste para o número de linhas visíveis */
     overflow: hidden;
-    text-overflow: ellipsis;
+    opacity: 1;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 /* Estilo para o parágrafo expandido */
 .project-info p.expanded {
-    display: block;
-    -webkit-line-clamp: unset;
-    overflow: visible;
+    max-height: 100em; /* Valor alto para garantir que o parágrafo expanda totalmente */
+    opacity: 1;
 }
+
+/* Estilo para o parágrafo ao fechar */
+.project-info p.collapsed {
+    max-height: 4.8em; /* Ajuste para o número de linhas visíveis */
+    opacity: 0.6;
+}
+
 
 
 /* Seção Timeline */
