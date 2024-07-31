@@ -388,15 +388,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lines > 4) {
             const readMoreButton = document.createElement('span');
             readMoreButton.classList.add('read-more');
-            readMoreButton.textContent = 'ler mais';
+            
+            // Define o texto do botão baseado no idioma da página
+            const lang = document.documentElement.lang || 'pt';
+            readMoreButton.textContent = lang === 'en' ? 'read more' : 'ler mais';
 
             readMoreButton.addEventListener('click', function() {
                 if (paragraph.classList.contains('expanded')) {
                     paragraph.classList.remove('expanded');
-                    readMoreButton.textContent = 'ler mais';
+                    readMoreButton.textContent = lang === 'en' ? 'read more' : 'ler mais';
                 } else {
                     paragraph.classList.add('expanded');
-                    readMoreButton.textContent = 'mostrar menos';
+                    readMoreButton.textContent = lang === 'en' ? 'show less' : 'mostrar menos';
                 }
             });
 
