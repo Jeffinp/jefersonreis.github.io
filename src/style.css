@@ -780,6 +780,32 @@ section h2 {
     transform: translateY(0);
 }
 
+/* Estilo para o botão "ler mais" */
+.read-more {
+    color: var(--secondary-color);
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Estilo para o parágrafo truncado */
+.project-info p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Estilo para o parágrafo expandido */
+.project-info p.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+
 /* Seção Timeline */
 .timeline {
     padding: 2rem 0;

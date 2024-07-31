@@ -374,3 +374,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const projects = document.querySelectorAll('.project-info');
+
+    projects.forEach(project => {
+        const paragraph = project.querySelector('p');
+
+        // Verifica se o parágrafo tem mais de 4 linhas
+        const lineHeight = parseFloat(getComputedStyle(paragraph).lineHeight);
+        const lines = paragraph.scrollHeight / lineHeight;
+
+        if (lines > 4) {
+            const readMoreButton = document.createElement('span');
+            readMoreButton.classList.add('read-more');
+            readMoreButton.textContent = 'ler mais';
+
+            readMoreButton.addEventListener('click', function() {
+                if (paragraph.classList.contains('expanded')) {
+                    paragraph.classList.remove('expanded');
+                    readMoreButton.textContent = 'ler mais';
+                } else {
+                    paragraph.classList.add('expanded');
+                    readMoreButton.textContent = 'mostrar menos';
+                }
+            });
+
+            project.appendChild(readMoreButton);
+        }
+    });
+});
