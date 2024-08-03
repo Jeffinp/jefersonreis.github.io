@@ -491,11 +491,6 @@ section h2 {
 .webpack { color: #8DD6F9; }
 .angular { color: #DD0031; }
 
-/* mongodb */
-.a, .b { 
-    fill: var(--secondary-color);
-}
-
 .skill-item:hover .html5 { color: #FF8C69; }
 .skill-item:hover .css3 { color: #6C8CD5; }
 .skill-item:hover .javascript { color: #FCEB69; }
@@ -513,22 +508,6 @@ section h2 {
 .skill-item:hover .webpack { color: #B0E1F9; }
 .skill-item:hover .angular { color: #E0554B; }
 
-.skill-item:hover .webpack-icon path,
-.skill-item:hover .icon-path {
-    transition: fill 0.3s ease;
-}
-
-.skill-item:hover .webpack-icon path {
-    fill: #B0E1F9; 
-}
-
-.icon-path {
-    fill: var(--secondary-color); 
-}
-
-.skill-item:hover .icon-path.webpack {
-    fill: #8DD6F9; 
-}
 /* Seção de Soft Skills */
 .soft-skills {
     padding: 4rem 1rem;
@@ -781,7 +760,6 @@ section h2 {
     transform: translateY(0);
 }
 
-
 /* Estilo para o botão "ler mais" */
 .read-more {
     color: var(--secondary-color);
@@ -794,7 +772,7 @@ section h2 {
 /* Estilo para o parágrafo truncado */
 .project-info p {
     display: block;
-    max-height: 4.8em; /* Ajuste para o número de linhas visíveis */
+    max-height: 4.8em;
     overflow: hidden;
     opacity: 1;
     transition: max-height 0.5s ease, opacity 0.5s ease;
@@ -802,19 +780,17 @@ section h2 {
 
 /* Estilo para o parágrafo expandido */
 .project-info p.expanded {
-    max-height: 100em; /* Valor alto para garantir que o parágrafo expanda totalmente */
+    max-height: 100em; /* Valor alto para que o parágrafo se expanda totalmente */
     opacity: 1;
 }
 
 /* Estilo para o parágrafo ao fechar */
 .project-info p.collapsed {
-    max-height: 4.8em; /* Ajuste para o número de linhas visíveis */
+    max-height: 4.8em;
     opacity: 0.6;
 }
 
-
-
-/* Seção Timeline */
+/* Seção Timeline ------------------------ */
 .timeline {
     padding: 2rem 0;
     background-color: var(--background-color);
@@ -891,8 +867,6 @@ section h2 {
     background-color: var(--hover-color);
 }
 
-
-
 /* Seção de Contato */
 form {
     display: flex;
@@ -960,26 +934,41 @@ footer {
     align-items: center;
     background-color: var(--primary-color);
     padding: 1rem;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 50px 50px 0; /* Arredondamento mais acentuado */
     z-index: 1000;
+    list-style-type: none; /* Remove os pontos de tópico */
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
+}
+
+.social-links li {
+    margin: 0; /* Remove a margem dos itens da lista */
 }
 
 .social-links a {
     color: var(--text-color);
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-    transition: color 0.3s ease, transform 0.3s ease;
-    outline: none; 
+    font-size: 1.5rem; /* Tamanho moderado dos ícones */
+    margin: 0.5rem 0; /* Espaçamento uniforme entre ícones */
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none; /* Remove o sublinhado dos links */
+    border-radius: 50%; /* Torna os links circulares */
+    background-color: rgba(255, 255, 255, 0.1); /* Cor de fundo leve e moderna */
+    width: 3rem; /* Largura uniforme para ícones */
+    height: 3rem; /* Altura uniforme para ícones */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra leve para os ícones */
 }
 
-.social-links a:hover {
-    color: var(--secondary-color);
-    transform: translateY(-3px);
-}
-
+.social-links a:hover,
 .social-links a:focus {
-    outline: none; 
+    color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0.2); /* Destaque ao passar o mouse */
+    transform: scale(1.1); /* Leve aumento ao passar o mouse */
 }
+
 
 /* Modal */
 .modal {
@@ -1436,3 +1425,11 @@ textarea {
     background-color: var(--secondary-color);
     color: #000;
 }
+
+aside {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0.5;
+}
+

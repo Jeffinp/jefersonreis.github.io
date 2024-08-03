@@ -98,6 +98,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
     }
 
     .social-links a {
@@ -132,18 +133,6 @@
 
 /* Para telas de 820px de largura (tablets) */
 @media (width: 820px) {
-
-       /* Social Links - Mobile */
-       .social-links {
-        position: static;
-        transform: none;
-        flex-direction: row;
-        background-color: transparent;
-        padding: 0;
-        border-radius: 0;
-        justify-content: center;
-        margin-top: 1rem;
-    }
 
     .social-links a {
         margin: 0 0.5rem;
@@ -203,6 +192,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
     }
 
     .social-links a {
@@ -382,8 +372,8 @@
         transform: translateY(0);
     }
 
-       /* Social Links - Mobile */
-       .social-links {
+    /* Social Links - Mobile */
+    .social-links {
         position: static;
         transform: none;
         flex-direction: row;
@@ -392,6 +382,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
     }
 
     .social-links a {
@@ -408,8 +399,8 @@
         padding: 20px 0;
     }
 
-       /* Social Links - Mobile */
-       .social-links {
+    /* Social Links - Mobile */
+    .social-links {
         position: static;
         transform: none;
         flex-direction: row;
@@ -418,6 +409,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
     }
 
     .social-links a {

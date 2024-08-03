@@ -7,43 +7,41 @@
     <meta name="description" content="Desenvolvedor Full-Stack apaixonado por tecnologia. Confira meu portfólio de projetos e habilidades.">
     <meta name="keywords" content="Desenvolvedor, Full-Stack, Tecnologia, Programação, Projetos, Habilidades">
     <meta property="og:title" content="Jeferson Reis - Desenvolvedor Full-Stack">
-    <meta property="og:description" content="Sou um Desenvolvedor Full-Stack com paixão por tecnologia e inovação. Explore meu portfólio para conhecer meus projetos mais recentes e minhas habilidades técnicas, que vão desde desenvolvimento web até soluções avançadas. Veja como minha experiência e expertise podem agregar valor ao seu próximo projeto." />
+    <meta property="og:description" content="Sou um Desenvolvedor Full-Stack com paixão por tecnologia e inovação. Explore meu portfólio para conhecer meus projetos mais recentes e minhas habilidades técnicas, que vão desde desenvolvimento web até soluções avançadas. Veja como minha experiência e expertise podem agregar valor ao seu próximo projeto.">
     <meta property="og:image" content="./src/image/Linkedin-foto.webp">
     <meta property="og:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
     <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="./src/mobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
+    <base href="/">
 </head>
 <body>
     <header>
         <div class="language-switch">
-            <a href="index.html" class="active" aria-label="Portuguese">
+            <a href="index.html" class="active" aria-label="Português">
                 <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="">PT
             </a>
-            <a href="index-en.html" aria-label="English">
+            <a href="index-en.html" aria-label="Inglês">
                 <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="">EN
             </a>
         </div>
         <div class="container">
-            <h1 class="logo" aria-label="Logo Jeferson Reis">JR</h1>
+            <h1 class="logo" aria-label="Logo de Jeferson Reis">JR</h1>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#habilidades">Habilidades</a></li>
                     <li><a href="#projetos">Projetos</a></li>
-                    <!-- <li><a href="#certificados">Certificados</a></li> -->
                     <li><a href="#timeline">Timeline</a></li>
                 </ul>
-            
-                <div class="menu-toggle" aria-label="Toggle menu">
+                <div class="menu-toggle" aria-label="Abrir menu">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
             </nav>
-            
         </div>
     </header>
 
@@ -53,381 +51,321 @@
         <section id="home" class="hero parallax" aria-label="Home">
             <div id="particles-js"></div>
             <div class="container">
-                    <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
-                    <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                    <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack</p>
-                    <a href="#projetos" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver Projetos</a>
-                    
-                    <!-- Container para fogos de artifício -->
-                    <div id="fireworks-container" style="position: relative; display: none; z-index: 2;">
-                        <!-- Elementos de fogos de artifício -->
-                        <div class="firework"></div>
-                        <div class="firework"></div>
-                        <div class="firework"></div>
-                        <div class="firework"></div>
-                        <div class="firework"></div>
-                    </div>
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
+                <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
+                <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack</p>
+                <a href="#projetos" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver Projetos</a>
+                <div id="fireworks-container" style="position: relative; display: none; z-index: 2;">
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                </div>
             </div>
         </section>
-        
-        <!-- Elemento de áudio para o som dos fogos de artifício -->
+
         <audio id="firework-sound" src="./src/sounds/firework-explosion.mp3" preload="auto"></audio>
-        
-        <!-- Easter Egg -->
         <div id="easter-egg" style="display: none; text-align: center; margin-top: 20px;">
             <p>🎉 Parabéns! Você encontrou o easter egg!</p>
             <img src="https://c.tenor.com/3cLzjlrE8UgAAAAC/tenor.gif" alt="Funny GIF" width="200">
         </div>      
 
-        <!-- SOBRE MIM -->
-        <section id="sobre" class="about" aria-label="Sobre Mim">
+        <section id="sobre" class="about" aria-labelledby="sobreTitle">
             <div class="container">
-                <h2 data-aos="fade-up">Sobre Mim</h2>
+                <h2 id="sobreTitle">Sobre Mim</h2>
                 <p>Olá! Sou Jeferson Reis, um apaixonado por tecnologia de 18 anos, natural de Camaçari, Bahia, Brasil. Meu interesse por computadores começou cedo, com apenas 3 anos, quando tive meu primeiro contato com a tecnologia. Desde então, mergulhei no mundo da informática, inicialmente como técnico de informática, onde aprendi a otimizar o Windows e a reparar hardware de computadores, impressoras, consoles e celulares.</p>
-
                 <p>Minha verdadeira paixão sempre foi a programação. Iniciei minha jornada desenvolvendo jogos em C#, o que despertou meu desejo de aprofundar meus conhecimentos na área. Atualmente, sou um desenvolvedor Full-Stack, especializado tanto em Front-end quanto em Back-end, e estou sempre em busca de novas oportunidades para aprender e evoluir.</p>
-
                 <p>Possuo uma ampla gama de habilidades em tecnologias como HTML5, CSS3, JavaScript, React, PHP, Vue.js, Bootstrap, Node.js, DOM, jQuery, MySQL, PostgreSQL, MongoDB, Gulp, Webpack e Angular. Também sou especialista em UX Design, com foco em criar experiências de usuário envolventes e intuitivas, e tenho experiência na integração de sistemas.</p>
-
                 <p>Além das minhas habilidades em desenvolvimento, também trabalhei como designer gráfico, criando banners e logotipos para gráficas, empresas e freelancers. Minha experiência como artista digital me permitiu produzir ilustrações para diversos clientes, combinando criatividade e técnica.</p>
             </div>
         </section>
-    
-        
-        <!-- HABILIDADES -->
+
         <section id="habilidades" class="skills" aria-label="Habilidades">
-                <div class="container">
-                    <h2 data-aos="fade-up">Habilidades</h2>
-                    <div class="skills-container">
-                        <div class="technical-skills">
-                            <h3 class="HabTec" data-aos="fade-up">Habilidades Técnicas</h3>
-                            <div class="skills-grid">
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
-                                    <i class="fab fa-html5 html5"></i>
-                                    <h4>HTML</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-100"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
-                                    <i class="fab fa-css3-alt css3"></i>
-                                    <h4>CSS</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-100"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
-                                    <i class="fab fa-js javascript"></i>
-                                    <h4>JavaScript</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-100"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
-                                    <i class="fab fa-react react"></i>
-                                    <h4>React</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-95"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="600">
-                                    <i class="fab fa-php php"></i>
-                                    <h4>PHP</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-85"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="700">
-                                    <i class="fab fa-vuejs vuejs"></i>
-                                    <h4>Vue.js</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-85"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="800">
-                                    <i class="fab fa-bootstrap bootstrap"></i>
-                                    <h4>Bootstrap</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-80"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="900">
-                                    <i class="fab fa-node-js nodejs"></i>
-                                    <h4>Node.js</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1000">
-                                    <i class="fas fa-code dom"></i>
-                                    <h4>DOM</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1100">
-                                    <i class="fab fa-js-square jquery"></i>
-                                    <h4>jQuery</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1200">
-                                    <i class="fas fa-database mysql"></i>
-                                    <h4>MySQL</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1300">
-                                    <i class="fas fa-database postgres"></i>
-                                    <h4>PostgreSQL</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 598.88 1333.33" width="3rem" height="3rem" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" class="icon">
-                                        <g fill-rule="nonzero">
-                                            <path class="icon-path" d="M295.27 3.65l35.58 66.83c8 12.33 16.67 23.25 26.87 33.42 29.79 29.79 58.08 60.99 83.5 94.41 60.28 79.16 100.95 167.07 129.98 262.14 17.42 58.08 26.87 117.66 27.58 177.9 2.91 180.11-58.83 334.76-183.31 463.28-20.33 20.33-42.08 39.16-65.41 55.91-12.33 0-18.17-9.46-23.25-18.16-9.45-15.96-15.25-34.17-18.16-52.29-4.38-21.8-7.25-43.58-5.83-66.08v-10.16c-1-2.17-11.87-1002.07-7.54-1007.19v.01z"/>
-                                            <path class="icon-path" d="M295.27 1.43c-1.46-2.91-2.91-.71-4.38.71.71 14.58-4.38 27.58-12.33 40-8.75 12.33-20.33 21.8-31.96 31.96-64.57 55.91-115.4 123.45-156.11 198.98C36.33 374.74 8.41 483.68.5 598.38c-3.62 41.37 13.09 187.36 26.13 229.48 35.58 111.82 99.49 205.52 182.27 286.84 20.33 19.58 42.08 37.74 64.58 55.2 6.54 0 7.25-5.83 8.74-10.17 2.85-9.28 5.06-18.76 6.54-28.34l14.58-108.9L295.26 1.43z"/>
-                                            <path class="icon-path" d="M330.85 1201.77c1.46-16.67 9.46-30.5 18.17-44.29-8.75-3.62-15.25-10.83-20.33-18.87-4.38-7.25-8-15.96-10.83-23.96-10.17-30.5-12.33-62.5-15.25-93.66v-18.87c-3.62 2.91-4.38 27.58-4.38 31.25-2.03 32.85-6.54 65.8-13.08 98.05-2.17 13.08-3.62 26.12-11.67 37.74 0 1.46 0 2.91.71 5.09 13.08 38.5 16.67 77.7 18.87 117.66v14.58c0 17.41-.71 13.74 13.75 19.58 5.83 2.17 12.33 2.91 18.16 7.25 4.38 0 5.09-3.62 5.09-6.54l-2.17-23.96v-66.83c-.71-11.67 1.46-23.25 2.91-34.16l.05-.06z"/>
-                                        </g>
-                                    </svg>
-                                    <h4>MongoDB</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1500">
-                                    <i class="fab fa-gulp gulp"></i>
-                                    <h4>Gulp</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1600">
-                                    <svg class="webpack-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.8 122.88" width="3rem" height="3rem">
-                                        <title>webpack</title>
-                                        <path class="a" d="M107.39,94.71l-49.8,28.17V100.94l31-17.07L107.39,94.7Zm3.41-3.09V32.71L92.58,43.24V81.11L110.8,91.62ZM3.41,94.71l49.8,28.17V100.94l-31-17.07L3.41,94.71ZM0,91.62V32.71L18.22,43.24V81.11L0,91.62ZM2.14,28.89,53.21,0V21.2l-32.73,18-.26.14L2.14,28.89Zm106.52,0L57.59,0V21.2l32.73,18,.26.15,18.08-10.45Z"/>
-                                        <path class="b" d="M53.21,96,22.59,79.1V45.75L53.21,63.43V96Zm4.38,0L88.21,79.12V45.75L57.59,63.43V96Zm-32.93-54L55.4,25,86.14,41.9,55.4,59.64,24.66,41.9Z"/>
-                                    </svg>
-                                    <h4>Webpack</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1700">
-                                    <i class="fab fa-angular angular"></i>
-                                    <h4>Angular</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-90"></div>
-                                    </div>
-                                </div>
-                                
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1800">
-                                    <i class="fas fa-pencil-ruler"></i> 
-                                    <h4>UX Design</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-85"></div>
-                                    </div>
-                                </div>                            
-
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="1900">
-                                    <img src="https://img.icons8.com/?size=100&id=TpULddJc4gTh&format=png&color=000000" alt="C++ Icon" class="skill-icon cplusplus-icon">
-                                    <h4>C++</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-80"></div>
-                                    </div>
-                                </div>
-                                
-                                <div class="skill-item" data-aos="fade-up" data-aos-delay="2000">
-                                    <img src="https://img.icons8.com/?size=100&id=45490&format=png&color=000000" alt="C# Icon" class="skill-icon csharp-icon">
-                                    <h4>C#</h4>
-                                    <div class="skill-bar">
-                                        <div class="skill-level skill-level-75"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-
-        <!-- SOFT SKILLS -->
-        <section class="soft-skills">
             <div class="container">
-                <h2>Soft Skills</h2>
+                <h2 data-aos="fade-up">Habilidades</h2>
                 <div class="skills-container">
-                    <div class="soft-skill-item">
-                        <i class="fas fa-people-arrows"></i>
-                        <h3>Comunicação</h3>
-                        <p>Capacidade de comunicar ideias de forma clara e eficaz.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-users"></i>
-                        <h3>Trabalho em Equipe</h3>
-                        <p>Colaboração eficaz com membros da equipe para atingir objetivos comuns.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Resolução de Problemas</h3>
-                        <p>Habilidade para identificar e resolver desafios de forma criativa.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Adaptabilidade</h3>
-                        <p>Habilidade para se ajustar rapidamente a novas situações e desafios.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-comments"></i>
-                        <h3>Feedback Construtivo</h3>
-                        <p>Habilidade de dar e receber feedback de maneira positiva e construtiva.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-user-check"></i>
-                        <h3>Autogerenciamento</h3>
-                        <p>Capacidade de trabalhar de forma independente e gerenciar a própria carga de trabalho.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-clock"></i>
-                        <h3>Gestão do Tempo</h3>
-                        <p>Capacidade de gerenciar tarefas e cumprir prazos de forma eficiente.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <h3>Proatividade</h3>
-                        <p>Capacidade de antecipar necessidades e agir de forma independente.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-brain"></i>
-                        <h3>Pensamento Crítico</h3>
-                        <p>Habilidade para analisar problemas de forma lógica e tomar decisões informadas.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-bullhorn"></i>
-                        <h3>Empatia</h3>
-                        <p>Capacidade de entender e compartilhar os sentimentos de outras pessoas.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Criatividade</h3>
-                        <p>Habilidade para pensar fora da caixa e gerar novas ideias.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Orientação a Resultados</h3>
-                        <p>Foco em alcançar metas e obter resultados tangíveis.</p>
-                    </div>
-                    <div class="soft-skill-item">
-                        <i class="fas fa-sitemap"></i>
-                        <h3>Planejamento</h3>
-                        <p>Capacidade de criar estratégias e planos para atingir objetivos.</p>
+                    <div class="technical-skills">
+                        <h3 class="HabTec" data-aos="fade-up">Habilidades Técnicas</h3>
+                        <div class="skills-grid">
+                            <!-- Skill Item HTML -->
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                                <i class="fab fa-html5 html5" aria-hidden="true"></i>
+                                <h4>HTML</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-100" aria-label="Nível de habilidade em HTML: 100%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                                <i class="fab fa-css3-alt css3" aria-hidden="true"></i>
+                                <h4>CSS</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-100" aria-label="Nível de habilidade em CSS: 100%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                                <i class="fab fa-js javascript" aria-hidden="true"></i>
+                                <h4>JavaScript</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-100" aria-label="Nível de habilidade em JavaScript: 100%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="500">
+                                <i class="fab fa-react react" aria-hidden="true"></i>
+                                <h4>React</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-95" aria-label="Nível de habilidade em React: 95%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="600">
+                                <i class="fab fa-php php" aria-hidden="true"></i>
+                                <h4>PHP</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-85" aria-label="Nível de habilidade em PHP: 85%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="700">
+                                <i class="fab fa-vuejs vuejs" aria-hidden="true"></i>
+                                <h4>Vue.js</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-85" aria-label="Nível de habilidade em Vue.js: 85%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="800">
+                                <i class="fab fa-bootstrap bootstrap" aria-hidden="true"></i>
+                                <h4>Bootstrap</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-80" aria-label="Nível de habilidade em Bootstrap: 80%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="900">
+                                <i class="fab fa-node-js nodejs" aria-hidden="true"></i>
+                                <h4>Node.js</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em Node.js: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1000">
+                                <i class="fas fa-code dom" aria-hidden="true"></i>
+                                <h4>DOM</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em DOM: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1100">
+                                <i class="fab fa-js-square jquery" aria-hidden="true"></i>
+                                <h4>jQuery</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em jQuery: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1200">
+                                <i class="fas fa-database mysql" aria-hidden="true"></i>
+                                <h4>MySQL</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em MySQL: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1300">
+                                <i class="fas fa-database postgres" aria-hidden="true"></i>
+                                <h4>PostgreSQL</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em PostgreSQL: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1500">
+                                <i class="fab fa-gulp gulp" aria-hidden="true"></i>
+                                <h4>Gulp</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em Gulp: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1600">
+                                <img src="https://img.icons8.com/?size=100&id=QjbHx7WUskg1&format=png&color=000000" alt="Ícone do Webpack" class="skill-icon webpack-icon">
+                                <h4>Webpack</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em Webpack: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1400">
+                                <img src="https://img.icons8.com/?size=100&id=8rKdRqZFLurS&format=png&color=000000" alt="Ícone do MongoDB" class="skill-icon mongodb-icon">
+                                <h4>MongoDB</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em MongoDB: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1700">
+                                <i class="fab fa-angular angular" aria-hidden="true"></i>
+                                <h4>Angular</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-90" aria-label="Nível de habilidade em Angular: 90%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1800">
+                                <i class="fas fa-pencil-ruler" aria-hidden="true"></i>
+                                <h4>UX Design</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-85" aria-label="Nível de habilidade em UX Design: 85%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="1900">
+                                <img src="https://img.icons8.com/?size=100&id=TpULddJc4gTh&format=png&color=000000" alt="Ícone do C++" class="skill-icon cplusplus-icon">
+                                <h4>C++</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-80" aria-label="Nível de habilidade em C++: 80%"></div>
+                                </div>
+                            </article>
+                            <article class="skill-item" data-aos="fade-up" data-aos-delay="2000">
+                                <img src="https://img.icons8.com/?size=100&id=45490&format=png&color=000000" alt="Ícone do C#" class="skill-icon csharp-icon">
+                                <h4>C#</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level skill-level-75" aria-label="Nível de habilidade em C#: 75%"></div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- PROJETOS -->
-        <section id="projetos" class="projects" aria-label="Projetos">
+        
+        
+        <section class="soft-skills" aria-labelledby="softSkillsTitle">
             <div class="container">
-                <h2 data-aos="fade-up">Projetos</h2>
-                <div class="project-grid">
-                    <!-- Projeto de Cliente -->
-                    <div class="project-item cliente-site" data-aos="fade-up" data-aos-delay="200" data-type="Projeto Contratado">
-                        <div class="project-image project-2" aria-label="Project Curso de Desenho"></div>
+                <h2 id="softSkillsTitle">Soft Skills</h2>
+                <ul class="skills-container">
+                    <li class="soft-skill-item">
+                        <i class="fas fa-people-arrows" aria-hidden="true"></i>
+                        <h3>Comunicação</h3>
+                        <p>Capacidade de comunicar ideias de forma clara e eficaz.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <h3>Trabalho em Equipe</h3>
+                        <p>Colaboração eficaz com membros da equipe para atingir objetivos comuns.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                        <h3>Resolução de Problemas</h3>
+                        <p>Habilidade para identificar e resolver desafios de forma criativa.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-cogs" aria-hidden="true"></i>
+                        <h3>Adaptabilidade</h3>
+                        <p>Habilidade para se ajustar rapidamente a novas situações e desafios.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-comments" aria-hidden="true"></i>
+                        <h3>Feedback Construtivo</h3>
+                        <p>Habilidade de dar e receber feedback de maneira positiva e construtiva.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-user-check" aria-hidden="true"></i>
+                        <h3>Autogerenciamento</h3>
+                        <p>Capacidade de trabalhar de forma independente e gerenciar a própria carga de trabalho.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <h3>Gestão do Tempo</h3>
+                        <p>Capacidade de gerenciar tarefas e cumprir prazos de forma eficiente.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+                        <h3>Proatividade</h3>
+                        <p>Capacidade de antecipar necessidades e agir de forma independente.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <h3>Pensamento Crítico</h3>
+                        <p>Habilidade para analisar problemas de forma lógica e tomar decisões informadas.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                        <h3>Empatia</h3>
+                        <p>Capacidade de entender e compartilhar os sentimentos de outras pessoas.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                        <h3>Criatividade</h3>
+                        <p>Habilidade para pensar fora da caixa e gerar novas ideias.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        <h3>Orientação a Resultados</h3>
+                        <p>Foco em alcançar metas e obter resultados tangíveis.</p>
+                    </li>
+                    <li class="soft-skill-item">
+                        <i class="fas fa-sitemap" aria-hidden="true"></i>
+                        <h3>Planejamento</h3>
+                        <p>Capacidade de criar estratégias e planos para atingir objetivos.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>        
+
+        <section id="projetos" class="projects" aria-labelledby="projetosTitle">
+            <div class="container">
+                <h2 id="projetosTitle">Projetos</h2>
+                <ul class="project-grid">
+                    <li class="project-item cliente-site" data-aos="fade-up" data-aos-delay="200" data-type="Projeto Contratado">
+                        <div class="project-image project-2" aria-label="Imagem do projeto Curso de Desenho"></div>
                         <div class="project-info">
                             <h3>Curso de Desenho</h3>
                             <p>Um site que criei utilizando HTML, CSS e JavaScript para um cliente que é professor de desenho.</p>
                             <a href="https://www.desenhosricardodias.com.br/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-                    </div>
-
-                    <!-- Projeto Pessoal Importante -->
-                    <div class="project-item training-site" data-aos="fade-up" data-aos-delay="400" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-3" aria-label="Project Justly"></div>
+                    </li>
+                    <li class="project-item training-site" data-aos="fade-up" data-aos-delay="400" data-type="Desenvolvimento Pessoal">
+                        <div class="project-image project-3" aria-label="Imagem do projeto Justly"></div>
                         <div class="project-info">
                             <h3>Justly</h3>
                             <p>Mais um site de treinamento bem responsivo utilizando HTML e CSS apenas.</p>
                             <a href="https://justly.netlify.app/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-                    </div>
-
-                    <!-- Projeto de Treinamento Significativo -->
-                    <div class="project-item training-site" data-aos="fade-up" data-aos-delay="600" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-4" aria-label="Project Meu Portfólio"></div>
+                    </li>
+                    <li class="project-item training-site" data-aos="fade-up" data-aos-delay="600" data-type="Desenvolvimento Pessoal">
+                        <div class="project-image project-4" aria-label="Imagem do projeto Meu Portfólio"></div>
                         <div class="project-info">
                             <h3>Meu Portfólio</h3>
                             <p>Meu próprio site onde estão meus projetos e tecnologias atuais conhecidas.</p>
                             <a href="https://jeffinp.github.io/jefersonreis.github.io/" class="project-link button-hover" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-                    </div>
-
-                    <!-- Projeto de Treinamento com Funcionalidades Avançadas -->
-                    <div class="project-item training-site" data-aos="fade-up" data-aos-delay="800" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-5" aria-label="Project Bookmark"></div>
+                    </li>
+                    <li class="project-item training-site" data-aos="fade-up" data-aos-delay="800" data-type="Desenvolvimento Pessoal">
+                        <div class="project-image project-5" aria-label="Imagem do projeto Bookmark Project"></div>
                         <div class="project-info">
                             <h3>Bookmark Project</h3>
                             <p>Este site de treino, desenvolvido por mim com HTML, CSS e JavaScript, oferece um gerenciador de favoritos simples e intuitivo. Ele permite organizar e sincronizar seus sites favoritos, acessando-os facilmente em qualquer dispositivo. Com suporte para múltiplos navegadores, o site oferece uma interface limpa e várias funcionalidades para melhorar sua experiência de navegação.</p>
                             <a href="https://bookmarkproject12.netlify.app/" class="project-link button-hover" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-                    </div>
-
-                    <!-- Projeto de Treinamento com Foco em Performance -->
-                    <div class="project-item training-site" data-aos="fade-up" data-aos-delay="1000" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-6" aria-label="Project Acsendoflex"></div>
+                    </li>
+                    <li class="project-item training-site" data-aos="fade-up" data-aos-delay="1000" data-type="Desenvolvimento Pessoal">
+                        <div class="project-image project-6" aria-label="Imagem do projeto Acsendoflex"></div>
                         <div class="project-info">
                             <h3>Acsendoflex</h3>
                             <p>Este site de treino foi desenvolvido por mim usando HTML, CSS e JavaScript. Ele promove um software de avaliação de desempenho para empresas, com ferramentas como competências 360º e metas, ajudando a aumentar a produtividade. Os usuários podem agendar uma demonstração personalizada.</p>
                             <a href="https://ascendotraining.netlify.app/" class="project-link button-hover" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-                    </div>
-
-                    <!-- Projeto de Treinamento com Foco em Design -->
-                    <div class="project-item training-site" data-aos="fade-up" data-aos-delay="1200" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-7" aria-label="Project Zomato"></div>
+                    </li>
+                    <li class="project-item training-site" data-aos="fade-up" data-aos-delay="1200" data-type="Desenvolvimento Pessoal">
+                        <div class="project-image project-7" aria-label="Imagem do projeto Zomato"></div>
                         <div class="project-info">
                             <h3>Zomato</h3>
                             <p>Este site é uma réplica do Zomato, uma plataforma de entrega de comida e guia de restaurantes, criada com HTML e CSS. Apresenta um layout visualmente atraente e fácil de navegar. A página inicial inclui navegação com links para baixar o aplicativo, adicionar restaurantes e acessar informações de investidores, além de uma seção hero com campos de busca para localização e pesquisa de restaurantes. Oferece cartões promocionais para pedidos online, opções de jantar e vida noturna. Também destaca coleções de restaurantes em Delhi NCR e promove o aplicativo Zomato com opções de download. O rodapé fornece informações sobre a empresa, links para divisões, redes sociais e políticas de privacidade.</p>
                             <a href="https://zomato12.netlify.app/" class="project-link button-hover" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-                    </div>
-
-                    <!-- Projeto de Treinamento Menos Relevante -->
-                    <div class="project-item training-site" data-aos="fade-up" data-aos-delay="1400" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-1" aria-label="Project The Batman Part II"></div>
+                    </li>
+                    <li class="project-item training-site" data-aos="fade-up" data-aos-delay="1400" data-type="Desenvolvimento Pessoal">
+                        <div class="project-image project-1" aria-label="Imagem do projeto The Batman Part II"></div>
                         <div class="project-info">
                             <h3>The Batman Part II</h3>
                             <p>Um site de treino para a venda de ingressos do filme do Batman.</p>
                             <a href="https://thebatmanpartll.netlify.app/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </section>
 
-                
-
-        <!-- CERTIFICADOS -->
-        <!-- <section id="certificados" class="certificates" aria-label="Certificados">
-            <div class="container">
-                <h2 data-aos="fade-up">Certificados</h2>
-                <div class="certificates-grid">
-                    <div class="certificate-item" data-aos="fade-up" data-aos-delay="200">
-                        <img src="./src/image/certificado1.jpg" alt="Certificado de Curso X" class="certificate-image" loading="lazy" width="150" height="150">
-                        <div class="certificate-info">
-                            <h3>Curso Web Moderno Completo com JavaScript</h3>
-                            <p>Emitido por: Udemy</p>
-                            <p>Data: Julho de 2023</p>
-                            <a href="#" class="cta-buttonCT" target="_blank" rel="noopener noreferrer">Ver Certificado</a>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section> -->
-
-        <!-- TIMELINE  -->
         <section id="timeline" class="timeline" aria-label="Minha Jornada">
             <div class="container">
                 <h2 data-aos="fade-up">Minha Jornada</h2>
@@ -461,38 +399,58 @@
         </section>
     </main>
 
-        <!-- footer  -->
+    <aside>
+        <blockquote cite="https://jeffinp.github.io/jefersonreis.github.io/">
+            "Tecnologia é a arte de transformar a imaginação em realidade."
+        </blockquote>
+    </aside>
+
     <footer>
         <div class="container">
             <p>&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
-                    <i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span>
-                </a>
-                <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
-                    <i class="fab fa-github"></i><span class="sr-only">GitHub</span>
-                </a>
-                <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
-                    <i class="fab fa-instagram"></i><span class="sr-only">Instagram</span>
-                </a>
-                <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
-                    <i class="fab fa-whatsapp"></i><span class="sr-only">WhatsApp</span>
-                </a>
-            </div>                     
+            <div aria-label="Redes sociais">
+                <ul class="social-links">
+                    <li>
+                        <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            <span class="sr-only">LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                            <span class="sr-only">GitHub</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <span class="sr-only">WhatsApp</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </footer>
-        
-    <div id="project-modal" class="modal" aria-hidden="true">
+    
+
+    <dialog id="project-modal" class="modal">
         <div class="modal-content">
             <button class="close" aria-label="Fechar">&times;</button>
             <h2 id="modal-title"></h2>
-            <img id="modal-image" src="" alt="Imagem do projeto">
+            <img id="modal-image" src="" alt="">
             <p id="modal-description"></p>
             <ul id="modal-technologies"></ul>
         </div>
-    </div>
-        
-    <button id="scrollToTopBtn" title="Ir para o topo" aria-label="Scroll to top">↑</button>
+    </dialog>
+
+    <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
