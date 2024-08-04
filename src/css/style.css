@@ -167,7 +167,7 @@ nav ul li a:hover::after {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(1, 7, 14, 0.8), rgba(1, 7, 14, 0.8)), url('./image/imagemfundo.webp') no-repeat center center/cover;
+    background: linear-gradient(rgba(1, 7, 14, 0.8), rgba(1, 7, 14, 0.8)), url('/src/image/imagemfundo.webp') no-repeat center center/cover;
     position: relative;
     overflow: hidden;
 }
