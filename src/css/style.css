@@ -56,18 +56,18 @@ header {
     transition: all 0.3s ease;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     display: flex;
-    align-items: center; /* Alinhamento vertical dos itens internos */
+    align-items: center; 
 }
 
 /* Container */
 header .container {
     display: flex;
-    justify-content: space-between; /* Distribui espaço entre itens */
-    align-items: center; /* Alinha itens verticalmente no centro */
+    justify-content: space-between;
+    align-items: center; 
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    width: 100%; /* Garante que o contêiner ocupe a largura total */
+    width: 100%; 
 }
 
 /* Logo */
@@ -78,8 +78,7 @@ header .container {
     color: var(--secondary-color);
     transition: all 0.3s ease;
     text-decoration: none;
-    margin-left: 0; /* Remove a margem se necessário */
-    /* Ajuste do alinhamento do logo à esquerda */
+    margin-left: 0; 
 }
 
 /* Navigation */
@@ -197,7 +196,7 @@ nav ul li a:hover::after {
 
 #home p {
     font-size: 1.4rem;
-    margin-top: -30px;   
+    margin-top: -30px;
     margin-bottom: 20px;
     color: var(--text-color);
     opacity: 0.9;
