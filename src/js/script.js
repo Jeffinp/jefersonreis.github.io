@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
+// Verifica se tem 4 linhas ou mais, se sim, o botão de ler mais aparece
 document.addEventListener('DOMContentLoaded', function() {
     const projects = document.querySelectorAll('.project-info');
 
