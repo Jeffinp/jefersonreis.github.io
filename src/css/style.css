@@ -598,21 +598,20 @@ section h2 {
 .soft-skill-item:hover p {
     opacity: 1;
 }
-
 /* Seção de Projetos */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    padding: 3rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    padding: 4rem 0;
 }
 
 .project-item {
-    background-color: var(--primary-color);
-    border-radius: 15px;
+    background-color: var(--dark-color);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
 }
 
@@ -623,9 +622,9 @@ section h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+    background: linear-gradient(to bottom, rgba(30, 58, 138, 0.2), rgba(30, 58, 138, 0.8));
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
     z-index: 1;
 }
 
@@ -634,17 +633,17 @@ section h2 {
 }
 
 .project-item:hover {
-    transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .project-image {
     width: 100%;
-    height: 250px;
+    height: 280px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
 .project-item:hover .project-image {
@@ -652,41 +651,50 @@ section h2 {
 }
 
 .project-info {
-    padding: 1.5rem;
+    padding: 2rem;
     position: relative;
     z-index: 2;
-    transition: transform 0.4s ease;
+    background-color: var(--primary-color);
+    transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
 .project-item:hover .project-info {
-    transform: translateY(-10px);
+    background-color: var(--hover-color);
+    transform: translateY(-15px);
 }
 
 .project-info h3 {
     margin-top: 0;
-    font-size: 1.4rem;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
 }
 
 .project-info p {
-    margin: 0 0 1.2rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
     color: var(--text-color);
+    display: block;
+    max-height: 6em;
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
 }
 
 .project-link {
     display: inline-block;
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem 1.5rem;
     background-color: var(--secondary-color);
     color: var(--dark-color);
     text-decoration: none;
-    border-radius: 25px;
-    font-weight: 600;
+    border-radius: 30px;
+    font-weight: 700;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .project-link::after {
@@ -708,9 +716,8 @@ section h2 {
 
 .project-link:hover {
     background-color: var(--hover-color);
-    transform: translateY(-3px);
-    color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .project-1 { background-image: url('/src/image/Screenshot_983.webp'); }
@@ -718,34 +725,36 @@ section h2 {
 .project-3 { background-image: url('/src/image/Screenshot_993.webp'); }
 .project-4 { background-image: url('/src/image/site.png'); }
 .project-5 { background-image: url('/src/image/bookmark.png'); }
-.project-6 {background-image: url('/src/image/acsendoflex.png');}
-.project-7 {background-image: url('/src/image/Zomato.png');}
-.project-8 {background-image: url('/src/image/Presente-Natal.png');}
+.project-6 { background-image: url('/src/image/acsendoflex.png'); }
+.project-7 { background-image: url('/src/image/Zomato.png'); }
+.project-8 { background-image: url('/src/image/Presente-Natal.png'); }
 
 .project-item.training-site::after,
 .project-item.cliente-site::after {
     content: attr(data-type);
     position: absolute;
-    top: 15px;
-    right: 15px;
-    padding: 5px 10px;
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 700;
     z-index: 10;
     opacity: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
     transform: translateY(-10px);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .project-item.training-site::after {
-    background-color: rgba(54, 13, 105, 0.8);
-    color: #fff;
+    background-color: rgba(96, 165, 250, 0.9);
+    color: var(--dark-color);
 }
 
 .project-item.cliente-site::after {
-    background-color: rgba(1, 72, 15, 0.8);
-    color: #fff;
+    background-color: rgba(29, 185, 84, 0.9);
+    color: var(--dark-color);
 }
 
 .project-item:hover::after {
@@ -753,34 +762,29 @@ section h2 {
     transform: translateY(0);
 }
 
-/* Estilo para o botão "ler mais" */
 .read-more {
     color: var(--secondary-color);
     cursor: pointer;
     display: inline-block;
     margin-top: 10px;
-    font-weight: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
 }
 
-/* Estilo para o parágrafo truncado */
-.project-info p {
-    display: block;
-    max-height: 4.8em;
-    overflow: hidden;
-    opacity: 1;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
+.read-more:hover {
+    color: var(--hover-color);
 }
 
-/* Estilo para o parágrafo expandido */
 .project-info p.expanded {
-    max-height: 100em; 
+    max-height: 150em;
     opacity: 1;
 }
 
-/* Estilo para o parágrafo ao fechar */
 .project-info p.collapsed {
-    max-height: 4.8em;
-    opacity: 0.6;
+    max-height: 7em;
+    opacity: 0.8;
 }
 
 /* Seção Timeline ------------------------ */
