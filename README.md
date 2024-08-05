@@ -1,5 +1,3 @@
-Claro! Aqui está a versão do texto formatada para o terminal:
-
 # Meu Portfólio
 
 Bem-vindo ao meu portfólio online! Este site foi criado para mostrar minhas habilidades e projetos como desenvolvedor full stack.
