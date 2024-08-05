@@ -15,7 +15,7 @@
 
     .logo {
         font-size: 1.8rem;
-        margin-left: 12rem;
+        margin-left: 14rem;
     }
 
     nav ul li a {
@@ -74,14 +74,18 @@
         box-sizing: border-box;
     }
 
+    nav {
+        margin-right: 90px;
+    }
+
     /* Navegação */
     nav ul li {
-        margin-left: 1rem;
+        margin-left: 0.5rem;
     }
 
     .logo {
         font-size: 1.8rem;
-        margin-left: 10rem;
+        margin-left: 13rem;
     }
 
     nav ul li a {
@@ -151,7 +155,7 @@
 
     .logo {
         font-size: 1.8rem;
-        margin-left: 9rem;
+        margin-left: 12rem;
     }
 
     nav ul li a {
@@ -161,7 +165,7 @@
     /* Modo Escuro */
     .toggle-dark-mode {
         top: 10px;
-        right: 15px;
+        left: 17rem;
         width: 35px;
         height: 35px;
         font-size: 18px;
@@ -253,6 +257,7 @@
 
     .logo {
         margin-left: 0rem;
+        margin-top: 0.6rem;
     }
 
     /* Hero e Títulos */
@@ -397,6 +402,14 @@
     /* Ajustes na Seção 'About' */
     .about {
         padding: 20px 0;
+    }
+
+    .logo {
+        margin-top: 0.6rem;
+    }
+
+    .language-switch{
+        margin-left: 10px;
     }
 
     /* Social Links - Mobile */
