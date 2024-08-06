@@ -549,39 +549,45 @@ section h2 {
 .skill-item:hover .skill-level-75  { width: 75%; }
 
 /* Cores das tecnologias */
-.html5 { color: #E44D26; }
-.css3 { color: #264DE4; }
-.javascript { color: #F0DB4F; }
-.react { color: #61DAFB; }
-.php { color: #8892BF; }
-.vuejs { color: #4FC08D; }
-.bootstrap { color: #7952B3; }
-.nodejs { color: #339933; }
-.dom { color: #8E44AD; }
-.jquery { color: #0769AD; }
-.mysql { color: #4479A1; }
-.postgres { color: #336791; }
-.mongodb { color: #47A248; }
-.gulp { color: #CF4647; }
-.webpack { color: #8DD6F9; }
-.angular { color: #DD0031; }
+.skill-item .iconify.html5 { color: #E44D26; }
+.skill-item .iconify.css3 { color: #264DE4; }
+.skill-item .iconify.javascript { color: #F0DB4F; }
+.skill-item .iconify.react { color: #61DAFB; }
+.skill-item .iconify.php { color: #8892BF; }
+.skill-item .iconify.vuejs { color: #4FC08D; }
+.skill-item .iconify.bootstrap { color: #7952B3; }
+.skill-item .iconify.nodejs { color: #339933; }
+.skill-item .iconify.dom { color: #8E44AD; }
+.skill-item .iconify.jquery { color: #0769AD; }
+.skill-item .iconify.mysql { color: #4479A1; }
+.skill-item .iconify.postgres { color: #336791; }
+.skill-item .iconify.mongodb { color: #47A248; }
+.skill-item .iconify.gulp { color: #CF4647; }
+.skill-item .iconify.webpack { color: #8DD6F9; }
+.skill-item .iconify.angular { color: #DD0031; }
+.skill-item .iconify.uxdesign { color: #FF6B6B; }
+.skill-item .iconify.cplusplus { color: #00599C; }
+.skill-item .iconify.csharp { color: #239120; }
 
-.skill-item:hover .html5 { color: #FF8C69; }
-.skill-item:hover .css3 { color: #6C8CD5; }
-.skill-item:hover .javascript { color: #FCEB69; }
-.skill-item:hover .react { color: #7DDFFF; }
-.skill-item:hover .php { color: #A5ABCF; }
-.skill-item:hover .vuejs { color: #7EE0B2; }
-.skill-item:hover .bootstrap { color: #9B7ED8; }
-.skill-item:hover .nodejs { color: #5FCC5F; }
-.skill-item:hover .dom { color: #BB8FCE; }
-.skill-item:hover .jquery { color: #4A8AD4; }
-.skill-item:hover .mysql { color: #72A1C5; }
-.skill-item:hover .postgres { color: #4F8BB2; }
-.skill-item:hover .mongodb { color: #71B98A; }
-.skill-item:hover .gulp { color: #E6756A; }
-.skill-item:hover .webpack { color: #B0E1F9; }
-.skill-item:hover .angular { color: #E0554B; }
+.skill-item:hover .iconify.html5 { color: #FF8C69; }
+.skill-item:hover .iconify.css3 { color: #6C8CD5; }
+.skill-item:hover .iconify.javascript { color: #FCEB69; }
+.skill-item:hover .iconify.react { color: #7DDFFF; }
+.skill-item:hover .iconify.php { color: #A5ABCF; }
+.skill-item:hover .iconify.vuejs { color: #7EE0B2; }
+.skill-item:hover .iconify.bootstrap { color: #9B7ED8; }
+.skill-item:hover .iconify.nodejs { color: #5FCC5F; }
+.skill-item:hover .iconify.dom { color: #BB8FCE; }
+.skill-item:hover .iconify.jquery { color: #4A8AD4; }
+.skill-item:hover .iconify.mysql { color: #72A1C5; }
+.skill-item:hover .iconify.postgres { color: #4F8BB2; }
+.skill-item:hover .iconify.mongodb { color: #71B98A; }
+.skill-item:hover .iconify.gulp { color: #E6756A; }
+.skill-item:hover .iconify.webpack { color: #B0E1F9; }
+.skill-item:hover .iconify.angular { color: #E0554B; }
+.skill-item:hover .iconify.uxdesign { color: #FFA07A; }
+.skill-item:hover .iconify.cplusplus { color: #659AD2; }
+.skill-item:hover .iconify.csharp { color: #68217A; }
 
 /* Seção de Soft Skills */
 .soft-skills {
