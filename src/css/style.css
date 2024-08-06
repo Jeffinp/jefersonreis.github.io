@@ -481,21 +481,18 @@ section h2 {
     opacity: 0.15;
 }
 
-.skill-item i,
-.skill-icon {
+.skill-item .iconify {
     font-size: 4rem;
     margin-bottom: 2rem;
     transition: transform 0.5s ease, color 0.3s ease;
 }
 
-.skill-icon {
+.skill-item .iconify {
     width: 4rem;
     height: 4rem;
-    object-fit: contain;
 }
 
-.skill-item:hover i,
-.skill-item:hover .skill-icon {
+.skill-item:hover .iconify {
     transform: scale(1.2) rotate(5deg);
 }
 
@@ -653,14 +650,15 @@ section h2 {
     opacity: 0.15;
 }
 
-.soft-skill-item i {
+/* Estilizando os ícones Iconify */
+.soft-skill-item .iconify {
     font-size: 4rem;
     margin-bottom: 2rem;
     color: var(--secondary-color);
     transition: transform 0.5s ease, color 0.3s ease;
 }
 
-.soft-skill-item:hover i {
+.soft-skill-item:hover .iconify {
     transform: scale(1.2) rotate(5deg);
     color: var(--accent-color);
 }
@@ -1171,6 +1169,18 @@ footer p {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Estilizando os ícones Iconify */
+.social-links .iconify {
+    font-size: 1.6rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover .iconify,
+.social-links a:focus .iconify {
+    color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .social-links {
@@ -1202,6 +1212,7 @@ footer p {
 .social-links li:nth-child(odd) a {
     animation-delay: 0.5s;
 }
+
 
 /* Modal */
 .modal {
@@ -1619,3 +1630,4 @@ aside {
     font-family: 'Poppins', sans-serif;
     opacity: 0.5;
 }
+
