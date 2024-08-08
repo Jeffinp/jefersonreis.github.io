@@ -67,7 +67,7 @@ header .container {
 /* Logo */
 .logo {
     font-family: 'Poppins', sans-serif;
-    margin-left: 2rem;
+    margin-left: 32px;
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--secondary-color);
