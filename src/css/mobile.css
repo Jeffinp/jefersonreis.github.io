@@ -383,7 +383,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
-        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
     }
 
     .social-links a {
@@ -418,7 +418,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
-        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); 
     }
 
     .social-links a {

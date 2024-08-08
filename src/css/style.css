@@ -506,6 +506,7 @@ section h2 {
 .skill-item:hover .skill-level-85  { width: 85%; }
 .skill-item:hover .skill-level-80  { width: 80%; }
 .skill-item:hover .skill-level-75  { width: 75%; }
+
 /* Seção de Soft Skills */
 .soft-skills {
     padding: 5rem 2rem;
