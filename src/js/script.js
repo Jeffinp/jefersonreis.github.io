@@ -440,7 +440,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function createRandomShape() {
     const shapesContainer = document.querySelector('.background-shapes');
     const shapeTypes = ['circle', 'triangle', 'hexagon'];
-    const shapeCount = 20; 
+        const shapeCount = 20;  
+        
 
     for (let i = 0; i < shapeCount; i++) {
         const shape = document.createElement('div');
