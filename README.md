@@ -38,7 +38,7 @@ Para visualizar este portfólio localmente, siga estas etapas:
    cd jefersonreis.github.io
    ```
 
-3. Abra o arquivo `index.html` no seu navegador preferido.
+3. Abra o arquivo `index.html` no seu navegador.
 
 ## 📬 Contato
 
