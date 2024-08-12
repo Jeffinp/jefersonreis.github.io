@@ -1,4 +1,5 @@
-window.addEventListener('load', () => { // Mudar para window.load para garantir que o DOM e todos os recursos estejam carregados
+window.addEventListener('load', () => {
+    // Seleciona os elementos da página
     const elements = {
         menuToggle: document.querySelector('.menu-toggle'),
         navMenu: document.querySelector('nav ul'),
@@ -14,7 +15,7 @@ window.addEventListener('load', () => { // Mudar para window.load para garantir 
         animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
     };
 
-    // Ensure elements exist before adding event listeners
+    // Adiciona evento para alternar o menu
     if (elements.menuToggle && elements.navMenu) {
         elements.menuToggle.addEventListener('click', () => {
             elements.menuToggle.classList.toggle('active');
@@ -173,7 +174,6 @@ window.addEventListener('load', () => { // Mudar para window.load para garantir 
                     }
                 }
             },
-            
         });
     }
 
@@ -220,6 +220,7 @@ window.addEventListener('load', () => { // Mudar para window.load para garantir 
     });
 });
 
+// Função para rolar suavemente até um elemento
 function smoothScroll(e) {
     e.preventDefault();
     const targetId = this.getAttribute("href");
@@ -230,6 +231,7 @@ function smoothScroll(e) {
     }
 }
 
+// Função para rolar suavemente até uma posição
 function smoothScrollTo(endX, endY, duration = 1000) {
     const startX = window.pageXOffset || window.scrollX || document.documentElement.scrollLeft;
     const startY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
@@ -253,6 +255,7 @@ function smoothScrollTo(endX, endY, duration = 1000) {
     }, 1000 / 60);
 }
 
+// Função para alternar o botão de rolar para o topo
 function toggleScrollToTopButton() {
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -262,40 +265,58 @@ function toggleScrollToTopButton() {
     }
 }
 
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const darkModeToggle = document.getElementById("darkModeToggle");
-
-    if (darkModeToggle) {
-        // Adiciona a classe 'rotate' para iniciar a animação
-        darkModeToggle.classList.add('rotate');
-        darkModeToggle.classList.add('no-hover'); // Adiciona a classe para desativar o hover
-
-        // Atualiza o ícone do botão
-        darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+// Função para definir o modo escuro
+function setDarkMode(isDark) {
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
     }
-
-    // Remove a classe 'rotate' após a animação
-    setTimeout(() => {
-        if (darkModeToggle) {
-            darkModeToggle.classList.remove('rotate');
-        }
-    }, 500);
-
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDarkMode);
+    
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    if (darkModeToggle) {
+        darkModeToggle.textContent = isDark ? '🌙' : '☀️';
+    }
+    
+    localStorage.setItem('darkMode', isDark);
 }
 
-// Inicializa o ícone com base no estado salvo
-window.addEventListener('load', () => {
+// Função para alternar o modo escuro
+function toggleDarkMode() {
+    const isDarkMode = !document.body.classList.contains('dark-mode');
+    setDarkMode(isDarkMode);
+
     const darkModeToggle = document.getElementById("darkModeToggle");
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (darkModeToggle) {
-        darkModeToggle.textContent = isDarkMode ? '🌙' : '☀️';
+        darkModeToggle.classList.add('rotate');
+        darkModeToggle.classList.add('no-hover');
+
+        setTimeout(() => {
+            darkModeToggle.classList.remove('rotate');
+            darkModeToggle.classList.remove('no-hover');
+        }, 500);
+    }
+}
+
+// Inicializa o modo escuro com base na preferência salva ou define como escuro por padrão
+window.addEventListener('load', () => {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    
+    // Se não houver preferência salva ou for a primeira visita, define como escuro
+    if (savedDarkMode === null) {
+        setDarkMode(true);
+    } else {
+        setDarkMode(savedDarkMode === 'true');
+    }
+
+    // Adiciona o evento de clique ao botão de alternância
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
     }
 });
 
-
+// Função debounce para limitar a frequência de execução
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -308,6 +329,7 @@ function debounce(func, wait) {
     };
 }
 
+// Função para o easter egg de clique
 document.addEventListener('DOMContentLoaded', function() {
     let clickCount = 0;
     const triggerElement = document.getElementById('profilePic');
@@ -412,4 +434,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
