@@ -73,7 +73,6 @@ header .container {
     color: var(--secondary-color);
     transition: var(--transition);
     text-decoration: none;
-    
 }
 
 .logo:hover {
@@ -192,6 +191,7 @@ nav ul li a:hover::after {
     z-index: 2;
     max-width: 900px;
     padding: 0 2rem;
+    margin-top: 2rem;
 }
 
 .hero h1 {
@@ -415,7 +415,6 @@ section h2 {
     margin-bottom: 3rem;
     font-size: 2.5rem;
 }
-
 /* Seção de Habilidades */
 .skills {
     padding: 5rem 2rem;
@@ -488,7 +487,7 @@ section h2 {
 }
 
 .skill-bar {
-    background-color: var(--dark-color);
+    background-color: var(--hover-color);
     height: 6px;
     border-radius: 3px;
     overflow: hidden;
@@ -502,12 +501,13 @@ section h2 {
     width: 0;
 }
 
-.skill-item:hover .skill-level-100 { width: 100%; }
-.skill-item:hover .skill-level-95  { width: 95%; }
-.skill-item:hover .skill-level-90  { width: 90%; }
-.skill-item:hover .skill-level-85  { width: 85%; }
-.skill-item:hover .skill-level-80  { width: 80%; }
-.skill-item:hover .skill-level-75  { width: 75%; }
+.skill-level-100 { width: 100%; }
+.skill-level-95  { width: 95%; }
+.skill-level-90  { width: 90%; }
+.skill-level-85  { width: 85%; }
+.skill-level-80  { width: 80%; }
+.skill-level-75  { width: 75%; }
+
 
 /* Seção de Soft Skills */
 .soft-skills {
