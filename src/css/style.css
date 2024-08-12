@@ -1654,10 +1654,16 @@ footer p {
     color: #000;
 }
 
-aside {
-    margin-left: 20px;
-    margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
-    opacity: 0.5;
+/* Estilos para o código Python */
+.python-code {
+    background-color: #0e0f1d;
+    padding: 20px;
+    font-family: 'Fira Code', 'Source Code Pro', 'JetBrains Mono', 'Courier New', Courier, monospace;
 }
+
+.python-code .comment {
+    color: #6a9955;
+}
+
+
 
