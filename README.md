@@ -19,6 +19,7 @@ Este portfólio foi desenvolvido utilizando as seguintes tecnologias:
 - **Sobre Mim**: Um resumo das minhas experiências e habilidades.
 - **Habilidades**: Sobre minhas hardskills e softskills.
 - **Projetos**: Uma coleção dos meus projetos mais recentes e notáveis.
+- **Certificados**: Área dos meus certificados.
 - **Timeline**: Minha linha do tempo das minhas profissões.
 
 ## 🛠️ Instalação e Uso
