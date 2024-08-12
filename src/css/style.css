@@ -373,7 +373,7 @@ nav ul li a:hover {
 /* Seção Sobre */
 .about {
     padding: 60px 20px;
-    background-color: var(--background-color);
+
     color: var(--text-color);
     border-top: 4px solid var(--secondary-color);
 }
@@ -413,11 +413,11 @@ nav ul li a:hover {
 }
 
 .about-item {
-    background-color: var(--content-background-color);
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background-color: var(--background-color);
 }
 
 .about-item:hover {
@@ -471,7 +471,7 @@ section h2 {
 /* Seção de Habilidades */
 .skills {
     padding: 5rem 2rem;
-    background-color: var(--background-color);
+    
     color: var(--text-color);
 }
 
@@ -565,7 +565,7 @@ section h2 {
 /* Seção de Soft Skills */
 .soft-skills {
     padding: 5rem 2rem;
-    background-color: var(--background-color);
+   
     color: var(--text-color);
 }
 
@@ -890,7 +890,6 @@ section h2 {
 /* Seção de Certificados */
 .certificates {
     padding: 4rem 0;
-    background-color: var(--background-color);
 }
 
 .section-title {
@@ -1635,5 +1634,70 @@ footer a:hover {
     color: #d5b827;
 }
 
+/* Container para formas */
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Ignora interações do usuário */
+    z-index: -1; /* Fica atrás do conteúdo principal */
+}
 
+/* Estilos para as formas */
+.shape {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1); 
+    will-change: transform; 
+}
 
+/* Forma triângulo */
+.shape.triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Forma círculo */
+.shape.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Forma hexágono */
+.shape.hexagon {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 52px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.shape.hexagon:before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid rgba(255, 255, 255, 0.1);
+    transform: rotate(-60deg);
+}
+
+/* Animação de movimento */
+@keyframes moveShape {
+    0% {
+        transform: translate(calc(-10vw - 50px), calc(-10vh - 50px));
+    }
+    100% {
+        transform: translate(calc(110vw - 50px), calc(110vh - 50px));
+    }
+}

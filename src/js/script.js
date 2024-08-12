@@ -434,3 +434,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// script.js
+
+function createRandomShape() {
+    const shapesContainer = document.querySelector('.background-shapes');
+    const shapeTypes = ['circle', 'triangle', 'hexagon'];
+    const shapeCount = 20; 
+
+    for (let i = 0; i < shapeCount; i++) {
+        const shape = document.createElement('div');
+        const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+        shape.classList.add('shape', shapeType);
+        
+        // Define tamanhos e posições aleatórios
+        const size = Math.random() * 30 + 20; // Tamanhos menores
+        shape.style.width = `${size}px`;
+        shape.style.height = `${size}px`;
+        shape.style.top = `${Math.random() * 100}vh`;
+        shape.style.left = `${Math.random() * 100}vw`;
+        
+        // Define a duração e a direção da animação
+        const animationDuration = Math.random() * 120 + 120; // Animação bem lenta
+        shape.style.animation = `moveShape ${animationDuration}s infinite linear`;
+        
+        shapesContainer.appendChild(shape);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', createRandomShape);
