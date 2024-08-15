@@ -1,5 +1,8 @@
+// ------------------------------
+// INICIALIZAÇÃO
+// ------------------------------
 window.addEventListener('load', () => {
-    // Seleciona os elementos da página
+    // Seleção dos elementos da página
     const elements = {
         menuToggle: document.querySelector('.menu-toggle'),
         navMenu: document.querySelector('nav ul'),
@@ -15,7 +18,9 @@ window.addEventListener('load', () => {
         animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
     };
 
-    // Adiciona evento para alternar o menu
+    // ------------------------------
+    // MENU TOGGLE
+    // ------------------------------
     if (elements.menuToggle && elements.navMenu) {
         elements.menuToggle.addEventListener('click', () => {
             elements.menuToggle.classList.toggle('active');
@@ -36,21 +41,29 @@ window.addEventListener('load', () => {
         });
     }
 
-    // Smooth scroll
+    // ------------------------------
+    // SMOOTH SCROLL
+    // ------------------------------
     elements.links.forEach(link => link.addEventListener('click', smoothScroll));
 
-    // Scroll to top button
+    // ------------------------------
+    // SCROLL TO TOP BUTTON
+    // ------------------------------
     window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
     if (elements.scrollToTopBtn) {
         elements.scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
     }
 
-    // Dark mode toggle
+    // ------------------------------
+    // DARK MODE TOGGLE
+    // ------------------------------
     if (elements.darkModeToggle) {
         elements.darkModeToggle.addEventListener('click', toggleDarkMode);
     }
 
-    // Project modal
+    // ------------------------------
+    // PROJECT MODAL
+    // ------------------------------
     elements.projectItems.forEach(item => {
         const detailsBtn = item.querySelector('.project-details-btn');
         if (detailsBtn) {
@@ -70,7 +83,9 @@ window.addEventListener('load', () => {
         }
     });
 
-    // Fade-in effect
+    // ------------------------------
+    // FADE-IN EFFECT
+    // ------------------------------
     if (elements.fadeInSections.length) {
         const fadeInObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -84,7 +99,9 @@ window.addEventListener('load', () => {
         elements.fadeInSections.forEach(section => fadeInObserver.observe(section));
     }
 
-    // Lazy loading images
+    // ------------------------------
+    // LAZY LOADING IMAGES
+    // ------------------------------
     if (elements.lazyImages.length) {
         const lazyImageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -101,83 +118,9 @@ window.addEventListener('load', () => {
         elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
     }
 
-    // Particles.js
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 50, // Reduce the number of particles for better performance on mobile
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: "#ffffff"
-                },
-                shape: {
-                    type: "circle"
-                },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: {
-                        enable: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#ffffff",
-                    opacity: 0.2,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 1, // Reduce the speed of particles for better performance
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "grab"
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    push: {
-                        particles_nb: 2
-                    }
-                }
-            },
-        });
-    }
-
-    // Dark mode saved state
+    // ------------------------------
+    // DARK MODE SAVED STATE
+    // ------------------------------
     if (localStorage.getItem('darkMode') === 'true') {
         document.body.classList.add('dark-mode');
         if (elements.darkModeToggle) {
@@ -185,7 +128,9 @@ window.addEventListener('load', () => {
         }
     }
 
-    // Animation on scroll
+    // ------------------------------
+    // ANIMATION ON SCROLL
+    // ------------------------------
     if (elements.animateOnScrollElements.length) {
         const animateOnScrollObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -202,12 +147,16 @@ window.addEventListener('load', () => {
         });
     }
 
-    // Check if browser is Safari
+    // ------------------------------
+    // CHECK IF BROWSER IS SAFARI
+    // ------------------------------
     if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
         document.body.classList.add('safari');
     }
 
-    // Language switch
+    // ------------------------------
+    // LANGUAGE SWITCH
+    // ------------------------------
     const currentPage = window.location.href;
     const languageLinks = document.querySelectorAll('.language-switch a');
 
@@ -219,6 +168,10 @@ window.addEventListener('load', () => {
         }
     });
 });
+
+// ------------------------------
+// FUNÇÕES AUXILIARES
+// ------------------------------
 
 // Função para rolar suavemente até um elemento
 function smoothScroll(e) {
@@ -297,24 +250,6 @@ function toggleDarkMode() {
         }, 500);
     }
 }
-
-// Inicializa o modo escuro com base na preferência salva ou define como escuro por padrão
-window.addEventListener('load', () => {
-    const savedDarkMode = localStorage.getItem('darkMode');
-    
-    // Se não houver preferência salva ou for a primeira visita, define como escuro
-    if (savedDarkMode === null) {
-        setDarkMode(true);
-    } else {
-        setDarkMode(savedDarkMode === 'true');
-    }
-
-    // Adiciona o evento de clique ao botão de alternância
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-    }
-});
 
 // Função debounce para limitar a frequência de execução
 function debounce(func, wait) {
@@ -435,55 +370,92 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// script.js
+//SHAPE
+const shapeContainer = document.getElementById('shape-container');
+const shapes = ['circle', 'square', 'triangle'];
+const colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'];
+const maxShapes = 20; // Reduzido o número máximo de formas
 
-function createRandomShape() {
-    const shapesContainer = document.querySelector('.background-shapes');
-    const shapeTypes = ['circle', 'triangle', 'hexagon'];
-        const shapeCount = 20;  
-        
+function createShape() {
+    if (shapeContainer.children.length >= maxShapes) return;
 
-    for (let i = 0; i < shapeCount; i++) {
-        const shape = document.createElement('div');
-        const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
-        shape.classList.add('shape', shapeType);
-        
-        // Define tamanhos e posições aleatórios
-        const size = Math.random() * 30 + 20; // Tamanhos menores
-        shape.style.width = `${size}px`;
-        shape.style.height = `${size}px`;
-        shape.style.top = `${Math.random() * 100}vh`;
-        shape.style.left = `${Math.random() * 100}vw`;
-        
-        // Define a duração e a direção da animação
-        const animationDuration = Math.random() * 120 + 120; // Animação bem lenta
-        shape.style.animation = `moveShape ${animationDuration}s infinite linear`;
-        
-        shapesContainer.appendChild(shape);
+    const shape = document.createElement('div');
+    const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const size = Math.random() * 20 + 10; // 10px to 30px (reduzido o tamanho)
+
+    shape.classList.add('shape', shapeType);
+    shape.style.width = `${size}px`;
+    shape.style.height = `${size}px`;
+    
+    if (shapeType === 'triangle') {
+        shape.style.borderBottomColor = color;
+    } else {
+        shape.style.backgroundColor = color;
+    }
+
+    shape.style.left = `${Math.random() * 100}vw`;
+    shape.style.top = `${Math.random() * 100}vh`;
+
+    shapeContainer.appendChild(shape);
+
+    moveShape(shape);
+}
+
+function moveShape(shape) {
+    const angle = Math.random() * 2 * Math.PI;
+    const speed = Math.random() * 1 + 0.5; // 0.5 to 1.5 pixels per frame (reduzido a velocidade)
+
+    function animate() {
+        const rect = shape.getBoundingClientRect();
+        let x = rect.left + Math.cos(angle) * speed;
+        let y = rect.top + Math.sin(angle) * speed;
+
+        shape.style.left = `${x}px`;
+        shape.style.top = `${y}px`;
+
+        if (x < -rect.width || x > window.innerWidth ||
+            y < -rect.height || y > window.innerHeight) {
+            shapeContainer.removeChild(shape);
+            createShape(); // Cria uma nova forma quando uma é removida
+        } else {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    animate();
+}
+
+function initShapes() {
+    for (let i = 0; i < maxShapes; i++) {
+        createShape();
     }
 }
 
-document.addEventListener('DOMContentLoaded', createRandomShape);
+initShapes();
 
-// ARISTA DIGITAL
-const images = document.querySelectorAll('.main-image');
-const prevButton = document.querySelector('.nav.prev');
-const nextButton = document.querySelector('.nav.next');
+// Adiciona novas formas periodicamente
+setInterval(createShape, 2000);
 
-let currentIndex = 0;
+    // ARISTA DIGITAL
+    const images = document.querySelectorAll('.main-image');
+    const prevButton = document.querySelector('.nav.prev');
+    const nextButton = document.querySelector('.nav.next');
 
-function showImage(index) {
-    images[currentIndex].classList.remove('active');
-    images[index].classList.add('active');
-    currentIndex = index;
-}
+    let currentIndex = 0;
 
-prevButton.addEventListener('click', () => {
-    const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-    showImage(newIndex);
-});
+    function showImage(index) {
+        images[currentIndex].classList.remove('active');
+        images[index].classList.add('active');
+        currentIndex = index;
+    }
 
-nextButton.addEventListener('click', () => {
-    const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-    showImage(newIndex);
-});
+    prevButton.addEventListener('click', () => {
+        const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+        showImage(newIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+        const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        showImage(newIndex);
+    });
