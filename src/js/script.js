@@ -464,3 +464,26 @@ function createRandomShape() {
 }
 
 document.addEventListener('DOMContentLoaded', createRandomShape);
+
+// ARISTA DIGITAL
+const images = document.querySelectorAll('.main-image');
+const prevButton = document.querySelector('.nav.prev');
+const nextButton = document.querySelector('.nav.next');
+
+let currentIndex = 0;
+
+function showImage(index) {
+    images[currentIndex].classList.remove('active');
+    images[index].classList.add('active');
+    currentIndex = index;
+}
+
+prevButton.addEventListener('click', () => {
+    const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+    showImage(newIndex);
+});
+
+nextButton.addEventListener('click', () => {
+    const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+    showImage(newIndex);
+});

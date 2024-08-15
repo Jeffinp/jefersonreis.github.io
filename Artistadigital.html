@@ -1,11 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jeferson Reis - Ilustrador & Designer</title>
+    <meta name="author" content="Jeferson Reis Almeida">
+    <meta name="description" content="Portfólio de arte digital e ilustrações de Jeferson Reis">
+    <meta name="keywords" content="Artista Digital, Ilustrador, Arte, Design Gráfico, Criatividade">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/mobile.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
 </head>
 <body>
-    
+        <!-- HEADER -->
+        <header>
+            <div class="language-switch">
+                <a href="Artistadigital.html" class="active" aria-label="Português">
+                    <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="">PT
+                </a>
+                <a href="Artistadigital-en.html" aria-label="Inglês">
+                    <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="">EN
+                </a>
+            </div>
+            <div class="container">
+                <h1 class="logo" aria-label="Logo de Jeferson Reis">JR</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="index.html" style="color: rgb(124, 229, 103);">Desenvolvedor Web</a></li>
+                    </ul>
+                    <div class="menu-toggle" aria-label="Abrir menu">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Toggle dark mode">☀️</button>
+
+        <!-- HERO SECTION -->
+        <main>
+            <section id="home" class="hero parallax" aria-label="Home">
+                <div id="particles-js"></div>
+                <div class="container">
+                    <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
+                    <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
+                    <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Artista Digital & Ilustrador</p>
+                    <a href="#galeria" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver Galeria</a>
+                </div>
+            </section>
+
+        <!-- SOBRE MIM COMO ARTISTA -->
+        <section id="sobre" class="about" aria-labelledby="sobreTitle">
+            <div class="container">
+                <h2 id="sobreTitle">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-item">
+                        <span class="iconify" data-icon="mdi:palette" data-width="48" data-height="48"></span>
+                        <h3>Artista Digital</h3>
+                        <p>🎨 Como artista digital, crio uma vasta gama de obras, desde ilustrações detalhadas até composições abstratas. Minhas criações capturam emoções e histórias, utilizando técnicas digitais para dar vida a ideias únicas.</p>
+                    </div>
+                    <div class="about-item">
+                        <span class="iconify" data-icon="mdi:brush" data-width="48" data-height="48"></span>
+                        <h3>Designer Gráfico</h3>
+                        <p>🖌️ Além de ser artista digital, atuo também como designer gráfico. Desenvolvo artes personalizadas em desenho, e produtos comerciais que vão desde banners até materiais promocionais, atendendo às necessidades de gráficas, vendas, lan houses, e muito mais.</p>
+                    </div>
+                    <div class="about-item">
+                        <span class="iconify" data-icon="mdi:lightbulb-on-outline" data-width="48" data-height="48"></span>
+                        <h3>Inspiração e Criatividade</h3>
+                        <p>💡 Minha inspiração vem de várias fontes, mas minha paixão por contar histórias visuais é o que realmente me move. Cada projeto é uma oportunidade de combinar criatividade com técnica, resultando em trabalhos que não são apenas visualmente atraentes, mas também significativos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- GALERIA DE ARTE -->
+        <section id="galeria" class="gallery" aria-labelledby="galeriaTitle">
+            <div class="container">
+                <h2 id="galeriaTitle">Minha Galeria</h2>
+                <div class="modern-carousel">
+                    <button class="nav prev" aria-label="Anterior"></button>
+                    <div class="main-image-container">
+                        <img src="./src/image/Artes/A dupla do terror.webp" alt="A dupla do terror" class="main-image active">
+                        <img src="./src/image/Artes/Azete.webp" alt="Azet" class="main-image">
+                        <img src="./src/image/Artes/bandeira estilosa do brasil.webp" alt="Bandeira estilosa do Brasil" class="main-image">
+                        <img src="./src/image/Artes/Design computador.webp" alt="Design Computador" class="main-image">
+                        <img src="./src/image/Artes/Estampa_de_camisa_2_A_Tenico frente.webp" alt="Estampa de Camisa Tênico Frente" class="main-image">
+                        <img src="./src/image/Artes/FJIMG_20230515_144702 copiar.webp" alt="FJIMG Copiar" class="main-image">
+                        <img src="./src/image/Artes/giratina.webp" alt="Giratina" class="main-image">
+                        <img src="./src/image/Artes/hamburguer.webp" alt="Hambúrguer" class="main-image">
+                        <img src="./src/image/Artes/IMG_20220505_160629.webp" alt="Imagem 20220505" class="main-image">
+                        <img src="./src/image/Artes/Pizza_do_sul .webp" alt="Pizza do Sul" class="main-image">
+                        <img src="./src/image/Artes/pizza_no_insta.webp" alt="Pizza no Insta" class="main-image">
+                        <img src="./src/image/Artes/Protótipo de nave padrão de Brail.webp" alt="Protótipo de Nave Padrão de Brail" class="main-image">
+                        <img src="./src/image/Artes/bratails-360-2023.jpg" alt="Protótipo de Nave Padrão de Brail" class="main-image">
+                        <img src="./src/image/Artes/Bratails-V2-sorrindo.jpg" alt="Bratails sorrindo" class="main-image">
+                        <img src="./src/image/Artes/Bratailsnave.jpg" alt="Bratails na nave" class="main-image">
+                        <img src="./src/image/Artes/As-Gemeas.jpg" alt="Duas espadas" class="main-image">
+                    </div>
+                    <button class="nav next" aria-label="Próximo"></button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+        <blockquote class="python-code">
+            <span class="comment">"Design é a arte de visualizar e transformar conceitos em experiências visuais impactantes."</span>     
+        </blockquote>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
+                <div aria-label="Redes sociais">
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
+                                <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
+                                <span class="sr-only">LinkedIn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
+                                <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
+                                <span class="sr-only">GitHub</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
+                                <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
+                                <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
+                                <span class="sr-only">WhatsApp</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        
+        
+        <dialog id="project-modal" class="modal">
+            <div class="modal-content">
+                <button class="close" aria-label="Fechar">&times;</button>
+                <h2 id="modal-title"></h2>
+                <img id="modal-image" src="" alt="">
+                <p id="modal-description"></p>
+                <ul id="modal-technologies"></ul>
+            </div>
+        </dialog>
+
+        <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
+
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+        <script src="/src/js/script.js" defer></script>
 </body>
 </html>

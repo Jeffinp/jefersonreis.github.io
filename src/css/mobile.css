@@ -327,10 +327,6 @@
         height: 16px; /* Ajuste o tamanho das bandeiras */
     }
 
-    /* Menu responsivo para dispositivos móveis */
-    .menu-toggle {
-        display: flex;
-    }
 
     nav ul {
         display: none;
