@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
 </head>
 <body>
+    <div id="shape-container"></div>
         <!-- HEADER -->
         <header>
             <div class="language-switch">
@@ -44,10 +45,27 @@
                 <div class="container">
                     <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
                     <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                    <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Artista Digital & Ilustrador</p>
-                    <a href="#galeria" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver Galeria</a>
+                    <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Ilustrador e Designer</p>
+                    <a href="#galeria" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver galeria</a>
+    
+                    <div id="fireworks-container" style="position: relative; display: none; z-index: 2;">
+                        <div class="firework"></div>
+                        <div class="firework"></div>
+                        <div class="firework"></div>
+                        <div class="firework"></div>
+                        <div class="firework"></div>
+                    </div>
                 </div>
-            </section>
+            </section>        
+            
+            <!-- Elemento de áudio para o som dos fogos de artifício -->
+            <audio id="firework-sound" src="./src/sounds/firework-explosion.mp3" preload="auto"></audio>
+            
+            <!-- Easter Egg -->
+            <div id="easter-egg" style="display: none; text-align: center; margin-top: 20px;">
+                <p>🎉 Parabéns! Você encontrou o easter egg!</p>
+                <img src="https://c.tenor.com/3cLzjlrE8UgAAAAC/tenor.gif" alt="Funny GIF" width="200">
+            </div>           
 
         <!-- SOBRE MIM COMO ARTISTA -->
         <section id="sobre" class="about" aria-labelledby="sobreTitle">
@@ -174,5 +192,9 @@
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
         <script src="/src/js/script.js" defer></script>
         <script src="/src/js/Particles.js"></script>
+
+        <noscript>  
+            <p>Custom margins for printing are not supported in Safari. Consider using a different browser for better results.</p>
+        </noscript>
 </body>
 </html>

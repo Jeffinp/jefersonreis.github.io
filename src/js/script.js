@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const shapeContainer = document.getElementById('shape-container');
 const shapes = ['circle', 'square', 'triangle'];
 const colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'];
-const maxShapes = 20; // Reduzido o número máximo de formas
+const maxShapes = 10; // Reduzido o número máximo de formas
 
 function createShape() {
     if (shapeContainer.children.length >= maxShapes) return;
