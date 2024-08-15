@@ -2,24 +2,19 @@
 
 /* Para telas de 1280px de largura */
 @media (width: 1280px) {
+    
     /* Header e Container */
     header .container {
         padding: 0 15px;
         margin-right: 5rem;
     }
 
-    /* Navegação */
-    nav ul li {
-        margin-left: 1.5rem;
-    }
-
     .logo {
         font-size: 1.8rem;
-        margin-left: 13rem;
     }
 
-    nav ul li a {
-        font-size: 1rem;
+    nav ul {
+        gap: 1rem;
     }
 
     /* Troca de Idiomas */
@@ -141,6 +136,7 @@
 
 /* Para telas menores que 768px (dispositivos móveis) */
 @media (max-width: 768px) {
+
     /* Header e Container */
     header .container {
         flex-direction: column;

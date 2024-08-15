@@ -19,7 +19,6 @@
     
 </head>
 <body>
-
     <!-- HEADER -->
     <header>
         <div class="language-switch">
@@ -40,7 +39,6 @@
                     <li><a href="#projetos">Projetos</a></li>
                     <li><a href="#certificates">Certificados</a></li>
                     <li><a href="#timeline">Timeline</a></li>
-                    <li><a href="Artistadigital.html" style="color: rgb(124, 229, 103);">Arte Digital</a></li>
                 </ul>
             </nav>
         </div>
@@ -389,24 +387,35 @@
         </section>
 
         <!-- Seção de Certificados -->
-        <section id="certificates" class="certificates">
+        <section id="certificates" class="certificates" aria-labelledby="certificates-title">
             <div class="container">
-                <h2 class="section-title">Certificados</h2>
+                <h2 id="certificates-title" class="section-title">Certificados Profissionais</h2>
                 <div class="certificate-grid">
-                    <article class="certificate-item">
+                    <article class="certificate-item" itemscope itemtype="http://schema.org/EducationalOccupationalCredential">
                         <figure class="certificate-image-wrapper">
-                            <img src="./src/image/Certificado-TRUINFO.png" alt="Certificado StartWeb" class="certificate-image" loading="lazy">
+                            <img src="./src/image/Certificado-TRUINFO.png" alt="Certificado do curso StartWeb de desenvolvimento web" class="certificate-image" loading="lazy" itemprop="image">
                         </figure>
                         <div class="certificate-info">
-                            <h3 class="certificate-title">StartWeb</h3>
-                            <p class="certificate-description">Curso intensivo de desenvolvimento web focado em HTML, CSS e JavaScript.</p>
-                            <a href="./src/image/Certificado-TRUINFO.png" class="certificate-link" target="_blank" rel="noopener noreferrer">
-                                <button class="view-button">Ver Certificado</button>
+                            <h3 class="certificate-title" itemprop="name">StartWeb: Desenvolvimento Web Intensivo</h3>
+                            <p class="certificate-description" itemprop="description">Curso intensivo de desenvolvimento web focado em HTML, CSS e JavaScript, fornecendo habilidades essenciais para criação de websites modernos e responsivos.</p>
+                            <a href="./src/image/Certificado-TRUINFO.png" class="certificate-link" target="_blank" rel="noopener noreferrer" itemprop="url">
+                                <button class="view-button">Visualizar Certificado</button>
                             </a>
                         </div>
                     </article>
-                    <!-- mais certificados aqui -->
+                    <!-- Adicione mais certificados aqui, seguindo a mesma estrutura -->
                 </div>
+            </div>
+        </section>
+
+        <!-- Seção de Portfólio de Artista Digital -->
+        <section id="digital-portfolio" class="portfolio" aria-labelledby="portfolio-title">
+            <div class="container">
+                <h2 id="portfolio-title" class="section-title">Portfólio de Arte Digital e Design Gráfico</h2>
+                <p class="portfolio-description">Explore minha coleção de projetos inovadores em design gráfico e arte digital, demonstrando criatividade e habilidades técnicas avançadas.</p>
+                <a href="Artistadigital.html" class="portfolio-link" rel="noopener noreferrer">
+                    <button class="view-portfolio-button">Explorar Portfólio Completo</button>
+                </a>
             </div>
         </section>
 
