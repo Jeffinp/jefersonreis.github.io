@@ -67,15 +67,9 @@
         margin-right: 5rem;
     }
 
-    /* Container e Texto */
-    .container p {
-        padding-left: 4rem;
-        padding-right: 4rem;
-        box-sizing: border-box;
-    }
-
-    nav {
+    nav ul {
         margin-right: 90px;
+        gap: 1rem;
     }
 
     /* Navegação */
@@ -131,87 +125,17 @@
     }
 }
 
-/* Para telas de 820px de largura (tablets) */
 @media (width: 820px) {
-
-    .social-links a {
-        margin: 0 0.5rem;
+    .hero h1 {
+        font-size: 4rem;
     }
 
-    /* Header e Container */
-    header .container {
-        padding: 0 10px;
-        margin-right: 5rem;
-    }
-
-    /* Navegação */
-    nav ul li {
-        margin-left: 1rem;
-    }
-
-    .logo {
-        font-size: 1.8rem;
-        margin-left: 12rem;
-    }
-
-    nav ul li a {
-        font-size: 0.9rem;
-    }
-
-    /* Modo Escuro */
-    .toggle-dark-mode {
-        top: 10px;
-        left: 17rem;
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-
-    /* Troca de Idiomas */
-    .language-switch {
-        left: 15px;
-    }
-
-    .language-switch a {
-        padding: 6px 10px;
-        font-size: 10px;
-    }
-
-    .language-switch img {
-        width: 18px; /* Ajuste o tamanho das bandeiras */
-        height: 18px; /* Ajuste o tamanho das bandeiras */
-    }
-
-    /* Social Links - Tablet */
-    .social-links {
-        position: static;
-        transform: none;
-        flex-direction: row;
-        background-color: transparent;
-        padding: 0;
-        border-radius: 0;
-        justify-content: center;
-        margin-top: 1rem;
-        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
-    }
-
-    .social-links a {
-        margin: 0 0.5rem;
-    }
-
-    /* Soft Skills */
-    .soft-skills .skills-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    nav ul {
         gap: 1rem;
     }
 
-    .soft-skill-item {
-        text-align: center;
-        background-color: var(--primary-color);
-        padding: 1rem;
-        border-radius: 8px;
-        transition: transform 0.3s;
+    #darkModeToggle {
+        top: 90px;
     }
 }
 
