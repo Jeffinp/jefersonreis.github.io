@@ -19,7 +19,10 @@
     
 </head>
 <body>
+
+
     <div id="shape-container"></div>
+
     <!-- HEADER -->
     <header>
         <div class="language-switch">
@@ -32,7 +35,7 @@
         </div>
         <div class="container">
             <h1 class="logo" aria-label="Logo de Jeferson Reis">JR</h1>
-            <nav>
+            <nav aria-label="Navegação principal">
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#sobre">Sobre</a></li>
@@ -45,7 +48,8 @@
         </div>
     </header>
 
-    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Toggle dark mode">☀️</button>
+    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">☀️</button>
+
 
     <!-- FAIXA HERO  -->
     <main>
@@ -73,36 +77,47 @@
             <img src="https://c.tenor.com/3cLzjlrE8UgAAAAC/tenor.gif" alt="Funny GIF" width="200">
         </div>
 
+        <!-- Seção de Portfólio de Artista Digital -->
+        <section id="digital-portfolio" class="portfolio" aria-labelledby="portfolio-title">
+            <div class="container">
+                <h2 id="portfolio-title" class="section-title">Portfólio de Arte Digital e Design Gráfico</h2>
+                <p class="portfolio-description">Explore minha coleção de projetos inovadores em design gráfico e arte digital, demonstrando criatividade e habilidades técnicas avançadas.</p>
+                <a href="Artistadigital.html" class="portfolio-link" rel="noopener noreferrer">
+                    <button class="view-portfolio-button">Explorar Portfólio Completo</button>
+                </a>
+            </div>
+        </section>
+        
         <!-- SOBRE MIM  -->
         <section id="sobre" class="about" aria-labelledby="sobreTitle">
             <div class="container">
                 <h2 id="sobreTitle">Sobre Mim</h2>
                 <div class="about-content">
-                    <div class="about-item">
+                    <article class="about-item">
                         <span class="iconify" data-icon="mdi:account" data-width="48" data-height="48"></span>
                         <h3>Quem Sou Eu</h3>
                         <p>👋 Olá! Sou Jeferson Reis, um jovem de 18 anos que vive e respira tecnologia. Nascido em Camaçari, Bahia, meu fascínio por computadores começou cedo – com apenas 3 anos, eu já estava mergulhado no mundo da informática!</p>
-                    </div>
-                    <div class="about-item">
+                    </article>
+                    <article class="about-item">
                         <span class="iconify" data-icon="mdi:code-braces" data-width="48" data-height="48"></span>
                         <h3>Minha Paixão</h3>
                         <p>💻 Minha verdadeira paixão é a programação. Comecei desenvolvendo jogos em C#, uma aventura que me abriu as portas para uma paixão mais profunda por codificação. Atualmente, atuo como desenvolvedor Full-Stack.</p>
-                    </div>
-                    <div class="about-item">
+                    </article>
+                    <article class="about-item">
                         <span class="iconify" data-icon="mdi:laptop" data-width="48" data-height="48"></span>
                         <h3>Experiência e Tecnologias</h3>
                         <p>🚀 Experiência com HTML5, CSS3, JavaScript, React, PHP, Vue.js, Bootstrap, Node.js, jQuery, MySQL, PostgreSQL, MongoDB, e ferramentas como Gulp e Webpack. Além disso, tenho um olhar apurado para UX Design.</p>
-                    </div>
-                    <div class="about-item">
+                    </article>
+                    <article class="about-item">
                         <span class="iconify" data-icon="mdi:palette" data-width="48" data-height="48"></span>
                         <h3>Design Gráfico</h3>
                         <p>🎨 Também trabalhei como designer gráfico, criando banners e logotipos personalizados para uma variedade de clientes. Minha experiência como artista digital me permitiu combinar criatividade e técnica.</p>
-                    </div>
-                    <div class="about-item">
+                    </article>
+                    <article class="about-item">
                         <span class="iconify" data-icon="mdi:rocket" data-width="48" data-height="48"></span>
                         <h3>Vamos Juntos</h3>
                         <p>Vamos explorar o mundo da tecnologia juntos? 🚀✨</p>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -409,16 +424,7 @@
             </div>
         </section>
 
-        <!-- Seção de Portfólio de Artista Digital -->
-        <section id="digital-portfolio" class="portfolio" aria-labelledby="portfolio-title">
-            <div class="container">
-                <h2 id="portfolio-title" class="section-title">Portfólio de Arte Digital e Design Gráfico</h2>
-                <p class="portfolio-description">Explore minha coleção de projetos inovadores em design gráfico e arte digital, demonstrando criatividade e habilidades técnicas avançadas.</p>
-                <a href="Artistadigital.html" class="portfolio-link" rel="noopener noreferrer">
-                    <button class="view-portfolio-button">Explorar Portfólio Completo</button>
-                </a>
-            </div>
-        </section>
+      
 
         <!-- TIMELINE -->
         <section id="timeline" class="timeline" aria-label="Minha Jornada">
@@ -513,11 +519,5 @@
         <noscript>
             <p>Imprimir com margens personalizadas não é suportado no Safari. Considere usar um navegador diferente para melhores resultados.</p>
         </noscript>
-        <div class="background-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <!-- Adicione mais formas conforme necessário -->
-        </div>
 </body>
 </html>

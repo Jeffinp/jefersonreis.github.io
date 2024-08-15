@@ -543,6 +543,107 @@ nav ul li a:hover {
     }
 }
 
+
+/* Estilo para a seção de Portfólio de Artista Digital */
+#digital-portfolio {
+    background-color: var(--background-color-light);
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#digital-portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+}
+
+#digital-portfolio .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+#digital-portfolio .section-title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+#digital-portfolio .section-title::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 0.5rem auto 0;
+}
+
+#digital-portfolio .portfolio-description {
+    font-size: 1.2rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+#digital-portfolio .portfolio-link .view-portfolio-button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#digital-portfolio .portfolio-link .view-portfolio-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+#digital-portfolio .portfolio-link .view-portfolio-button:active {
+    background-color: var(--active-color);
+    transform: translateY(1px);
+    box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+    #digital-portfolio {
+        padding: 3rem 0;
+    }
+
+    #digital-portfolio .section-title {
+        font-size: 2rem;
+    }
+
+    #digital-portfolio .portfolio-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    #digital-portfolio .portfolio-link .view-portfolio-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+
 /* Seções gerais */
 section {
     padding: 5rem 0;
@@ -1775,21 +1876,16 @@ footer a:hover {
     left: 50%;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ajusta a imagem para caber inteira dentro da div */
-    object-position: center; /* Centraliza a imagem dentro da div */
+    object-fit: contain;
+    object-position: center;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(1.1); /* Centraliza a imagem e aplica um leve zoom */
+    transform: translate(-50%, -50%) scale(1.1);
     transition: opacity var(--transition-normal), transform var(--transition-normal);
 }
 
 .main-image.active {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1); /* Remove o zoom ao tornar a imagem ativa */
-}
-
-.main-image.exiting {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.9); /* Aplica um zoom reduzido na saída */
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .nav {
@@ -1797,7 +1893,7 @@ footer a:hover {
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--card-background);
-    border: 2px solid var(--border-color); /* Borda para destaque */
+    border: 2px solid var(--border-color);
     border-radius: var(--border-radius-full);
     padding: 10px;
     cursor: pointer;
@@ -1857,104 +1953,6 @@ footer a:hover {
 body.dark-mode .gallery {
     background-color: var(--background-color);
     color: var(--text-color);
-}
-/* Estilo para a seção de Portfólio de Artista Digital */
-#digital-portfolio {
-    background-color: var(--background-color-light);
-    padding: 5rem 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-#digital-portfolio::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
-}
-
-#digital-portfolio .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-#digital-portfolio .section-title {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    margin-bottom: 1.5rem;
-    position: relative;
-    display: inline-block;
-}
-
-#digital-portfolio .section-title::after {
-    content: '';
-    display: block;
-    width: 50%;
-    height: 3px;
-    background-color: var(--accent-color);
-    margin: 0.5rem auto 0;
-}
-
-#digital-portfolio .portfolio-description {
-    font-size: 1.2rem;
-    color: var(--text-color-secondary);
-    margin-bottom: 3rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-#digital-portfolio .portfolio-link .view-portfolio-button {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: var(--border-radius-lg);
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    box-shadow: var(--shadow-md);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-#digital-portfolio .portfolio-link .view-portfolio-button:hover {
-    background-color: var(--hover-color);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-#digital-portfolio .portfolio-link .view-portfolio-button:active {
-    background-color: var(--active-color);
-    transform: translateY(1px);
-    box-shadow: var(--shadow-sm);
-}
-
-@media (max-width: 768px) {
-    #digital-portfolio {
-        padding: 3rem 0;
-    }
-
-    #digital-portfolio .section-title {
-        font-size: 2rem;
-    }
-
-    #digital-portfolio .portfolio-description {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    #digital-portfolio .portfolio-link .view-portfolio-button {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-    }
 }
 
 /* Estilo para a seção de Retorno */
