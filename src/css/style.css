@@ -1875,7 +1875,8 @@ footer a:hover {
 
 /* ÁREA DE ARTISTA DIGITAL */
 .modern-carousel {
-    max-width: 800px;
+    max-width: 900px;
+    max-height: calc(900px * 9 / 16); /* Tamanho de 16:9*/
     margin: 0 auto;
     box-shadow: var(--shadow-lg);
     border-radius: var(--border-radius-md);
