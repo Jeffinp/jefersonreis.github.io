@@ -104,6 +104,26 @@ html, body {
     overflow-X: hidden;
 }
 
+/* FUNDO */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: #555;
+    color: #fff;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -456,6 +476,7 @@ nav ul li a:hover {
         transform: rotate(360deg);
     }
 }
+
 /* Seção Sobre */
 .about {
     padding: 80px 0;

@@ -55,13 +55,6 @@ window.addEventListener('load', () => {
     }
 
     // ------------------------------
-    // DARK MODE TOGGLE
-    // ------------------------------
-    if (elements.darkModeToggle) {
-        elements.darkModeToggle.addEventListener('click', toggleDarkMode);
-    }
-
-    // ------------------------------
     // PROJECT MODAL
     // ------------------------------
     elements.projectItems.forEach(item => {
@@ -117,16 +110,55 @@ window.addEventListener('load', () => {
 
         elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
     }
+        
+    // Função para definir o modo escuro
+    function setDarkMode(isDark) {
+        document.body.classList.toggle('dark-mode', isDark);
+        
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        if (darkModeToggle) {
+            darkModeToggle.textContent = isDark ? '🌙' : '☀️';
+            darkModeToggle.classList.toggle('active', isDark);
+        }
+        
+        localStorage.setItem('darkMode', isDark);
+    }
 
-    // ------------------------------
-    // DARK MODE SAVED STATE
-    // ------------------------------
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-        if (elements.darkModeToggle) {
-            elements.darkModeToggle.classList.add('active');
+    // Função para alternar o modo escuro
+    function toggleDarkMode() {
+        const isDarkMode = !document.body.classList.contains('dark-mode');
+        setDarkMode(isDarkMode);
+
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        if (darkModeToggle) {
+            darkModeToggle.classList.add('rotate');
+            
+            setTimeout(() => {
+                darkModeToggle.classList.remove('rotate');
+            }, 500);
         }
     }
+
+    // Função para inicializar o modo escuro
+    function initializeDarkMode() {
+        const savedDarkMode = localStorage.getItem('darkMode');
+        
+        // Se não houver estado salvo ou se for a primeira visita, use o modo escuro
+        if (savedDarkMode === null) {
+            setDarkMode(true);
+        } else {
+            setDarkMode(savedDarkMode === 'true');
+        }
+    }
+
+    // Adicionar evento de clique ao botão
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+
+    // Inicialize o modo escuro quando o documento estiver pronto
+    document.addEventListener('DOMContentLoaded', initializeDarkMode);
 
     // ------------------------------
     // ANIMATION ON SCROLL
@@ -215,39 +247,6 @@ function toggleScrollToTopButton() {
         scrollToTopBtn.classList.add("show");
     } else {
         scrollToTopBtn.classList.remove("show");
-    }
-}
-
-// Função para definir o modo escuro
-function setDarkMode(isDark) {
-    if (isDark) {
-        document.body.classList.add('dark-mode');
-    } else {
-        document.body.classList.remove('dark-mode');
-    }
-    
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    if (darkModeToggle) {
-        darkModeToggle.textContent = isDark ? '🌙' : '☀️';
-    }
-    
-    localStorage.setItem('darkMode', isDark);
-}
-
-// Função para alternar o modo escuro
-function toggleDarkMode() {
-    const isDarkMode = !document.body.classList.contains('dark-mode');
-    setDarkMode(isDarkMode);
-
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    if (darkModeToggle) {
-        darkModeToggle.classList.add('rotate');
-        darkModeToggle.classList.add('no-hover');
-
-        setTimeout(() => {
-            darkModeToggle.classList.remove('rotate');
-            darkModeToggle.classList.remove('no-hover');
-        }, 500);
     }
 }
 
