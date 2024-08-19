@@ -110,7 +110,7 @@ window.addEventListener('load', () => {
 
         elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
     }
-        
+
     // Função para definir o modo escuro
     function setDarkMode(isDark) {
         document.body.classList.toggle('dark-mode', isDark);
@@ -143,9 +143,10 @@ window.addEventListener('load', () => {
     function initializeDarkMode() {
         const savedDarkMode = localStorage.getItem('darkMode');
         
-        // Se não houver estado salvo ou se for a primeira visita, use o modo escuro
         if (savedDarkMode === null) {
-            setDarkMode(true);
+            // Verifica a preferência do sistema
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setDarkMode(prefersDarkMode);
         } else {
             setDarkMode(savedDarkMode === 'true');
         }
@@ -160,6 +161,14 @@ window.addEventListener('load', () => {
     // Inicialize o modo escuro quando o documento estiver pronto
     document.addEventListener('DOMContentLoaded', initializeDarkMode);
 
+    // Adicionar listener para mudanças na preferência do sistema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === null) {
+            setDarkMode(e.matches);
+        }
+    });
+    
     // ------------------------------
     // ANIMATION ON SCROLL
     // ------------------------------
