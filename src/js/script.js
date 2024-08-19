@@ -110,69 +110,50 @@ window.addEventListener('load', () => {
 
         elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
     }
-// Função para definir o modo escuro
-function setDarkMode(isDark) {
-    document.body.classList.toggle('dark-mode', isDark);
 
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    if (darkModeToggle) {
-        darkModeToggle.textContent = isDark ? '🌙' : '☀️';
-        darkModeToggle.classList.toggle('active', isDark);
-    }
 
-    localStorage.setItem('darkMode', isDark);
-    console.log("Modo escuro ativado:", isDark);  // Log para verificar o estado
-}
-
-// Função para alternar o modo escuro
+       // Função para alternar entre os modos escuro e claro
 function toggleDarkMode() {
-    const isDarkMode = !document.body.classList.contains('dark-mode');
-    setDarkMode(isDarkMode);
+    document.body.classList.toggle('dark-mode');
+    document.getElementById('darkModeToggle').classList.add('rotate');
 
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    if (darkModeToggle) {
-        darkModeToggle.classList.add('rotate');
+    // Muda o ícone conforme o modo
+    const iconElement = document.getElementById('darkModeIcon');
+    if (document.body.classList.contains('dark-mode')) {
+        iconElement.setAttribute('data-icon', 'mdi:weather-night');
+    } else {
+        iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
+    }
 
-        setTimeout(() => {
-            darkModeToggle.classList.remove('rotate');
-        }, 500);
+    // Armazena a preferência do usuário no localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+
+    setTimeout(() => {
+        document.getElementById('darkModeToggle').classList.remove('rotate');
+    }, 300);
+}
+
+// Verifica a preferência armazenada do usuário
+function loadUserPreference() {
+    const darkMode = localStorage.getItem('darkMode');
+    const iconElement = document.getElementById('darkModeIcon');
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        iconElement.setAttribute('data-icon', 'mdi:weather-night');
+    } else {
+        document.body.classList.remove('dark-mode');
+        iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
     }
 }
 
-// Função para inicializar o modo escuro
-function initializeDarkMode() {
-    const savedDarkMode = localStorage.getItem('darkMode');
-    
-    if (savedDarkMode === null) {
-        // Verifica a preferência do sistema
-        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setDarkMode(prefersDarkMode);
-    } else {
-        setDarkMode(savedDarkMode === 'true');
-    }
-}
+document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
 
-// Inicialize o modo escuro imediatamente ao carregar a página
-initializeDarkMode();
-
-// Adiciona evento de clique ao botão quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', () => {
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-        console.log("Botão de alternância de tema registrado.");  // Log para verificar se o botão foi registrado
-    } else {
-        console.error("Botão de alternância de tema não encontrado!");  // Log de erro se o botão não for encontrado
-    }
-});
-
-// Adicionar listener para mudanças na preferência do sistema
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    const savedDarkMode = localStorage.getItem('darkMode');
-    if (savedDarkMode === null) {
-        setDarkMode(e.matches);
-    }
-});
+// Carrega a preferência do usuário ao carregar a página
+loadUserPreference();
 
 
     // ------------------------------
@@ -278,73 +259,6 @@ function debounce(func, wait) {
     };
 }
 
-// Função para o easter egg de clique
-document.addEventListener('DOMContentLoaded', function() {
-    let clickCount = 0;
-    const triggerElement = document.getElementById('profilePic');
-    const easterEgg = document.getElementById('easter-egg');
-    const fireworksContainer = document.getElementById('fireworks-container');
-    const fireworkSound = document.getElementById('firework-sound');
-
-    if (!easterEgg) {
-        console.error('Elemento com ID "easter-egg" não encontrado.');
-        return;
-    }
-
-    if (triggerElement) {
-        triggerElement.addEventListener('click', function() {
-            clickCount++;
-
-            // Exibir o easter egg após 5 cliques
-            if (clickCount === 5) {
-                easterEgg.style.display = 'block';
-                triggerFireworks();
-                clickCount = 0; // Resetar contador
-            }
-        });
-    } else {
-        console.error('Elemento com ID "profilePic" não encontrado.');
-    }
-
-    function triggerFireworks() {
-        if (fireworksContainer && fireworkSound) {
-            fireworksContainer.style.display = 'block';
-            fireworkSound.currentTime = 0; // Reinicia o som
-            fireworkSound.play();
-
-            const fireworks = fireworksContainer.querySelectorAll('.firework');
-
-            fireworks.forEach(firework => {
-                // Posicionamento aleatório
-                firework.style.top = `${Math.random() * 60 + 20}%`;
-                firework.style.left = `${Math.random() * 80 + 10}%`;
-                
-                // Cor aleatória do arco-íris
-                const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-                const randomColors = [getRandomColor(colors), getRandomColor(colors), getRandomColor(colors)];
-                firework.style.background = `radial-gradient(circle, ${randomColors[0]} var(--particleSize), transparent 50%),
-                                            radial-gradient(circle, ${randomColors[1]} var(--particleSize), transparent 50%),
-                                            radial-gradient(circle, ${randomColors[2]} var(--particleSize), transparent 50%)`;
-                
-                // Reiniciar a animação
-                firework.style.animation = 'none';
-                firework.offsetHeight; // Força o reflow
-                firework.style.animation = 'firework 2s infinite';
-            });
-
-            setTimeout(() => {
-                fireworksContainer.style.display = 'none';
-            }, 2000); // Duração dos fogos de artifício
-        } else {
-            console.error('Elemento com ID "fireworks-container" não encontrado.');
-        }
-    }
-
-    function getRandomColor(colors) {
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
-});
-
 // Verifica se tem 4 linhas ou mais, se sim, o botão de ler mais aparece
 document.addEventListener('DOMContentLoaded', function() {
     const projects = document.querySelectorAll('.project-info');
@@ -384,92 +298,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-//SHAPE
-const shapeContainer = document.getElementById('shape-container');
-const shapes = ['circle', 'square', 'triangle'];
-const colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'];
-const maxShapes = 10; // Reduzido o número máximo de formas
-
-function createShape() {
-    if (shapeContainer.children.length >= maxShapes) return;
-
-    const shape = document.createElement('div');
-    const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const size = Math.random() * 20 + 10; // 10px to 30px (reduzido o tamanho)
-
-    shape.classList.add('shape', shapeType);
-    shape.style.width = `${size}px`;
-    shape.style.height = `${size}px`;
-    
-    if (shapeType === 'triangle') {
-        shape.style.borderBottomColor = color;
-    } else {
-        shape.style.backgroundColor = color;
-    }
-
-    shape.style.left = `${Math.random() * 100}vw`;
-    shape.style.top = `${Math.random() * 100}vh`;
-
-    shapeContainer.appendChild(shape);
-
-    moveShape(shape);
-}
-
-function moveShape(shape) {
-    const angle = Math.random() * 2 * Math.PI;
-    const speed = Math.random() * 1 + 0.5; // 0.5 to 1.5 pixels per frame (reduzido a velocidade)
-
-    function animate() {
-        const rect = shape.getBoundingClientRect();
-        let x = rect.left + Math.cos(angle) * speed;
-        let y = rect.top + Math.sin(angle) * speed;
-
-        shape.style.left = `${x}px`;
-        shape.style.top = `${y}px`;
-
-        if (x < -rect.width || x > window.innerWidth ||
-            y < -rect.height || y > window.innerHeight) {
-            shapeContainer.removeChild(shape);
-            createShape(); // Cria uma nova forma quando uma é removida
-        } else {
-            requestAnimationFrame(animate);
-        }
-    }
-
-    animate();
-}
-
-function initShapes() {
-    for (let i = 0; i < maxShapes; i++) {
-        createShape();
-    }
-}
-
-initShapes();
-
-// Adiciona novas formas periodicamente
-setInterval(createShape, 2000);
 
     // ARISTA DIGITAL
-    const images = document.querySelectorAll('.main-image');
-    const prevButton = document.querySelector('.nav.prev');
-    const nextButton = document.querySelector('.nav.next');
-
-    let currentIndex = 0;
-
-    function showImage(index) {
-        images[currentIndex].classList.remove('active');
-        images[index].classList.add('active');
-        currentIndex = index;
-    }
-
-    prevButton.addEventListener('click', () => {
-        const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-        showImage(newIndex);
+    document.addEventListener('DOMContentLoaded', () => {
+        const images = document.querySelectorAll('.main-image');
+    
+        if (images.length === 0) return; // Sai se a seção não existir
+    
+        const prevButton = document.querySelector('.nav.prev');
+        const nextButton = document.querySelector('.nav.next');
+    
+        let currentIndex = 0;
+    
+        function showImage(index) {
+            images[currentIndex].classList.remove('active');
+            images[index].classList.add('active');
+            currentIndex = index;
+        }
+    
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+                showImage(newIndex);
+            });
+        }
+    
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+                showImage(newIndex);
+            });
+        }
     });
-
-    nextButton.addEventListener('click', () => {
-        const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-        showImage(newIndex);
-    });
+    

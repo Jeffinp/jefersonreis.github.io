@@ -185,7 +185,6 @@ nav ul li a:hover::after {
 nav ul li a:hover {
     color: var(--secondary-color);
 }
-
 /* Language Switch */
 .language-switch {
     position: absolute;
@@ -259,7 +258,6 @@ nav ul li a:hover {
 .hero p {
     color: var(--text-color-secondary);
 }
-
 /* Particles.js */
 #particles-js {
     position: absolute;
@@ -1494,32 +1492,19 @@ footer a:hover {
     visibility: visible;
 }
 
-/* Toggle Dark Mode */
-.toggle-dark-mode {
-    position: fixed;
-    top: 0.5rem;
-    right: 20px;
-    z-index: 1001;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.5s ease;
+/* Estilos básicos */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.toggle-dark-mode:hover {
-    background-color: var(--hover-color);
+/* Modo escuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
 }
 
-.toggle-dark-mode.active {
-    transform: rotate(360deg);
-}
-
-.toggle-dark-mode {
+/* Estilos do botão de alternância */
+#darkModeToggle {
     position: fixed;
     top: 1rem;
     right: 2rem;
@@ -1530,34 +1515,29 @@ footer a:hover {
     height: 40px;
     font-size: 24px;
     cursor: pointer;
-    transition: transform 0.5s;
-    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 1000;
 }
 
-.toggle-dark-mode:hover {
-    transform: scale(1.1);
+#darkModeToggle.rotate {
+    transform: rotate(360deg);
 }
 
-.toggle-dark-mode.rotate {
-    animation: rotate 0.5s ease;
+/* Estilos para o modo escuro do botão */
+body.dark-mode #darkModeToggle {
+    background-color: var(--secondary-color);
+    color: white;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* Estilos para o modo claro do botão */
+body #darkModeToggle {
+    background-color: black;
+    color: white;
 }
 
-body {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
 
 /* Lazy Loading */
 .lazy {
