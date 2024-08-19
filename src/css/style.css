@@ -185,6 +185,7 @@ nav ul li a:hover::after {
 nav ul li a:hover {
     color: var(--secondary-color);
 }
+
 /* Language Switch */
 .language-switch {
     position: absolute;
@@ -258,6 +259,7 @@ nav ul li a:hover {
 .hero p {
     color: var(--text-color-secondary);
 }
+
 /* Particles.js */
 #particles-js {
     position: absolute;
