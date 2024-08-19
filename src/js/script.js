@@ -110,65 +110,67 @@ window.addEventListener('load', () => {
 
         elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
     }
-
-    // Função para definir o modo escuro
-    function setDarkMode(isDark) {
-        document.body.classList.toggle('dark-mode', isDark);
-        
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        if (darkModeToggle) {
-            darkModeToggle.textContent = isDark ? '🌙' : '☀️';
-            darkModeToggle.classList.toggle('active', isDark);
-        }
-        
-        localStorage.setItem('darkMode', isDark);
+ // Função para definir o modo escuro
+function setDarkMode(isDark) {
+    document.body.classList.toggle('dark-mode', isDark);
+    
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    if (darkModeToggle) {
+        darkModeToggle.textContent = isDark ? '🌙' : '☀️';
+        darkModeToggle.classList.toggle('active', isDark);
     }
+    
+    localStorage.setItem('darkMode', isDark);
+}
 
-    // Função para alternar o modo escuro
-    function toggleDarkMode() {
-        const isDarkMode = !document.body.classList.contains('dark-mode');
-        setDarkMode(isDarkMode);
+// Função para alternar o modo escuro
+function toggleDarkMode() {
+    const isDarkMode = !document.body.classList.contains('dark-mode');
+    setDarkMode(isDarkMode);
 
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        if (darkModeToggle) {
-            darkModeToggle.classList.add('rotate');
-            
-            setTimeout(() => {
-                darkModeToggle.classList.remove('rotate');
-            }, 500);
-        }
-    }
-
-    // Função para inicializar o modo escuro
-    function initializeDarkMode() {
-        const savedDarkMode = localStorage.getItem('darkMode');
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    if (darkModeToggle) {
+        darkModeToggle.classList.add('rotate');
         
-        if (savedDarkMode === null) {
-            // Verifica a preferência do sistema
-            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            setDarkMode(prefersDarkMode);
-        } else {
-            setDarkMode(savedDarkMode === 'true');
-        }
+        setTimeout(() => {
+            darkModeToggle.classList.remove('rotate');
+        }, 500);
     }
+}
 
-    // Adicionar evento de clique ao botão
+// Função para inicializar o modo escuro
+function initializeDarkMode() {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    
+    if (savedDarkMode === null) {
+        // Verifica a preferência do sistema
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setDarkMode(prefersDarkMode);
+    } else {
+        setDarkMode(savedDarkMode === 'true');
+    }
+}
+
+// Inicialize o modo escuro imediatamente
+initializeDarkMode();
+
+// Adicionar evento de clique ao botão quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById("darkModeToggle");
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', toggleDarkMode);
     }
+});
 
-    // Inicialize o modo escuro quando o documento estiver pronto
-    document.addEventListener('DOMContentLoaded', initializeDarkMode);
+// Adicionar listener para mudanças na preferência do sistema
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === null) {
+        setDarkMode(e.matches);
+    }
+});
 
-    // Adicionar listener para mudanças na preferência do sistema
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        const savedDarkMode = localStorage.getItem('darkMode');
-        if (savedDarkMode === null) {
-            setDarkMode(e.matches);
-        }
-    });
-    
+window.addEventListener('load', () => {
     // ------------------------------
     // ANIMATION ON SCROLL
     // ------------------------------
@@ -467,3 +469,5 @@ setInterval(createShape, 2000);
         const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
         showImage(newIndex);
     });
+});
+   
