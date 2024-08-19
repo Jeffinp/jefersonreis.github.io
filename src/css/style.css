@@ -104,25 +104,6 @@ html, body {
     overflow-X: hidden;
 }
 
-/* FUNDO */
-body {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-body.dark-mode #darkModeToggle {
-    background-color: #555;
-    color: #fff;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
 
 .container {
     max-width: 1200px;
@@ -438,44 +419,6 @@ nav ul li a:hover {
     animation: none; /* Remove animação de caret */
 }
 
-
-/* Dark Mode Toggle */
-#darkModeToggle {
-    position: fixed;
-    top: 1rem;
-    right: 2rem;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#darkModeToggle:hover {
-    background-color: var(--secondary-color);
-    color: var(--dark-color);
-    transform: scale(1.1);
-}
-
-/* Adiciona a rotação */
-.rotate {
-    animation: rotate 0.5s ease;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 /* Seção Sobre */
 .about {
@@ -1574,36 +1517,45 @@ footer a:hover {
     transform: rotate(360deg);
 }
 
-/* Toggle Dark Mode */
 .toggle-dark-mode {
     position: fixed;
-    top: 0.5rem;
-    right: 20px;
-    z-index: 1001;
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    top: 1rem;
+    right: 2rem;
+    background-color: transparent;
     border: none;
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.5s ease;
-    outline: none;
+    transition: transform 0.5s;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .toggle-dark-mode:hover {
-    background-color: var(--hover-color);
+    transform: scale(1.1);
 }
 
-.toggle-dark-mode:focus {
-    outline: none; 
+.toggle-dark-mode.rotate {
+    animation: rotate 0.5s ease;
 }
 
-.toggle-dark-mode.active {
-    transform: rotate(360deg);
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
 
 /* Lazy Loading */
 .lazy {
@@ -1969,12 +1921,6 @@ footer a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-/* Suporte para modo escuro */
-body.dark-mode .gallery {
-    background-color: var(--background-color);
-    color: var(--text-color);
 }
 
 /* Estilo para a seção de Retorno */

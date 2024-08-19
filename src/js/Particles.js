@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 50, // Reduz o número de partículas para melhor desempenho em dispositivos móveis
+                    value: 50,
                     density: {
                         enable: true,
                         value_area: 800
@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
                 },
                 move: {
                     enable: true,
-                    speed: 1, // Reduz a velocidade das partículas para melhor desempenho
+                    speed: 1,
                     direction: "none",
                     random: false,
                     straight: false,

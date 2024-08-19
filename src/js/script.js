@@ -110,17 +110,18 @@ window.addEventListener('load', () => {
 
         elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
     }
- // Função para definir o modo escuro
+// Função para definir o modo escuro
 function setDarkMode(isDark) {
     document.body.classList.toggle('dark-mode', isDark);
-    
+
     const darkModeToggle = document.getElementById("darkModeToggle");
     if (darkModeToggle) {
         darkModeToggle.textContent = isDark ? '🌙' : '☀️';
         darkModeToggle.classList.toggle('active', isDark);
     }
-    
+
     localStorage.setItem('darkMode', isDark);
+    console.log("Modo escuro ativado:", isDark);  // Log para verificar o estado
 }
 
 // Função para alternar o modo escuro
@@ -131,7 +132,7 @@ function toggleDarkMode() {
     const darkModeToggle = document.getElementById("darkModeToggle");
     if (darkModeToggle) {
         darkModeToggle.classList.add('rotate');
-        
+
         setTimeout(() => {
             darkModeToggle.classList.remove('rotate');
         }, 500);
@@ -151,14 +152,17 @@ function initializeDarkMode() {
     }
 }
 
-// Inicialize o modo escuro imediatamente
+// Inicialize o modo escuro imediatamente ao carregar a página
 initializeDarkMode();
 
-// Adicionar evento de clique ao botão quando o DOM estiver pronto
+// Adiciona evento de clique ao botão quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById("darkModeToggle");
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', toggleDarkMode);
+        console.log("Botão de alternância de tema registrado.");  // Log para verificar se o botão foi registrado
+    } else {
+        console.error("Botão de alternância de tema não encontrado!");  // Log de erro se o botão não for encontrado
     }
 });
 
@@ -170,7 +174,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
     }
 });
 
-window.addEventListener('load', () => {
+
     // ------------------------------
     // ANIMATION ON SCROLL
     // ------------------------------
@@ -469,5 +473,3 @@ setInterval(createShape, 2000);
         const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
         showImage(newIndex);
     });
-});
-   
