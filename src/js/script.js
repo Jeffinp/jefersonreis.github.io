@@ -182,31 +182,34 @@ window.addEventListener('load', () => {
         document.body.classList.add('safari');
     }
 
-    // ------------------------------
-    // LANGUAGE SWITCH
-    // ------------------------------
-    const currentPage = window.location.href;
-    const languageLinks = document.querySelectorAll('.language-switch a');
+  // ------------------------------
+// LANGUAGE SWITCH
+// ------------------------------
+const currentPage = window.location.href;
+const languageLinks = document.querySelectorAll('.language-switch a');
 
-    // Função para remover a classe 'active' de todos os links
-    function removeActiveClass() {
-        languageLinks.forEach(link => {
-            link.classList.remove('active');
-        });
-    }
-
-    // Adiciona 'active' ao link correspondente à página atual
+// Função para remover a classe 'active' de todos os links
+function removeActiveClass() {
     languageLinks.forEach(link => {
-    if (currentPage.includes(link.getAttribute('href'))) {
+        link.classList.remove('active');
+    });
+}
+
+// Adiciona 'active' ao link correspondente à página atual
+languageLinks.forEach(link => {
+    const linkHref = link.getAttribute('href');
+    // Verifica se a URL atual corresponde exatamente ao href do link
+    if (currentPage.endsWith(linkHref)) {
         link.classList.add('active');
     }
 
     // Adiciona o evento de clique a cada link
     link.addEventListener('click', () => {
-        removeActiveClass(); 
-        link.classList.add('active'); 
+        removeActiveClass();  // Remove a classe 'active' de todos os links
+        link.classList.add('active');  // Adiciona 'active' ao link clicado
     });
 });
+
 
 });
 
