@@ -181,20 +181,32 @@ window.addEventListener('load', () => {
     if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
         document.body.classList.add('safari');
     }
+// ------------------------------
+// LANGUAGE SWITCH
+// ------------------------------
+const currentPage = window.location.href;
+const languageLinks = document.querySelectorAll('.language-switch a');
 
-    // ------------------------------
-    // LANGUAGE SWITCH
-    // ------------------------------
-    const currentPage = window.location.href;
-    const languageLinks = document.querySelectorAll('.language-switch a');
-
+// Função para remover a classe 'active' de todos os links
+function removeActiveClass() {
     languageLinks.forEach(link => {
-        if (currentPage.includes(link.getAttribute('href'))) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+        link.classList.remove('active');
     });
+}
+
+// Adiciona 'active' ao link correspondente à página atual
+languageLinks.forEach(link => {
+    if (currentPage.includes(link.getAttribute('href'))) {
+        link.classList.add('active');
+    }
+
+    // Adiciona o evento de clique a cada link
+    link.addEventListener('click', () => {
+        removeActiveClass();  // Remove a classe 'active' de todos os links
+        link.classList.add('active');  // Adiciona 'active' ao link clicado
+    });
+});
+
 });
 
 // ------------------------------
