@@ -9,8 +9,8 @@
     <meta name="keywords" content="Artista Digital, Ilustrador, Arte, Design Gráfico, Criatividade">
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/mobile.css">
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
 </head>
 <body>
     <div id="shape-container"></div>
@@ -128,25 +128,26 @@
             </div>
         </section>
 
-        <!-- RETURN SECTION -->
+        <!-- QUOTE BLOCK -->
+        <blockquote class="python-code">
+            <span class="comment">"Design é a arte de visualizar e transformar conceitos em experiências visuais impactantes."</span>     
+        </blockquote>
+
+        <!-- SEÇÃO DE RETORNO À PÁGINA PRINCIPAL -->
         <section id="return-section">
             <div class="container">
                 <h2 class="return-title">Voltar para a Página Principal</h2>
-                <p class="return-description">Retorne à página inicial para explorar mais conteúdo.</p>
+                <p class="return-description">Volte para a página inicial para explorar mais conteúdo.</p>
                 <div class="return-link">
                     <a href="index.html" class="return-button">
-                        <i class="fas fa-arrow-left"></i> Voltar
+                        <span class="iconify" data-icon="mdi:home" data-width="24" data-height="24"></span>
+                        Ir para a Página Inicial
                     </a>
                 </div>
             </div>
         </section>
 
     </main>
-
-        <!-- QUOTE BLOCK -->
-        <blockquote class="python-code">
-            <span class="comment">"Design é a arte de visualizar e transformar conceitos em experiências visuais impactantes."</span>     
-        </blockquote>
 
         <!-- FOOTER -->
         <footer>
@@ -183,22 +184,11 @@
             </div>
         </footer>
 
-        <!-- MODAL -->
-        <dialog id="project-modal" class="modal">
-            <div class="modal-content">
-                <button class="close" aria-label="Fechar">&times;</button>
-                <h2 id="modal-title"></h2>
-                <img id="modal-image" src="" alt="">
-                <p id="modal-description"></p>
-                <ul id="modal-technologies"></ul>
-            </div>
-        </dialog>
-
         <!-- SCROLL TO TOP BUTTON -->
         <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
 
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-        <script src="/src/js/script.js" defer></script>
+        <script src="./src/js/script.js" defer></script>
         <script src="/src/js/Particles.js"></script>
 
         <noscript>  

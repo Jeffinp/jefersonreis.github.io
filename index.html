@@ -13,13 +13,12 @@
     <meta property="og:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/mobile.css">
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
     <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
     <base href="/">
     
 </head>
 <body>
-
 
     <div id="shape-container"></div>
 
@@ -47,7 +46,7 @@
             </nav>
         </div>
     </header>
-    
+
     <!-- DARK MODE TOGGLE BUTTON -->
     <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
         <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
@@ -330,14 +329,15 @@
             </div>
         </section>
 
-
         <!-- PROJETOS -->
         <section id="projetos" class="projects" aria-labelledby="projetosTitle">
             <div class="container">
                 <h2 id="projetosTitle">Projetos</h2>
                 <ul class="project-grid">
                     <li class="project-item cliente-site" data-aos="fade-up" data-aos-delay="200" data-type="Projeto Contratado">
-                        <div class="project-image project-2" aria-label="Imagem do projeto Curso de Desenho"></div>
+                        <div class="project-image">
+                            <img src="/src/image/Screenshot_987.webp" alt="Imagem do projeto Curso de Desenho" loading="lazy">
+                        </div>
                         <div class="project-info">
                             <h3>Curso de Desenho</h3>
                             <p>Um site que criei utilizando HTML, CSS e JavaScript para um cliente que é professor de desenho.</p>
@@ -345,7 +345,9 @@
                         </div>
                     </li>
                     <li class="project-item training-site" data-aos="fade-up" data-aos-delay="400" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-8" aria-label="Imagem Presente de Natal"></div>
+                        <div class="project-image">
+                            <img src="/src/image/Presente-Natal.png" alt="Imagem Presente de Natal" loading="lazy">
+                        </div>
                         <div class="project-info">
                             <h3>Presente de Natal</h3>
                             <p>O Projeto de Presente de Natal é um site desenvolvido com HTML, CSS e JavaScript para promover o envio de presentes de Natal. Ele possui um design moderno e responsivo, com seções para iniciar o envio de presentes, compartilhar a alegria natalina, e explorar decorações e acessórios festivos. O layout inclui um menu de navegação interativo, ícones da Boxicons, e funcionalidades como rolagem para o topo e revelação de elementos durante a rolagem da página. O rodapé fornece informações sobre serviços, contato e redes sociais.</p>
@@ -353,7 +355,9 @@
                         </div>
                     </li>
                     <li class="project-item training-site" data-aos="fade-up" data-aos-delay="400" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-3" aria-label="Imagem do projeto Justly"></div>
+                        <div class="project-image">
+                            <img src="/src/image/Screenshot_993.webp" alt="Imagem do projeto Justly" loading="lazy">
+                        </div>
                         <div class="project-info">
                             <h3>Justly</h3>
                             <p>Mais um site de treinamento bem responsivo utilizando HTML e CSS apenas.</p>
@@ -361,39 +365,49 @@
                         </div>
                     </li>
                     <li class="project-item training-site" data-aos="fade-up" data-aos-delay="600" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-4" aria-label="Imagem do projeto Meu Portfólio"></div>
+                        <div class="project-image">
+                            <img src="/src/image/site.png" alt="Imagem do projeto Meu Portfólio" loading="lazy">
+                        </div>
                         <div class="project-info">
                             <h3>Meu Portfólio</h3>
                             <p>Meu próprio site onde estão meus projetos e tecnologias atuais conhecidas.</p>
-                            <a href="https://jeffinp.github.io/jefersonreis.github.io/" class="project-link button-hover" rel="noopener noreferrer">Ver Projeto</a>
+                            <a href="https://jeffinp.github.io/jefersonreis.github.io/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
                     </li>
                     <li class="project-item training-site" data-aos="fade-up" data-aos-delay="800" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-5" aria-label="Imagem do projeto Bookmark Project"></div>
+                        <div class="project-image">
+                            <img src="/src/image/bookmark.png" alt="Imagem do projeto Bookmark Project" loading="lazy">
+                        </div>
                         <div class="project-info">
                             <h3>Bookmark Project</h3>
                             <p>Este site de treino, desenvolvido por mim com HTML, CSS e JavaScript, oferece um gerenciador de favoritos simples e intuitivo. Ele permite organizar e sincronizar seus sites favoritos, acessando-os facilmente em qualquer dispositivo. Com suporte para múltiplos navegadores, o site oferece uma interface limpa e várias funcionalidades para melhorar sua experiência de navegação.</p>
-                            <a href="https://bookmarkproject12.netlify.app/" class="project-link button-hover" rel="noopener noreferrer">Ver Projeto</a>
+                            <a href="https://bookmarkproject12.netlify.app/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
                     </li>
                     <li class="project-item training-site" data-aos="fade-up" data-aos-delay="1000" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-6" aria-label="Imagem do projeto Acsendoflex"></div>
+                        <div class="project-image">
+                            <img src="/src/image/acsendoflex.png" alt="Imagem do projeto Acsendoflex" loading="lazy">
+                        </div>
                         <div class="project-info">
                             <h3>Acsendoflex</h3>
                             <p>Este site de treino foi desenvolvido por mim usando HTML, CSS e JavaScript. Ele promove um software de avaliação de desempenho para empresas, com ferramentas como competências 360º e metas, ajudando a aumentar a produtividade. Os usuários podem agendar uma demonstração personalizada.</p>
-                            <a href="https://ascendotraining.netlify.app/" class="project-link button-hover" rel="noopener noreferrer">Ver Projeto</a>
+                            <a href="https://ascendotraining.netlify.app/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
                     </li>
                     <li class="project-item training-site" data-aos="fade-up" data-aos-delay="1200" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-7" aria-label="Imagem do projeto Zomato"></div>
+                        <div class="project-image">
+                            <img src="/src/image/Zomato.png" alt="Imagem do projeto Zomato" loading="lazy">
+                        </div>
                         <div class="project-info">
                             <h3>Zomato</h3>
                             <p>Este site é uma réplica do Zomato, uma plataforma de entrega de comida e guia de restaurantes, criada com HTML e CSS. Apresenta um layout visualmente atraente e fácil de navegar. A página inicial inclui navegação com links para baixar o aplicativo, adicionar restaurantes e acessar informações de investidores, além de uma seção hero com campos de busca para localização e pesquisa de restaurantes. Oferece cartões promocionais para pedidos online, opções de jantar e vida noturna. Também destaca coleções de restaurantes em Delhi NCR e promove o aplicativo Zomato com opções de download. O rodapé fornece informações sobre a empresa, links para divisões, redes sociais e políticas de privacidade.</p>
-                            <a href="https://zomato12.netlify.app/" class="project-link button-hover" rel="noopener noreferrer">Ver Projeto</a>
+                            <a href="https://zomato12.netlify.app/" class="project-link button-hover" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
                     </li>
                     <li class="project-item training-site" data-aos="fade-up" data-aos-delay="1400" data-type="Desenvolvimento Pessoal">
-                        <div class="project-image project-1" aria-label="Imagem do projeto The Batman Part II"></div>
+                        <div class="project-image">
+                            <img src="/src/image/Screenshot_983.webp" alt="Imagem do projeto The Batman Part II" loading="lazy">
+                        </div>
                         <div class="project-info">
                             <h3>The Batman Part II</h3>
                             <p>Um site de treino para a venda de ingressos do filme do Batman.</p>
@@ -404,29 +418,29 @@
             </div>
         </section>
 
-        <!-- Seção de Certificados -->
-        <section id="certificates" class="certificates" aria-labelledby="certificates-title">
+
+        <!-- SEÇÃO DE CURRÍCULO -->
+        <section id="curriculo" class="resume">
             <div class="container">
-                <h2 id="certificates-title" class="section-title">Certificados Profissionais</h2>
-                <div class="certificate-grid">
-                    <article class="certificate-item" itemscope itemtype="http://schema.org/EducationalOccupationalCredential">
-                        <figure class="certificate-image-wrapper">
-                            <img src="./src/image/Certificado-TRUINFO.png" alt="Certificado do curso StartWeb de desenvolvimento web" class="certificate-image" loading="lazy" itemprop="image">
-                        </figure>
-                        <div class="certificate-info">
-                            <h3 class="certificate-title" itemprop="name">StartWeb: Desenvolvimento Web Intensivo</h3>
-                            <p class="certificate-description" itemprop="description">Curso intensivo de desenvolvimento web focado em HTML, CSS e JavaScript, fornecendo habilidades essenciais para criação de websites modernos e responsivos.</p>
-                            <a href="./src/image/Certificado-TRUINFO.png" class="certificate-link" target="_blank" rel="noopener noreferrer" itemprop="url">
-                                <button class="view-button">Visualizar Certificado</button>
-                            </a>
-                        </div>
-                    </article>
-                    <!-- Adicione mais certificados aqui, seguindo a mesma estrutura -->
+                <h2>Currículo</h2>
+                <div class="resume-content">
+                    <div class="resume-highlights">
+                        <h3>Destaques</h3>
+                        <ul>
+                            <li>Desenvolvedor Full-Stack com 3+ anos de experiência</li>
+                            <li>Especialista em React, Node.js e Python</li>
+                            <li>Designer Gráfico</li>
+                        </ul>
+                    </div>
+                    <div class="resume-cta">
+                        <p>Para mais detalhes, baixe meu currículo completo:</p>
+                        <a href="./src/Jeferson currículo.pdf" download class="download-resume-button">
+                            Baixar CV Completo
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-
-      
 
         <!-- TIMELINE -->
         <section id="timeline" class="timeline" aria-label="Minha Jornada">
@@ -516,7 +530,7 @@
 
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
         <script src="/src/js/script.js" defer></script>
-        <script src="/src/js/Particles.js"></script>
+        <script src="/src/js/Particles.js" defer></script>
 
         <noscript>
             <p>Imprimir com margens personalizadas não é suportado no Safari. Considere usar um navegador diferente para melhores resultados.</p>

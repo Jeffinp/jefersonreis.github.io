@@ -93,7 +93,6 @@ window.addEventListener('load', () => {
 });
 
 
-
 // Função para o easter egg de clique
 document.addEventListener('DOMContentLoaded', function() {
     let clickCount = 0;
@@ -196,7 +195,7 @@ function createShape() {
 
 function moveShape(shape) {
     const angle = Math.random() * 2 * Math.PI;
-    const speed = Math.random() * 1 + 0.5; // 0.5 to 1.5 pixels per frame (reduzido a velocidade)
+    const speed = Math.random() * 1 + 5;
 
     function animate() {
         const rect = shape.getBoundingClientRect();

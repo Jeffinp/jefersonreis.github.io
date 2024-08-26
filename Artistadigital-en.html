@@ -9,46 +9,48 @@
     <meta name="keywords" content="Digital Artist, Illustrator, Art, Graphic Design, Creativity">
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/mobile.css">
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
 </head>
 <body>
     <div id="shape-container"></div>
-        <!-- HEADER SECTION -->
-        <header>
-            <div class="language-switch">
-                <a href="./Artistadigital.html" data-lang="pt" aria-label="Portuguese">
-                    <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português">PT
-                </a>
-                <a href="./Artistadigital-en.html" data-lang="en" aria-label="English">
-                    <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês">EN
-                </a>
-            </div>         
-            <div class="container">
-                <h1 class="logo" aria-label="Jeferson Reis Logo">JR</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
 
-        <!-- DARK MODE TOGGLE BUTTON -->
-        <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
-            <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
-        </button>
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="language-switch">
+            <a href="./Artistadigital.html" data-lang="pt" aria-label="Portuguese">
+                <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português">PT
+            </a>
+            <a href="./Artistadigital-en.html" data-lang="en" aria-label="English">
+                <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês">EN
+            </a>
+        </div>         
+        <div class="container">
+            <h1 class="logo" aria-label="Jeferson Reis Logo">JR</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!-- DARK MODE TOGGLE BUTTON -->
+    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Toggle dark mode">
+        <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
+    </button>
+
+    <main>
+        <!-- HERO SECTION -->
         <section id="home" class="hero parallax" aria-label="Home">
             <div id="particles-js"></div>
             <div class="container">
                 <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
                 <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Digital Artist & Ilusstrator</p>
+                <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Digital Artist & Illustrator</p>
                 <a href="#gallery" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">View gallery</a>
-
                 <div id="fireworks-container" style="position: relative; display: none; z-index: 2;">
                     <div class="firework"></div>
                     <div class="firework"></div>
@@ -57,18 +59,16 @@
                     <div class="firework"></div>
                 </div>
             </div>
-        </section>        
-        
-        <!-- Elemento de áudio para o som dos fogos de artifício -->
+        </section>
+        <!-- AUDIO FOR FIREWORK SOUND -->
         <audio id="firework-sound" src="./src/sounds/firework-explosion.mp3" preload="auto"></audio>
         
-        <!-- Easter Egg -->
+        <!-- EASTER EGG -->
         <div id="easter-egg" style="display: none; text-align: center; margin-top: 20px;">
             <p>🎉 Congratulations! You found the Easter egg!</p>
             <img src="https://c.tenor.com/3cLzjlrE8UgAAAAC/tenor.gif" alt="Funny GIF" width="200">
-        </div>           
-
-        <!-- ABOUT ME AS AN ARTIST SECTION -->
+        </div>
+        <!-- ABOUT ME SECTION -->
         <section id="about" class="about" aria-labelledby="aboutTitle">
             <div class="container">
                 <h2 id="aboutTitle">About Me</h2>
@@ -91,7 +91,6 @@
                 </div>
             </div>
         </section>
-
         <!-- ART GALLERY SECTION -->
         <section id="gallery" class="gallery" aria-labelledby="galleryTitle">
             <div class="container">
@@ -121,6 +120,11 @@
             </div>
         </section>
 
+        <!-- QUOTE BLOCK -->
+        <blockquote class="python-code">
+            <span class="comment">"Design é a arte de visualizar e transformar conceitos em experiências visuais impactantes."</span>
+        </blockquote>
+        
         <!-- RETURN TO MAIN PAGE SECTION -->
         <section id="return-section">
             <div class="container">
@@ -128,71 +132,56 @@
                 <p class="return-description">Go back to the homepage to explore more content.</p>
                 <div class="return-link">
                     <a href="index-en.html" class="return-button">
-                        <i class="fas fa-arrow-left"></i> Return
+                        <span class="iconify" data-icon="mdi:home" data-width="24" data-height="24"></span>
+                        Go to Homepage
                     </a>
                 </div>
             </div>
-        </section>        
-
+        </section>
     </main>
 
-     <!-- QUOTE BLOCK -->
-     <blockquote class="python-code">
-        <span class="comment">"Design é a arte de visualizar e transformar conceitos em experiências visuais impactantes."</span>     
-    </blockquote>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Jeferson Reis. All rights reserved.</p>
-            <div aria-label="Redes sociais">
-                <ul class="social-links">
-                    <li>
-                        <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
-                            <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
-                            <span class="sr-only">LinkedIn</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
-                            <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
-                            <span class="sr-only">GitHub</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
-                            <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
-                            <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
-                            <span class="sr-only">WhatsApp</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <!-- MODAL -->
-    <dialog id="project-modal" class="modal">
-        <div class="modal-content">
-            <button class="close" aria-label="Fechar">&times;</button>
-            <h2 id="modal-title"></h2>
-            <img id="modal-image" src="" alt="">
-            <p id="modal-description"></p>
-            <ul id="modal-technologies"></ul>
-        </div>
-    </dialog>
 
     <!-- SCROLL TO TOP BUTTON -->
     <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
 
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Jeferson Reis. All rights reserved.</p>
+        <div aria-label="Redes sociais">
+            <ul class="social-links">
+                <li>
+                    <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
+                        <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
+                        <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
+                        <span class="sr-only">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
+                        <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
+                        <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
+                        <span class="sr-only">WhatsApp</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </footer>
+
+    
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    <script src="/src/js/script.js" defer></script>
-    <script src="/src/js/Particles.js"></script>
+    <script src="./src/js/script.js" defer></script>
+    <script src="/src/js/Particles.js" defer></script>
 
     <noscript>  
         <p>Custom margins for printing are not supported in Safari. Consider using a different browser for better results.</p>

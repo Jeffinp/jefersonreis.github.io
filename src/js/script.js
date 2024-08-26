@@ -1,186 +1,169 @@
 // ------------------------------
 // INICIALIZAÇÃO
 // ------------------------------
+
 window.addEventListener('load', () => {
-    // Seleção dos elementos da página
-    const elements = {
-        menuToggle: document.querySelector('.menu-toggle'),
-        navMenu: document.querySelector('nav ul'),
-        links: document.querySelectorAll('a[href^="#"]'),
-        scrollToTopBtn: document.getElementById("scrollToTopBtn"),
-        darkModeToggle: document.getElementById("darkModeToggle"),
-        projectItems: document.querySelectorAll('.project-item'),
-        modal: document.getElementById('project-modal'),
-        closeModal: document.querySelector('.close'),
-        form: document.getElementById('contact-form'),
-        lazyImages: document.querySelectorAll('img.lazy'),
-        fadeInSections: document.querySelectorAll(".fade-in-section"),
-        animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
-    };
 
-    // ------------------------------
-    // MENU TOGGLE
-    // ------------------------------
-    if (elements.menuToggle && elements.navMenu) {
-        elements.menuToggle.addEventListener('click', () => {
-            elements.menuToggle.classList.toggle('active');
-            elements.navMenu.classList.toggle('show');
+// Seleção dos elementos da página
+const elements = {
+    menuToggle: document.querySelector('.menu-toggle'),
+    navMenu: document.querySelector('nav ul'),
+    links: document.querySelectorAll('a[href^="#"]'),
+    scrollToTopBtn: document.getElementById("scrollToTopBtn"),
+    darkModeToggle: document.getElementById("darkModeToggle"),
+    projectItems: document.querySelectorAll('.project-item'),
+    modal: document.getElementById('project-modal'),
+    closeModal: document.querySelector('.close'),
+    form: document.getElementById('contact-form'),
+    lazyImages: document.querySelectorAll('img.lazy'),
+    fadeInSections: document.querySelectorAll(".fade-in-section"),
+    animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
+};
 
-            const menuItems = elements.navMenu.querySelectorAll('li');
-            menuItems.forEach((item, index) => {
-                if (elements.navMenu.classList.contains('show')) {
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 100 * index);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(-20px)';
-                }
-            });
+// ------------------------------
+// MENU TOGGLE
+// ------------------------------
+if (elements.menuToggle && elements.navMenu) {
+    elements.menuToggle.addEventListener('click', () => {
+        elements.menuToggle.classList.toggle('active');
+        elements.navMenu.classList.toggle('show');
+
+        const menuItems = elements.navMenu.querySelectorAll('li');
+        menuItems.forEach((item, index) => {
+            if (elements.navMenu.classList.contains('show')) {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 * index);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(-20px)';
+            }
         });
-    }
-
-    // ------------------------------
-    // SMOOTH SCROLL
-    // ------------------------------
-    elements.links.forEach(link => link.addEventListener('click', smoothScroll));
-
-    // ------------------------------
-    // SCROLL TO TOP BUTTON
-    // ------------------------------
-    window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
-    if (elements.scrollToTopBtn) {
-        elements.scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
-    }
-
-    // ------------------------------
-    // PROJECT MODAL
-    // ------------------------------
-    elements.projectItems.forEach(item => {
-        const detailsBtn = item.querySelector('.project-details-btn');
-        if (detailsBtn) {
-            detailsBtn.addEventListener('click', () => openModal(item));
-        }
     });
+}
 
-    if (elements.closeModal) {
-        elements.closeModal.addEventListener('click', () => {
-            elements.modal.style.display = "none";
-        });
+// ------------------------------
+// SMOOTH SCROLL
+// ------------------------------
+elements.links.forEach(link => link.addEventListener('click', smoothScroll));
+
+// ------------------------------
+// SCROLL TO TOP BUTTON
+// ------------------------------
+window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
+if (elements.scrollToTopBtn) {
+    elements.scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
+}
+
+// ------------------------------
+// PROJECT MODAL
+// ------------------------------
+elements.projectItems.forEach(item => {
+    const detailsBtn = item.querySelector('.project-details-btn');
+    if (detailsBtn) {
+        detailsBtn.addEventListener('click', () => openModal(item));
     }
+});
 
-    window.addEventListener('click', (event) => {
-        if (event.target === elements.modal) {
-            elements.modal.style.display = "none";
-        }
+if (elements.closeModal) {
+    elements.closeModal.addEventListener('click', () => {
+        elements.modal.style.display = "none";
     });
+}
 
-    // ------------------------------
-    // FADE-IN EFFECT
-    // ------------------------------
-    if (elements.fadeInSections.length) {
-        const fadeInObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("fade-in");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        elements.fadeInSections.forEach(section => fadeInObserver.observe(section));
+window.addEventListener('click', (event) => {
+    if (event.target === elements.modal) {
+        elements.modal.style.display = "none";
     }
+});
 
-    // ------------------------------
-    // LAZY LOADING IMAGES
-    // ------------------------------
-    if (elements.lazyImages.length) {
-        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove('lazy');
-                    lazyImage.classList.add('loaded');
-                    observer.unobserve(lazyImage);
-                }
-            });
+// ------------------------------
+// FADE-IN EFFECT
+// ------------------------------
+if (elements.fadeInSections.length) {
+    const fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in");
+                observer.unobserve(entry.target);
+            }
         });
+    }, { threshold: 0.1 });
 
-        elements.lazyImages.forEach(image => lazyImageObserver.observe(image));
+    elements.fadeInSections.forEach(section => fadeInObserver.observe(section));
+}
+
+
+    // Função para alternar entre os modos escuro e claro
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    document.getElementById('darkModeToggle').classList.add('rotate');
+
+    // Muda o ícone conforme o modo
+    const iconElement = document.getElementById('darkModeIcon');
+    if (document.body.classList.contains('dark-mode')) {
+        iconElement.setAttribute('data-icon', 'mdi:weather-night');
+    } else {
+        iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
     }
 
-
-        // Função para alternar entre os modos escuro e claro
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-        document.getElementById('darkModeToggle').classList.add('rotate');
-
-        // Muda o ícone conforme o modo
-        const iconElement = document.getElementById('darkModeIcon');
-        if (document.body.classList.contains('dark-mode')) {
-            iconElement.setAttribute('data-icon', 'mdi:weather-night');
-        } else {
-            iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
-        }
-
-        // Armazena a preferência do usuário no localStorage
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-        }
-
-        setTimeout(() => {
-            document.getElementById('darkModeToggle').classList.remove('rotate');
-        }, 300);
+    // Armazena a preferência do usuário no localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
     }
 
-    // Verifica a preferência armazenada do usuário
-    function loadUserPreference() {
-        const darkMode = localStorage.getItem('darkMode');
-        const iconElement = document.getElementById('darkModeIcon');
-        if (darkMode === 'enabled') {
-            document.body.classList.add('dark-mode');
-            iconElement.setAttribute('data-icon', 'mdi:weather-night');
-        } else {
-            document.body.classList.remove('dark-mode');
-            iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
-        }
+    setTimeout(() => {
+        document.getElementById('darkModeToggle').classList.remove('rotate');
+    }, 300);
+}
+
+// Verifica a preferência armazenada do usuário
+function loadUserPreference() {
+    const darkMode = localStorage.getItem('darkMode');
+    const iconElement = document.getElementById('darkModeIcon');
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        iconElement.setAttribute('data-icon', 'mdi:weather-night');
+    } else {
+        document.body.classList.remove('dark-mode');
+        iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
     }
+}
 
-    document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
 
-    // Carrega a preferência do usuário ao carregar a página
-    loadUserPreference();
+// Carrega a preferência do usuário ao carregar a página
+loadUserPreference();
 
 
-    // ------------------------------
-    // ANIMATION ON SCROLL
-    // ------------------------------
-    if (elements.animateOnScrollElements.length) {
-        const animateOnScrollObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        elements.animateOnScrollElements.forEach(element => {
-            element.classList.add('animate-on-scroll');
-            animateOnScrollObserver.observe(element);
+// ------------------------------
+// ANIMATION ON SCROLL
+// ------------------------------
+if (elements.animateOnScrollElements.length) {
+    const animateOnScrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
         });
-    }
+    }, { threshold: 0.1 });
 
-    // ------------------------------
-    // CHECK IF BROWSER IS SAFARI
-    // ------------------------------
-    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-        document.body.classList.add('safari');
-    }
+    elements.animateOnScrollElements.forEach(element => {
+        element.classList.add('animate-on-scroll');
+        animateOnScrollObserver.observe(element);
+    });
+}
+
+// ------------------------------
+// CHECK IF BROWSER IS SAFARI
+// ------------------------------
+if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+    document.body.classList.add('safari');
+}
 
   // ------------------------------
 // LANGUAGE SWITCH
@@ -209,7 +192,6 @@ languageLinks.forEach(link => {
         link.classList.add('active');  // Adiciona 'active' ao link clicado
     });
 });
-
 
 });
 
@@ -315,35 +297,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-    // ARISTA DIGITAL
-    document.addEventListener('DOMContentLoaded', () => {
-        const images = document.querySelectorAll('.main-image');
-    
-        if (images.length === 0) return; // Sai se a seção não existir
-    
-        const prevButton = document.querySelector('.nav.prev');
-        const nextButton = document.querySelector('.nav.next');
-    
-        let currentIndex = 0;
-    
-        function showImage(index) {
-            images[currentIndex].classList.remove('active');
-            images[index].classList.add('active');
-            currentIndex = index;
-        }
-    
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-                showImage(newIndex);
-            });
-        }
-    
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-                showImage(newIndex);
-            });
-        }
-    });
-    
+// ARISTA DIGITAL
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.main-image');
+
+    if (images.length === 0) return; // Sai se a seção não existir
+
+    const prevButton = document.querySelector('.nav.prev');
+    const nextButton = document.querySelector('.nav.next');
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+        images[currentIndex].classList.remove('active');
+        images[index].classList.add('active');
+        currentIndex = index;
+    }
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            showImage(newIndex);
+        });
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            showImage(newIndex);
+        });
+    }
+});

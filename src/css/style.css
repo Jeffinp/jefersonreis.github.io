@@ -762,6 +762,7 @@ section h2 {
 .soft-skill-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
     background-color: var(--hover-color);
 }
 
@@ -829,7 +830,6 @@ section h2 {
     -webkit-text-fill-color: transparent;
     animation: textHighlight 3s linear infinite;
 }
-
 /* Seção de Projetos */
 .project-grid {
     display: grid;
@@ -900,6 +900,18 @@ section h2 {
     transition: transform 0.5s ease;
 }
 
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem para cobrir todo o contêiner sem distorção */
+    transition: transform 0.5s ease;
+}
+
+.project-item:hover .project-image img {
+    transform: scale(1.1); /* Aumenta a imagem no hover */
+}
+
+
 .project-item:hover .project-image {
     transform: scale(1.1);
 }
@@ -963,7 +975,6 @@ section h2 {
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
 }
-
 .project-link:hover::after {
     transform: translate(-50%, -50%) scale(1);
 }
@@ -974,14 +985,15 @@ section h2 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.project-1 { background-image: url('/src/image/Screenshot_983.webp'); }
-.project-2 { background-image: url('/src/image/Screenshot_987.webp'); }
-.project-3 { background-image: url('/src/image/Screenshot_993.webp'); }
-.project-4 { background-image: url('/src/image/site.png'); }
-.project-5 { background-image: url('/src/image/bookmark.png'); }
-.project-6 { background-image: url('/src/image/acsendoflex.png'); }
-.project-7 { background-image: url('/src/image/Zomato.png'); }
-.project-8 { background-image: url('/src/image/Presente-Natal.png'); }
+.project-link:hover {
+    color: var(--hover-color);
+}
+
+@media (max-width: 768px) {
+    .project-item {
+        margin-bottom: 2rem;
+    }
+}
 
 .project-item.training-site::after,
 .project-item.cliente-site::after {
@@ -1035,6 +1047,161 @@ section h2 {
 .project-info p.collapsed {
     max-height: 7em;
     opacity: 0.8;
+}
+
+/* Seção de Currículo */
+.resume {
+    padding: 6rem 0;
+}
+
+.resume .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.resume h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 300;
+}
+
+.resume h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.resume-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    background-color: var(--dark-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.resume-content:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.resume-highlights {
+    flex: 1;
+    padding: 2rem;
+    background-color: var(--primary-color);
+    transition: background-color 0.5s ease;
+}
+
+.resume-content:hover .resume-highlights {
+    background-color: var(--hover-color);
+}
+
+.resume-highlights h3 {
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.resume-highlights ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resume-highlights li {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    display: flex;
+    align-items: center;
+}
+
+.resume-highlights li::before {
+    content: '•';
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    margin-right: 0.5rem;
+}
+
+.resume-cta {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    transition: background-color 0.5s ease;
+}
+
+.resume-content:hover .resume-cta {
+    background-color: var(--hover-color);
+}
+
+.resume-cta p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.download-resume-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.download-resume-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    transition: transform 0.5s ease;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+}
+
+.download-resume-button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.download-resume-button:hover {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .resume-content {
+        flex-direction: column;
+    }
+    
+    .resume h2 {
+        font-size: 2.5rem;
+    }
 }
 
 /* Seção de Certificados */
