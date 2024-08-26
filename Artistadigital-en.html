@@ -17,13 +17,13 @@
         <!-- HEADER SECTION -->
         <header>
             <div class="language-switch">
-                <a href="Artistadigital.html" class="active" aria-label="Português">
-                    <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="">PT
+                <a href="index.html" data-lang="pt" aria-label="Portuguese">
+                    <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português">PT
                 </a>
-                <a href="Artistadigital-en.html" aria-label="Inglês">
-                    <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="">EN
+                <a href="index-en.html" data-lang="en" aria-label="English">
+                    <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês">EN
                 </a>
-            </div>
+            </div>         
             <div class="container">
                 <h1 class="logo" aria-label="Jeferson Reis Logo">JR</h1>
                 <nav>
@@ -37,7 +37,9 @@
         </header>
 
         <!-- DARK MODE TOGGLE BUTTON -->
-        <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Toggle dark mode">☀️</button>
+        <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
+            <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
+        </button>
 
         <section id="home" class="hero parallax" aria-label="Home">
             <div id="particles-js"></div>
