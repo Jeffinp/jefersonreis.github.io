@@ -7,68 +7,71 @@
     <meta name="author" content="Jeferson Reis Almeida">
     <meta name="description" content="Portfólio de arte digital e ilustrações de Jeferson Reis">
     <meta name="keywords" content="Artista Digital, Ilustrador, Arte, Design Gráfico, Criatividade">
-    <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="stylesheet" href="./src/css/mobile.css">
+    <link rel="stylesheet" href="./src/css/style - min.css">
+    <link rel="stylesheet" href="./src/css/mobile - min.css">
     <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
 </head>
+
+<div id="shape-container"></div>
+
 <body>
-    <div id="shape-container"></div>
-        <!-- HEADER -->
-        <header>
-            <div class="language-switch">
-                <a href="./Artistadigital.html" data-lang="pt" aria-label="Português">
-                    <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português">PT
-                </a>
-                <a href="./Artistadigital-en.html" data-lang="en" aria-label="Inglês">
-                    <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês">EN
-                </a>
-            </div>         
+
+    <!-- HEADER -->
+    <header>
+        <div class="language-switch">
+            <a href="./Artistadigital.html" data-lang="pt" aria-label="Português">
+                <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português">PT
+            </a>
+            <a href="./Artistadigital-en.html" data-lang="en" aria-label="Inglês">
+                <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês">EN
+            </a>
+        </div>         
+        <div class="container">
+            <h1 class="logo" aria-label="Logo de Jeferson Reis">JR</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- DARK MODE TOGGLE BUTTON -->
+    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
+        <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
+    </button>
+
+    <!-- HERO SECTION -->
+    <main>
+        <section id="home" class="hero parallax" aria-label="Home">
+            <div id="particles-js"></div>
             <div class="container">
-                <h1 class="logo" aria-label="Logo de Jeferson Reis">JR</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#galeria">Galeria</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
+                <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
+                <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Ilustrador e Designer</p>
+                <a href="#galeria" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver galeria</a>
 
-
-        <!-- DARK MODE TOGGLE BUTTON -->
-        <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
-            <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
-        </button>
-
-        <!-- HERO SECTION -->
-        <main>
-            <section id="home" class="hero parallax" aria-label="Home">
-                <div id="particles-js"></div>
-                <div class="container">
-                    <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
-                    <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                    <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Ilustrador e Designer</p>
-                    <a href="#galeria" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver galeria</a>
-    
-                    <div id="fireworks-container" style="position: relative; display: none; z-index: 2;">
-                        <div class="firework"></div>
-                        <div class="firework"></div>
-                        <div class="firework"></div>
-                        <div class="firework"></div>
-                        <div class="firework"></div>
-                    </div>
+                <div id="fireworks-container" style="position: relative; display: none; z-index: 2;">
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="firework"></div>
                 </div>
-            </section>        
-            
-            <!-- Elemento de áudio para o som dos fogos de artifício -->
-            <audio id="firework-sound" src="./src/sounds/firework-explosion.mp3" preload="auto"></audio>
-            
-            <!-- Easter Egg -->
-            <div id="easter-egg" style="display: none; text-align: center; margin-top: 20px;">
-                <p>🎉 Parabéns! Você encontrou o easter egg!</p>
-            </div>           
+            </div>
+        </section>        
+        
+        <!-- Elemento de áudio para o som dos fogos de artifício -->
+        <audio id="firework-sound" src="./src/sounds/firework-explosion.mp3" preload="auto"></audio>
+        
+        <!-- Easter Egg -->
+        <div id="easter-egg" style="display: none; text-align: center; margin-top: 20px;">
+            <p>🎉 Parabéns! Você encontrou o easter egg!</p>
+        </div>           
 
         <!-- SOBRE MIM COMO ARTISTA -->
         <section id="sobre" class="about" aria-labelledby="sobreTitle">
@@ -187,9 +190,9 @@
         <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
 
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-        <script src="./src/js/script.js" defer></script>
-        <script src="/src/js/Particles.js"></script>
-
+        <script src="/src/js/script - min.js" defer></script>
+        <script src="/src/js/Particles - min.js" defer></script>
+        
         <noscript>  
             <p>Custom margins for printing are not supported in Safari. Consider using a different browser for better results.</p>
         </noscript>
