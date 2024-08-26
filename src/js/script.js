@@ -112,48 +112,48 @@ window.addEventListener('load', () => {
     }
 
 
-       // Função para alternar entre os modos escuro e claro
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    document.getElementById('darkModeToggle').classList.add('rotate');
+        // Função para alternar entre os modos escuro e claro
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        document.getElementById('darkModeToggle').classList.add('rotate');
 
-    // Muda o ícone conforme o modo
-    const iconElement = document.getElementById('darkModeIcon');
-    if (document.body.classList.contains('dark-mode')) {
-        iconElement.setAttribute('data-icon', 'mdi:weather-night');
-    } else {
-        iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
+        // Muda o ícone conforme o modo
+        const iconElement = document.getElementById('darkModeIcon');
+        if (document.body.classList.contains('dark-mode')) {
+            iconElement.setAttribute('data-icon', 'mdi:weather-night');
+        } else {
+            iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
+        }
+
+        // Armazena a preferência do usuário no localStorage
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+
+        setTimeout(() => {
+            document.getElementById('darkModeToggle').classList.remove('rotate');
+        }, 300);
     }
 
-    // Armazena a preferência do usuário no localStorage
-    if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        localStorage.setItem('darkMode', 'disabled');
+    // Verifica a preferência armazenada do usuário
+    function loadUserPreference() {
+        const darkMode = localStorage.getItem('darkMode');
+        const iconElement = document.getElementById('darkModeIcon');
+        if (darkMode === 'enabled') {
+            document.body.classList.add('dark-mode');
+            iconElement.setAttribute('data-icon', 'mdi:weather-night');
+        } else {
+            document.body.classList.remove('dark-mode');
+            iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
+        }
     }
 
-    setTimeout(() => {
-        document.getElementById('darkModeToggle').classList.remove('rotate');
-    }, 300);
-}
+    document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
 
-// Verifica a preferência armazenada do usuário
-function loadUserPreference() {
-    const darkMode = localStorage.getItem('darkMode');
-    const iconElement = document.getElementById('darkModeIcon');
-    if (darkMode === 'enabled') {
-        document.body.classList.add('dark-mode');
-        iconElement.setAttribute('data-icon', 'mdi:weather-night');
-    } else {
-        document.body.classList.remove('dark-mode');
-        iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
-    }
-}
-
-document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
-
-// Carrega a preferência do usuário ao carregar a página
-loadUserPreference();
+    // Carrega a preferência do usuário ao carregar a página
+    loadUserPreference();
 
 
     // ------------------------------
