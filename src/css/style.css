@@ -1424,10 +1424,11 @@ section h2 {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     background-color: var(--hover-color);
 }
+
 /* Footer */
 footer {
     background-color: var(--primary-color);
-    padding: 3rem 20px;
+    padding: 0.5rem 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -1448,7 +1449,6 @@ footer .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
     z-index: 2;
 }
 
@@ -1472,7 +1472,6 @@ footer a:hover {
 
 @media (min-width: 768px) {
     footer .container {
-        flex-direction: row;
         justify-content: center;
     }
 
@@ -2056,7 +2055,6 @@ body #darkModeToggle {
 /* GALERIA DE ARTE */
 #galeria {
     color: var(--text-color);
-    background-color: var(--background-color);
 }
 
 .gallery h2 {

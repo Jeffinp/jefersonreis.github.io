@@ -94,7 +94,6 @@ if (elements.fadeInSections.length) {
     elements.fadeInSections.forEach(section => fadeInObserver.observe(section));
 }
 
-
     // Função para alternar entre os modos escuro e claro
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
