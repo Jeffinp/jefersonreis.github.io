@@ -53,7 +53,7 @@
 
 /* Modo escuro */
 body.dark-mode {
-    --primary-color: #121212;
+    --primary-color: #121416; 
     --secondary-color: #1DB954;
     --text-color: #E0E0E0;
     --background-color: #181818;
