@@ -247,7 +247,7 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(31, 41, 55, 0.8), rgba(31, 41, 55, 0.7)), url('/src/image/imagemfundo.webp') no-repeat center center/cover;
+    background: linear-gradient(rgba(31, 41, 55, 0.8), rgba(31, 41, 55, 0.7)), url('/src/image/nebula-space-blue-12k-2v.jpg') no-repeat center center/cover;
     position: relative;
     overflow: hidden;
 }

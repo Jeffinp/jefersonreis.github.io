@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 50,
+                    value: 20,
                     density: {
                         enable: true,
                         value_area: 800
@@ -55,11 +55,11 @@ window.addEventListener('load', () => {
                 },
                 move: {
                     enable: true,
-                    speed: 1,
+                    speed: 2,
                     direction: "none",
                     random: false,
                     straight: false,
-                    out_mode: "out",
+                    out_mode: "out",  // As partículas que saem da tela são removidas
                     bounce: false
                 }
             },
@@ -87,8 +87,20 @@ window.addEventListener('load', () => {
                         particles_nb: 2
                     }
                 }
-            }
+            },
+            retina_detect: true
         });
+
+        // Função para adicionar novas partículas a cada 2 segundos
+        setInterval(() => {
+            const existingParticles = window.pJSDom[0].pJS.particles.array.length;
+            const maxParticles = window.pJSDom[0].pJS.particles.number.value;
+
+            // Verifica se o número de partículas atuais é menor que o máximo permitido
+            if (existingParticles < maxParticles) {
+                window.pJSDom[0].pJS.fn.modes.pushParticles(1);  // Adiciona uma nova partícula
+            }
+        }, 1000);
     }
 });
 
@@ -165,15 +177,17 @@ document.addEventListener('DOMContentLoaded', function() {
 const shapeContainer = document.getElementById('shape-container');
 const shapes = ['circle', 'square', 'triangle'];
 const colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'];
-const maxShapes = 10; // Reduzido o número máximo de formas
+const maxShapes = 10; // Número máximo de formas
 
 function createShape() {
+    // Verifica se já atingiu o número máximo de formas
     if (shapeContainer.children.length >= maxShapes) return;
 
+    // Cria uma nova forma
     const shape = document.createElement('div');
     const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
     const color = colors[Math.floor(Math.random() * colors.length)];
-    const size = Math.random() * 20 + 10; // 10px to 30px (reduzido o tamanho)
+    const size = Math.random() * 20 + 10; // Tamanho entre 10px e 30px
 
     shape.classList.add('shape', shapeType);
     shape.style.width = `${size}px`;
@@ -190,6 +204,7 @@ function createShape() {
 
     shapeContainer.appendChild(shape);
 
+    // Move a forma criada
     moveShape(shape);
 }
 
@@ -205,6 +220,7 @@ function moveShape(shape) {
         shape.style.left = `${x}px`;
         shape.style.top = `${y}px`;
 
+        // Remove a forma se ela sair da tela e cria uma nova
         if (x < -rect.width || x > window.innerWidth ||
             y < -rect.height || y > window.innerHeight) {
             shapeContainer.removeChild(shape);
