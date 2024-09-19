@@ -69,17 +69,14 @@
     </script>
 </head>
 <body>
-
-    <div id="shape-container"></div>
-
     <!-- HEADER -->
-    <header>
+    <header role="banner">
         <div class="language-switch">
             <a href="index.html" data-lang="pt" aria-label="Português">
-                <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português">PT
+                <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português" width="24" height="24">PT
             </a>
             <a href="index-en.html" data-lang="en" aria-label="Inglês">
-                <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês">EN
+                <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês" width="24" height="24">EN
             </a>
         </div>         
         <div class="container">
@@ -97,13 +94,13 @@
         </div>
     </header>
 
-    <!-- DARK MODE TOGGLE BUTTON -->
-    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
-        <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
-    </button>
-
     <!-- FAIXA HERO  -->
     <main>
+        <!-- DARK MODE TOGGLE BUTTON -->
+        <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
+            <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
+        </button>
+
         <!-- FAIXA HERO PARALLAX -->
         <section id="home" class="hero parallax" aria-label="Home">
             <div id="particles-js"></div>
@@ -559,11 +556,7 @@
         </dialog>
 
         <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
-
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-        <script src="/src/js/script.js" defer></script>
-        <script src="/src/js/Particles.js" defer></script>
-
+        
         <noscript>
             <p>Imprimir com margens personalizadas não é suportado no Safari. Considere usar um navegador diferente para melhores resultados.</p>
         </noscript>
