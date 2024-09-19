@@ -45,8 +45,8 @@
     }
 
     .language-switch img {
-        width: 20px; /* Tamanho das bandeiras */
-        height: 20px; /* Tamanho das bandeiras */
+        width: 20px; 
+        height: 20px; 
         vertical-align: middle;
         margin-right: 5px;
     }
@@ -91,7 +91,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
-        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); 
     }
 
     /* Modo Escuro */
@@ -115,8 +115,8 @@
     }
 
     .language-switch img {
-        width: 20px; /* Ajuste o tamanho das bandeiras */
-        height: 20px; /* Ajuste o tamanho das bandeiras */
+        width: 20px; 
+        height: 20px; 
     }
 }
 

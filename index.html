@@ -18,14 +18,21 @@
     <meta property="og:image" content="https://jeffinp.github.io/jefersonreis.github.io/src/image/Linkedin-foto.webp">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
-    <meta property="twitter:title" content="Jeferson Reis - Desenvolvedor Full-Stack | Portfólio">
-    <meta property="twitter:description" content="Explore o portfólio de Jeferson Reis, desenvolvedor Full-Stack especializado em React, Node.js e design gráfico. Descubra projetos inovadores e habilidades técnicas avançadas.">
-    <meta property="twitter:image" content="https://jeffinp.github.io/jefersonreis.github.io/src/image/Linkedin-foto.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
+    <meta name="twitter:title" content="Jeferson Reis - Desenvolvedor Full-Stack | Portfólio">
+    <meta name="twitter:description" content="Explore o portfólio de Jeferson Reis, desenvolvedor Full-Stack especializado em React, Node.js e design gráfico. Descubra projetos inovadores e habilidades técnicas avançadas.">
+    <meta name="twitter:image" content="https://jeffinp.github.io/jefersonreis.github.io/src/image/Linkedin-foto.webp">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./src/image/Iconsite.ico" type="image/x-icon">
+    <link rel="icon" href="./src/image/Iconsite.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./src/image/apple-touch-icon.png">
+
+    <!-- Preconnect e Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="./src/css/style.css">
+    <link rel="preload" as="style" href="./src/css/mobile.css">
 
     <!-- Estilos -->
     <link rel="stylesheet" href="./src/css/style.css">
@@ -33,6 +40,9 @@
 
     <!-- Scripts -->
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="/src/js/script.js" defer></script>
+    <script src="/src/js/Particles.js" defer></script>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://jeffinp.github.io/jefersonreis.github.io/">
@@ -115,7 +125,7 @@
                 </a>
             </div>
         </section>
-        
+
         <!-- SOBRE MIM  -->
         <section id="sobre" class="about" aria-labelledby="sobreTitle">
             <div class="container">
@@ -497,9 +507,11 @@
     </main>
 
         <!-- FRASE  -->
-        <blockquote class="python-code">
-            <span class="comment">"Tecnologia é a arte de transformar a imaginação em realidade."</span>     
-        </blockquote>
+        <aside>
+            <blockquote class="python-code">
+                <p><span class="comment">"Tecnologia é a arte de transformar a imaginação em realidade."</span></p>
+            </blockquote>
+        </aside>
 
         <!-- FOOTER -->
         <footer>
@@ -555,9 +567,13 @@
         <noscript>
             <p>Imprimir com margens personalizadas não é suportado no Safari. Considere usar um navegador diferente para melhores resultados.</p>
         </noscript>
+
+        <noscript>
+            <p>Este site funciona melhor com JavaScript habilitado. Por favor, habilite JavaScript para uma experiência completa.</p>
+        </noscript>
+
         <script>
             AOS.init();
         </script>
-
 </body>
 </html>
