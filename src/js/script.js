@@ -2,46 +2,22 @@
 // INICIALIZAÇÃO
 // ------------------------------
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    const elements = {
+        menuToggle: document.querySelector('.menu-toggle'),
+        navMenu: document.querySelector('nav ul'),
+        links: document.querySelectorAll('a[href^="#"]'),
+        scrollToTopBtn: document.getElementById("scrollToTopBtn"),
+        darkModeToggle: document.getElementById("darkModeToggle"),
+        projectItems: document.querySelectorAll('.project-item'),
+        modal: document.getElementById('project-modal'),
+        closeModal: document.querySelector('.close'),
+        form: document.getElementById('contact-form'),
+        lazyImages: document.querySelectorAll('img.lazy'),
+        fadeInSections: document.querySelectorAll(".fade-in-section"),
+        animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item'),
+    };
 
-// Seleção dos elementos da página
-const elements = {
-    menuToggle: document.querySelector('.menu-toggle'),
-    navMenu: document.querySelector('nav ul'),
-    links: document.querySelectorAll('a[href^="#"]'),
-    scrollToTopBtn: document.getElementById("scrollToTopBtn"),
-    darkModeToggle: document.getElementById("darkModeToggle"),
-    projectItems: document.querySelectorAll('.project-item'),
-    modal: document.getElementById('project-modal'),
-    closeModal: document.querySelector('.close'),
-    form: document.getElementById('contact-form'),
-    lazyImages: document.querySelectorAll('img.lazy'),
-    fadeInSections: document.querySelectorAll(".fade-in-section"),
-    animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
-};
-
-// ------------------------------
-// MENU TOGGLE
-// ------------------------------
-if (elements.menuToggle && elements.navMenu) {
-    elements.menuToggle.addEventListener('click', () => {
-        elements.menuToggle.classList.toggle('active');
-        elements.navMenu.classList.toggle('show');
-
-        const menuItems = elements.navMenu.querySelectorAll('li');
-        menuItems.forEach((item, index) => {
-            if (elements.navMenu.classList.contains('show')) {
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                }, 100 * index);
-            } else {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(-20px)';
-            }
-        });
-    });
-}
 
 // ------------------------------
 // SMOOTH SCROLL
