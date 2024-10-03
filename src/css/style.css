@@ -319,50 +319,80 @@ nav ul li a:hover {
 /* CTA Button */
 .cta-button {
     display: inline-block;
-    padding: 1.2rem 2.5rem;
+    padding: 1rem 2.5rem;
     background-color: var(--secondary-color);
     color: var(--background-color);
     text-decoration: none;
     border-radius: var(--border-radius-full);
-    font-size: 1.2rem;
-    font-weight: 700;
-    transition: all var(--transition-normal);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: fadeInUp 1s ease-out 1s both;
+    letter-spacing: 1.5px;
+    animation: fadeInUp 1s ease-out 0.5s both;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button::before,
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease-in-out;
 }
 
 .cta-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    transition: transform 0.6s ease;
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+    transform: translateY(100%);
+}
+
+.cta-button::after {
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    transform: translateY(-100%);
 }
 
 .cta-button:hover::before {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translateY(0);
+}
+
+.cta-button:hover::after {
+    transform: translateY(0);
+}
+
+.cta-button span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover span {
+    transform: scale(1.05);
 }
 
 .cta-button:hover {
     background-color: var(--hover-color);
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     color: var(--text-color);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--secondary-color);
 }
 
+.cta-button:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-50px);
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
@@ -373,7 +403,7 @@ nav ul li a:hover {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -384,12 +414,28 @@ nav ul li a:hover {
 @keyframes zoomIn {
     from {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.8);
     }
     to {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(var(--secondary-color-rgb), 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(var(--secondary-color-rgb), 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(var(--secondary-color-rgb), 0);
+    }
+}
+
+.cta-button.pulse {
+    animation: pulse 2s infinite;
 }
 
 /* Adiciona um efeito de typing para o título */
@@ -512,7 +558,6 @@ nav ul li a:hover {
 
 /* Estilo para a seção de Portfólio de Artista Digital */
 #digital-portfolio {
-    background-color: var(--background-color-light);
     padding: 5rem 0;
     text-align: center;
     position: relative;
@@ -714,7 +759,6 @@ section h2 {
 .skill-level-85  { width: 85%; }
 .skill-level-80  { width: 80%; }
 .skill-level-75  { width: 75%; }
-
 
 /* Seção de Soft Skills */
 .soft-skills {
@@ -1434,7 +1478,7 @@ section h2 {
 /* Footer */
 footer {
     background-color: var(--primary-color);
-    padding: 0.5rem 20px;
+    padding: 2rem 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -1913,41 +1957,159 @@ body #darkModeToggle {
 
 /* GALERIA DE ARTE */
 #galeria {
-    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: 4rem 0;
+    overflow: hidden;
 }
 
-.gallery h2 {
-    color: var(--secondary-color);
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2.5em;
+.gallery {
+    position: relative;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
+}
+
+#galeriaTitle {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#galeriaTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.modern-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(1.1);
+}
+
+.main-image.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.nav::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid var(--secondary-color);
+    border-right: 3px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.nav.prev {
+    left: 2rem;
+}
+
+.nav.next {
+    right: 2rem;
+}
+
+.nav.prev::before {
+    left: 0;
+    transform: translate(25%, -50%) rotate(-135deg);
+}
+
+.nav.next::before {
+    right: 0;
+    transform: translate(-25%, -50%) rotate(45deg);
+}
+
+.nav:hover::before {
+    border-color: var(--hover-color);
+}
+
+.nav:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--secondary-color-rgb), 0.5);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modern-carousel {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        font-size: 1.5rem;
+    }
+
+    .nav.prev {
+        left: 0.5rem;
+    }
+
+    .nav.next {
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #galeriaTitle {
+        font-size: 1.8rem;
+    }
 }
 
 /* Estilo para a seção de Retorno */
 #return-section {
-    background-color: var(--background-color-light);
     padding: 3rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
-#return-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
-}
 
 #return-section .container {
     max-width: 1200px;
@@ -2027,6 +2189,158 @@ body #darkModeToggle {
 
     #return-section .return-link .return-button {
         padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Seção de Contatos */
+.Contact_section {
+    padding: 4rem 0;
+}
+
+.Contact_title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 300;
+}
+
+.Contact_title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.section_title {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contact__container > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.contact__information {
+    background-color: var(--dark-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.contact__information:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact__icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.contact__information:hover .contact__icon {
+    transform: scale(1.1);
+}
+
+.contact__title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.contact__subtitle {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    transition: var(--transition);
+    display: block;
+    word-break: break-word;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.contact__information:hover .contact__subtitle {
+    opacity: 1;
+}
+
+.contact__subtitle a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact__information:hover .contact__subtitle a {
+    color: var(--secondary-color);
+}
+
+.contact__link {
+    display: inline-block;
+}
+
+.contact__button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact__button:hover,
+.contact__button:focus {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .contact__container > div {
+        grid-template-columns: 1fr;
+    }
+    
+    .Contact_title {
+        font-size: 2rem;
+    }
+    
+    .section_title {
         font-size: 1rem;
     }
 }
