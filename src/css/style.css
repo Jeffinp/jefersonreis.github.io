@@ -1193,7 +1193,6 @@ section h2 {
 
 .resume-highlights li {
     color: var(--text-color);
-    margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1.7;
     display: flex;
