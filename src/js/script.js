@@ -287,3 +287,5 @@ prevButton.addEventListener('click', () => {
     updateCarousel();
 });
 
+
+
