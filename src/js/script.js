@@ -359,7 +359,7 @@ document.addEventListener('keydown', (e) => {
 updateCarousel(false);
 
 
-// SKILLS AREA 
+// SKILLS AREA
 document.addEventListener('DOMContentLoaded', () => {
     const skillsContent = document.getElementsByClassName('skills__content');
     const skillsHeader = document.querySelectorAll('.skills__header');

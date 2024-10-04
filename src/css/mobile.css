@@ -316,20 +316,11 @@
 
 }
 
-
 /* Para telas muito pequenas (smartphones menores) */
 @media (max-width: 480px) {
-    /* Ajustes na Seção 'About' */
-    .about {
-        padding: 20px 0;
-    }
 
     .logo {
         margin-top: 0.6rem;
-    }
-
-    .language-switch{
-        margin-left: 0px;
     }
 
     /* Social Links - Mobile */
@@ -356,7 +347,6 @@
 
     .about p {
         font-size: 0.9em;
-        margin-bottom: 10px;
     }
     
     .timeline-container::after {
