@@ -232,46 +232,6 @@ function debounce(func, wait) {
     };
 }
 
-// Verifica se tem 4 linhas ou mais, se sim, o botão de ler mais aparece
-document.addEventListener('DOMContentLoaded', function() {
-    const projects = document.querySelectorAll('.project-info');
-
-    projects.forEach(project => {
-        const paragraph = project.querySelector('p');
-
-        // Verifica se o parágrafo tem mais de 4 linhas
-        const lineHeight = parseFloat(getComputedStyle(paragraph).lineHeight);
-        const lines = paragraph.scrollHeight / lineHeight;
-
-        if (lines > 4) {
-            const readMoreButton = document.createElement('span');
-            readMoreButton.classList.add('read-more');
-            
-            // Define o texto do botão baseado no idioma da página
-            const lang = document.documentElement.lang || 'pt';
-            readMoreButton.textContent = lang === 'en' ? 'read more' : 'ler mais';
-
-            readMoreButton.addEventListener('click', function() {
-                if (paragraph.classList.contains('expanded')) {
-                    paragraph.classList.remove('expanded');
-                    paragraph.classList.add('collapsed');
-                    readMoreButton.textContent = lang === 'en' ? 'read more' : 'ler mais';
-                } else {
-                    paragraph.classList.remove('collapsed');
-                    paragraph.classList.add('expanded');
-                    readMoreButton.textContent = lang === 'en' ? 'show less' : 'mostrar menos';
-                }
-            });
-
-            // Inicialmente define o parágrafo como colapsado
-            paragraph.classList.add('collapsed');
-
-            project.appendChild(readMoreButton);
-        }
-    });
-});
-
-
 // ARISTA DIGITAL
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('.main-image');
@@ -303,3 +263,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+//CARROSEL DE SITES
+const track = document.querySelector('.carousel-track');
+const items = document.querySelectorAll('.carousel-item');
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    const offset = -currentIndex * 100; // Move para o índice atual
+    track.style.transform = `translateX(${offset}%)`;
+}
+
+nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % items.length; // Loop para o primeiro item
+    updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length; // Loop para o último item
+    updateCarousel();
+});
+

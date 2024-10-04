@@ -881,11 +881,15 @@ section h2 {
 }
 
 /* Seção de Projetos */
+.project-container {
+    width: 60%; /* Ajustar para 50% */
+    margin: 0 auto; /* Centraliza o container */
+}
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-    padding: 4rem 0;
+    gap: 2rem; /* Espaçamento entre os itens */
+    padding: 4rem 2rem; /* Margem lateral */
 }
 
 .project-item {
@@ -893,8 +897,9 @@ section h2 {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para hover */
     position: relative;
+    height: 350px; /* Altura ajustada */
 }
 
 .project-item::before {
@@ -904,20 +909,20 @@ section h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(29, 185, 84, 0.2), rgba(29, 185, 84, 0.8));
+    background: linear-gradient(to bottom, rgba(29, 185, 84, 0.3), rgba(29, 185, 84, 0.7));
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease; /* Transição para hover */
     z-index: 1;
 }
 
 .projects h2 {
     font-size: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem; /* Margem reduzida */
     text-align: center;
-    position: relative;
-    padding-bottom: 20px;
     color: var(--secondary-color);
-    font-weight: 300;
+    font-weight: 400; /* Peso da fonte */
+    position: relative;
+    padding-bottom: 10px;
 }
 
 .projects h2::after {
@@ -933,68 +938,58 @@ section h2 {
 }
 
 .project-item:hover::before {
-    opacity: 1;
+    opacity: 1; /* Efeito hover */
 }
 
 .project-item:hover {
-    transform: translateY(-20px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px) scale(1.02); /* Animação de hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Sombra no hover */
 }
 
 .project-image {
     width: 100%;
-    height: 280px;
+    height: 60%; /* Altura da imagem */
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.5s ease;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta a imagem para cobrir todo o contêiner sem distorção */
-    transition: transform 0.5s ease;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transição para hover */
 }
 
 .project-item:hover .project-image img {
-    transform: scale(1.1); /* Aumenta a imagem no hover */
-}
-
-
-.project-item:hover .project-image {
-    transform: scale(1.1);
+    transform: scale(1.05); /* Aumenta a imagem no hover */
 }
 
 .project-info {
-    padding: 2rem;
+    padding: 1.5rem; /* Padding ajustado */
     position: relative;
     z-index: 2;
     background-color: var(--primary-color);
-    transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
 .project-item:hover .project-info {
     background-color: var(--hover-color);
-    transform: translateY(-15px);
+    transform: translateY(-5px); /* Movimento no hover */
 }
 
 .project-info h3 {
     margin-top: 0;
-    font-size: 1.6rem;
+    font-size: 1.4rem; /* Tamanho da fonte */
     color: var(--secondary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem; /* Margem reduzida */
 }
 
 .project-info p {
-    margin: 0 0 1.5rem;
-    font-size: 1rem;
-    line-height: 1.7;
+    margin: 0 0 1rem; /* Margem reduzida */
+    font-size: 0.95rem; /* Tamanho da fonte */
+    line-height: 1.5; /* Espaçamento entre linhas */
     color: var(--text-color);
-    display: block;
-    max-height: 6em;
+    max-height: 5em; /* Limitação de altura */
     overflow: hidden;
-    opacity: 1;
     transition: max-height 0.6s ease, opacity 0.6s ease;
 }
 
@@ -1006,10 +1001,9 @@ section h2 {
     text-decoration: none;
     border-radius: 30px;
     font-weight: 700;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease; /* Transição de hover */
     position: relative;
     overflow: hidden;
-    letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
@@ -1021,27 +1015,23 @@ section h2 {
     width: 300%;
     height: 300%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease; /* Transição para hover */
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
 }
+
 .project-link:hover::after {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1); /* Efeito hover */
 }
 
 .project-link:hover {
     background-color: var(--hover-color);
     color: var(--text-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.project-link:hover {
-    color: var(--hover-color);
 }
 
 @media (max-width: 768px) {
     .project-item {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem; /* Margem reduzida */
     }
 }
 
@@ -1049,18 +1039,16 @@ section h2 {
 .project-item.cliente-site::after {
     content: attr(data-type);
     position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 8px 15px;
+    top: 15px; /* Posicionamento ajustado */
+    right: 15px; /* Posicionamento ajustado */
+    padding: 6px 12px; /* Padding ajustado */
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Tamanho da fonte */
     font-weight: 700;
     z-index: 10;
     opacity: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(-10px);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    transform: translateY(-5px); /* Efeito sutil */
 }
 
 .project-item.training-site::after {
@@ -1074,29 +1062,63 @@ section h2 {
 }
 
 .project-item:hover::after {
-    opacity: 1;
+    opacity: 1; /* Efeito hover */
     transform: translateY(0);
 }
 
-.read-more {
-    color: var(--secondary-color);
+/* Carousel */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: 20px; /* Arredondamento das bordas */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease; /* Transição para o track */
+}
+
+.carousel-item {
+    min-width: 100%; /* Largura mínima */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Transição para hover */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--secondary-color);
+    border: none;
+    color: var(--dark-color);
+    padding: 10px;
     cursor: pointer;
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.3s;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background-color 0.3s ease; /* Transição de hover */
 }
 
-.project-info p.expanded {
-    max-height: 150em;
-    opacity: 1;
+.prev {
+    left: 200px;
 }
 
-.project-info p.collapsed {
-    max-height: 7em;
-    opacity: 0.8;
+.next {
+    right: 200px;
+}
+
+.carousel-button:hover {
+    background-color: var(--hover-color); /* Efeito hover */
+}
+
+@media (max-width: 500px) {
+    .project-container {
+        width: 90%; /* Largura para dispositivos menores */
+    }
+
+    .project-info {
+        height: 450px;
+    }
 }
 
 /* Seção de Currículo */
@@ -2231,6 +2253,7 @@ body #darkModeToggle {
     font-family: 'Roboto', sans-serif;
 }
 
+/* CONTATOS  */
 .contact__container {
     max-width: 1200px;
     margin: 0 auto;
@@ -2265,9 +2288,20 @@ body #darkModeToggle {
     color: var(--secondary-color);
     margin-bottom: 1rem;
     transition: transform 0.3s ease;
+    display: inline-block;
+    width: 3rem; /* Definir largura e altura */
+    height: 3rem;
 }
 
-.contact__information:hover .contact__icon {
+/* Estilo de ícones dentro da seção de contatos */
+.Contact_section .iconify {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.Contact_section .contact__information:hover .iconify {
     transform: scale(1.1);
 }
 
@@ -2335,11 +2369,11 @@ body #darkModeToggle {
     .contact__container > div {
         grid-template-columns: 1fr;
     }
-    
+
     .Contact_title {
         font-size: 2rem;
     }
-    
+
     .section_title {
         font-size: 1rem;
     }
