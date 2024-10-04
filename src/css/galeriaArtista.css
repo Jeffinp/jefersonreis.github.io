@@ -1,0 +1,147 @@
+
+/* GALERIA DE ARTE */
+#galeria {
+    background-color: var(--background-color);
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+.gallery {
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#galeriaTitle {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#galeriaTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.modern-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.main-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(1.1);
+}
+
+.main-image.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.nav::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid var(--secondary-color);
+    border-right: 3px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.nav.prev {
+    left: 2rem;
+}
+
+.nav.next {
+    right: 2rem;
+}
+
+.nav.prev::before {
+    left: 0;
+    transform: translate(25%, -50%) rotate(-135deg);
+}
+
+.nav.next::before {
+    right: 0;
+    transform: translate(-25%, -50%) rotate(45deg);
+}
+
+.nav:hover::before {
+    border-color: var(--hover-color);
+}
+
+.nav:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--secondary-color-rgb), 0.5);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modern-carousel {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        font-size: 1.5rem;
+    }
+
+    .nav.prev {
+        left: 0.5rem;
+    }
+
+    .nav.next {
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #galeriaTitle {
+        font-size: 1.8rem;
+    }
+}

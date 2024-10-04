@@ -1,0 +1,53 @@
+/* Language Switch */
+.language-switch {
+    position: absolute;
+    top: 50%;
+    margin-left: 1rem;
+    transform: translateY(-50%);
+    z-index: 1001;
+    display: flex;
+    gap: 15px;
+    background-color: var(--background-color-light);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-full);
+    box-shadow: var(--shadow-md);
+}
+
+.language-switch a {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    background-color: transparent;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition-normal);
+    gap: 8px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.language-switch img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: var(--border-radius-full);
+}
+
+.language-switch a:hover,
+.language-switch a.active {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}

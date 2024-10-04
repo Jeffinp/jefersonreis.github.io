@@ -264,28 +264,150 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-//CARROSEL DE SITES
+// Carousel functionality
 const track = document.querySelector('.carousel-track');
 const items = document.querySelectorAll('.carousel-item');
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 
 let currentIndex = 0;
+let startX;
+let isDragging = false;
 
-function updateCarousel() {
-    const offset = -currentIndex * 100; // Move para o índice atual
+function updateCarousel(smooth = true) {
+    const offset = -currentIndex * 100;
+    track.style.transition = smooth ? 'transform 0.5s ease' : 'none';
     track.style.transform = `translateX(${offset}%)`;
 }
 
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % items.length; // Loop para o primeiro item
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % items.length;
     updateCarousel();
+}
+
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+}
+
+nextButton.addEventListener('click', nextSlide);
+prevButton.addEventListener('click', prevSlide);
+
+// Touch and mouse events for dragging
+track.addEventListener('mousedown', dragStart);
+track.addEventListener('touchstart', dragStart);
+
+track.addEventListener('mousemove', drag);
+track.addEventListener('touchmove', drag);
+
+track.addEventListener('mouseup', dragEnd);
+track.addEventListener('mouseleave', dragEnd);
+track.addEventListener('touchend', dragEnd);
+
+function dragStart(e) {
+    isDragging = true;
+    startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    track.style.cursor = 'grabbing';
+}
+
+function drag(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    const diff = currentX - startX;
+    const sensitivity = 100; // Adjust this value to change drag sensitivity
+
+    if (Math.abs(diff) > sensitivity) {
+        if (diff > 0) {
+            prevSlide();
+        } else {
+            nextSlide();
+        }
+        isDragging = false;
+    }
+}
+
+function dragEnd() {
+    isDragging = false;
+    track.style.cursor = 'grab';
+}
+
+// Auto-play functionality
+let autoplayInterval;
+
+function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
+}
+
+function stopAutoplay() {
+    clearInterval(autoplayInterval);
+}
+
+startAutoplay();
+
+// Pause autoplay on hover
+track.addEventListener('mouseenter', stopAutoplay);
+track.addEventListener('mouseleave', startAutoplay);
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
 });
 
-prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length; // Loop para o último item
-    updateCarousel();
+// Initial setup
+updateCarousel(false);
+
+
+// SKILLS AREA 
+document.addEventListener('DOMContentLoaded', () => {
+    const skillsContent = document.getElementsByClassName('skills__content');
+    const skillsHeader = document.querySelectorAll('.skills__header');
+
+    function toggleSkills() {
+        let itemClass = this.parentNode.className;
+
+        for (let i = 0; i < skillsContent.length; i++) {
+            skillsContent[i].className = 'skills__content skills__close';
+        }
+
+        if (itemClass === 'skills__content skills__close') {
+            this.parentNode.className = 'skills__content skills__open';
+            animateSkills(this.parentNode);
+        }
+    }
+
+    function animateSkills(skillsSection) {
+        const percentages = skillsSection.querySelectorAll('.skills__percentage');
+        const numbers = skillsSection.querySelectorAll('.skills__number');
+
+        percentages.forEach((percentage) => {
+            percentage.style.width = '0%';
+            setTimeout(() => {
+                percentage.style.width = percentage.style.getPropertyValue('--skill-percentage');
+            }, 50);
+        });
+
+        numbers.forEach((number) => {
+            const targetValue = parseInt(number.getAttribute('data-value'));
+            animateNumber(number, targetValue);
+        });
+    }
+
+    function animateNumber(element, target) {
+        let current = 0;
+        const increment = target / 50; // Adjust for smoother or faster animation
+        const timer = setInterval(() => {
+            current += increment;
+            element.textContent = Math.round(current);
+            if (current >= target) {
+                element.textContent = target;
+                clearInterval(timer);
+            }
+        }, 20);
+    }
+
+    skillsHeader.forEach((el) => {
+        el.addEventListener('click', toggleSkills);
+    });
 });
-
-
-

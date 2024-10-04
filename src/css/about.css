@@ -1,0 +1,184 @@
+/* Seção Sobre */
+.about {
+    padding: 80px 0;
+    color: var(--text-color);
+}
+
+.about .container {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.about h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 1.5px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.about-item {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.about-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-item .iconify {
+    font-size: 48px;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.about-item h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.about-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color-secondary);
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 60px 0;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .about-item {
+        padding: 20px;
+    }
+}
+
+/* Estilo para a seção de Portfólio de Artista Digital */
+#digital-portfolio {
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#digital-portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+}
+
+#digital-portfolio .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+#digital-portfolio .section-title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+#digital-portfolio .section-title::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 0.5rem auto 0;
+}
+
+#digital-portfolio .portfolio-description {
+    font-size: 1.2rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+#digital-portfolio .portfolio-link .view-portfolio-button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#digital-portfolio .portfolio-link .view-portfolio-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+#digital-portfolio .portfolio-link .view-portfolio-button:active {
+    background-color: var(--active-color);
+    transform: translateY(1px);
+    box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+    #digital-portfolio {
+        padding: 3rem 0;
+    }
+
+    #digital-portfolio .section-title {
+        font-size: 2rem;
+    }
+
+    #digital-portfolio .portfolio-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    #digital-portfolio .portfolio-link .view-portfolio-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}

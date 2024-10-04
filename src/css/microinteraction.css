@@ -1,0 +1,18 @@
+/* Microinterações */
+.button-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skill-item, .project-item, .timeline-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover, .project-item:hover, .timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}

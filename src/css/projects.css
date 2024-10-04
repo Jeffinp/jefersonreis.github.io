@@ -1,0 +1,372 @@
+/* Seção de Projetos */
+.project-container {
+    width: 90%; /* Aumentado para ocupar mais espaço em telas menores */
+    max-width: 1200px; /* Limita a largura máxima em telas grandes */
+    margin: 0 auto;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem; /* Espaçamento entre os itens */
+    padding: 4rem 2rem; /* Margem lateral */
+}
+
+.project-item {
+    background-color: var(--dark-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para hover */
+    position: relative;
+    height: 350px; /* Altura ajustada */
+}
+
+.project-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(29, 185, 84, 0.3), rgba(29, 185, 84, 0.7));
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transição para hover */
+    z-index: 1;
+}
+
+.projects h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem; /* Margem reduzida */
+    text-align: center;
+    color: var(--secondary-color);
+    font-weight: 400; /* Peso da fonte */
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.projects h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.project-item:hover::before {
+    opacity: 1; /* Efeito hover */
+}
+
+.project-item:hover {
+    transform: translateY(-10px) scale(1.02); /* Animação de hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Sombra no hover */
+}
+
+.project-image {
+    width: 100%;
+    height: 60%; /* Altura da imagem */
+    background-size: cover;
+    background-position: center;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transição para hover */
+}
+
+.project-item:hover .project-image img {
+    transform: scale(1.05); /* Aumenta a imagem no hover */
+}
+
+.project-info {
+    padding: 1.5rem; /* Padding ajustado */
+    position: relative;
+    z-index: 2;
+    background-color: var(--primary-color);
+}
+
+.project-item:hover .project-info {
+    background-color: var(--hover-color);
+    transform: translateY(-5px); /* Movimento no hover */
+}
+
+.project-info h3 {
+    margin-top: 0;
+    font-size: 1.4rem; /* Tamanho da fonte */
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem; /* Margem reduzida */
+}
+
+.project-info p {
+    margin: 0 0 1rem; /* Margem reduzida */
+    font-size: 0.95rem; /* Tamanho da fonte */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    color: var(--text-color);
+    max-height: 5em; /* Limitação de altura */
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: background-color 0.3s ease; /* Transição de hover */
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.project-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    transition: transform 0.4s ease; /* Transição para hover */
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+}
+
+.project-link:hover::after {
+    transform: translate(-50%, -50%) scale(1); /* Efeito hover */
+}
+
+.project-link:hover {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .project-item {
+        margin-bottom: 1.5rem; /* Margem reduzida */
+    }
+}
+
+.project-item.training-site::after,
+.project-item.cliente-site::after {
+    content: attr(data-type);
+    position: absolute;
+    top: 15px; /* Posicionamento ajustado */
+    right: 15px; /* Posicionamento ajustado */
+    padding: 6px 12px; /* Padding ajustado */
+    border-radius: 20px;
+    font-size: 0.85rem; /* Tamanho da fonte */
+    font-weight: 700;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-5px); /* Efeito sutil */
+}
+
+.project-item.training-site::after {
+    background-color: rgba(96, 165, 250, 0.9);
+    color: var(--dark-color);
+}
+
+.project-item.cliente-site::after {
+    background-color: rgba(29, 185, 84, 0.9);
+    color: var(--dark-color);
+}
+
+.project-item:hover::after {
+    opacity: 1; /* Efeito hover */
+    transform: translateY(0);
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    cursor: grab;
+}
+
+.carousel-item {
+    min-width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    opacity: 0.7;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px; /* Altura fixa para manter consistência */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-info {
+    padding: 1rem;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.project-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    max-height: 4.2em; /* 3 linhas de texto */
+    overflow: hidden;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+}
+
+.project-link:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev { left: 1rem; }
+.next { right: 1rem; }
+
+/* Progress indicator */
+.carousel-progress {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.progress-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.progress-dot.active {
+    background-color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .carousel-item {
+        transform: scale(0.9);
+    }
+
+    .carousel-item.active {
+        transform: scale(1);
+    }
+
+    .project-image {
+        height: 250px;
+    }
+
+    .project-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .project-info p {
+        font-size: 1rem;
+        max-height: 4.5em; /* 3 linhas de texto */
+    }
+
+    .project-link {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .carousel-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .prev { display: none; }
+    .next { display: none; }
+}
+
+@media (min-width: 1024px) {
+    .project-container {
+        width: 80%;
+    }
+
+    .project-image {
+        height: 300px;
+    }
+
+    .prev { left: 4rem; }
+    .next { right: 4rem; }
+}

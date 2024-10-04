@@ -1,0 +1,121 @@
+/* Seção de Certificados */
+.certificates {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 300;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.certificate-item {
+    background-color: var(--dark-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.certificate-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.certificate-image-wrapper {
+    overflow: hidden;
+    margin: 0;
+}
+
+.certificate-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.certificate-item:hover .certificate-image {
+    transform: scale(1.1);
+}
+
+.certificate-info {
+    padding: 2rem;
+    background-color: var(--primary-color);
+    transition: background-color 0.5s ease;
+}
+
+.certificate-item:hover .certificate-info {
+    background-color: var(--hover-color);
+}
+
+.certificate-title {
+    margin-top: 0;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.certificate-description {
+    margin: 0 0 1.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+.certificate-link {
+    display: inline-block;
+}
+
+.view-button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+.view-button:hover,
+.view-button:focus {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .certificate-grid {
+        grid-template-columns: 1fr;
+    }
+}

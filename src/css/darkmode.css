@@ -1,0 +1,35 @@
+
+/* Estilos do botão de alternância */
+#darkModeToggle {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+#darkModeToggle.rotate {
+    transform: rotate(360deg);
+}
+
+/* Estilos para o modo escuro do botão */
+body.dark-mode #darkModeToggle {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Estilos para o modo claro do botão */
+body #darkModeToggle {
+    background-color: black;
+    color: white;
+}
