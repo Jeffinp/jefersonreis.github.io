@@ -358,8 +358,7 @@ document.addEventListener('keydown', (e) => {
 // Initial setup
 updateCarousel(false);
 
-
-// SKILLS AREA
+// SKILLS ANIMATION
 document.addEventListener('DOMContentLoaded', () => {
     const skillsContent = document.getElementsByClassName('skills__content');
     const skillsHeader = document.querySelectorAll('.skills__header');
@@ -373,38 +372,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (itemClass === 'skills__content skills__close') {
             this.parentNode.className = 'skills__content skills__open';
-            animateSkills(this.parentNode);
+            resetAndAnimateSkills(this.parentNode);
         }
     }
 
-    function animateSkills(skillsSection) {
-        const percentages = skillsSection.querySelectorAll('.skills__percentage');
+    function resetAndAnimateSkills(skillsSection) {
+        const progressBars = skillsSection.querySelectorAll('.skills__progress');
         const numbers = skillsSection.querySelectorAll('.skills__number');
 
-        percentages.forEach((percentage) => {
-            percentage.style.width = '0%';
+        progressBars.forEach((bar) => {
+            const percentage = bar.dataset.percentage;
+            bar.style.width = '0%';
             setTimeout(() => {
-                percentage.style.width = percentage.style.getPropertyValue('--skill-percentage');
-            }, 50);
+                bar.style.width = percentage;
+            }, 10);
         });
 
         numbers.forEach((number) => {
-            const targetValue = parseInt(number.getAttribute('data-value'));
-            animateNumber(number, targetValue);
+            const targetValue = parseInt(number.dataset.value);
+            number.textContent = '0%';
+            setTimeout(() => {
+                animateNumber(number, targetValue);
+            }, 10);
         });
     }
 
     function animateNumber(element, target) {
         let current = 0;
-        const increment = target / 50; // Adjust for smoother or faster animation
-        const timer = setInterval(() => {
-            current += increment;
-            element.textContent = Math.round(current);
-            if (current >= target) {
-                element.textContent = target;
-                clearInterval(timer);
+        const duration = 1000; // Animation duration in milliseconds
+        const start = performance.now();
+
+        function step(timestamp) {
+            const elapsed = timestamp - start;
+            const progress = Math.min(elapsed / duration, 1);
+            current = Math.round(progress * target);
+            element.textContent = current + '%';
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
             }
-        }, 20);
+        }
+
+        requestAnimationFrame(step);
     }
 
     skillsHeader.forEach((el) => {
