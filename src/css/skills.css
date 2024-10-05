@@ -1,5 +1,9 @@
+
+/* HABILIDADES  */
 .skills__container {
-    row-gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .skills h2 {
@@ -25,48 +29,70 @@
 }
 
 .skills__content {
-    background-color: var(--container-color);
-    padding: 1.5rem;
-    border-radius: 1.25rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    background-color: var(--skills-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.skills__content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .skills__header {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--skills-header-bg);
+    border-radius: 0.5rem;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skills__header:hover {
+    background-color: var(--secondary-color);
+    color: white;
 }
 
 .skills__icon,
-.skills__arrow {
-    font-size: 2rem;
-    color: var(--first-color);
+.skills__arrow,
+.skills__title {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.skills__header:hover .skills__icon,
+.skills__header:hover .skills__arrow,
+.skills__header:hover .skills__title {
+    color: white;
 }
 
 .skills__icon {
-    margin-right: 0.75rem;
+    margin-right: 1rem;
 }
 
 .skills__title {
-    font-size: var(--h3-font-size);
-    font-weight: var(--font-medium);
+    font-size: 1.25rem;
+    font-weight: 600;
     flex: 1;
 }
 
 .skills__subtitle {
-    font-size: var(--small-font-size);
-    color: var(--text-color-light);
+    font-size: 0.875rem;
+    color: var(--skills-subtitle);
 }
 
 .skills__arrow {
     margin-left: auto;
-    transition: 0.4s;
+    transition: transform 0.4s ease;
 }
 
 .skills__list {
-    row-gap: 1.5rem;
-    padding-left: 2.7rem;
+    padding: 1.5rem 0.5rem;
     transition: all 0.4s ease-in-out;
 }
 
@@ -77,23 +103,24 @@
 }
 
 .skills__name {
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-medium);
-}
-
-.skills__bar,
-.skills__percentage {
-    height: 5px;
-    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .skills__bar {
-    background-color: var(--first-color-lighter);
+    height: 8px;
+    background-color: var(--skills-bar-bg);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    position: relative;
 }
 
-.skills__percentage {
-    display: block;
-    background-color: var(--first-color);
+.skills__progress {
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 0.25rem;
+    width: 0;
+    transition: width 1s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .skills__close .skills__list {
@@ -112,20 +139,23 @@
     transform: rotate(-180deg);
 }
 
-@keyframes skillAnimation {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: var(--skill-percentage);
-    }
-}
-
-.skills__open .skills__percentage {
-    animation: skillAnimation 1s ease-in-out forwards;
-}
-
 .skills__number {
-    font-size: var(--small-font-size);
-    font-weight: var(--font-medium);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--secondary-color);
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.skills__open .skills__list > * {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.skills__open .skills__list > *:nth-child(1) { animation-delay: 0.1s; }
+.skills__open .skills__list > *:nth-child(2) { animation-delay: 0.2s; }
+.skills__open .skills__list > *:nth-child(3) { animation-delay: 0.3s; }
+.skills__open .skills__list > *:nth-child(4) { animation-delay: 0.4s; }
+.skills__open .skills__list > *:nth-child(5) { animation-delay: 0.5s; }

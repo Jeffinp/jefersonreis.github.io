@@ -1,3 +1,4 @@
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -223,3 +224,16 @@
     border-right: none;
     animation: none; /* Remove animação de caret */
 }
+
+/* Seções gerais */
+section {
+    padding: 5rem 0;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+

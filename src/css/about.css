@@ -1,3 +1,4 @@
+
 /* Seção Sobre */
 .about {
     padding: 80px 0;
@@ -5,7 +6,7 @@
 }
 
 .about .container {
-    max-width: 60%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -84,6 +85,7 @@
         padding: 20px;
     }
 }
+
 
 /* Estilo para a seção de Portfólio de Artista Digital */
 #digital-portfolio {

@@ -1,4 +1,15 @@
 
+/* Estilos básicos */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo escuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
 /* Estilos do botão de alternância */
 #darkModeToggle {
     position: fixed;

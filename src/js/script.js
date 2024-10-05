@@ -420,3 +420,33 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('click', toggleSkills);
     });
 });
+
+// Seleciona o contêiner de serviços e modais
+const servicesContainer = document.querySelector(".services__container");
+const modalViews = document.querySelectorAll(".services__modal");
+
+// Função para abrir o modal
+function openModal(index) {
+    modalViews[index].classList.add("active-modal");
+}
+
+// Função para fechar todos os modais
+function closeModal() {
+    modalViews.forEach(modal => modal.classList.remove("active-modal"));
+}
+
+// Manipulador de eventos para abrir e fechar modais
+servicesContainer.addEventListener("click", (event) => {
+    const target = event.target;
+
+    // Verifica se o botão de abrir modal foi clicado
+    if (target.classList.contains("services__button")) {
+        const index = Array.from(modalViews).indexOf(target.nextElementSibling);
+        openModal(index);
+    }
+
+    // Verifica se o botão de fechar modal foi clicado ou se clicou fora do modal
+    if (target.classList.contains("services__modal-close") || target.classList.contains("services__modal")) {
+        closeModal();
+    }
+});

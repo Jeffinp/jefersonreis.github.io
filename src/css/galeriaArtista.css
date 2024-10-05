@@ -1,4 +1,82 @@
 
+/* ÁREA DE ARTISTA DIGITAL */
+.modern-carousel {
+    max-width: 900px;
+    max-height: calc(900px * 9 / 16); /* Tamanho de 16:9*/
+    margin: 0 auto;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    background-color: var(--card-background);
+    position: relative;
+}
+
+.main-image-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.main-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.main-image.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--card-background);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-full);
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.nav.prev {
+    left: 10px;
+}
+
+.nav.next {
+    right: 10px;
+}
+
+.nav:hover {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+}
+
+.nav.prev::before {
+    content: '◄';
+    font-size: 18px;
+}
+
+.nav.next::before {
+    content: '►';
+    font-size: 18px;
+}
+
 /* GALERIA DE ARTE */
 #galeria {
     background-color: var(--background-color);

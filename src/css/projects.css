@@ -1,3 +1,4 @@
+
 /* Seção de Projetos */
 .project-container {
     width: 90%; /* Aumentado para ocupar mais espaço em telas menores */
@@ -349,13 +350,13 @@
     }
 
     .carousel-button {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         font-size: 1.5rem;
     }
 
-    .prev { display: none; }
-    .next { display: none; }
+    .prev { left: 1rem; }
+    .next { right: 1rem; }
 }
 
 @media (min-width: 1024px) {
