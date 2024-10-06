@@ -92,63 +92,80 @@
         </button>
 
         <!-- FAIXA HERO PARALLAX -->
-        <section id="home" class="hero parallax" aria-label="Home">
+        <section id="home" class="hero parallax" aria-labelledby="heroTitle"> 
             <div id="particles-js"></div>
             <div class="container">
-                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
-                <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack</p>
-                <a href="#Portfolio" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">
-                    <span class="iconify" data-icon="akar-icons:arrow-right"></span> Ver Projetos
+            <img 
+                src="./src/image/Linkedin-foto.webp" 
+                alt="Jeferson Reis" 
+                class="profile-pic" 
+                loading="lazy" 
+            >
+            <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack</p>
+            <div class="cta-buttons"> 
+                <a href="#Portfolio" class="cta-button button-hover" data-aos="fade-up" data-aos-delay="400">
+                <span class="iconify" data-icon="akar-icons:arrow-right" aria-hidden="true"></span> Ver Projetos
                 </a>
-                <a href="#Contatos" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="500">
-                    <span class="iconify" data-icon="mdi:email-outline"></span> Entre em contato
+                <a href="#Contatos" class="cta-button button-hover" data-aos="fade-up" data-aos-delay="500">
+                <span class="iconify" data-icon="mdi:email-outline" aria-hidden="true"></span> Entre em contato
                 </a>
+            </div>
             </div>
         </section>        
 
         <!-- Seção de Portfólio de Artista Digital -->
         <section id="digital-portfolio" class="portfolio" aria-labelledby="portfolio-title">
             <div class="container">
-                <h2 id="portfolio-title" class="section-title">Portfólio de Arte Digital e Design Gráfico</h2>
-                <p class="portfolio-description">Explore minha coleção de projetos inovadores em design gráfico e arte digital, demonstrando criatividade e habilidades técnicas avançadas.</p>
-                <a href="Artistadigital.html" class="portfolio-link" rel="noopener noreferrer">
-                    <button class="view-portfolio-button">Explorar Portfólio Completo</button>
-                </a>
+            <h2 id="portfolio-title" class="section-title">Portfólio de Arte Digital e Design Gráfico</h2>
+            <p class="portfolio-description">Explore minha coleção de projetos inovadores em design gráfico e arte digital, demonstrando criatividade e habilidades técnicas avançadas.</p>
+            <a href="Artistadigital.html" class="portfolio-link" rel="noopener noreferrer">
+                <button class="view-portfolio-button">Explorar Portfólio Completo</button> 
+            </a>
             </div>
         </section>
 
         <!-- SOBRE MIM -->
         <section id="sobre" class="about" aria-labelledby="sobreTitle">
             <div class="container">
-                <h2 id="sobreTitle">Sobre Mim</h2>
-                <div class="about-content">
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:account" data-width="48" data-height="48"></span>
-                        <h3>Quem Sou Eu</h3>
-                        <p>👋 Olá! Sou Jeferson Reis, um entusiasta de tecnologia de 18 anos, nascido em Camaçari, Bahia. Desde os meus 3 anos, venho me aventurando no fascinante mundo da informática, sempre curioso e buscando novos aprendizados.</p>
-                    </article>
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:code-braces" data-width="48" data-height="48"></span>
-                        <h3>Minha Paixão</h3>
-                        <p>💻 A programação é a minha verdadeira paixão. Comecei criando jogos em C#, o que me levou a uma jornada incrível pela codificação. Atualmente, atuo como desenvolvedor Full-Stack, criando soluções inovadoras que tornam a vida mais fácil.</p>
-                    </article>
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:laptop" data-width="48" data-height="48"></span>
-                        <h3>Experiência e Tecnologias</h3>
-                        <p>🚀 Minha trajetória me proporcionou experiência em diversas tecnologias, incluindo HTML5, CSS3, JavaScript, React, PHP, Vue.js, Bootstrap, Node.js, jQuery, MySQL, PostgreSQL e MongoDB. Tenho um olhar apurado para UX Design, buscando sempre melhorar a experiência do usuário.</p>
-                    </article>
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:palette" data-width="48" data-height="48"></span>
-                        <h3>Design Gráfico</h3>
-                        <p>🎨 Minha experiência como designer gráfico me permitiu criar banners e logotipos personalizados para uma variedade de clientes. Como artista digital, busco sempre unir criatividade e técnica em meus projetos, transformando ideias em realidades visuais.</p>
-                    </article>
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:rocket" data-width="48" data-height="48"></span>
-                        <h3>Vamos Juntos</h3>
-                        <p>🚀✨ Estou sempre aberto a novas colaborações e desafios. Vamos explorar o mundo da tecnologia juntos e criar algo incrível?</p>
-                    </article>
+            <h2 id="sobreTitle">Sobre Mim</h2>
+            <div class="about-content">
+                <article class="about-item">
+                <span class="iconify" data-icon="mdi:account" aria-hidden="true"></span> 
+                <div class="about-item-content">
+                    <h3>Quem Sou Eu</h3>
+                    <p>👋 Olá! Sou Jeferson Reis, um entusiasta de tecnologia de 18 anos, nascido em Camaçari, Bahia. Desde os meus 3 anos, venho me aventurando no fascinante mundo da informática, sempre curioso e buscando novos aprendizados.</p>
                 </div>
+                </article>
+                <article class="about-item">
+                <span class="iconify" data-icon="mdi:code-braces" aria-hidden="true"></span>
+                <div class="about-item-content">
+                    <h3>Minha Paixão</h3>
+                    <p>💻 A programação é a minha verdadeira paixão. Comecei criando jogos em C#, o que me levou a uma jornada incrível pela codificação. Atualmente, atuo como desenvolvedor Full-Stack, criando soluções inovadoras que tornam a vida mais fácil.</p>
+                </div>
+                </article>
+                <article class="about-item">
+                <span class="iconify" data-icon="mdi:laptop" aria-hidden="true"></span>
+                <div class="about-item-content">
+                    <h3>Experiência e Tecnologias</h3>
+                    <p>🚀 Minha trajetória me proporcionou experiência em diversas tecnologias, incluindo HTML5, CSS3, JavaScript, React, PHP, Vue.js, Bootstrap, Node.js, jQuery, MySQL, PostgreSQL e MongoDB. Tenho um olhar apurado para UX Design, buscando sempre melhorar a experiência do usuário.</p>
+                </div>
+                </article>
+                <article class="about-item">
+                <span class="iconify" data-icon="mdi:palette" aria-hidden="true"></span>
+                <div class="about-item-content">
+                    <h3>Design Gráfico</h3>
+                    <p>🎨 Minha experiência como designer gráfico me permitiu criar banners e logotipos personalizados para uma variedade de clientes. Como artista digital, busco sempre unir criatividade e técnica em meus projetos, transformando ideias em realidades visuais.</p>
+                </div>
+                </article>
+                <article class="about-item">
+                <span class="iconify" data-icon="mdi:rocket" aria-hidden="true"></span>
+                <div class="about-item-content">
+                    <h3>Vamos Juntos</h3>
+                    <p>🚀✨ Estou sempre aberto a novas colaborações e desafios. Vamos explorar o mundo da tecnologia juntos e criar algo incrível?</p>
+                </div>
+                </article>
+            </div>
             </div>
         </section>
 
@@ -325,102 +342,114 @@
         <!-- SOFT SKILLS -->
         <section class="soft-skills" aria-labelledby="softSkillsTitle">
             <div class="container">
-                <h2 id="softSkillsTitle">Soft Skills</h2>
-                <ul class="soft-skills-container">
-                    <li class="soft-skill-item">
-                        <span class="iconify" data-icon="eva:people-outline" aria-hidden="true"></span>
-                        <h3>Comunicação</h3>
-                        <p>Capacidade de comunicar ideias de forma clara e eficaz.</p>
-                    </li>
-                    <li class="soft-skill-item">
-                        <span class="iconify" data-icon="la:people-carry" aria-hidden="true"></span>
-                        <h3>Trabalho em Equipe</h3>
-                        <p>Colaboração eficaz com membros da equipe para atingir objetivos comuns.</p>
-                    </li>
-                    <li class="soft-skill-item">
-                        <span class="iconify" data-icon="ic:outline-lightbulb" aria-hidden="true"></span>
-                        <h3>Resolução de Problemas</h3>
-                        <p>Habilidade para identificar e resolver desafios de forma criativa.</p>
-                    </li>
-                    <li class="soft-skill-item">
-                        <span class="iconify" data-icon="ic:outline-person" aria-hidden="true"></span>
-                        <h3>Autogerenciamento</h3>
-                        <p>Capacidade de trabalhar de forma independente e gerenciar a própria carga de trabalho.</p>
-                    </li>
-                    <li class="soft-skill-item">
-                        <span class="iconify" data-icon="ic:outline-access-time" aria-hidden="true"></span>
-                        <h3>Gestão do Tempo</h3>
-                        <p>Capacidade de gerenciar tarefas e cumprir prazos de forma eficiente.</p>
-                    </li>
-                    <li class="soft-skill-item">
-                        <span class="iconify" data-icon="arcticons:my-brain" aria-hidden="true"></span>
-                        <h3>Pensamento Crítico</h3>
-                        <p>Habilidade para analisar problemas de forma lógica e tomar decisões informadas.</p>
-                    </li>
-                    <li class="soft-skill-item">
-                        <span class="iconify" data-icon="mdi:lightbulb-on-outline" aria-hidden="true"></span>
-                        <h3>Criatividade</h3>
-                        <p>Habilidade para pensar fora da caixa e gerar novas ideias.</p>
-                    </li>
-                </ul>
+            <h2 id="softSkillsTitle">Soft Skills</h2>
+            <ul class="soft-skills-container">
+                <li class="soft-skill-item">
+                <span class="iconify" data-icon="eva:people-outline" aria-hidden="true"></span>
+                <div class="soft-skill-content"> 
+                    <h3>Comunicação</h3>
+                    <p>Capacidade de comunicar ideias de forma clara e eficaz.</p>
+                </div>
+                </li>
+                <li class="soft-skill-item">
+                <span class="iconify" data-icon="la:people-carry" aria-hidden="true"></span>
+                <div class="soft-skill-content">
+                    <h3>Trabalho em Equipe</h3>
+                    <p>Colaboração eficaz com membros da equipe para atingir objetivos comuns.</p>
+                </div>
+                </li>
+                <li class="soft-skill-item">
+                <span class="iconify" data-icon="ic:outline-lightbulb" aria-hidden="true"></span>
+                <div class="soft-skill-content">
+                    <h3>Resolução de Problemas</h3>
+                    <p>Habilidade para identificar e resolver desafios de forma criativa.</p>
+                </div>
+                </li>
+                <li class="soft-skill-item">
+                <span class="iconify" data-icon="ic:outline-person" aria-hidden="true"></span>
+                <div class="soft-skill-content">
+                    <h3>Autogerenciamento</h3>
+                    <p>Capacidade de trabalhar de forma independente e gerenciar a própria carga de trabalho.</p>
+                </div>
+                </li>
+                <li class="soft-skill-item">
+                <span class="iconify" data-icon="ic:outline-access-time" aria-hidden="true"></span>
+                <div class="soft-skill-content">
+                    <h3>Gestão do Tempo</h3>
+                    <p>Capacidade de gerenciar tarefas e cumprir prazos de forma eficiente.</p>
+                </div>
+                </li>
+                <li class="soft-skill-item">
+                <span class="iconify" data-icon="arcticons:my-brain" aria-hidden="true"></span>
+                <div class="soft-skill-content">
+                    <h3>Pensamento Crítico</h3>
+                    <p>Habilidade para analisar problemas de forma lógica e tomar decisões informadas.</p>
+                </div>
+                </li>
+                <li class="soft-skill-item">
+                <span class="iconify" data-icon="mdi:lightbulb-on-outline" aria-hidden="true"></span>
+                <div class="soft-skill-content">
+                    <h3>Criatividade</h3>
+                    <p>Habilidade para pensar fora da caixa e gerar novas ideias.</p>
+                </div>
+                </li>
+            </ul>
             </div>
         </section>
 
         <!-- SERVIÇOS  -->
         <section class="services section" id="services">
-            <h2 class="section__title">Serviços</h2>
-            
-            <div class="services__container container grid">
-                <!--==================== SERVICES 1 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-arrow services__icon"></i>
-                        <h3 class="services__title">Desenvolvedor<br>Frontend</h3>
+            <div class="container">
+                <h2 class="section__title">Serviços</h2>
+                <div class="services__container grid">
+                <article class="services__content">
+                    <div class="services__icon-container"> 
+                    <i class="uil uil-arrow services__icon"></i>
+                    <h3 class="services__title">Desenvolvedor Frontend</h3>
                     </div>
-
-                    <span class="button button--flex button--small button--link services__button">
-                        Ver mais
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-
+                    <button class="services__button button--flex button--small button--link">
+                    Ver mais
+                    <i class="uil uil-arrow-right button__icon"></i>
+                    </button>
                     <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Desenvolvedor Frontend</h4>
-                            <i class="uil uil-times services__modal-close"></i>
-                            <ul class="services__modal-services">
-                                <li class="services__modal-service">Criação de sites bonitos e responsivos que funcionam em qualquer dispositivo.</li>
-                                <li class="services__modal-service">Desenvolvimento de aplicativos e sistemas web que atendem exatamente às suas necessidades.</li>
-                                <li class="services__modal-service">Construção de aplicações fortes e escaláveis que acompanham o crescimento do seu negócio.</li>
-                                <li class="services__modal-service">Otimização para SEO, ajudando seu site a ser encontrado facilmente nos buscadores.</li>
-                            </ul>
-                        </div>
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-title">Desenvolvedor Frontend</h4>
+                        <button class="services__modal-close"> 
+                        <i class="uil uil-times services__modal-close"></i>
+                        </button>
+                        <ul class="services__modal-services">
+                        <li class="services__modal-service">Criação de sites bonitos e responsivos que funcionam em qualquer dispositivo.</li>
+                        <li class="services__modal-service">Desenvolvimento de aplicativos e sistemas web que atendem exatamente às suas necessidades.</li>
+                        <li class="services__modal-service">Construção de aplicações fortes e escaláveis que acompanham o crescimento do seu negócio.</li>
+                        <li class="services__modal-service">Otimização para SEO, ajudando seu site a ser encontrado facilmente nos buscadores.</li>
+                        </ul>
                     </div>
-                    
-                </div>
+                    </div>
+                </article>
 
-                <!--==================== SERVICES 2 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-server services__icon"></i>
-                        <h3 class="services__title">Desenvolvedor<br>Backend</h3>
+                <article class="services__content">
+                    <div class="services__icon-container">
+                    <i class="uil uil-server services__icon"></i>
+                    <h3 class="services__title">Desenvolvedor Backend</h3>
                     </div>
-                
-                    <span class="button button--flex button--small button--link services__button">
-                        Ver mais
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-                
+                    <button class="services__button button--flex button--small button--link">
+                    Ver mais
+                    <i class="uil uil-arrow-right button__icon"></i>
+                    </button>
                     <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Desenvolvedor Backend</h4>
-                            <i class="uil uil-times services__modal-close"></i>
-                            <ul class="services__modal-services">
-                                <li class="services__modal-service">Criação de APIs e aplicações testáveis com código limpo e eficiente.</li>
-                                <li class="services__modal-service">Configuração e manutenção de servidores para garantir a performance ideal.</li>
-                                <li class="services__modal-service">Segurança e escalabilidade para suas aplicações web, garantindo que cresçam com seu negócio.</li>
-                            </ul>
-                        </div>
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-title">Desenvolvedor Backend</h4>
+                        <button class="services__modal-close"> 
+                        <i class="uil uil-times services__modal-close"></i>
+                        </button>
+                        <ul class="services__modal-services">
+                        <li class="services__modal-service">Criação de APIs e aplicações testáveis com código limpo e eficiente.</li>
+                        <li class="services__modal-service">Configuração e manutenção de servidores para garantir a performance ideal.</li>
+                        <li class="services__modal-service">Segurança e escalabilidade para suas aplicações web, garantindo que cresçam com seu negócio.</li>
+                        </ul>
                     </div>
+                    </div>
+                </article>
                 </div>
             </div>
         </section>
@@ -607,56 +636,59 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__content">
-                <div class="footer__logo">
-                    <h2>Jeferson Reis</h2>
-                    <p>Desenvolvedor Web Full Stack</p>
-                </div>
-                <nav class="footer__nav">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#habilidades">Habilidades</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#Portfolio">Portfólio</a></li>
-                        <li><a href="#certificates">Certificados</a></li>
-                    </ul>
-                </nav>
-                <div class="footer__social">
-                    <h3>Conecte-se</h3>
-                    <ul class="social-links">
-                        <li>
-                            <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
-                                <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
-                                <span class="sr-only">LinkedIn</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
-                                <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
-                                <span class="sr-only">GitHub</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
-                                <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
-                                <span class="sr-only">Instagram</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
-                                <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
-                                <span class="sr-only">WhatsApp</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="footer__container container"> 
+        <div class="footer__content">
+            <div class="footer__logo">
+            <h2>Jeferson Reis</h2>
+            <p>Desenvolvedor Web Full Stack</p>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
+    
+            <nav class="footer__nav">
+            <h3>Links Rápidos</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#Portfolio">Portfólio</a></li>
+                <li><a href="#certificates">Certificados</a></li>
+            </ul>
+            </nav>
+    
+            <div class="footer__social">
+            <h3>Conecte-se</h3>
+            <ul class="social-links">
+                <li>
+                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
+                    <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
+                    <span class="sr-only">LinkedIn</span> 
+                </a>
+                </li>
+                <li>
+                <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
+                    <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
+                    <span class="sr-only">GitHub</span>
+                </a>
+                </li>
+                <li>
+                <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
+                    <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                </li>
+                <li>
+                <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
+                    <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
+                    <span class="sr-only">WhatsApp</span>
+                </a>
+                </li>
+            </ul>
             </div>
+        </div>
+    
+        <div class="footer__bottom">
+            <p>&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p> 
+        </div>
         </div>
     </footer>
 

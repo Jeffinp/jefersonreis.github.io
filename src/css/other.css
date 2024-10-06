@@ -46,6 +46,7 @@
     opacity: 1;
 }
 
+/* animation on scroll  */
 .animate-on-scroll {
     opacity: 0;
     transform: translateX(-10px);

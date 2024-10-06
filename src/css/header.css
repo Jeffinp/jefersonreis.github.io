@@ -1,12 +1,12 @@
 header {
     background-color: rgba(255, 255, 255, 0.1); /* Fundo com blur */
-    backdrop-filter: blur(10px); /* Efeito blur */
-    height: 60px; /* Altura reduzida */
+    backdrop-filter: blur(10px); 
+    height: 60px; 
     position: fixed;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
+    transition: 0.3s ease; /* Transição simplificada */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
 }
 
 header .container {
@@ -19,53 +19,48 @@ header .container {
 
 .logo {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem; /* Tamanho da fonte reduzido */
+    font-size: 1.8rem; 
     font-weight: 700;
-    margin-left: 20px; /* Margem esquerda reduzida */
     color: var(--secondary-color);
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: 0.3s ease; /* Transição simplificada */
     display: flex;
     align-items: center;
-    gap: 0.4rem; /* Espaçamento reduzido */
+    gap: 0.4rem; 
 }
 
 .logo:hover {
     color: var(--hover-color);
-    transform: scale(1.05); /* Efeito de escala reduzido */
-}
-
-.logo i { 
-    font-size: 2rem; /* Tamanho do ícone reduzido */
+    transform: scale(1.05); 
 }
 
 nav ul {
     display: flex;
     list-style-type: none;
-    gap: 1.5rem; /* Espaçamento reduzido */
+    gap: 1.5rem; 
 }
 
 nav ul li a {
     font-family: 'Roboto', sans-serif;
     color: var(--text-color);
     text-decoration: none;
-    font-size: 0.9rem; /* Tamanho da fonte reduzido */
+    font-size: 0.9rem; 
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: 0.3s ease;
     padding: 5px 0;
     display: inline-block;
     position: relative;
 }
 
-nav ul li a::after {
+nav ul li a::after { /* Sublinhado no hover */
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px; /* Altura do sublinhado reduzida */
+    height: 2px; 
     background-color: var(--secondary-color);
-    transition: width 0.3s ease;
+    transition: 0.3s ease;
 }
 
 nav ul li a:hover::after {
@@ -76,26 +71,21 @@ nav ul li a:hover {
     color: var(--secondary-color);
 }
 
-nav ul li a.selected {
+nav ul li a.selected { /* Link selecionado */
     color: var(--secondary-color);
     font-weight: 700;
 }
 
-@media (max-width: 768px) {
+/* Responsivo */
+@media (max-width: 768px) { 
     header .container {
     flex-direction: column;
     align-items: flex-start;
     }
 
     nav ul {
-    margin-top: 0.8rem; /* Espaçamento reduzido */
+    margin-top: 0.8rem; 
     flex-direction: column;
-    gap: 0.8rem; /* Espaçamento reduzido */
-    }
-
-    .logo {
-    margin: 0.8rem 0; /* Espaçamento reduzido */
-    margin-left: 20px;
+    gap: 0.8rem; 
     }
 }
-

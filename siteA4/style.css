@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --bg-color: #191827;
+    --paper-color: #fff;
+    --text-color: #333;
+    --line-color: #e0e0e0;
+    --hole-color: #f4f4f4;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 210mm;
+    background-color: var(--paper-color);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    padding: 25mm;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        var(--line-color),
+        var(--line-color) 1px,
+        var(--paper-color) 1px,
+        var(--paper-color) 8mm
+    );
+    position: relative;
+    overflow-y: auto;
+    max-height: 90vh; /* Limit height on smaller screens */
+}
+
+.hole {
+    width: 10mm;
+    height: 10mm;
+    background-color: var(--hole-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 10mm;
+    left: 10mm;
+    box-shadow: inset 0 0 5px var(--shadow-color);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+h3 {
+    color: var(--text-color);
+}
+
+article {
+    padding: 20px;
+    text-align: justify;
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    padding: 20px 0;
+    position: absolute;
+   
+    left: 0;
+    width: 100%;
+}
+
+p {
+    line-height: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--line-color);
+    padding-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 15mm;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    article {
+        font-size: 14px;
+    }
+}
+
+/* Smooth scrolling for modern browsers */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animation for content */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container > * {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
