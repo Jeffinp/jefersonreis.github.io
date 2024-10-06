@@ -34,7 +34,7 @@ header .container {
 nav ul {
     display: flex;
     list-style-type: none;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 nav ul li {

@@ -437,6 +437,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+// MODAL 
 // Seleciona o contêiner de serviços e modais
 const servicesContainer = document.querySelector(".services__container");
 const modalViews = document.querySelectorAll(".services__modal");
