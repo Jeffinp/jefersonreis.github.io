@@ -1,4 +1,3 @@
-
 /* Estilo para a seção de Retorno */
 #return-section {
     padding: 3rem 0;
@@ -6,7 +5,6 @@
     position: relative;
     overflow: hidden;
 }
-
 
 #return-section .container {
     max-width: 1200px;
@@ -20,6 +18,7 @@
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
+    font-weight: 600; /* Adiciona um peso de fonte mais forte */
 }
 
 #return-section .return-title::after {
@@ -34,11 +33,13 @@
 #return-section .return-description {
     font-size: 1.2rem;
     color: var(--text-color-secondary);
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem; /* Centraliza com margem automática */
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
     line-height: 1.6;
+}
+
+#return-section .return-link {
+    display: inline-block; /* Alinha o link como bloco inline */
 }
 
 #return-section .return-link .return-button {
@@ -50,12 +51,11 @@
     font-weight: bold;
     border-radius: var(--border-radius-lg);
     cursor: pointer;
-    transition: all var(--transition-normal);
+    transition: background-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
     box-shadow: var(--shadow-md);
     text-transform: uppercase;
     letter-spacing: 1px;
     text-decoration: none;
-    display: inline-block;
 }
 
 #return-section .return-link .return-button:hover {
@@ -70,6 +70,7 @@
     box-shadow: var(--shadow-sm);
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
     #return-section {
         padding: 2rem 0;

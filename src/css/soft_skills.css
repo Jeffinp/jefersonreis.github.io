@@ -6,13 +6,14 @@
 }
 
 .soft-skills h2 {
-    font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Tamanho do título mais responsivo */
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
     color: var(--secondary-color);
-    font-weight: 300;
+    font-weight: 600; /* Peso da fonte mais forte para destaque */
 }
 
 .soft-skills h2::after {

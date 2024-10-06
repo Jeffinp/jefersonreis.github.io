@@ -1,25 +1,28 @@
-
 /* Botão Scroll to Top */
 #scrollToTopBtn {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 99;
-    font-size: 18px;
+    font-size: 20px; /* Tamanho da fonte */
     border: none;
     outline: none;
     background-color: var(--secondary-color);
     color: var(--dark-color);
     cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s;
+    padding: 15px; /* Espessura do botão */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra do botão */
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transições suaves */
     opacity: 0;
     visibility: hidden;
 }
 
 #scrollToTopBtn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Levanta o botão ao passar o mouse */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Aumenta a sombra no hover */
+    background-color: var(--dark-color); /* Muda a cor de fundo ao passar o mouse */
+    color: var(--secondary-color); /* Muda a cor do texto para contraste */
 }
 
 #scrollToTopBtn:focus {

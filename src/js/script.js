@@ -170,9 +170,22 @@ languageLinks.forEach(link => {
 
 });
 
-// ------------------------------
-// FUNÇÕES AUXILIARES
-// ------------------------------
+//// Seleciona todos os links de navegação
+const navLinks = document.querySelectorAll('nav ul li a');
+
+// Adiciona um ouvinte de evento de clique a cada link
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        // Remove a classe 'selected' de todos os links
+        navLinks.forEach(link => link.classList.remove('selected'));
+        
+        // Adiciona a classe 'selected' ao link clicado
+        this.classList.add('selected');
+        
+        // Chama a função de rolagem suave
+        smoothScroll.call(this, e);
+    });
+});
 
 // Função para rolar suavemente até um elemento
 function smoothScroll(e) {
@@ -204,10 +217,13 @@ function smoothScrollTo(endX, endY, duration = 1000) {
         const newY = easeInOutQuart(time, startY, distanceY, duration);
         if (time >= duration) {
             clearInterval(timer);
+            window.scrollTo(endX, endY); // Garante que a rolagem chegue ao final
+        } else {
+            window.scrollTo(newX, newY);
         }
-        window.scroll(newX, newY);
     }, 1000 / 60);
 }
+
 
 // Função para alternar o botão de rolar para o topo
 function toggleScrollToTopButton() {
@@ -450,3 +466,7 @@ servicesContainer.addEventListener("click", (event) => {
         closeModal();
     }
 });
+
+/*==================== INITIALIZE AOS ====================*/
+
+AOS.init();

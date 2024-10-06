@@ -6,13 +6,13 @@
 
 .Contact_title {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Tamanho do título mais responsivo */
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
     color: var(--secondary-color);
-    font-weight: 300;
+    font-weight: 600; /* Peso da fonte mais forte para destaque */
 }
 
 .Contact_title::after {
@@ -21,10 +21,11 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
+    width: 100px; /* Largura aumentada para uma aparência mais robusta */
+    height: 5px; /* Espessura aumentada */
     background-color: var(--secondary-color);
-    border-radius: 2px;
+    border-radius: 5px;
+    transition: width 0.3s ease; /* Adicione transição suave */
 }
 
 .section_title {
