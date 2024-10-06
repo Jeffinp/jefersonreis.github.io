@@ -241,7 +241,6 @@
 
     /* Troca de Idiomas */
     .language-switch {
-      
         left: 10px;
     }
 
@@ -321,6 +320,7 @@
 
     .logo {
         margin-top: 0.6rem;
+        margin-left: 2rem;
     }
 
     /* Social Links - Mobile */

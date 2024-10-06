@@ -466,7 +466,3 @@ servicesContainer.addEventListener("click", (event) => {
         closeModal();
     }
 });
-
-/*==================== INITIALIZE AOS ====================*/
-
-AOS.init();
