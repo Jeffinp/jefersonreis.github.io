@@ -115,13 +115,13 @@ loadUserPreference();
 
 
 // ------------------------------
-// ANIMATION ON SCROLL u
+// ANIMATION ON SCROLL (Smooth Fade and Slide)
 // ------------------------------
 
 const animationOptions = {
-    threshold: 0.2,
+    threshold: 0.15,
     rootMargin: '0px',
-    once: false
+    once: false // Permite que a animação ocorra várias vezes
 };
 
 const animateElement = (element, direction) => {
@@ -129,10 +129,10 @@ const animateElement = (element, direction) => {
     element.classList.add(animationClass);
     if (direction === 'down') {
         element.style.opacity = '1';
-        element.style.transform = 'rotateX(0deg) translateY(0)';
+        element.style.transform = 'translateX(0)';
     } else {
         element.style.opacity = '0';
-        element.style.transform = 'rotateX(-90deg) translateY(20px)';
+        element.style.transform = 'translateX(-10px)';
     }
     
     element.addEventListener('transitionend', () => {
@@ -160,9 +160,9 @@ if (elements.animateOnScrollElements.length) {
 
     elements.animateOnScrollElements.forEach(element => {
         element.classList.add('animate-on-scroll');
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
         element.style.opacity = '0';
-        element.style.transform = 'rotateX(-90deg) translateY(20px)';
+        element.style.transform = 'translateX(-10px)';
         animateOnScrollObserver.observe(element);
     });
 }
