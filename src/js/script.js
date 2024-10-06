@@ -115,13 +115,13 @@ loadUserPreference();
 
 
 // ------------------------------
-// ANIMATION ON SCROLL (Improved with Fade and Rotation)
+// ANIMATION ON SCROLL u
 // ------------------------------
 
 const animationOptions = {
     threshold: 0.2,
     rootMargin: '0px',
-    once: false // Permite que a animação ocorra várias vezes
+    once: false
 };
 
 const animateElement = (element, direction) => {
