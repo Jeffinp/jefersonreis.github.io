@@ -62,7 +62,6 @@
     width: 250px;
     height: 250px;
     border-radius: var(--border-radius-full);
-    margin-bottom: 2.5rem;
     box-shadow: 0 0 40px rgba(96, 165, 250, 0.8);
     border: 5px solid var(--secondary-color);
     transition: all var(--transition-normal);

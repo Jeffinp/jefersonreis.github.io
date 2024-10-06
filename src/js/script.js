@@ -115,20 +115,54 @@ loadUserPreference();
 
 
 // ------------------------------
-// ANIMATION ON SCROLL
+// ANIMATION ON SCROLL (Improved with Fade and Rotation)
 // ------------------------------
-if (elements.animateOnScrollElements.length) {
-    const animateOnScrollObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                observer.unobserve(entry.target);
+
+const animationOptions = {
+    threshold: 0.2,
+    rootMargin: '0px',
+    once: false // Permite que a animação ocorra várias vezes
+};
+
+const animateElement = (element, direction) => {
+    const animationClass = direction === 'down' ? 'animate-in' : 'animate-out';
+    element.classList.add(animationClass);
+    if (direction === 'down') {
+        element.style.opacity = '1';
+        element.style.transform = 'rotateX(0deg) translateY(0)';
+    } else {
+        element.style.opacity = '0';
+        element.style.transform = 'rotateX(-90deg) translateY(20px)';
+    }
+    
+    element.addEventListener('transitionend', () => {
+        if (direction === 'up') {
+            element.classList.remove('animate-in', 'animate-out');
+        }
+    }, { once: true });
+};
+
+const handleIntersection = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateElement(entry.target, 'down');
+        } else {
+            const boundingRect = entry.target.getBoundingClientRect();
+            if (boundingRect.top > 0) {
+                animateElement(entry.target, 'up');
             }
-        });
-    }, { threshold: 0.1 });
+        }
+    });
+};
+
+if (elements.animateOnScrollElements.length) {
+    const animateOnScrollObserver = new IntersectionObserver(handleIntersection, animationOptions);
 
     elements.animateOnScrollElements.forEach(element => {
         element.classList.add('animate-on-scroll');
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        element.style.opacity = '0';
+        element.style.transform = 'rotateX(-90deg) translateY(20px)';
         animateOnScrollObserver.observe(element);
     });
 }

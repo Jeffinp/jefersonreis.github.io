@@ -46,3 +46,19 @@
     opacity: 1;
 }
 
+.animate-on-scroll {
+    opacity: 0;
+    transform: rotateX(-90deg) translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform-origin: top center;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+}
+
+.animate-out {
+    opacity: 0;
+    transform: rotateX(-90deg) translateY(20px);
+}
