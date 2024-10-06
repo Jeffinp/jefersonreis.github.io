@@ -157,7 +157,7 @@ const handleIntersection = (entries, observer) => {
 
 if (elements.animateOnScrollElements.length) {
     const animateOnScrollObserver = new IntersectionObserver(handleIntersection, animationOptions);
-
+ 
     elements.animateOnScrollElements.forEach(element => {
         element.classList.add('animate-on-scroll');
         element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';

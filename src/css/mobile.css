@@ -15,6 +15,11 @@
 /* Para telas de 1280px de largura */
 @media (width: 1280px) {
     
+
+    .footer__social h3 {
+        display: none;
+    }
+
     /* Header e Container */
     header .container {
         padding: 0 15px;
@@ -73,6 +78,10 @@
     header .container {
         padding: 0 10px;
         margin-right: 5rem;
+    }
+    
+    .footer__social h3 {
+        display: none;
     }
 
     nav ul {
@@ -133,18 +142,24 @@
     }
 }
 
-@media (width: 820px) {
+@media (width: 820px), (width: 853px) {
     .hero h1 {
         font-size: 4rem;
     }
 
-    nav ul {
-        gap: 1rem;
+    .footer__social h3 {
+        display: none;
     }
 
-    #darkModeToggle {
-        top: 90px;
+    nav ul {
+        gap: 1rem;
+        margin-right: 4rem;
     }
+
+    .logo{
+        margin-left: 22%;
+    }
+
 }
 
 /* Para telas menores que 768px (dispositivos móveis) */
@@ -185,7 +200,7 @@
     }
 
     .logo {
-        margin-left: 0rem;
+        margin-left: 50%;
         margin-top: 0.6rem;
     }
 
@@ -325,7 +340,8 @@
 
     .logo {
         margin-top: 0.6rem;
-        margin-left: 2rem;
+        margin-left: 50%;
+        text-align: center;
     }
 
     /* Social Links - Mobile */

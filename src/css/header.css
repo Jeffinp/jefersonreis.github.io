@@ -1,11 +1,12 @@
 header {
-    background-color: var(--primary-color);
-    height: 80px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo com blur */
+    backdrop-filter: blur(10px); /* Efeito blur */
+    height: 60px; /* Altura reduzida */
     position: fixed;
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
 }
 
 header .container {
@@ -18,46 +19,42 @@ header .container {
 
 .logo {
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem; /* Tamanho da fonte reduzido */
     font-weight: 700;
-    margin-left: 40px;
+    margin-left: 20px; /* Margem esquerda reduzida */
     color: var(--secondary-color);
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
-    display: flex; /* Para alinhar o ícone e o texto */
-    align-items: center; /* Alinhamento vertical */
-    gap: 0.5rem; /* Espaçamento entre o ícone e o texto */
+    display: flex;
+    align-items: center;
+    gap: 0.4rem; /* Espaçamento reduzido */
 }
 
 .logo:hover {
     color: var(--hover-color);
-    transform: scale(1.1);
+    transform: scale(1.05); /* Efeito de escala reduzido */
 }
 
-.logo i { /* Estilizando o ícone da logo */
-    font-size: 2.5rem; 
+.logo i { 
+    font-size: 2rem; /* Tamanho do ícone reduzido */
 }
 
 nav ul {
     display: flex;
     list-style-type: none;
-    gap: 2rem;
-}
-
-nav ul li {
-    position: relative;
+    gap: 1.5rem; /* Espaçamento reduzido */
 }
 
 nav ul li a {
     font-family: 'Roboto', sans-serif;
     color: var(--text-color);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Tamanho da fonte reduzido */
     font-weight: 500;
     transition: color 0.3s ease;
     padding: 5px 0;
-    display: inline-block; /* Para que o ::after funcione corretamente */
-    position: relative; /* Para posicionar o ::after */
+    display: inline-block;
+    position: relative;
 }
 
 nav ul li a::after {
@@ -66,7 +63,7 @@ nav ul li a::after {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 3px;
+    height: 2px; /* Altura do sublinhado reduzida */
     background-color: var(--secondary-color);
     transition: width 0.3s ease;
 }
@@ -86,18 +83,19 @@ nav ul li a.selected {
 
 @media (max-width: 768px) {
     header .container {
-    flex-direction: column; /* Menu empilhado em telas menores */
-    align-items: flex-start; /* Alinhamento à esquerda */
+    flex-direction: column;
+    align-items: flex-start;
     }
 
     nav ul {
-    margin-top: 1rem; /* Espaçamento entre a logo e o menu */
-    flex-direction: column; /* Itens do menu empilhados */
-    gap: 1rem; /* Espaçamento reduzido entre os itens */
+    margin-top: 0.8rem; /* Espaçamento reduzido */
+    flex-direction: column;
+    gap: 0.8rem; /* Espaçamento reduzido */
     }
 
     .logo {
-    margin: 1rem 0; /* Espaçamento ao redor da logo */
-    margin-left: 20px; /* Resetando a margem esquerda */
+    margin: 0.8rem 0; /* Espaçamento reduzido */
+    margin-left: 20px;
     }
 }
+
