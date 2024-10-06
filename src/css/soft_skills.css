@@ -37,6 +37,7 @@
 
 .soft-skill-item {
     flex: 1 1 280px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     max-width: 280px;
     text-align: center;
     background-color: var(--primary-color);

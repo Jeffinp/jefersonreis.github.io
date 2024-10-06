@@ -24,11 +24,18 @@ header .container {
     color: var(--secondary-color);
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
+    display: flex; /* Para alinhar o ícone e o texto */
+    align-items: center; /* Alinhamento vertical */
+    gap: 0.5rem; /* Espaçamento entre o ícone e o texto */
 }
 
 .logo:hover {
     color: var(--hover-color);
     transform: scale(1.1);
+}
+
+.logo i { /* Estilizando o ícone da logo */
+    font-size: 2.5rem; 
 }
 
 nav ul {
@@ -49,6 +56,8 @@ nav ul li a {
     font-weight: 500;
     transition: color 0.3s ease;
     padding: 5px 0;
+    display: inline-block; /* Para que o ::after funcione corretamente */
+    position: relative; /* Para posicionar o ::after */
 }
 
 nav ul li a::after {
@@ -72,5 +81,23 @@ nav ul li a:hover {
 
 nav ul li a.selected {
     color: var(--secondary-color);
-    font-weight: 700; /* Para destacar o link selecionado */
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    header .container {
+    flex-direction: column; /* Menu empilhado em telas menores */
+    align-items: flex-start; /* Alinhamento à esquerda */
+    }
+
+    nav ul {
+    margin-top: 1rem; /* Espaçamento entre a logo e o menu */
+    flex-direction: column; /* Itens do menu empilhados */
+    gap: 1rem; /* Espaçamento reduzido entre os itens */
+    }
+
+    .logo {
+    margin: 1rem 0; /* Espaçamento ao redor da logo */
+    margin-left: 20px; /* Resetando a margem esquerda */
+    }
 }

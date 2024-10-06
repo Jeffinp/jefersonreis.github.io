@@ -39,6 +39,7 @@
     display: flex; /* Para o layout quadradinho */
     flex-direction: column; /* Para que os itens fiquem na vertical */
     align-items: stretch; /* Para os itens ocuparem toda a largura */
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .skills__content:hover {

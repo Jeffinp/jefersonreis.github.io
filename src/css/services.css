@@ -1,24 +1,21 @@
-/*==================== SERVICES ====================*/
-
 .services__container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Melhor ajuste para telas pequenas */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem; /* Mais espaçamento */
+    padding: 4rem 2rem;
 }
 
 .services h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Tamanho do título mais responsivo */
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
-    padding-bottom: 20px;
     color: var(--secondary-color);
-    font-weight: 600; /* Peso da fonte mais forte para destaque */
+    font-weight: 700;
 }
 
 .services h2::after {
@@ -27,35 +24,61 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; /* Largura aumentada para uma aparência mais robusta */
-    height: 5px; /* Espessura aumentada */
+    width: 100px;
+    height: 5px;
     background-color: var(--secondary-color);
     border-radius: 5px;
-    transition: width 0.3s ease; /* Adicione transição suave */
+    transition: width 0.3s ease;
 }
 
 .services__content {
-    background-color: var(--primary-color);
-    border-radius: 5px; /* Menor arredondamento para deixar mais quadrado */
-    padding: 2rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color); /* Cor de fundo do card */
+    border-radius: 10px; /* Aumento do border-radius */
+    padding: 3rem; /* Aumento do padding */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
-    height: 100%; /* Manter altura 100% para ocupar o espaço */
+    overflow: hidden; /* Para o efeito de hover */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.services__content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); /* Gradiente sutil */
+    z-index: -1; /* Para ficar atrás do conteúdo */
+    transition: transform 0.4s ease; /* Transição para o efeito hover */
+    
+}
+
+.services__content:hover::before {
+    transform: translateY(-10px); /* Efeito de profundidade no hover */
 }
 
 .services__icon {
     font-size: 3rem;
     color: var(--secondary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* Aumento do espaçamento */
+    text-align: center;
 }
 
 .services__title {
-    font-size: 1.6rem;
+    font-size: 1.8rem; /* Aumento do tamanho da fonte */
     font-weight: bold;
     color: #ffffff;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* Aumento do espaçamento */
     text-align: center;
+}
+
+.services__description { /* Novo estilo para a descrição */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8); /* Cor do texto mais suave */
+    margin-bottom: 2rem;
 }
 
 .services__button {
@@ -63,64 +86,66 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.8rem 1.2rem;
+    padding: 1rem 1.5rem; /* Aumento do padding */
     background-color: var(--secondary-color);
     color: #fff;
-    border-radius: 5px; /* Menor arredondamento para o botão */
+    border-radius: 5px;
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transição adicional */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil no botão */
 }
 
 .services__button:hover {
     background-color: var(--hover-color);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra adicional ao passar o mouse */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .services__modal {
-    position: fixed;
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Ajuste a opacidade, se necessário */
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    visibility: hidden;
+    visibility: hidden; 
     transition: opacity 0.4s ease, visibility 0.4s ease;
-    z-index: 10;
+    z-index: 10; 
 }
 
 .services__modal.active-modal {
     opacity: 1;
     visibility: visible;
+    
 }
 
 .services__modal-content {
     background-color: var(--primary-color);
     padding: 2rem;
-    border-radius: 10px; /* Menor arredondamento no modal */
-    max-width: 500px;
-    width: 90%;
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 500px; 
     position: relative;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
     z-index: 2;
     animation: fadeIn 0.5s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Transições de fechamento suave */
 @keyframes fadeOut {
     from {
-        opacity: 1;
-        transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
     }
     to {
-        opacity: 0;
-        transform: scale(0.9);
+    opacity: 0;
+    transform: scale(0.9);
     }
 }
 
@@ -145,42 +170,36 @@
     font-size: 1.5rem;
     cursor: pointer;
     color: #fff;
-    transition: color 0.3s ease; /* Transição suave para a cor */
+    transition: color 0.3s ease;
 }
 
 .services__modal-close:hover {
     color: var(--secondary-color);
 }
 
-/*==================== ANIMAÇÕES ====================*/
 @keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: scale(0.9);
+    opacity: 0;
+    transform: scale(0.9);
     }
     to {
-        opacity: 1;
-        transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
     }
 }
 
-/*==================== RESPONSIVIDADE ====================*/
 @media (max-width: 768px) {
     .services__container {
-        grid-template-columns: 1fr; /* Um item por linha em telas menores */
+    grid-template-columns: 1fr;
     }
 
     .services__content {
-        padding: 1.5rem; /* Menos espaçamento em telas pequenas */
-        height: auto;
+    padding: 2rem; /* Padding ajustado para mobile */
     }
 
+    /* Ajuste para o modal em telas menores */
     .services__modal-content {
-        width: 95%; /* Aumente a largura em telas pequenas */
-        max-width: 90%; /* Para que não fique excessivamente largo */
-    }
-
-    .services__button {
-        padding: 0.7rem 1rem; /* Ajustar o espaçamento do botão */
+    width: 95%;
+    max-width: 90%; 
     }
 }

@@ -5,6 +5,11 @@
         font-size: 1.8rem;
         margin-left: 5rem;
     }
+
+    .footer__social h3,
+    .footer__nav { 
+        display: none;
+    }
 }
 
 /* Para telas de 1280px de largura */
