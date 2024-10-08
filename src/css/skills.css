@@ -1,4 +1,4 @@
-/* HABILIDADES  */
+/* HABILIDADES */
 .skills__container {
     max-width: 900px;
     margin: 0 auto;
@@ -7,13 +7,13 @@
 
 .skills h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Tamanho do título mais responsivo */
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
     color: var(--secondary-color);
-    font-weight: 600; /* Peso da fonte mais forte para destaque */
+    font-weight: 600; 
 }
 
 .skills h2::after {
@@ -22,23 +22,23 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; /* Largura aumentada para uma aparência mais robusta */
-    height: 5px; /* Espessura aumentada */
+    width: 100px; 
+    height: 5px; 
     background-color: var(--secondary-color);
     border-radius: 5px;
-    transition: width 0.3s ease; /* Adicione transição suave */
+    transition: width 0.3s ease; 
 }
 
 .skills__content {
     background-color: var(--skills-bg);
     padding: 2rem;
-    border-radius: 1rem; /* Borda arredondada */
+    border-radius: 1rem; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 2rem;
-    display: flex; /* Para o layout quadradinho */
-    flex-direction: column; /* Para que os itens fiquem na vertical */
-    align-items: stretch; /* Para os itens ocuparem toda a largura */
+    display: flex; 
+    flex-direction: column; 
+    align-items: stretch; 
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -99,8 +99,8 @@
 .skills__list {
     padding: 1.5rem 0.5rem;
     transition: height 0.4s ease-in-out, opacity 0.4s ease-in-out;
-    border: 1px solid var(--secondary-color); /* Borda para a lista de habilidades */
-    border-radius: 0.5rem; /* Borda arredondada */
+    border: 1px solid var(--secondary-color); 
+    border-radius: 0.5rem; 
 }
 
 .skills__titles {
@@ -169,26 +169,26 @@
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
     .skills h2 {
-        font-size: 2rem; /* Ajusta o tamanho do título */
+    font-size: 2rem; 
     }
 
     .skills__header {
-        padding: 0.8rem; /* Reduz o padding do cabeçalho */
+    padding: 0.8rem; 
     }
 
     .skills__title {
-        font-size: 1.1rem; /* Reduz o tamanho do título da habilidade */
+    font-size: 1.1rem; 
     }
 
     .skills__icon {
-        font-size: 1.3rem; /* Ajusta o tamanho do ícone */
+    font-size: 1.3rem; 
     }
 
     .skills__progress {
-        height: 6px; /* Ajusta a altura da barra de progresso */
+    height: 6px; 
     }
 
     .skills__content {
-        padding: 1.5rem; /* Ajusta o padding em dispositivos móveis */
+    padding: 1.5rem; 
     }
 }
