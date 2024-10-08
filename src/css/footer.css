@@ -150,6 +150,28 @@
     opacity: 0.8;
     }
 
+    @media (width: 1440px )  {
+        .logo {
+            font-size: 1.8rem;
+            margin-left: 5rem;
+        }
+
+        .footer__social h3,
+        .footer__nav { 
+            display: none;
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1920px) {
+        .logo {
+            font-size: 1.8rem; 
+        }
+
+        .footer__social h3,
+        .footer__nav { 
+            display: none;
+        }
+    }
 
     /* Responsividade */
     @media (max-width: 1024px) { 
