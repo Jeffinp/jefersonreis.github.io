@@ -1,5 +1,4 @@
 (function () {
-    // Armazena os elementos do DOM em cache para melhor performance
     const elements = {
         menuToggle: document.querySelector('.menu-toggle'),
         navMenu: document.querySelector('nav ul'),
@@ -15,9 +14,7 @@
         animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
     };
 
-    // Inicializa o Particles.js se estiver disponível
     function initParticles() {
-        // Verifica se a biblioteca Particles.js está carregada
         if (typeof particlesJS === 'undefined') return;
 
         particlesJS('particles-js', {
@@ -25,26 +22,10 @@
                 number: { value: 40, density: { enable: true, value_area: 800 } },
                 color: { value: "#ffffff" },
                 shape: { type: "circle" },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: { enable: false } // Desativa animações de opacidade para melhor performance
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: { enable: false } // Desativa animações de tamanho para melhor performance
-                },
+                opacity: { value: 0.5, random: true, anim: { enable: false } },
+                size: { value: 3, random: true, anim: { enable: false } },
                 line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.2, width: 1 },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false
-                }
+                move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
             },
             interactivity: {
                 detect_on: "canvas",
@@ -62,21 +43,27 @@
         });
     }
 
-    // Função throttle para limitar a taxa de execução de uma função
     function throttle(func, limit) {
-        let inThrottle;
-        return function () {
-            const args = arguments;
+        let lastFunc;
+        let lastRan;
+        return function() {
             const context = this;
-            if (!inThrottle) {
+            const args = arguments;
+            if (!lastRan) {
                 func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
+                lastRan = Date.now();
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(function() {
+                    if ((Date.now() - lastRan) >= limit) {
+                        func.apply(context, args);
+                        lastRan = Date.now();
+                    }
+                }, limit - (Date.now() - lastRan));
             }
         };
     }
 
-    // Carregamento lazy de imagens para otimizar o carregamento da página
     function lazyLoadImages() {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -84,21 +71,21 @@
                     const img = entry.target;
                     img.src = img.dataset.src;
                     img.classList.remove('lazy');
-                    observer.unobserve(img); // Para de observar a imagem após o carregamento
+                    observer.unobserve(img);
                 }
             });
-        });
+        }, { rootMargin: "50px" });
 
         elements.lazyImages.forEach(img => imageObserver.observe(img));
     }
 
-    // Anima elementos quando eles entram na viewport
     function animateOnScroll() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate');
-                    observer.unobserve(entry.target); // Para de observar o elemento após a animação
+                } else {
+                    entry.target.classList.remove('animate');
                 }
             });
         }, { threshold: 0.1 });
@@ -106,27 +93,43 @@
         elements.animateOnScrollElements.forEach(el => observer.observe(el));
     }
 
-    // Inicializa as funções
+    function handleScrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    function toggleScrollToTopButton() {
+        elements.scrollToTopBtn.style.display = window.pageYOffset > 300 ? 'block' : 'none';
+    }
+
     function init() {
         initParticles();
         lazyLoadImages();
         animateOnScroll();
 
-        // Oculta o botão "scroll to top" inicialmente
         elements.scrollToTopBtn.style.display = 'none';
+        elements.scrollToTopBtn.addEventListener('click', handleScrollToTop);
 
-        // Mostra/oculta o botão "scroll to top" com base na posição de rolagem
-        window.addEventListener('scroll', throttle(() => {
-            elements.scrollToTopBtn.style.display = window.pageYOffset > 300 ? 'block' : 'none';
-        }, 200));
-
-        // Outros listeners de eventos podem ser adicionados aqui
+        window.addEventListener('scroll', throttle(toggleScrollToTopButton, 200));
     }
 
-    // Executa a inicialização quando o DOM estiver totalmente carregado
+    function reinitialize() {
+        elements.animateOnScrollElements.forEach(el => el.classList.remove('animate'));
+        init();
+    }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
+
+    // Adicione este evento para reinicializar quando a página for atualizada ou mudada
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            reinitialize();
+        }
+    });
 })();
