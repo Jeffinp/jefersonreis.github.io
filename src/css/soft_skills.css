@@ -1,4 +1,3 @@
-
 /* Seção de Soft Skills */
 .soft-skills {
     padding: 5rem 2rem;
@@ -7,13 +6,13 @@
 
 .soft-skills h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Tamanho do título mais responsivo */
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
     color: var(--secondary-color);
-    font-weight: 600; /* Peso da fonte mais forte para destaque */
+    font-weight: 600;
 }
 
 .soft-skills h2::after {
@@ -37,22 +36,22 @@
 
 .soft-skill-item {
     flex: 1 1 280px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-color-light);
     max-width: 280px;
     text-align: center;
-    background-color: var(--primary-color);
+    background-color: var(--card-background);
     padding: 2rem;
-    border-radius: 8px;
-    transition: var(--transition);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
+    border-radius: var(--border-radius-md);
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    position: relative; /* Corrigido aqui */
     overflow: hidden;
 }
-
+    
 .soft-skill-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transition: 0.5s;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-slow);
     background-color: var(--hover-color);
 }
 
@@ -84,7 +83,7 @@
     color: var(--text-color);
     line-height: 1.6;
     opacity: 0.8;
-    transition: var(--transition);
+    transition: var(--transition-fast);
 }
 
 .soft-skill-item:hover p {
@@ -113,7 +112,7 @@
 }
 
 .soft-skill-item:hover h3 {
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color, var(--secondary-color)), var(--secondary-color));
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--secondary-color));
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;

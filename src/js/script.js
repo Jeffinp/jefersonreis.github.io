@@ -282,15 +282,13 @@ function debounce(func, wait) {
     };
 }
 
-// ARISTA DIGITAL
+// ARTISTA DIGITAL
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('.main-image');
-
     if (images.length === 0) return; // Sai se a seção não existir
 
     const prevButton = document.querySelector('.nav.prev');
     const nextButton = document.querySelector('.nav.next');
-
     let currentIndex = 0;
 
     function showImage(index) {
@@ -299,19 +297,18 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = index;
     }
 
-    if (prevButton) {
-        prevButton.addEventListener('click', () => {
-            const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-            showImage(newIndex);
-        });
-    }
+    prevButton?.addEventListener('click', () => {
+        const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+        showImage(newIndex);
+    });
 
-    if (nextButton) {
-        nextButton.addEventListener('click', () => {
-            const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-            showImage(newIndex);
-        });
-    }
+    nextButton?.addEventListener('click', () => {
+        const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        showImage(newIndex);
+    });
+    
+    // Mostra a primeira imagem ao carregar a página
+    showImage(0);
 });
 
 // Carousel functionality
@@ -381,23 +378,6 @@ function dragEnd() {
     isDragging = false;
     track.style.cursor = 'grab';
 }
-
-// Auto-play functionality
-let autoplayInterval;
-
-function startAutoplay() {
-    autoplayInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
-}
-
-function stopAutoplay() {
-    clearInterval(autoplayInterval);
-}
-
-startAutoplay();
-
-// Pause autoplay on hover
-track.addEventListener('mouseenter', stopAutoplay);
-track.addEventListener('mouseleave', startAutoplay);
 
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {

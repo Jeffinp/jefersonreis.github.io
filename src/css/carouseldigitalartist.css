@@ -8,6 +8,7 @@
     overflow: hidden;
     background-color: var(--card-background);
     position: relative;
+    padding: 1rem; /* Adiciona padding interno */
 }
 
 .main-image-container {
@@ -15,6 +16,8 @@
     width: 100%;
     height: 500px;
     overflow: hidden;
+    border-radius: var(--border-radius-md); /* Adiciona bordas arredondadas */
+    box-shadow: var(--shadow-md);
 }
 
 .main-image {
@@ -23,7 +26,7 @@
     left: 50%;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover; /* Ajusta imagem para cobrir o contêiner */
     object-position: center;
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.1);
@@ -50,7 +53,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color var(--transition-fast), color var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast); /* Adicionei transição para a transformação */
 }
 
 .nav.prev {
@@ -64,6 +67,7 @@
 .nav:hover {
     background-color: var(--hover-color);
     color: var(--text-color);
+    transform: scale(1.1); /* Adicionei efeito de zoom no hover */
 }
 
 .nav.prev::before {

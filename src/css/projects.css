@@ -1,4 +1,3 @@
-
 /* Seção de Projetos */
 .project-container {
     width: 90%; /* Aumentado para ocupar mais espaço em telas menores */
@@ -152,6 +151,7 @@
     color: var(--text-color);
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
     .project-item {
         margin-bottom: 1.5rem; /* Margem reduzida */
@@ -277,7 +277,7 @@
 .carousel-button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate    translateY(-50%);
     background-color: var(--secondary-color);
     color: var(--dark-color);
     border: none;
@@ -295,11 +295,15 @@
 
 .carousel-button:hover {
     background-color: var(--hover-color);
-    transform: translateY(-50%) scale(1.1);
 }
 
-.prev { left: 1rem; }
-.next { right: 1rem; }
+.prev {
+    left: 1rem;
+}
+
+.next {
+    right: 1rem;
+}
 
 /* Progress indicator */
 .carousel-progress {
@@ -329,48 +333,58 @@
     .carousel-item {
         transform: scale(0.9);
     }
-
+    
     .carousel-item.active {
         transform: scale(1);
     }
-
+    
     .project-image {
         height: 250px;
     }
-
+    
     .project-info h3 {
         font-size: 1.4rem;
     }
-
+    
     .project-info p {
         font-size: 1rem;
         max-height: 4.5em; /* 3 linhas de texto */
     }
-
+    
     .project-link {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
-
+    
     .carousel-button {
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
     }
-
-    .prev { left: 1rem; }
-    .next { right: 1rem; }
+    
+    .prev {
+        left: 1rem;
+    }
+    
+    .next {
+        right: 1rem;
+    }
 }
 
 @media (min-width: 1024px) {
     .project-container {
         width: 80%;
     }
-
+    
     .project-image {
         height: 300px;
     }
-
-    .prev { left: 4rem; }
-    .next { right: 4rem; }
+    
+    .prev {
+        left: 4rem;
+    }
+    
+    .next {
+        right: 4rem;
+    }
 }
