@@ -16,7 +16,7 @@
     animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item')
     };
 
-    // Configuração para particles.js
+    // Configuração para particles.js jk
     const particlesConfig = {
     particles: {
         number: { value: 40, density: { enable: true, value_area: 800 } },
