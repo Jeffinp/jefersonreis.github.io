@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-//// Seleciona todos os links de navegação
+// Seleciona todos os links de navegação
 const navLinks = document.querySelectorAll('nav ul li a');
 
 // Adiciona um ouvinte de evento de clique a cada link
