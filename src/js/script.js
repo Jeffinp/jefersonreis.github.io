@@ -451,10 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
-// MODAL 
 // Seleciona o contêiner de serviços e modais
-const servicesContainer = document.querySelector(".services__container");
+const servicesSection = document.querySelector(".services.section");
 const modalViews = document.querySelectorAll(".services__modal");
 
 // Função para abrir o modal
@@ -468,17 +466,26 @@ function closeModal() {
 }
 
 // Manipulador de eventos para abrir e fechar modais
-servicesContainer.addEventListener("click", (event) => {
+servicesSection.addEventListener("click", (event) => {
     const target = event.target;
-
+    
     // Verifica se o botão de abrir modal foi clicado
-    if (target.classList.contains("services__button")) {
-        const index = Array.from(modalViews).indexOf(target.nextElementSibling);
-        openModal(index);
+    if (target.closest('.services__button')) {
+        const button = target.closest('.services__button');
+        const modalIndex = button.getAttribute('data-modal');
+        openModal(parseInt(modalIndex));
     }
-
+    
     // Verifica se o botão de fechar modal foi clicado ou se clicou fora do modal
-    if (target.classList.contains("services__modal-close") || target.classList.contains("services__modal")) {
+    if (target.classList.contains("services__modal-close") || 
+        target.classList.contains("services__modal")) {
+        closeModal();
+    }
+});
+
+// Adiciona listener para fechar modal com a tecla ESC
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
         closeModal();
     }
 });
