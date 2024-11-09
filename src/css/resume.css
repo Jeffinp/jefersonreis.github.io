@@ -11,12 +11,12 @@
 
 .resume h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem); 
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     color: var(--secondary-color);
-    font-weight: 700; 
+    font-weight: 700;
 }
 
 .resume h2::after {
@@ -25,20 +25,23 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; 
-    height: 5px; 
+    width: 100px;
+    height: 5px;
     background-color: var(--secondary-color);
     border-radius: 5px;
-    transition: width 0.3s ease; 
+    transition: width 0.3s ease;
 }
 
 .resume-content {
     display: flex;
     justify-content: space-between;
     gap: 3rem;
-    background-color: rgba(255, 255, 255, 0.1); /* Glassmorphism */
-    backdrop-filter: blur(10px); /* Glassmorphism */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Glassmorphism */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    /* Glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Glassmorphism */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
@@ -115,7 +118,8 @@
     overflow: hidden;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil */
 }
 
 .download-resume-button::after {
@@ -139,26 +143,27 @@
     background-color: var(--hover-color);
     color: var(--text-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px); /* Movimento sutil no hover */
+    transform: translateY(-3px);
+    /* Movimento sutil no hover */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .resume-content {
-    flex-direction: column;
-    gap: 2rem; 
-    }
-    
-    .resume h2 {
-    font-size: 2.5rem;
+        flex-direction: column;
+        gap: 2rem;
     }
 
-    .resume-highlights, 
+    .resume h2 {
+        font-size: 2.5rem;
+    }
+
+    .resume-highlights,
     .resume-cta {
-    padding: 1.5rem; 
+        padding: 1.5rem;
     }
 
     .download-resume-button {
-    padding: 0.7rem 1.2rem; 
+        padding: 0.7rem 1.2rem;
     }
 }

@@ -1,7 +1,7 @@
 /* Seção de Soft Skills */
 .soft-skills {
     padding: 5rem 2rem;
-    color: var(--text-color); 
+    color: var(--text-color);
 }
 
 .soft-skills h2 {
@@ -43,15 +43,18 @@
     background-color: var(--card-background);
     padding: 2rem;
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-md); 
+    box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
 
-/* Transições para animações suaves */
-transition: 
-    transform var(--transition-slow) ease, /* Transição para o efeito de hover */
-    box-shadow var(--transition-slow) ease, /* Transição para a sombra */
-    background-color var(--transition-fast) ease; /* Transição para a cor de fundo- */
+    /* Transições para animações suaves */
+    transition:
+        transform var(--transition-slow) ease,
+        /* Transição para o efeito de hover */
+        box-shadow var(--transition-slow) ease,
+        /* Transição para a sombra */
+        background-color var(--transition-fast) ease;
+    /* Transição para a cor de fundo- */
 }
 
 .soft-skill-item:hover {
@@ -64,7 +67,7 @@ transition:
     font-size: 3rem;
     margin-bottom: 1.5rem;
     color: var(--secondary-color);
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .soft-skill-item:hover .iconify {
@@ -83,11 +86,11 @@ transition:
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
 }
 
 .soft-skill-item:hover h3 {
-    animation: textHighlight 3s linear infinite; 
+    animation: textHighlight 3s linear infinite;
 }
 
 .soft-skill-item p {
@@ -120,6 +123,11 @@ transition:
 
 /* Animação para o gradiente */
 @keyframes textHighlight {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
 }

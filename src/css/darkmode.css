@@ -12,14 +12,18 @@ body.dark-mode {
 /* Estilos do botão de alternância */
 #darkModeToggle {
     position: fixed;
-    top: 0.5rem; /* Ajuste para cima */
+    top: 0.5rem;
+    /* Ajuste para cima */
     right: 2rem;
     background-color: transparent;
     border: none;
     border-radius: 50%;
-    width: 40px; /* Tamanho reduzido */
-    height: 40px; /* Tamanho reduzido */
-    font-size: 22px; /* Tamanho da fonte reduzido */
+    width: 40px;
+    /* Tamanho reduzido */
+    height: 40px;
+    /* Tamanho reduzido */
+    font-size: 22px;
+    /* Tamanho da fonte reduzido */
     cursor: pointer;
     display: flex;
     justify-content: center;

@@ -1,15 +1,19 @@
 /* Seção de Projetos */
 .project-container {
-    width: 90%; /* Aumentado para ocupar mais espaço em telas menores */
-    max-width: 1200px; /* Limita a largura máxima em telas grandes */
+    width: 90%;
+    /* Aumentado para ocupar mais espaço em telas menores */
+    max-width: 1200px;
+    /* Limita a largura máxima em telas grandes */
     margin: 0 auto;
 }
 
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem; /* Espaçamento entre os itens */
-    padding: 4rem 2rem; /* Margem lateral */
+    gap: 2rem;
+    /* Espaçamento entre os itens */
+    padding: 4rem 2rem;
+    /* Margem lateral */
 }
 
 .project-item {
@@ -17,9 +21,11 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transição para hover */
     position: relative;
-    height: 350px; /* Altura ajustada */
+    height: 350px;
+    /* Altura ajustada */
 }
 
 .project-item::before {
@@ -31,19 +37,22 @@
     height: 100%;
     background: linear-gradient(to bottom, rgba(29, 185, 84, 0.3), rgba(29, 185, 84, 0.7));
     opacity: 0;
-    transition: opacity 0.3s ease; /* Transição para hover */
+    transition: opacity 0.3s ease;
+    /* Transição para hover */
     z-index: 1;
 }
 
 .projects h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Tamanho do título mais responsivo */
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    /* Tamanho do título mais responsivo */
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
     color: var(--secondary-color);
-    font-weight: 600; /* Peso da fonte mais forte para destaque */
+    font-weight: 600;
+    /* Peso da fonte mais forte para destaque */
 }
 
 .projects h2::after {
@@ -52,25 +61,32 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; /* Largura aumentada para uma aparência mais robusta */
-    height: 5px; /* Espessura aumentada */
+    width: 100px;
+    /* Largura aumentada para uma aparência mais robusta */
+    height: 5px;
+    /* Espessura aumentada */
     background-color: var(--secondary-color);
     border-radius: 5px;
-    transition: width 0.3s ease; /* Adicione transição suave */
+    transition: width 0.3s ease;
+    /* Adicione transição suave */
 }
 
 .project-item:hover::before {
-    opacity: 1; /* Efeito hover */
+    opacity: 1;
+    /* Efeito hover */
 }
 
 .project-item:hover {
-    transform: translateY(-10px) scale(1.02); /* Animação de hover */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Sombra no hover */
+    transform: translateY(-10px) scale(1.02);
+    /* Animação de hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    /* Sombra no hover */
 }
 
 .project-image {
     width: 100%;
-    height: 60%; /* Altura da imagem */
+    height: 60%;
+    /* Altura da imagem */
     background-size: cover;
     background-position: center;
 }
@@ -79,15 +95,18 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease; /* Transição para hover */
+    transition: transform 0.3s ease;
+    /* Transição para hover */
 }
 
 .project-item:hover .project-image img {
-    transform: scale(1.05); /* Aumenta a imagem no hover */
+    transform: scale(1.05);
+    /* Aumenta a imagem no hover */
 }
 
 .project-info {
-    padding: 1.5rem; /* Padding ajustado */
+    padding: 1.5rem;
+    /* Padding ajustado */
     position: relative;
     z-index: 2;
     background-color: var(--primary-color);
@@ -95,22 +114,29 @@
 
 .project-item:hover .project-info {
     background-color: var(--hover-color);
-    transform: translateY(-5px); /* Movimento no hover */
+    transform: translateY(-5px);
+    /* Movimento no hover */
 }
 
 .project-info h3 {
     margin-top: 0;
-    font-size: 1.4rem; /* Tamanho da fonte */
+    font-size: 1.4rem;
+    /* Tamanho da fonte */
     color: var(--secondary-color);
-    margin-bottom: 0.5rem; /* Margem reduzida */
+    margin-bottom: 0.5rem;
+    /* Margem reduzida */
 }
 
 .project-info p {
-    margin: 0 0 1rem; /* Margem reduzida */
-    font-size: 0.95rem; /* Tamanho da fonte */
-    line-height: 1.5; /* Espaçamento entre linhas */
+    margin: 0 0 1rem;
+    /* Margem reduzida */
+    font-size: 0.95rem;
+    /* Tamanho da fonte */
+    line-height: 1.5;
+    /* Espaçamento entre linhas */
     color: var(--text-color);
-    max-height: 5em; /* Limitação de altura */
+    max-height: 5em;
+    /* Limitação de altura */
     overflow: hidden;
     transition: max-height 0.6s ease, opacity 0.6s ease;
 }
@@ -123,7 +149,8 @@
     text-decoration: none;
     border-radius: 30px;
     font-weight: 700;
-    transition: background-color 0.3s ease; /* Transição de hover */
+    transition: background-color 0.3s ease;
+    /* Transição de hover */
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
@@ -137,13 +164,15 @@
     width: 300%;
     height: 300%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    transition: transform 0.4s ease; /* Transição para hover */
+    transition: transform 0.4s ease;
+    /* Transição para hover */
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
 }
 
 .project-link:hover::after {
-    transform: translate(-50%, -50%) scale(1); /* Efeito hover */
+    transform: translate(-50%, -50%) scale(1);
+    /* Efeito hover */
 }
 
 .project-link:hover {
@@ -154,7 +183,8 @@
 /* Responsividade */
 @media (max-width: 768px) {
     .project-item {
-        margin-bottom: 1.5rem; /* Margem reduzida */
+        margin-bottom: 1.5rem;
+        /* Margem reduzida */
     }
 }
 
@@ -162,16 +192,21 @@
 .project-item.cliente-site::after {
     content: attr(data-type);
     position: absolute;
-    top: 15px; /* Posicionamento ajustado */
-    right: 15px; /* Posicionamento ajustado */
-    padding: 6px 12px; /* Padding ajustado */
+    top: 15px;
+    /* Posicionamento ajustado */
+    right: 15px;
+    /* Posicionamento ajustado */
+    padding: 6px 12px;
+    /* Padding ajustado */
     border-radius: 20px;
-    font-size: 0.85rem; /* Tamanho da fonte */
+    font-size: 0.85rem;
+    /* Tamanho da fonte */
     font-weight: 700;
     z-index: 10;
     opacity: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(-5px); /* Efeito sutil */
+    transform: translateY(-5px);
+    /* Efeito sutil */
 }
 
 .project-item.training-site::after {
@@ -185,7 +220,8 @@
 }
 
 .project-item:hover::after {
-    opacity: 1; /* Efeito hover */
+    opacity: 1;
+    /* Efeito hover */
     transform: translateY(0);
 }
 
@@ -220,7 +256,8 @@
 
 .project-image {
     width: 100%;
-    height: 200px; /* Altura fixa para manter consistência */
+    height: 200px;
+    /* Altura fixa para manter consistência */
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -252,7 +289,8 @@
     line-height: 1.4;
     color: var(--text-color);
     margin-bottom: 1rem;
-    max-height: 4.2em; /* 3 linhas de texto */
+    max-height: 4.2em;
+    /* 3 linhas de texto */
     overflow: hidden;
 }
 
@@ -277,7 +315,7 @@
 .carousel-button {
     position: absolute;
     top: 50%;
-    transform: translate    translateY(-50%);
+    transform: translate translateY(-50%);
     background-color: var(--secondary-color);
     color: var(--dark-color);
     border: none;
@@ -333,39 +371,39 @@
     .carousel-item {
         transform: scale(0.9);
     }
-    
+
     .carousel-item.active {
         transform: scale(1);
     }
-    
+
     .project-image {
         height: 250px;
     }
-    
+
     .project-info h3 {
         font-size: 1.4rem;
     }
-    
+
     .project-info p {
         font-size: 1rem;
         max-height: 6.5em;
     }
-    
+
     .project-link {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
-    
+
     .carousel-button {
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
     }
-    
+
     .prev {
         left: 1rem;
     }
-    
+
     .next {
         right: 1rem;
     }
@@ -375,15 +413,15 @@
     .project-container {
         width: 80%;
     }
-    
+
     .project-image {
         height: 300px;
     }
-    
+
     .prev {
         left: 4rem;
     }
-    
+
     .next {
         right: 4rem;
     }

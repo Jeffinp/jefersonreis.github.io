@@ -1,35 +1,35 @@
 /* Botão Scroll to Top */
 #scrollToTopBtn {
-position: fixed;
-bottom: 20px;
-right: 20px;
-z-index: 99;
-font-size: 20px; 
-border: none;
-outline: none;
-background-color: var(--secondary-color);
-color: var(--dark-color);
-cursor: pointer;
-padding: 15px; 
-border-radius: 10px;
-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-opacity: 0;
-visibility: hidden;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    visibility: hidden;
 }
 
 #scrollToTopBtn:hover {
-transform: translateY(-3px); 
-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
-background-color: var(--dark-color); 
-color: var(--secondary-color); 
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
 }
 
 #scrollToTopBtn:focus {
-outline: none; 
+    outline: none;
 }
 
 #scrollToTopBtn.show {
-opacity: 1;
-visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }

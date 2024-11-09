@@ -53,7 +53,7 @@
 
 /* Modo escuro */
 body.dark-mode {
-    --primary-color: #121416; 
+    --primary-color: #121416;
     --secondary-color: #1DB954;
     --text-color: #E0E0E0;
     --background-color: #181818;
@@ -92,7 +92,8 @@ body.dark-mode {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     font-family: "Roboto", sans-serif;
     line-height: 1.6;
     color: var(--text-color);
@@ -103,5 +104,3 @@ html, body {
     width: 100%;
     overflow-X: hidden;
 }
-
-

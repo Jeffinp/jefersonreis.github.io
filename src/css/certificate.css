@@ -1,17 +1,17 @@
 /* Seção de Certificados */
 .certificates {
     padding: 4rem 0;
-    background-color: var(--light-background); 
+    background-color: var(--light-background);
 }
 
 .section-title {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem); 
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     color: var(--secondary-color);
-    font-weight: 700; 
+    font-weight: 700;
 }
 
 .section-title::after {
@@ -20,36 +20,39 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; 
-    height: 5px; 
+    width: 100px;
+    height: 5px;
     background-color: var(--secondary-color);
     border-radius: 5px;
-    transition: width 0.3s ease; 
+    transition: width 0.3s ease;
 }
 
 .section-title:hover::after {
-    width: 120px; 
+    width: 120px;
 }
 
 .certificate-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem; 
+    gap: 2rem;
     padding: 2rem 0;
 }
 
 .certificate-item {
-    background-color: rgba(255, 255, 255, 0.1); /* Glassmorphism */
-    backdrop-filter: blur(10px); /* Glassmorphism */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Glassmorphism */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    /* Glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Glassmorphism */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease-in-out; 
+    transition: all 0.4s ease-in-out;
 }
 
 .certificate-item:hover {
-    transform: translateY(-8px); 
+    transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -67,13 +70,13 @@
 }
 
 .certificate-item:hover .certificate-image {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .certificate-info {
     padding: 2rem;
     background-color: var(--primary-color);
-    transition: background-color 0.4s ease; 
+    transition: background-color 0.4s ease;
 }
 
 .certificate-item:hover .certificate-info {
@@ -86,7 +89,7 @@
     color: var(--secondary-color);
     margin-bottom: 0.5rem;
     font-family: 'Roboto', sans-serif;
-    text-transform: capitalize; 
+    text-transform: capitalize;
 }
 
 .certificate-description {
@@ -102,8 +105,10 @@
 }
 
 .view-button {
-    display: inline-block; /* Para que o ::after funcione corretamente */
-    position: relative; /* Para posicionar o ::after */
+    display: inline-block;
+    /* Para que o ::after funcione corretamente */
+    position: relative;
+    /* Para posicionar o ::after */
     padding: 0.8rem 1.5rem;
     background-color: var(--secondary-color);
     color: var(--dark-color);
@@ -114,26 +119,28 @@
     cursor: pointer;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
-    letter-spacing: 1px; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-    overflow: hidden; /* Para o efeito de hover */
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil */
+    overflow: hidden;
+    /* Para o efeito de hover */
 }
 
 .view-button::after {
-content: '';
-position: absolute;
-top: 50%;
-left: 50%;
-width: 300%;
-height: 300%;
-background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-transition: transform 0.5s ease;
-transform: translate(-50%, -50%) scale(0);
-border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    transition: transform 0.5s ease;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
 }
 
 .view-button:hover::after {
-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .view-button:hover,
@@ -142,11 +149,12 @@ transform: translate(-50%, -50%) scale(1);
     color: var(--text-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     outline: none;
-    transform: translateY(-3px); /* Movimento sutil no hover */
+    transform: translateY(-3px);
+    /* Movimento sutil no hover */
 }
 
 @media (max-width: 768px) {
     .certificate-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 }

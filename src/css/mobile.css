@@ -4,7 +4,7 @@
 
 /* Para telas de 1280px de largura */
 @media (width: 1280px) {
-    
+
 
     .footer__social h3 {
         display: none;
@@ -53,23 +53,24 @@
     }
 
     .language-switch img {
-        width: 20px; 
-        height: 20px; 
+        width: 20px;
+        height: 20px;
         vertical-align: middle;
         margin-right: 5px;
     }
 
-    
+
 }
 
 /* Para telas de 1024px de largura */
 @media (width: 1024px) {
+
     /* Header e Container */
     header .container {
         padding: 0 10px;
         margin-right: 5rem;
     }
-    
+
     .footer__social h3 {
         display: none;
     }
@@ -103,7 +104,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
-        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); 
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
     }
 
     /* Modo Escuro */
@@ -117,7 +118,7 @@
 
     /* Troca de Idiomas */
     .language-switch {
-    
+
         left: 15px;
     }
 
@@ -127,12 +128,13 @@
     }
 
     .language-switch img {
-        width: 20px; 
-        height: 20px; 
+        width: 20px;
+        height: 20px;
     }
 }
 
-@media (width: 820px), (width: 853px) {
+@media (width: 820px),
+(width: 853px) {
     .hero h1 {
         font-size: 4rem;
     }
@@ -146,7 +148,7 @@
         margin-right: 4rem;
     }
 
-    .logo{
+    .logo {
         margin-left: 22%;
     }
 
@@ -260,8 +262,10 @@
     }
 
     .language-switch img {
-        width: 16px; /* Ajuste o tamanho das bandeiras */
-        height: 16px; /* Ajuste o tamanho das bandeiras */
+        width: 16px;
+        /* Ajuste o tamanho das bandeiras */
+        height: 16px;
+        /* Ajuste o tamanho das bandeiras */
     }
 
 
@@ -344,7 +348,7 @@
         border-radius: 0;
         justify-content: center;
         margin-top: 1rem;
-        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2); 
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
     }
 
     .social-links a {
@@ -359,7 +363,7 @@
     .about p {
         font-size: 0.9em;
     }
-    
+
     .timeline-container::after {
         left: 10px;
     }
@@ -382,7 +386,10 @@
     }
 
     /* Elementos a não serem exibidos na impressão */
-    header, footer, #scrollToTopBtn, .toggle-dark-mode {
+    header,
+    footer,
+    #scrollToTopBtn,
+    .toggle-dark-mode {
         display: none;
     }
 
@@ -394,7 +401,9 @@
     }
 
     /* Quebras de Página */
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
         page-break-after: avoid;
     }
 

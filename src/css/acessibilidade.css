@@ -1,4 +1,3 @@
-
 /* Melhorias de Acessibilidade */
 :focus {
     outline: 2px solid var(--secondary-color);
@@ -23,6 +22,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
