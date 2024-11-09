@@ -64,7 +64,8 @@
 .certificate-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3; /* diminui a altura da imagem */
+    aspect-ratio: 4 / 3;
+    /* diminui a altura da imagem */
     object-fit: cover;
     transition: transform 0.5s ease;
 }

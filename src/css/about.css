@@ -22,9 +22,12 @@
     font-weight: 700;
     letter-spacing: -0.5px;
     background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-    -webkit-background-clip: text; /* Para compatibilidade com Chrome e Safari */
-    background-clip: text; /* Propriedade padrão */
-    -webkit-text-fill-color: transparent; /* Para efeito de texto transparente no Safari e Chrome */
+    -webkit-background-clip: text;
+    /* Para compatibilidade com Chrome e Safari */
+    background-clip: text;
+    /* Propriedade padrão */
+    -webkit-text-fill-color: transparent;
+    /* Para efeito de texto transparente no Safari e Chrome */
 }
 
 .about h2::after {
@@ -52,15 +55,15 @@
 }
 
 .about-item {
-    background: linear-gradient(145deg, 
-        rgba(var(--card-background-rgb), 0.8),
-        rgba(var(--card-background-rgb), 0.6));
+    background: linear-gradient(145deg,
+            rgba(var(--card-background-rgb), 0.8),
+            rgba(var(--card-background-rgb), 0.6));
     backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 35px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
-                0 1px 8px rgba(0, 0, 0, 0.05);
+        0 1px 8px rgba(0, 0, 0, 0.05);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
     position: relative;
@@ -74,19 +77,17 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
     transition: 0.5s;
 }
 
 .about-item:hover {
     transform: translateY(-15px) rotateX(5deg);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
-                0 15px 12px rgba(0, 0, 0, 0.08);
+        0 15px 12px rgba(0, 0, 0, 0.08);
 }
 
 .about-item:hover::before {
@@ -141,9 +142,9 @@
     padding: 6rem 0;
     text-align: center;
     position: relative;
-    background: linear-gradient(170deg, 
-        rgba(var(--background-rgb), 0.8) 0%,
-        rgba(var(--background-rgb), 0.6) 100%);
+    background: linear-gradient(170deg,
+            rgba(var(--background-rgb), 0.8) 0%,
+            rgba(var(--background-rgb), 0.6) 100%);
     overflow: hidden;
 }
 
@@ -154,17 +155,22 @@
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(90deg, 
-        var(--accent-color),
-        var(--secondary-color),
-        var(--accent-color));
+    background: linear-gradient(90deg,
+            var(--accent-color),
+            var(--secondary-color),
+            var(--accent-color));
     background-size: 200% 100%;
     animation: gradientMove 8s linear infinite;
 }
 
 @keyframes gradientMove {
-    0% { background-position: 100% 0; }
-    100% { background-position: -100% 0; }
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
 }
 
 #digital-portfolio .container {
@@ -177,9 +183,12 @@
 #digital-portfolio .section-title {
     font-size: 3rem;
     background: linear-gradient(45deg, var(--text-color), var(--accent-color));
-    -webkit-background-clip: text; /* Para compatibilidade com Chrome e Safari */
-    background-clip: text; /* Propriedade padrão */
-    -webkit-text-fill-color: transparent; /* Para efeito de texto transparente no Safari e Chrome */
+    -webkit-background-clip: text;
+    /* Para compatibilidade com Chrome e Safari */
+    background-clip: text;
+    /* Propriedade padrão */
+    -webkit-text-fill-color: transparent;
+    /* Para efeito de texto transparente no Safari e Chrome */
     margin-bottom: 2rem;
     position: relative;
     display: inline-block;
@@ -238,12 +247,10 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
     transition: 0.5s;
     z-index: -1;
 }

@@ -1,9 +1,7 @@
 /* Seção de Projetos */
 .project-container {
     width: 90%;
-    /* Aumentado para ocupar mais espaço em telas menores */
     max-width: 1200px;
-    /* Limita a largura máxima em telas grandes */
     margin: 0 auto;
 }
 
@@ -11,9 +9,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
-    /* Espaçamento entre os itens */
     padding: 4rem 2rem;
-    /* Margem lateral */
 }
 
 .project-item {
@@ -22,10 +18,8 @@
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Transição para hover */
     position: relative;
     height: 350px;
-    /* Altura ajustada */
 }
 
 .project-item::before {
@@ -38,21 +32,18 @@
     background: linear-gradient(to bottom, rgba(29, 185, 84, 0.3), rgba(29, 185, 84, 0.7));
     opacity: 0;
     transition: opacity 0.3s ease;
-    /* Transição para hover */
     z-index: 1;
 }
 
 .projects h2 {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(2.5rem, 6vw, 3.5rem);
-    /* Tamanho do título mais responsivo */
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     padding-bottom: 20px;
     color: var(--secondary-color);
     font-weight: 600;
-    /* Peso da fonte mais forte para destaque */
 }
 
 .projects h2::after {
@@ -62,31 +53,24 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
-    /* Largura aumentada para uma aparência mais robusta */
     height: 5px;
-    /* Espessura aumentada */
     background-color: var(--secondary-color);
     border-radius: 5px;
     transition: width 0.3s ease;
-    /* Adicione transição suave */
 }
 
 .project-item:hover::before {
     opacity: 1;
-    /* Efeito hover */
 }
 
 .project-item:hover {
     transform: translateY(-10px) scale(1.02);
-    /* Animação de hover */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    /* Sombra no hover */
 }
 
 .project-image {
     width: 100%;
     height: 60%;
-    /* Altura da imagem */
     background-size: cover;
     background-position: center;
 }
@@ -96,17 +80,14 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
-    /* Transição para hover */
 }
 
 .project-item:hover .project-image img {
     transform: scale(1.05);
-    /* Aumenta a imagem no hover */
 }
 
 .project-info {
     padding: 1.5rem;
-    /* Padding ajustado */
     position: relative;
     z-index: 2;
     background-color: var(--primary-color);
@@ -115,28 +96,21 @@
 .project-item:hover .project-info {
     background-color: var(--hover-color);
     transform: translateY(-5px);
-    /* Movimento no hover */
 }
 
 .project-info h3 {
     margin-top: 0;
     font-size: 1.4rem;
-    /* Tamanho da fonte */
     color: var(--secondary-color);
     margin-bottom: 0.5rem;
-    /* Margem reduzida */
 }
 
 .project-info p {
     margin: 0 0 1rem;
-    /* Margem reduzida */
     font-size: 0.95rem;
-    /* Tamanho da fonte */
     line-height: 1.5;
-    /* Espaçamento entre linhas */
     color: var(--text-color);
     max-height: 5em;
-    /* Limitação de altura */
     overflow: hidden;
     transition: max-height 0.6s ease, opacity 0.6s ease;
 }
@@ -150,7 +124,6 @@
     border-radius: 30px;
     font-weight: 700;
     transition: background-color 0.3s ease;
-    /* Transição de hover */
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
@@ -165,14 +138,12 @@
     height: 300%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
     transition: transform 0.4s ease;
-    /* Transição para hover */
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
 }
 
 .project-link:hover::after {
     transform: translate(-50%, -50%) scale(1);
-    /* Efeito hover */
 }
 
 .project-link:hover {
@@ -180,51 +151,93 @@
     color: var(--text-color);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .project-item {
-        margin-bottom: 1.5rem;
-        /* Margem reduzida */
-    }
+/* Estilos do Modal de Serviços */
+.services__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
 }
 
-.project-item.training-site::after,
-.project-item.cliente-site::after {
-    content: attr(data-type);
-    position: absolute;
-    top: 15px;
-    /* Posicionamento ajustado */
-    right: 15px;
-    /* Posicionamento ajustado */
-    padding: 6px 12px;
-    /* Padding ajustado */
+.services__modal.active-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+.services__modal-content {
+    background: linear-gradient(145deg,
+            rgba(var(--card-background-rgb), 0.9),
+            rgba(var(--card-background-rgb), 0.7));
+    backdrop-filter: blur(10px);
+    padding: 3rem;
     border-radius: 20px;
-    font-size: 0.85rem;
-    /* Tamanho da fonte */
+    width: 92%;
+    max-width: 560px;
+    position: relative;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.95);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.services__modal.active-modal .services__modal-content {
+    transform: scale(1);
+}
+
+.services__modal-title {
+    font-size: 2.2rem;
     font-weight: 700;
-    z-index: 10;
-    opacity: 1;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(-5px);
-    /* Efeito sutil */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.project-item.training-site::after {
-    background-color: rgba(96, 165, 250, 0.9);
-    color: var(--dark-color);
+.services__modal-service {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    color: var(--text-color-secondary);
 }
 
-.project-item.cliente-site::after {
-    background-color: rgba(29, 185, 84, 0.9);
-    color: var(--dark-color);
+.services__modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.project-item:hover::after {
-    opacity: 1;
-    /* Efeito hover */
-    transform: translateY(0);
+.services__modal-close:hover {
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
 }
 
+/* Carousel */
 .carousel {
     position: relative;
     overflow: hidden;
@@ -254,68 +267,10 @@
     transform: scale(1);
 }
 
-.project-image {
-    width: 100%;
-    height: 200px;
-    /* Altura fixa para manter consistência */
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.project-info {
-    padding: 1rem;
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    margin-top: 1rem;
-}
-
-.project-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--secondary-color);
-}
-
-.project-info p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: var(--text-color);
-    margin-bottom: 1rem;
-    max-height: 4.2em;
-    /* 3 linhas de texto */
-    overflow: hidden;
-}
-
-.project-link {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background-color: var(--secondary-color);
-    color: var(--dark-color);
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-transform: uppercase;
-}
-
-.project-link:hover {
-    background-color: var(--hover-color);
-    transform: translateY(-2px);
-}
-
 .carousel-button {
     position: absolute;
     top: 50%;
-    transform: translate translateY(-50%);
+    transform: translateY(-50%);
     background-color: var(--secondary-color);
     color: var(--dark-color);
     border: none;
@@ -368,6 +323,10 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
+    .project-item {
+        margin-bottom: 1.5rem;
+    }
+
     .carousel-item {
         transform: scale(0.9);
     }
@@ -398,14 +357,6 @@
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
-    }
-
-    .prev {
-        left: 1rem;
-    }
-
-    .next {
-        right: 1rem;
     }
 }
 
