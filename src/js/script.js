@@ -468,16 +468,16 @@ function closeModal() {
 // Manipulador de eventos para abrir e fechar modais
 servicesSection.addEventListener("click", (event) => {
     const target = event.target;
-    
+
     // Verifica se o botão de abrir modal foi clicado
     if (target.closest('.services__button')) {
         const button = target.closest('.services__button');
         const modalIndex = button.getAttribute('data-modal');
         openModal(parseInt(modalIndex));
     }
-    
+
     // Verifica se o botão de fechar modal foi clicado ou se clicou fora do modal
-    if (target.classList.contains("services__modal-close") || 
+    if (target.classList.contains("services__modal-close") ||
         target.classList.contains("services__modal")) {
         closeModal();
     }
