@@ -1,4 +1,4 @@
-/* Seção Sobre - Versão Aprimorada */
+/* Seção Sobre */
 .about {
     padding: 100px 0;
     color: var(--text-color);
@@ -177,8 +177,9 @@
 #digital-portfolio .section-title {
     font-size: 3rem;
     background: linear-gradient(45deg, var(--text-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; /* Para compatibilidade com Chrome e Safari */
+    background-clip: text; /* Propriedade padrão */
+    -webkit-text-fill-color: transparent; /* Para efeito de texto transparente no Safari e Chrome */
     margin-bottom: 2rem;
     position: relative;
     display: inline-block;
