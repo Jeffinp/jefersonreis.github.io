@@ -258,7 +258,6 @@ function smoothScrollTo(endX, endY, duration = 1000) {
     }, 1000 / 60);
 }
 
-
 // Função para alternar o botão de rolar para o topo
 function toggleScrollToTopButton() {
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
