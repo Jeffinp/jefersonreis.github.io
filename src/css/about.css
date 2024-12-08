@@ -1,8 +1,8 @@
-/* Seção Sobre */
+/* SEÇÃO SOBRE */
 .about {
     padding: 100px 0;
+    background: linear-gradient(to bottom, rgba(var(--background-color-rgb), 0.03), rgba(var(--background-color-rgb), 0.1));
     color: var(--text-color);
-    background: linear-gradient(to bottom, rgba(var(--background-rgb), 0.02), rgba(var(--background-rgb), 0.1));
 }
 
 .about .container {
@@ -13,138 +13,112 @@
 
 .about h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    margin-bottom: 4rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     text-align: center;
-    position: relative;
-    padding-bottom: 25px;
-    color: var(--secondary-color);
     font-weight: 700;
-    letter-spacing: -0.5px;
+    margin-bottom: 3rem;
     background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
     -webkit-background-clip: text;
-    /* Para compatibilidade com Chrome e Safari */
-    background-clip: text;
-    /* Propriedade padrão */
     -webkit-text-fill-color: transparent;
-    /* Para efeito de texto transparente no Safari e Chrome */
+    position: relative;
 }
 
 .about h2::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-    border-radius: 10px;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    margin: 0.5rem auto 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    border-radius: var(--border-radius-full);
+    transition: width 0.3s ease;
 }
 
 .about h2:hover::after {
-    width: 180px;
+    width: 150px;
 }
 
 .about-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    perspective: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .about-item {
-    background: linear-gradient(145deg,
-            rgba(var(--card-background-rgb), 0.8),
-            rgba(var(--card-background-rgb), 0.6));
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 35px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
-        0 1px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(145deg, rgba(var(--card-background-rgb), 0.85), rgba(var(--card-background-rgb), 0.6));
+    padding: 20px 25px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
     text-align: center;
     position: relative;
-    overflow: hidden;
-}
-
-.about-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.1),
-            transparent);
-    transition: 0.5s;
+    transition: transform 0.3s var(--transition-fast), box-shadow 0.3s var(--transition-fast);
 }
 
 .about-item:hover {
-    transform: translateY(-15px) rotateX(5deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
-        0 15px 12px rgba(0, 0, 0, 0.08);
-}
-
-.about-item:hover::before {
-    left: 100%;
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
 }
 
 .about-item .iconify {
-    font-size: 54px;
+    font-size: 50px;
     color: var(--accent-color);
-    margin-bottom: 25px;
-    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    transition: transform 0.3s var(--transition-normal);
 }
 
 .about-item:hover .iconify {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.2);
 }
 
 .about-item h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: var(--text-color);
-    margin-bottom: 20px;
-    font-weight: 700;
+    margin-bottom: 15px;
     position: relative;
-    display: inline-block;
+    font-weight: 700;
 }
 
 .about-item h3::after {
     content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 0;
+    display: block;
+    width: 50px;
     height: 2px;
     background: var(--accent-color);
+    margin: 0.5rem auto;
     transition: width 0.3s ease;
 }
 
 .about-item:hover h3::after {
-    width: 100%;
+    width: 80px;
 }
 
 .about-item p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--text-color-secondary);
-    margin-bottom: 0;
-    transition: color 0.3s ease;
 }
 
-/* Portfólio Digital - Versão Aprimorada */
+/* AJUSTES RESPONSIVOS PARA SOBRE */
+@media (max-width: 768px) {
+    .about {
+        padding: 70px 0;
+    }
+
+    .about h2 {
+        font-size: 2.2rem;
+    }
+
+    .about-item {
+        padding: 25px;
+    }
+}
+
+/* SEÇÃO PORTFÓLIO DIGITAL */
 #digital-portfolio {
     padding: 6rem 0;
     text-align: center;
     position: relative;
-    background: linear-gradient(170deg,
-            rgba(var(--background-rgb), 0.8) 0%,
-            rgba(var(--background-rgb), 0.6) 100%);
+    background: linear-gradient(170deg, rgba(var(--background-rgb), 0.8), rgba(var(--background-rgb), 0.6));
     overflow: hidden;
 }
 
@@ -155,10 +129,7 @@
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(90deg,
-            var(--accent-color),
-            var(--secondary-color),
-            var(--accent-color));
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color), var(--accent-color));
     background-size: 200% 100%;
     animation: gradientMove 8s linear infinite;
 }
@@ -184,11 +155,8 @@
     font-size: 3rem;
     background: linear-gradient(45deg, var(--text-color), var(--accent-color));
     -webkit-background-clip: text;
-    /* Para compatibilidade com Chrome e Safari */
     background-clip: text;
-    /* Propriedade padrão */
     -webkit-text-fill-color: transparent;
-    /* Para efeito de texto transparente no Safari e Chrome */
     margin-bottom: 2rem;
     position: relative;
     display: inline-block;
@@ -247,10 +215,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: 0.5s;
     z-index: -1;
 }
@@ -269,19 +234,8 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* AJUSTES RESPONSIVOS PARA PORTFÓLIO */
 @media (max-width: 768px) {
-    .about {
-        padding: 70px 0;
-    }
-
-    .about h2 {
-        font-size: 2.2rem;
-    }
-
-    .about-item {
-        padding: 25px;
-    }
-
     #digital-portfolio {
         padding: 4rem 0;
     }
