@@ -283,104 +283,107 @@ function debounce(func, wait) {
     };
 }
 
-// ARTISTA DIGITAL
-document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('.main-image');
-    if (images.length === 0) return; // Sai se a seção não existir
+// ARTISTA DIGITAL RODAGEM
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = {
+        currentIndex: 0,
+        images: document.querySelectorAll('.main-image'),
+        prevButton: document.querySelector('.nav.prev'),
+        nextButton: document.querySelector('.nav.next'),
+        isDragging: false,
+        startX: 0,
+        sensitivity: 100,
 
-    const prevButton = document.querySelector('.nav.prev');
-    const nextButton = document.querySelector('.nav.next');
-    let currentIndex = 0;
+        init() {
+            // Set up initial state
+            this.showImage(this.currentIndex);
+            
+            // Add event listeners
+            this.prevButton.addEventListener('click', () => this.prevSlide());
+            this.nextButton.addEventListener('click', () => this.nextSlide());
+            
+            // Touch and drag events
+            const container = document.querySelector('.main-image-container');
+            
+            container.addEventListener('mousedown', (e) => this.handleDragStart(e));
+            container.addEventListener('touchstart', (e) => this.handleDragStart(e));
+            
+            container.addEventListener('mousemove', (e) => this.handleDrag(e));
+            container.addEventListener('touchmove', (e) => this.handleDrag(e));
+            
+            container.addEventListener('mouseup', () => this.handleDragEnd());
+            container.addEventListener('touchend', () => this.handleDragEnd());
+            container.addEventListener('mouseleave', () => this.handleDragEnd());
 
-    function showImage(index) {
-        images[currentIndex].classList.remove('active');
-        images[index].classList.add('active');
-        currentIndex = index;
-    }
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') this.prevSlide();
+                if (e.key === 'ArrowRight') this.nextSlide();
+            });
 
-    prevButton?.addEventListener('click', () => {
-        const newIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-        showImage(newIndex);
-    });
+            // Auto-advance timer
+            this.startAutoAdvance();
+        },
 
-    nextButton?.addEventListener('click', () => {
-        const newIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-        showImage(newIndex);
-    });
+        showImage(index) {
+            this.images.forEach(img => img.classList.remove('active'));
+            this.images[index].classList.add('active');
+        },
 
-    // Mostra a primeira imagem ao carregar a página
-    showImage(0);
+        nextSlide() {
+            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+            this.showImage(this.currentIndex);
+            this.resetAutoAdvance();
+        },
+
+        prevSlide() {
+            this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+            this.showImage(this.currentIndex);
+            this.resetAutoAdvance();
+        },
+
+        handleDragStart(e) {
+            this.isDragging = true;
+            this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        },
+
+        handleDrag(e) {
+            if (!this.isDragging) return;
+            e.preventDefault();
+            
+            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            const diff = currentX - this.startX;
+
+            if (Math.abs(diff) > this.sensitivity) {
+                if (diff > 0) {
+                    this.prevSlide();
+                } else {
+                    this.nextSlide();
+                }
+                this.isDragging = false;
+            }
+        },
+
+        handleDragEnd() {
+            this.isDragging = false;
+        },
+
+        // Auto-advance functionality
+        startAutoAdvance() {
+            this.autoAdvanceTimer = setInterval(() => this.nextSlide(), 5000); // Change slide every 5 seconds
+        },
+
+        resetAutoAdvance() {
+            clearInterval(this.autoAdvanceTimer);
+            this.startAutoAdvance();
+        }
+    };
+
+    // Initialize the carousel
+    carousel.init();
 });
 
-// Carousel functionality
-const track = document.querySelector('.carousel-track');
-const items = document.querySelectorAll('.carousel-item');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-
-let currentIndex = 0;
-let startX;
-let isDragging = false;
-
-function updateCarousel(smooth = true) {
-    const offset = -currentIndex * 100;
-    track.style.transition = smooth ? 'transform 0.5s ease' : 'none';
-    track.style.transform = `translateX(${offset}%)`;
-}
-
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
-}
-
-function prevSlide() {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateCarousel();
-}
-
-nextButton.addEventListener('click', nextSlide);
-prevButton.addEventListener('click', prevSlide);
-
-// Touch and mouse events for dragging
-track.addEventListener('mousedown', dragStart);
-track.addEventListener('touchstart', dragStart);
-
-track.addEventListener('mousemove', drag);
-track.addEventListener('touchmove', drag);
-
-track.addEventListener('mouseup', dragEnd);
-track.addEventListener('mouseleave', dragEnd);
-track.addEventListener('touchend', dragEnd);
-
-function dragStart(e) {
-    isDragging = true;
-    startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-    track.style.cursor = 'grabbing';
-}
-
-function drag(e) {
-    if (!isDragging) return;
-    e.preventDefault();
-    const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-    const diff = currentX - startX;
-    const sensitivity = 100; // Adjust this value to change drag sensitivity
-
-    if (Math.abs(diff) > sensitivity) {
-        if (diff > 0) {
-            prevSlide();
-        } else {
-            nextSlide();
-        }
-        isDragging = false;
-    }
-}
-
-function dragEnd() {
-    isDragging = false;
-    track.style.cursor = 'grab';
-}
-
-// Keyboard navigation
+// Keyboard NAB
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') prevSlide();
     if (e.key === 'ArrowRight') nextSlide();
@@ -389,6 +392,7 @@ document.addEventListener('keydown', (e) => {
 // Initial setup
 updateCarousel(false);
 
+//ANIMAÇÕES DO "HABILIDADES"
 class SkillsManager {
     /**
      * @constructor
