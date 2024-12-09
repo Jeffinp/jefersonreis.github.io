@@ -283,122 +283,107 @@ function debounce(func, wait) {
     };
 }
 
-// ARTISTA DIGITAL RODAGEM
-document.addEventListener('DOMContentLoaded', function () {
-    const carousel = {
-        currentIndex: 0,
-        images: document.querySelectorAll('.main-image'),
-        prevButton: document.querySelector('.nav.prev'),
-        nextButton: document.querySelector('.nav.next'),
-        isDragging: false,
-        startX: 0,
-        sensitivity: 100,
+// Classe para gerenciar o carrossel
+class ImageCarousel {
+    constructor() {
+        this.currentIndex = 0;
+        this.images = document.querySelectorAll('.main-image');
+        this.prevButton = document.querySelector('.nav.prev');
+        this.nextButton = document.querySelector('.nav.next');
+        this.isDragging = false;
+        this.startX = 0;
+        this.sensitivity = 100;
+        this.autoAdvanceTimer = null;
+        
+        this.init();
+    }
 
-        init() {
-            // Set up initial state
-            this.showImage(this.currentIndex);
+    init() {
+        // Set up initial state
+        this.showImage(this.currentIndex);
 
-            // Add event listeners
-            this.prevButton.addEventListener('click', () => this.prevSlide());
-            this.nextButton.addEventListener('click', () => this.nextSlide());
+        // Add event listeners
+        this.prevButton?.addEventListener('click', () => this.prevSlide());
+        this.nextButton?.addEventListener('click', () => this.nextSlide());
 
-            // Touch and drag events
-            const container = document.querySelector('.main-image-container');
-
+        // Touch and drag events
+        const container = document.querySelector('.main-image-container');
+        if (container) {
             container.addEventListener('mousedown', (e) => this.handleDragStart(e));
             container.addEventListener('touchstart', (e) => this.handleDragStart(e));
-
             container.addEventListener('mousemove', (e) => this.handleDrag(e));
             container.addEventListener('touchmove', (e) => this.handleDrag(e));
-
             container.addEventListener('mouseup', () => this.handleDragEnd());
             container.addEventListener('touchend', () => this.handleDragEnd());
             container.addEventListener('mouseleave', () => this.handleDragEnd());
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') this.prevSlide();
-                if (e.key === 'ArrowRight') this.nextSlide();
-            });
-
-            // Auto-advance timer
-            this.startAutoAdvance();
-        },
-
-        showImage(index) {
-            this.images.forEach(img => img.classList.remove('active'));
-            this.images[index].classList.add('active');
-        },
-
-        nextSlide() {
-            this.currentIndex = (this.currentIndex + 1) % this.images.length;
-            this.showImage(this.currentIndex);
-            this.resetAutoAdvance();
-        },
-
-        prevSlide() {
-            this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-            this.showImage(this.currentIndex);
-            this.resetAutoAdvance();
-        },
-
-        handleDragStart(e) {
-            this.isDragging = true;
-            this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        },
-
-        handleDrag(e) {
-            if (!this.isDragging) return;
-            e.preventDefault();
-
-            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            const diff = currentX - this.startX;
-
-            if (Math.abs(diff) > this.sensitivity) {
-                if (diff > 0) {
-                    this.prevSlide();
-                } else {
-                    this.nextSlide();
-                }
-                this.isDragging = false;
-            }
-        },
-
-        handleDragEnd() {
-            this.isDragging = false;
-        },
-
-        // Auto-advance functionality
-        startAutoAdvance() {
-            this.autoAdvanceTimer = setInterval(() => this.nextSlide(), 5000); // Change slide every 5 seconds
-        },
-
-        resetAutoAdvance() {
-            clearInterval(this.autoAdvanceTimer);
-            this.startAutoAdvance();
         }
-    };
 
-    // Initialize the carousel
-    carousel.init();
-});
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.prevSlide();
+            if (e.key === 'ArrowRight') this.nextSlide();
+        });
 
-// Keyboard NAB
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
-});
+        // Auto-advance timer
+        this.startAutoAdvance();
+    }
 
-// Initial setup
-updateCarousel(false);
+    showImage(index) {
+        this.images.forEach(img => img.classList.remove('active'));
+        this.images[index]?.classList.add('active');
+    }
 
-//ANIMAÇÕES DO "HABILIDADES"
+    nextSlide() {
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+        this.showImage(this.currentIndex);
+        this.resetAutoAdvance();
+    }
+
+    prevSlide() {
+        this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+        this.showImage(this.currentIndex);
+        this.resetAutoAdvance();
+    }
+
+    handleDragStart(e) {
+        this.isDragging = true;
+        this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    }
+
+    handleDrag(e) {
+        if (!this.isDragging) return;
+        e.preventDefault();
+
+        const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const diff = currentX - this.startX;
+
+        if (Math.abs(diff) > this.sensitivity) {
+            if (diff > 0) {
+                this.prevSlide();
+            } else {
+                this.nextSlide();
+            }
+            this.isDragging = false;
+        }
+    }
+
+    handleDragEnd() {
+        this.isDragging = false;
+    }
+
+    startAutoAdvance() {
+        this.autoAdvanceTimer = setInterval(() => this.nextSlide(), 5000);
+    }
+
+    resetAutoAdvance() {
+        clearInterval(this.autoAdvanceTimer);
+        this.startAutoAdvance();
+    }
+}
+
+// Classe para gerenciar as habilidades
 class SkillsManager {
-    /**
-     * @constructor
-     */
     constructor() {
-        // Elementos DOM
         this.skillsContents = document.querySelectorAll('.skills__content');
         this.activeSection = null;
         this.isAnimating = false;
@@ -406,12 +391,7 @@ class SkillsManager {
         this.init();
     }
 
-    /**
-     * Inicializa o gerenciador de habilidades
-     * @private
-     */
     init() {
-        // Adiciona listeners para cada seção
         this.skillsContents.forEach(content => {
             const header = content.querySelector('.skills__header');
             if (header) {
@@ -420,23 +400,15 @@ class SkillsManager {
         });
     }
 
-    /**
-     * Alterna a seção de habilidades
-     * @param {HTMLElement} section - A seção a ser alternada
-     * @private
-     */
     toggleSection(section) {
-        // Previne múltiplos cliques durante a animação
         if (this.isAnimating) return;
 
         const isOpeningSection = !section.classList.contains('skills__open');
 
-        // Fecha a seção ativa atual (se houver)
         if (this.activeSection && this.activeSection !== section) {
             this.closeSection(this.activeSection);
         }
 
-        // Alterna a seção clicada
         if (isOpeningSection) {
             this.openSection(section);
         } else {
@@ -444,35 +416,22 @@ class SkillsManager {
         }
     }
 
-    /**
-     * Abre uma seção de habilidades
-     * @param {HTMLElement} section - A seção a ser aberta
-     * @private
-     */
     openSection(section) {
         this.isAnimating = true;
         section.classList.add('skills__open');
         this.activeSection = section;
 
-        // Anima as barras de progresso
         this.animateProgressBars(section);
 
-        // Reseta o flag de animação após a transição
         setTimeout(() => {
             this.isAnimating = false;
-        }, 500); // Tempo alinhado com a transição CSS
+        }, 500);
     }
 
-    /**
-     * Fecha uma seção de habilidades
-     * @param {HTMLElement} section - A seção a ser fechada
-     * @private
-     */
     closeSection(section) {
         this.isAnimating = true;
         section.classList.remove('skills__open');
 
-        // Reseta as barras de progresso
         const progressBars = section.querySelectorAll('.skill__progress');
         progressBars.forEach(bar => {
             bar.style.width = '0%';
@@ -482,26 +441,18 @@ class SkillsManager {
             this.activeSection = null;
         }
 
-        // Reseta o flag de animação após a transição
         setTimeout(() => {
             this.isAnimating = false;
-        }, 500); // Tempo alinhado com a transição CSS
+        }, 500);
     }
 
-    /**
-     * Anima as barras de progresso de uma seção
-     * @param {HTMLElement} section - A seção contendo as barras de progresso
-     * @private
-     */
     animateProgressBars(section) {
         const progressBars = section.querySelectorAll('.skill__progress');
 
-        // Reseta primeiro
         progressBars.forEach(bar => {
             bar.style.width = '0%';
         });
 
-        // Inicia a animação após um pequeno delay
         requestAnimationFrame(() => {
             progressBars.forEach(bar => {
                 const percentage = bar.getAttribute('data-percentage');
@@ -510,6 +461,29 @@ class SkillsManager {
         });
     }
 }
+
+// Inicialização quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializa o carrossel se houver elementos necessários
+    if (document.querySelector('.main-image-container')) {
+        new ImageCarousel();
+    }
+
+    // Inicializa o gerenciador de habilidades se houver elementos necessários
+    if (document.querySelector('.skills__content')) {
+        new SkillsManager();
+    }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+});
+
+// Initial setup
+updateCarousel(false);
+
 
 // Inicializa o gerenciador quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
