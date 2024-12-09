@@ -37,7 +37,7 @@
     margin: 0.5rem auto 0;
     width: 100px;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: var(--border-radius-full);
     transition: width 0.3s ease;
 }

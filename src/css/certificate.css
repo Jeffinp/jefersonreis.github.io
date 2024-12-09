@@ -22,7 +22,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 5px;
-    background-color: var(--secondary-color);
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: 5px;
     transition: width 0.3s ease;
 }

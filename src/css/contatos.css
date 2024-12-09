@@ -26,7 +26,7 @@
     /* Largura aumentada para uma aparência mais robusta */
     height: 5px;
     /* Espessura aumentada */
-    background-color: var(--secondary-color);
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: 5px;
     transition: width 0.3s ease;
     /* Adicione transição suave */
