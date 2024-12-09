@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Muda o ícone conforme o modo
         const iconElement = document.getElementById('darkModeIcon');
-        if (document.body. classList.contains('dark-mode')) {
+        if (document.body.classList.contains('dark-mode')) {
             iconElement.setAttribute('data-icon', 'mdi:weather-night');
             localStorage.setItem('darkMode', 'enabled'); // Armazena como escuro
         } else {
@@ -284,7 +284,7 @@ function debounce(func, wait) {
 }
 
 // ARTISTA DIGITAL RODAGEM
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const carousel = {
         currentIndex: 0,
         images: document.querySelectorAll('.main-image'),
@@ -297,20 +297,20 @@ document.addEventListener('DOMContentLoaded', function() {
         init() {
             // Set up initial state
             this.showImage(this.currentIndex);
-            
+
             // Add event listeners
             this.prevButton.addEventListener('click', () => this.prevSlide());
             this.nextButton.addEventListener('click', () => this.nextSlide());
-            
+
             // Touch and drag events
             const container = document.querySelector('.main-image-container');
-            
+
             container.addEventListener('mousedown', (e) => this.handleDragStart(e));
             container.addEventListener('touchstart', (e) => this.handleDragStart(e));
-            
+
             container.addEventListener('mousemove', (e) => this.handleDrag(e));
             container.addEventListener('touchmove', (e) => this.handleDrag(e));
-            
+
             container.addEventListener('mouseup', () => this.handleDragEnd());
             container.addEventListener('touchend', () => this.handleDragEnd());
             container.addEventListener('mouseleave', () => this.handleDragEnd());
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
         handleDrag(e) {
             if (!this.isDragging) return;
             e.preventDefault();
-            
+
             const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
             const diff = currentX - this.startX;
 
@@ -430,7 +430,7 @@ class SkillsManager {
         if (this.isAnimating) return;
 
         const isOpeningSection = !section.classList.contains('skills__open');
-        
+
         // Fecha a seção ativa atual (se houver)
         if (this.activeSection && this.activeSection !== section) {
             this.closeSection(this.activeSection);
@@ -453,7 +453,7 @@ class SkillsManager {
         this.isAnimating = true;
         section.classList.add('skills__open');
         this.activeSection = section;
-        
+
         // Anima as barras de progresso
         this.animateProgressBars(section);
 
@@ -471,7 +471,7 @@ class SkillsManager {
     closeSection(section) {
         this.isAnimating = true;
         section.classList.remove('skills__open');
-        
+
         // Reseta as barras de progresso
         const progressBars = section.querySelectorAll('.skill__progress');
         progressBars.forEach(bar => {
@@ -495,7 +495,7 @@ class SkillsManager {
      */
     animateProgressBars(section) {
         const progressBars = section.querySelectorAll('.skill__progress');
-        
+
         // Reseta primeiro
         progressBars.forEach(bar => {
             bar.style.width = '0%';
