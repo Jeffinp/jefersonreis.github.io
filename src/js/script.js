@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Muda o ícone conforme o modo
         const iconElement = document.getElementById('darkModeIcon');
-        if (document.body.classList.contains('dark-mode')) {
+        if (document.body. classList.contains('dark-mode')) {
             iconElement.setAttribute('data-icon', 'mdi:weather-night');
             localStorage.setItem('darkMode', 'enabled'); // Armazena como escuro
         } else {
@@ -282,81 +282,252 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+document.addEventListener('DOMContentLoaded', () => {
+    // Unified Carousel Class
+    class ImageCarousel {
+        constructor(options = {}) {
+            // Configuration
+            this.sensitivity = options.sensitivity || 100;
+            this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
+            this.transitionDuration = options.transitionDuration || 500;
+            
+            // State
+            this.currentIndex = 0;
+            this.isDragging = false;
+            this.startX = 0;
+            this.autoAdvanceTimer = null;
+            
+            // DOM Elements
+            this.track = document.querySelector('.carousel-track');
+            this.items = document.querySelectorAll('.carousel-item, .main-image');
+            this.prevButton = document.querySelector('.nav.prev, .prev');
+            this.nextButton = document.querySelector('.nav.next, .next');
+            
+            if (this.items.length === 0) return;
+            
+            this.init();
+        }
 
-// Classe para gerenciar o carrossel
+        init() {
+            // Initial setup
+            this.showSlide(0, false);
+            
+            // Event Listeners
+            this.setupEventListeners();
+            
+            // Start auto-advance
+            if (this.autoAdvanceInterval) {
+                this.startAutoAdvance();
+            }
+        }
+
+        setupEventListeners() {
+            // Navigation buttons
+            this.prevButton?.addEventListener('click', () => this.prevSlide());
+            this.nextButton?.addEventListener('click', () => this.nextSlide());
+            
+            // Touch and mouse events
+            if (this.track) {
+                this.track.addEventListener('mousedown', (e) => this.handleDragStart(e));
+                this.track.addEventListener('touchstart', (e) => this.handleDragStart(e));
+                this.track.addEventListener('mousemove', (e) => this.handleDrag(e));
+                this.track.addEventListener('touchmove', (e) => this.handleDrag(e));
+                this.track.addEventListener('mouseup', () => this.handleDragEnd());
+                this.track.addEventListener('mouseleave', () => this.handleDragEnd());
+                this.track.addEventListener('touchend', () => this.handleDragEnd());
+            }
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') this.prevSlide();
+                if (e.key === 'ArrowRight') this.nextSlide();
+            });
+        }
+
+        showSlide(index, smooth = true) {
+            if (this.track) {
+                // For track-based carousel
+                const offset = -index * 100;
+                this.track.style.transition = smooth ? `transform ${this.transitionDuration}ms ease` : 'none';
+                this.track.style.transform = `translateX(${offset}%)`;
+            } else {
+                // For opacity-based carousel
+                this.items.forEach(item => item.classList.remove('active'));
+                this.items[index]?.classList.add('active');
+            }
+            
+            this.currentIndex = index;
+        }
+
+        nextSlide() {
+            const newIndex = (this.currentIndex + 1) % this.items.length;
+            this.showSlide(newIndex);
+            this.resetAutoAdvance();
+        }
+
+        prevSlide() {
+            const newIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+            this.showSlide(newIndex);
+            this.resetAutoAdvance();
+        }
+
+        handleDragStart(e) {
+            this.isDragging = true;
+            this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            if (this.track) {
+                this.track.style.cursor = 'grabbing';
+            }
+        }
+
+        handleDrag(e) {
+            if (!this.isDragging) return;
+            e.preventDefault();
+            
+            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            const diff = currentX - this.startX;
+            
+            if (Math.abs(diff) > this.sensitivity) {
+                if (diff > 0) {
+                    this.prevSlide();
+                } else {
+                    this.nextSlide();
+                }
+                this.isDragging = false;
+            }
+        }
+
+        handleDragEnd() {
+            this.isDragging = false;
+            if (this.track) {
+                this.track.style.cursor = 'grab';
+            }
+        }
+
+        startAutoAdvance() {
+            this.autoAdvanceTimer = setInterval(() => this.nextSlide(), this.autoAdvanceInterval);
+        }
+
+        resetAutoAdvance() {
+            if (this.autoAdvanceTimer) {
+                clearInterval(this.autoAdvanceTimer);
+                this.startAutoAdvance();
+            }
+        }
+    }
+
+    // Initialize the carousel
+    const carousel = new ImageCarousel({
+        sensitivity: 100,
+        autoAdvanceInterval: 5000,
+        transitionDuration: 500
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicia o carrossel
+    const carousel = new ImageCarousel({
+        sensitivity: 100,
+        autoAdvanceInterval: 5000,
+        transitionDuration: 500
+    });
+
+    // Inicia o gerenciamento das habilidades
+    const skillsManager = new SkillsManager();
+});
+
+// Classe para gerenciar o carrossel de imagens
 class ImageCarousel {
-    constructor() {
+    constructor(options = {}) {
+        // Configuração
+        this.sensitivity = options.sensitivity || 100;
+        this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
+        this.transitionDuration = options.transitionDuration || 500;
+        
+        // Estado
         this.currentIndex = 0;
-        this.images = document.querySelectorAll('.main-image');
-        this.prevButton = document.querySelector('.nav.prev');
-        this.nextButton = document.querySelector('.nav.next');
         this.isDragging = false;
         this.startX = 0;
-        this.sensitivity = 100;
         this.autoAdvanceTimer = null;
+        
+        // Elementos do DOM
+        this.track = document.querySelector('.carousel-track');
+        this.items = document.querySelectorAll('.carousel-item, .main-image');
+        this.prevButton = document.querySelector('.nav.prev, .prev');
+        this.nextButton = document.querySelector('.nav.next, .next');
+        
+        if (this.items.length === 0) return;
         
         this.init();
     }
 
     init() {
-        // Set up initial state
-        this.showImage(this.currentIndex);
+        this.showSlide(0, false);
+        this.setupEventListeners();
 
-        // Add event listeners
+        if (this.autoAdvanceInterval) {
+            this.startAutoAdvance();
+        }
+    }
+
+    setupEventListeners() {
         this.prevButton?.addEventListener('click', () => this.prevSlide());
         this.nextButton?.addEventListener('click', () => this.nextSlide());
-
-        // Touch and drag events
-        const container = document.querySelector('.main-image-container');
-        if (container) {
-            container.addEventListener('mousedown', (e) => this.handleDragStart(e));
-            container.addEventListener('touchstart', (e) => this.handleDragStart(e));
-            container.addEventListener('mousemove', (e) => this.handleDrag(e));
-            container.addEventListener('touchmove', (e) => this.handleDrag(e));
-            container.addEventListener('mouseup', () => this.handleDragEnd());
-            container.addEventListener('touchend', () => this.handleDragEnd());
-            container.addEventListener('mouseleave', () => this.handleDragEnd());
+        
+        if (this.track) {
+            this.track.addEventListener('mousedown', (e) => this.handleDragStart(e));
+            this.track.addEventListener('touchstart', (e) => this.handleDragStart(e));
+            this.track.addEventListener('mousemove', (e) => this.handleDrag(e));
+            this.track.addEventListener('touchmove', (e) => this.handleDrag(e));
+            this.track.addEventListener('mouseup', () => this.handleDragEnd());
+            this.track.addEventListener('mouseleave', () => this.handleDragEnd());
+            this.track.addEventListener('touchend', () => this.handleDragEnd());
         }
-
-        // Keyboard navigation
+        
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') this.prevSlide();
             if (e.key === 'ArrowRight') this.nextSlide();
         });
-
-        // Auto-advance timer
-        this.startAutoAdvance();
     }
 
-    showImage(index) {
-        this.images.forEach(img => img.classList.remove('active'));
-        this.images[index]?.classList.add('active');
+    showSlide(index, smooth = true) {
+        if (this.track) {
+            const offset = -index * 100;
+            this.track.style.transition = smooth ? `transform ${this.transitionDuration}ms ease` : 'none';
+            this.track.style.transform = `translateX(${offset}%)`;
+        } else {
+            this.items.forEach(item => item.classList.remove('active'));
+            this.items[index]?.classList.add('active');
+        }
+        this.currentIndex = index;
     }
 
     nextSlide() {
-        this.currentIndex = (this.currentIndex + 1) % this.images.length;
-        this.showImage(this.currentIndex);
+        const newIndex = (this.currentIndex + 1) % this.items.length;
+        this.showSlide(newIndex);
         this.resetAutoAdvance();
     }
 
     prevSlide() {
-        this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-        this.showImage(this.currentIndex);
+        const newIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+        this.showSlide(newIndex);
         this.resetAutoAdvance();
     }
 
     handleDragStart(e) {
         this.isDragging = true;
         this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        if (this.track) {
+            this.track.style.cursor = 'grabbing';
+        }
     }
 
     handleDrag(e) {
         if (!this.isDragging) return;
         e.preventDefault();
-
+        
         const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
         const diff = currentX - this.startX;
-
+        
         if (Math.abs(diff) > this.sensitivity) {
             if (diff > 0) {
                 this.prevSlide();
@@ -369,19 +540,24 @@ class ImageCarousel {
 
     handleDragEnd() {
         this.isDragging = false;
+        if (this.track) {
+            this.track.style.cursor = 'grab';
+        }
     }
 
     startAutoAdvance() {
-        this.autoAdvanceTimer = setInterval(() => this.nextSlide(), 5000);
+        this.autoAdvanceTimer = setInterval(() => this.nextSlide(), this.autoAdvanceInterval);
     }
 
     resetAutoAdvance() {
-        clearInterval(this.autoAdvanceTimer);
-        this.startAutoAdvance();
+        if (this.autoAdvanceTimer) {
+            clearInterval(this.autoAdvanceTimer);
+            this.startAutoAdvance();
+        }
     }
 }
 
-// Classe para gerenciar as habilidades
+// Classe para gerenciar as seções de habilidades
 class SkillsManager {
     constructor() {
         this.skillsContents = document.querySelectorAll('.skills__content');
@@ -462,6 +638,8 @@ class SkillsManager {
     }
 }
 
+
+
 // Inicialização quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializa o carrossel se houver elementos necessários
@@ -474,16 +652,6 @@ document.addEventListener('DOMContentLoaded', function() {
         new SkillsManager();
     }
 });
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
-});
-
-// Initial setup
-updateCarousel(false);
-
 
 // Inicializa o gerenciador quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
