@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Muda o ícone conforme o modo
         const iconElement = document.getElementById('darkModeIcon');
-        if (document.body.classList.contains('dark-mode')) {
+        if (document.body. classList.contains('dark-mode')) {
             iconElement.setAttribute('data-icon', 'mdi:weather-night');
             localStorage.setItem('darkMode', 'enabled'); // Armazena como escuro
         } else {
@@ -389,67 +389,127 @@ document.addEventListener('keydown', (e) => {
 // Initial setup
 updateCarousel(false);
 
-// SKILLS ANIMATION
-document.addEventListener('DOMContentLoaded', () => {
-    const skillsContent = document.getElementsByClassName('skills__content');
-    const skillsHeader = document.querySelectorAll('.skills__header');
+class SkillsManager {
+    /**
+     * @constructor
+     */
+    constructor() {
+        // Elementos DOM
+        this.skillsContents = document.querySelectorAll('.skills__content');
+        this.activeSection = null;
+        this.isAnimating = false;
 
-    function toggleSkills() {
-        let itemClass = this.parentNode.className;
-
-        for (let i = 0; i < skillsContent.length; i++) {
-            skillsContent[i].className = 'skills__content skills__close';
-        }
-
-        if (itemClass === 'skills__content skills__close') {
-            this.parentNode.className = 'skills__content skills__open';
-            resetAndAnimateSkills(this.parentNode);
-        }
+        this.init();
     }
 
-    function resetAndAnimateSkills(skillsSection) {
-        const progressBars = skillsSection.querySelectorAll('.skills__progress');
-        const numbers = skillsSection.querySelectorAll('.skills__number');
-
-        progressBars.forEach((bar) => {
-            const percentage = bar.dataset.percentage;
-            bar.style.width = '0%';
-            setTimeout(() => {
-                bar.style.width = percentage;
-            }, 10);
-        });
-
-        numbers.forEach((number) => {
-            const targetValue = parseInt(number.dataset.value);
-            number.textContent = '0%';
-            setTimeout(() => {
-                animateNumber(number, targetValue);
-            }, 10);
-        });
-    }
-
-    function animateNumber(element, target) {
-        let current = 0;
-        const duration = 1000; // Animation duration in milliseconds
-        const start = performance.now();
-
-        function step(timestamp) {
-            const elapsed = timestamp - start;
-            const progress = Math.min(elapsed / duration, 1);
-            current = Math.round(progress * target);
-            element.textContent = current + '%';
-
-            if (progress < 1) {
-                requestAnimationFrame(step);
+    /**
+     * Inicializa o gerenciador de habilidades
+     * @private
+     */
+    init() {
+        // Adiciona listeners para cada seção
+        this.skillsContents.forEach(content => {
+            const header = content.querySelector('.skills__header');
+            if (header) {
+                header.addEventListener('click', () => this.toggleSection(content));
             }
-        }
-
-        requestAnimationFrame(step);
+        });
     }
 
-    skillsHeader.forEach((el) => {
-        el.addEventListener('click', toggleSkills);
-    });
+    /**
+     * Alterna a seção de habilidades
+     * @param {HTMLElement} section - A seção a ser alternada
+     * @private
+     */
+    toggleSection(section) {
+        // Previne múltiplos cliques durante a animação
+        if (this.isAnimating) return;
+
+        const isOpeningSection = !section.classList.contains('skills__open');
+        
+        // Fecha a seção ativa atual (se houver)
+        if (this.activeSection && this.activeSection !== section) {
+            this.closeSection(this.activeSection);
+        }
+
+        // Alterna a seção clicada
+        if (isOpeningSection) {
+            this.openSection(section);
+        } else {
+            this.closeSection(section);
+        }
+    }
+
+    /**
+     * Abre uma seção de habilidades
+     * @param {HTMLElement} section - A seção a ser aberta
+     * @private
+     */
+    openSection(section) {
+        this.isAnimating = true;
+        section.classList.add('skills__open');
+        this.activeSection = section;
+        
+        // Anima as barras de progresso
+        this.animateProgressBars(section);
+
+        // Reseta o flag de animação após a transição
+        setTimeout(() => {
+            this.isAnimating = false;
+        }, 500); // Tempo alinhado com a transição CSS
+    }
+
+    /**
+     * Fecha uma seção de habilidades
+     * @param {HTMLElement} section - A seção a ser fechada
+     * @private
+     */
+    closeSection(section) {
+        this.isAnimating = true;
+        section.classList.remove('skills__open');
+        
+        // Reseta as barras de progresso
+        const progressBars = section.querySelectorAll('.skill__progress');
+        progressBars.forEach(bar => {
+            bar.style.width = '0%';
+        });
+
+        if (this.activeSection === section) {
+            this.activeSection = null;
+        }
+
+        // Reseta o flag de animação após a transição
+        setTimeout(() => {
+            this.isAnimating = false;
+        }, 500); // Tempo alinhado com a transição CSS
+    }
+
+    /**
+     * Anima as barras de progresso de uma seção
+     * @param {HTMLElement} section - A seção contendo as barras de progresso
+     * @private
+     */
+    animateProgressBars(section) {
+        const progressBars = section.querySelectorAll('.skill__progress');
+        
+        // Reseta primeiro
+        progressBars.forEach(bar => {
+            bar.style.width = '0%';
+        });
+
+        // Inicia a animação após um pequeno delay
+        requestAnimationFrame(() => {
+            progressBars.forEach(bar => {
+                const percentage = bar.getAttribute('data-percentage');
+                bar.style.width = `${percentage}%`;
+            });
+        });
+    }
+}
+
+// Inicializa o gerenciador quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', () => {
+    new SkillsManager();
 });
 
 // Seleciona o contêiner de serviços e modais
