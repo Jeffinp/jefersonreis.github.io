@@ -79,40 +79,42 @@ document.addEventListener('DOMContentLoaded', () => {
         const iconElement = document.getElementById('darkModeIcon');
         if (document.body.classList.contains('dark-mode')) {
             iconElement.setAttribute('data-icon', 'mdi:weather-night');
+            localStorage.setItem('darkMode', 'enabled'); // Armazena como escuro
         } else {
             iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
+            localStorage.setItem('darkMode', 'disabled'); // Armazena como claro
         }
 
-        // Armazena a preferência do usuário no localStorage
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-        }
-
+        // Remove a animação de rotação após 300ms
         setTimeout(() => {
             document.getElementById('darkModeToggle').classList.remove('rotate');
         }, 300);
     }
 
-    // Verifica a preferência armazenada do usuário
+    // Verifica e carrega a preferência armazenada ou ativa o modo escuro por padrão
     function loadUserPreference() {
         const darkMode = localStorage.getItem('darkMode');
         const iconElement = document.getElementById('darkModeIcon');
+
         if (darkMode === 'enabled') {
             document.body.classList.add('dark-mode');
             iconElement.setAttribute('data-icon', 'mdi:weather-night');
-        } else {
+        } else if (darkMode === 'disabled') {
             document.body.classList.remove('dark-mode');
             iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
+        } else {
+            // Configura o modo escuro por padrão na primeira visita
+            document.body.classList.add('dark-mode');
+            iconElement.setAttribute('data-icon', 'mdi:weather-night');
+            localStorage.setItem('darkMode', 'enabled'); // Salva a preferência inicial como escuro
         }
     }
 
+    // Adiciona o evento de clique ao botão de alternância
     document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
 
     // Carrega a preferência do usuário ao carregar a página
     loadUserPreference();
-
 
     // ------------------------------
     // ANIMATION ON SCROLL (Smooth Fade and Slide)
