@@ -18,8 +18,13 @@
     font-weight: 700;
     margin-bottom: 3rem;
     background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
+    /* Compatibilidade com navegadores modernos */
+    -webkit-background-clip: text; /* Chrome, Safari */
+    background-clip: text;         /* Navegadores modernos */
+    
+    -webkit-text-fill-color: transparent; /* Torna o texto transparente para o gradiente */
+    
     position: relative;
 }
 
