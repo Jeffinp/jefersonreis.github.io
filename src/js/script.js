@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Muda o ícone conforme o modo
         const iconElement = document.getElementById('darkModeIcon');
-        if (document.body. classList.contains('dark-mode')) {
+        if (document.body.classList.contains('dark-mode')) {
             iconElement.setAttribute('data-icon', 'mdi:weather-night');
             localStorage.setItem('darkMode', 'enabled'); // Armazena como escuro
         } else {
@@ -290,31 +290,31 @@ document.addEventListener('DOMContentLoaded', () => {
             this.sensitivity = options.sensitivity || 100;
             this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
             this.transitionDuration = options.transitionDuration || 500;
-            
+
             // State
             this.currentIndex = 0;
             this.isDragging = false;
             this.startX = 0;
             this.autoAdvanceTimer = null;
-            
+
             // DOM Elements
             this.track = document.querySelector('.carousel-track');
             this.items = document.querySelectorAll('.carousel-item, .main-image');
             this.prevButton = document.querySelector('.nav.prev, .prev');
             this.nextButton = document.querySelector('.nav.next, .next');
-            
+
             if (this.items.length === 0) return;
-            
+
             this.init();
         }
 
         init() {
             // Initial setup
             this.showSlide(0, false);
-            
+
             // Event Listeners
             this.setupEventListeners();
-            
+
             // Start auto-advance
             if (this.autoAdvanceInterval) {
                 this.startAutoAdvance();
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Navigation buttons
             this.prevButton?.addEventListener('click', () => this.prevSlide());
             this.nextButton?.addEventListener('click', () => this.nextSlide());
-            
+
             // Touch and mouse events
             if (this.track) {
                 this.track.addEventListener('mousedown', (e) => this.handleDragStart(e));
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.track.addEventListener('mouseleave', () => this.handleDragEnd());
                 this.track.addEventListener('touchend', () => this.handleDragEnd());
             }
-            
+
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowLeft') this.prevSlide();
@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.items.forEach(item => item.classList.remove('active'));
                 this.items[index]?.classList.add('active');
             }
-            
+
             this.currentIndex = index;
         }
 
@@ -382,10 +382,10 @@ document.addEventListener('DOMContentLoaded', () => {
         handleDrag(e) {
             if (!this.isDragging) return;
             e.preventDefault();
-            
+
             const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
             const diff = currentX - this.startX;
-            
+
             if (Math.abs(diff) > this.sensitivity) {
                 if (diff > 0) {
                     this.prevSlide();
@@ -442,21 +442,21 @@ class ImageCarousel {
         this.sensitivity = options.sensitivity || 100;
         this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
         this.transitionDuration = options.transitionDuration || 500;
-        
+
         // Estado
         this.currentIndex = 0;
         this.isDragging = false;
         this.startX = 0;
         this.autoAdvanceTimer = null;
-        
+
         // Elementos do DOM
         this.track = document.querySelector('.carousel-track');
         this.items = document.querySelectorAll('.carousel-item, .main-image');
         this.prevButton = document.querySelector('.nav.prev, .prev');
         this.nextButton = document.querySelector('.nav.next, .next');
-        
+
         if (this.items.length === 0) return;
-        
+
         this.init();
     }
 
@@ -472,7 +472,7 @@ class ImageCarousel {
     setupEventListeners() {
         this.prevButton?.addEventListener('click', () => this.prevSlide());
         this.nextButton?.addEventListener('click', () => this.nextSlide());
-        
+
         if (this.track) {
             this.track.addEventListener('mousedown', (e) => this.handleDragStart(e));
             this.track.addEventListener('touchstart', (e) => this.handleDragStart(e));
@@ -482,7 +482,7 @@ class ImageCarousel {
             this.track.addEventListener('mouseleave', () => this.handleDragEnd());
             this.track.addEventListener('touchend', () => this.handleDragEnd());
         }
-        
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') this.prevSlide();
             if (e.key === 'ArrowRight') this.nextSlide();
@@ -524,10 +524,10 @@ class ImageCarousel {
     handleDrag(e) {
         if (!this.isDragging) return;
         e.preventDefault();
-        
+
         const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
         const diff = currentX - this.startX;
-        
+
         if (Math.abs(diff) > this.sensitivity) {
             if (diff > 0) {
                 this.prevSlide();
@@ -638,10 +638,8 @@ class SkillsManager {
     }
 }
 
-
-
 // Inicialização quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Inicializa o carrossel se houver elementos necessários
     if (document.querySelector('.main-image-container')) {
         new ImageCarousel();
