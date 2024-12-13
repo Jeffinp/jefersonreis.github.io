@@ -22,7 +22,7 @@
 }
 
 .social-links a {
-    color: var(--text-color);
+    color: white;
     font-size: 1.3rem;
     transition: all 0.3s ease;
     text-decoration: none;
