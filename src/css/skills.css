@@ -34,15 +34,11 @@
 
 .skills__grid {
     display: grid;
-    grid-template-columns: 1fr;
-    /* Modificado de repeat(auto-fit, minmax(300px, 1fr)) para 1fr */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
 .skills__content {
-    max-width: 1500px;
-    /* ou o valor que preferir */
-
     background-color: var(--card-background);
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--border-color);
@@ -89,6 +85,10 @@
 }
 
 .skills__arrow {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
     font-size: 1.5rem;
     color: var(--text-color-muted);
     transition: transform var(--transition-normal);
@@ -106,7 +106,7 @@
 }
 
 .skills__open .skills__arrow {
-    transform: rotate(-180deg);
+    transform: translateY(-50%) rotate(-180deg);
 }
 
 .skill__item {
@@ -144,9 +144,7 @@
 .skill__progress {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg,
-            var(--primary-color),
-            var(--secondary-color));
+    background-color: var(--focus-color);
     transition: width 1s cubic-bezier(0.25, 0.1, 0.25, 1);
     border-radius: var(--border-radius-full);
 }
@@ -181,18 +179,9 @@
     }
 }
 
-/* Animation for skill bars */
-@keyframes skill-shimmer {
-    0% {
-        background-position: -200px 0;
-    }
-
-    100% {
-        background-position: calc(200px + 100%) 0;
-    }
-}
-
+/* Remove the shimmer animation */
 .skill__progress {
-    background-size: 200px 100%;
-    animation: skill-shimmer 2s infinite linear;
+    background-size: 100% 100%;
+    /* Ensure solid color */
+    animation: none;
 }

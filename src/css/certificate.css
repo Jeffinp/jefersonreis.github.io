@@ -1,7 +1,8 @@
 /* Seção de Certificados */
 .certificates {
     padding: 4rem 0;
-    background-color: var(--light-background);
+    background-color: var(--background-color-light);
+    /* Cor de fundo clara */
 }
 
 .section-title {
@@ -10,7 +11,8 @@
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    /* Cor primária para o título */
     font-weight: 700;
 }
 
@@ -40,20 +42,19 @@
 
 .certificate-item {
     background-color: rgba(255, 255, 255, 0.1);
-    /* Glassmorphism */
     backdrop-filter: blur(10px);
-    /* Glassmorphism */
     border: 1px solid rgba(255, 255, 255, 0.2);
-    /* Glassmorphism */
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
+    /* Sombra média */
     transition: all 0.4s ease-in-out;
 }
 
 .certificate-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
+    /* Sombra grande no hover */
 }
 
 .certificate-image-wrapper {
@@ -65,7 +66,6 @@
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;
-    /* diminui a altura da imagem */
     object-fit: cover;
     transition: transform 0.5s ease;
 }
@@ -76,7 +76,8 @@
 
 .certificate-info {
     padding: 2rem;
-    background-color: var(--primary-color);
+    background-color: var(--background-color-light);
+    /* Cor de fundo clara */
     transition: background-color 0.4s ease;
 }
 
@@ -87,7 +88,8 @@
 .certificate-title {
     margin: 0;
     font-size: 1.6rem;
-    color: var(--secondary-color);
+    color: var(--text-color);
+    /* Cor do texto principal */
     margin-bottom: 0.5rem;
     font-family: 'Roboto', sans-serif;
     text-transform: capitalize;
@@ -97,7 +99,8 @@
     margin: 0 0 1rem;
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--text-color);
+    color: var(--text-color-secondary);
+    /* Cor do texto secundário */
     font-family: 'Roboto', sans-serif;
 }
 
@@ -109,8 +112,10 @@
     display: inline-block;
     position: relative;
     padding: 0.8rem 1.5rem;
-    background-color: var(--secondary-color);
-    color: var(--dark-color);
+    background-color: var(--primary-color);
+    /* Cor primária para o botão */
+    color: white;
+    /* Cor do texto do botão */
     border: none;
     border-radius: 30px;
     font-weight: 700;
@@ -143,14 +148,27 @@
 .view-button:hover,
 .view-button:focus {
     background-color: var(--hover-color);
-    color: var(--text-color);
+    color: white;
+    /* Cor do texto no hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     outline: none;
     transform: translateY(-3px);
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
     .certificate-grid {
         grid-template-columns: 1fr;
+        /* Uma coluna em telas menores */
+    }
+
+    .certificate-title {
+        font-size: 1.4rem;
+        /* Tamanho do título ajustado */
+    }
+
+    .certificate-description {
+        font-size: 0.9rem;
+        /* Tamanho da descrição ajustado */
     }
 }

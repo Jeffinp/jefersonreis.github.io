@@ -336,6 +336,11 @@
         margin-bottom: 3rem;
     }
 
+    .services__container {
+        grid-template-columns: 1fr;
+        /* Uma coluna em telas menores */
+    }
+
     .services__content {
         padding: 2rem;
     }

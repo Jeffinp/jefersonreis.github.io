@@ -5,7 +5,6 @@
     position: relative;
     overflow: hidden;
     background: var(--background-color-light);
-    /* Adicionei um fundo */
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-lg);
 }
@@ -18,15 +17,13 @@
 
 #return-section .return-title {
     font-size: 2.5rem;
-    /* Aumentei o tamanho da fonte */
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    /* Cor primária para o título */
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
     font-weight: 700;
-    /* Peso da fonte mais forte */
     font-family: 'Poppins', sans-serif;
-    /* Fonte moderna */
 }
 
 #return-section .return-title::after {
@@ -34,39 +31,37 @@
     display: block;
     width: 60%;
     height: 4px;
-    /* Aumentei a altura da linha */
     background-color: var(--accent-color);
+    /* Cor de destaque para a linha */
     margin: 0.5rem auto 0;
     border-radius: var(--border-radius-full);
-    /* Cantos arredondados */
 }
 
 #return-section .return-description {
     font-size: 1.2rem;
     color: var(--text-color-secondary);
+    /* Cor do texto secundário */
     margin: 0 auto 2rem;
     max-width: 800px;
     line-height: 1.6;
     font-family: 'Roboto', sans-serif;
-    /* Fonte mais legível */
 }
 
 #return-section .return-link {
     display: inline-block;
     margin-top: 1rem;
-    /* Adicionei margem superior */
 }
 
 #return-section .return-link .return-button {
-    background-color: var(--accent-color);
-    color: var(--text-color);
+    background-color: var(--primary-color);
+    /* Cor primária para o botão */
+    color: white;
+    /* Cor do texto do botão */
     border: none;
     padding: 1rem 2.5rem;
-    /* Aumentei o padding para um botão mais largo */
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: var(--border-radius-full);
-    /* Botão mais arredondado */
     cursor: pointer;
     transition: background-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
     box-shadow: var(--shadow-md);
@@ -77,7 +72,6 @@
 #return-section .return-link .return-button:hover {
     background-color: var(--hover-color);
     transform: translateY(-3px);
-    /* Aumentei o efeito de elevação */
     box-shadow: var(--shadow-lg);
 }
 
@@ -91,7 +85,6 @@
 @media (max-width: 768px) {
     #return-section {
         padding: 2rem 1rem;
-        /* Ajustei o padding */
     }
 
     #return-section .return-title {
