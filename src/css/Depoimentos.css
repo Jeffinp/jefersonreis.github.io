@@ -1,0 +1,216 @@
+/* Estilos do Carrossel de Depoimentos */
+.testimonials {
+    background-color: var(--background-color);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.testimonials .section-title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Mantenho o tamanho responsivo */
+    text-align: center;
+    font-weight: 800; /* Alterado para 800 (ExtraBold) para mais impacto */
+    margin-bottom: 4rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color)); /* Mantenho o gradiente */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.testimonials-carousel {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    touch-action: pan-y pinch-zoom;
+}
+
+.testimonial {
+    background-color: transparent;
+    padding: 0 40px;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.testimonial-rating {
+    margin-bottom: 1.5rem;
+}
+
+.star {
+    color: var(--accent-color);
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+.testimonial-content {
+    margin-bottom: 2rem;
+}
+
+.testimonial-content p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--text-color);
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonial-author h4 {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    font-weight: 500;
+}
+
+.testimonial-author p {
+    font-size: 0.875rem;
+    color: var(--text-color-muted);
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 4px 0 0;
+}
+
+/* Navigation wrapper - New addition */
+.navigation-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Updated carousel controls */
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.prev-testimonial,
+.next-testimonial {
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.prev-testimonial:hover,
+.next-testimonial:hover {
+    opacity: 1;
+    background-color: var(--text-color);
+    color: var(--background-color);
+}
+
+/* Updated dots navigation */
+.testimonial-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.testimonial-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--text-color-muted);
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.testimonial-dot.active {
+    opacity: 1;
+    background-color: var(--text-color);
+    transform: scale(1.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 60px 0;
+    }
+
+    .testimonials .section-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .testimonial {
+        padding: 0 20px;
+    }
+
+    .testimonial-content p {
+        font-size: 1rem;
+    }
+
+    .testimonial-author img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .testimonial-author h4 {
+        font-size: 0.875rem;
+    }
+
+    .testimonial-author p {
+        font-size: 0.75rem;
+    }
+
+    .star {
+        font-size: 16px;
+    }
+
+    .prev-testimonial,
+    .next-testimonial {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+}
+
+/* Animações suaves */
+.testimonial {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

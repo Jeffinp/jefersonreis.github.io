@@ -694,3 +694,137 @@ document.addEventListener('keydown', (event) => {
         closeModal();
     }
 });
+
+// Carrossel de Depoimentos
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.testimonials-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.next-testimonial');
+    const prevButton = document.querySelector('.prev-testimonial');
+    // Procura o container de dots existente em vez de criar um novo
+    const dotsContainer = document.querySelector('.testimonial-dots');
+    let activeSlideIndex = 0;
+    let autoplayInterval;
+    const autoplayDelay = 5000; // 5 segundos entre cada slide
+
+    // Configuração inicial
+    function initialize() {
+        // Limpa os dots existentes (se houver)
+        dotsContainer.innerHTML = '';
+        
+        // Adiciona os indicadores de slide (dots)
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `testimonial-dot ${index === 0 ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Ir para depoimento ${index + 1}`);
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        // Configura a largura inicial dos slides
+        updateSlideWidth();
+        
+        // Inicia o autoplay
+        startAutoplay();
+
+        // Pausa o autoplay quando o mouse está sobre o carrossel
+        track.parentElement.addEventListener('mouseenter', stopAutoplay);
+        track.parentElement.addEventListener('mouseleave', startAutoplay);
+    }
+
+    // Atualiza a largura dos slides baseado no container
+    function updateSlideWidth() {
+        const containerWidth = track.parentElement.offsetWidth;
+        slides.forEach(slide => {
+            slide.style.width = `${containerWidth}px`;
+        });
+        updateSlidePosition();
+    }
+
+    // Atualiza a posição dos slides
+    function updateSlidePosition() {
+        const slideWidth = slides[0].offsetWidth;
+        track.style.transform = `translateX(${-slideWidth * activeSlideIndex}px)`;
+        
+        // Atualiza os dots
+        const dots = dotsContainer.children;
+        Array.from(dots).forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeSlideIndex);
+        });
+    }
+
+    // Vai para um slide específico
+    function goToSlide(index) {
+        activeSlideIndex = index;
+        updateSlidePosition();
+        resetAutoplay();
+    }
+
+    // Move para o próximo slide
+    function moveToNextSlide() {
+        activeSlideIndex = (activeSlideIndex + 1) % slides.length;
+        updateSlidePosition();
+        resetAutoplay();
+    }
+
+    // Move para o slide anterior
+    function moveToPrevSlide() {
+        activeSlideIndex = (activeSlideIndex - 1 + slides.length) % slides.length;
+        updateSlidePosition();
+        resetAutoplay();
+    }
+
+    // Inicia o autoplay
+    function startAutoplay() {
+        if (autoplayInterval) return;
+        autoplayInterval = setInterval(moveToNextSlide, autoplayDelay);
+    }
+
+    // Para o autoplay
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    }
+
+    // Reseta o autoplay
+    function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    // Event Listeners
+    nextButton.addEventListener('click', moveToNextSlide);
+    prevButton.addEventListener('click', moveToPrevSlide);
+    window.addEventListener('resize', updateSlideWidth);
+
+    // Suporte a gestos touch para dispositivos móveis
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // Mínima distância para considerar como swipe
+        const difference = touchStartX - touchEndX;
+
+        if (Math.abs(difference) > swipeThreshold) {
+            if (difference > 0) {
+                moveToNextSlide();
+            } else {
+                moveToPrevSlide();
+            }
+        }
+    }
+
+    // Inicializa o carrossel
+    initialize();
+});

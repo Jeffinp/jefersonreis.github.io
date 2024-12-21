@@ -1,6 +1,7 @@
 /* Seção de Soft Skills */
 .soft-skills {
-    padding: 6rem 2.5rem;
+    padding: 80px 0;
+    /* Aumentei o padding */
     color: var(--text-color);
     background: linear-gradient(170deg,
             rgba(var(--background-rgb), 0.4),
@@ -22,65 +23,70 @@
     pointer-events: none;
 }
 
+.soft-skills .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 .soft-skills h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    margin-bottom: 4rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     text-align: center;
+    font-weight: 800;
+    /* Aumentei o font-weight */
+    margin-bottom: 4rem;
+    /* Aumentei o margin-bottom */
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
     padding-bottom: 25px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    /* Para compatibilidade com Chrome e Safari */
-    background-clip: text;
-    /* Propriedade padrão */
-    -webkit-text-fill-color: transparent;
-    /* Para efeito de texto transparente no Safari e Chrome */
-    transition: transform 0.3s ease;
+    text-transform: uppercase;
 }
 
 .soft-skills h2::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
+    display: block;
+    width: 100px;
+    height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: 4px;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 5px;
+    margin: 1rem auto 0;
+    /* Centralizei e adicionei margin-top */
+    transition: width 0.3s ease;
 }
 
 .soft-skills h2:hover::after {
-    width: 180px;
+    width: 150px;
+    /* Aumenta a largura no hover */
 }
 
 .soft-skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-    perspective: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Aumentei o minmax */
+    gap: 40px;
+    /* Aumentei o gap */
+    padding: 0;
+    /* Removi o padding */
 }
 
 .soft-skill-item {
     position: relative;
-    background: linear-gradient(145deg,
-            rgba(var(--card-background-rgb), 0.8),
-            rgba(var(--card-background-rgb), 0.6));
-    backdrop-filter: blur(10px);
-    padding: 2.5rem;
+    background-color: var(--card-background);
+    /* Fundo sólido */
+    padding: 30px;
+    /* Diminui um pouco o padding */
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
-        0 1px 8px rgba(0, 0, 0, 0.05);
+    border: none;
+    /* Removendo borda */
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+    /* Sombra mais sutil */
     text-align: center;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    /* Transição mais suave */
     transform-style: preserve-3d;
     overflow: hidden;
 }
@@ -92,17 +98,18 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent);
-    transition: 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    /* Brilho mais sutil */
+    transition: left 0.5s ease-in-out;
+    /* Transição do brilho */
+    z-index: 1;
+    /* Z-index para ficar acima do conteúdo */
 }
 
 .soft-skill-item:hover {
     transform: translateY(-15px) rotateX(5deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
-        0 15px 12px rgba(0, 0, 0, 0.08);
+    /* Efeito 3D mais sutil */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .soft-skill-item:hover::before {
@@ -112,88 +119,54 @@
 .soft-skill-item .iconify {
     font-size: 3.5rem;
     margin-bottom: 2rem;
-    color: var(--secondary-color);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--primary-color);
+    /* Cor do ícone primária */
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), color 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    /* Z-index para ficar acima do brilho */
 }
 
 .soft-skill-item:hover .iconify {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.1);
     color: var(--accent-color);
+    /* Cor do ícone no hover */
 }
 
 .soft-skill-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.7rem;
+    /* Aumentei o tamanho do título */
+    margin-bottom: 1.5rem;
+    /* Aumentei o margin-bottom */
     font-weight: 700;
     position: relative;
-    background: linear-gradient(90deg,
-            var(--secondary-color),
-            var(--accent-color),
-            var(--secondary-color));
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    /* Para compatibilidade com Chrome e Safari */
-    background-clip: text;
-    /* Propriedade padrão */
-    -webkit-text-fill-color: transparent;
-    /* Para efeito de texto transparente no Safari e Chrome */
+    color: var(--text-color);
+    font-family: 'Nunito Sans', sans-serif;
     transition: all 0.3s ease;
-}
-
-.soft-skill-item:hover h3 {
-    animation: gradientFlow 3s linear infinite;
 }
 
 .soft-skill-item p {
     font-size: 1.1rem;
-    line-height: 1.8;
+    /* Aumentei o tamanho do texto */
+    line-height: 1.7;
+    /* Aumentei o line-height */
     color: var(--text-color-secondary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
+    /* Removi o margin-bottom */
     transition: all 0.3s ease;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    /* Z-index para ficar acima do brilho */
+    font-family: 'Nunito Sans', sans-serif;
 }
 
-.soft-skill-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg,
-            var(--secondary-color),
-            var(--accent-color));
-    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 3px;
-}
+/* Removi o .soft-skill-item::after, pois não é mais necessário */
 
-.soft-skill-item:hover::after {
-    width: 90%;
-}
-
-@keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Animação para entrada dos elementos */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
+        /* Aumentei a distância de translação */
     }
 
     to {
@@ -202,6 +175,7 @@
     }
 }
 
+/* Delays para animação de entrada */
 .soft-skill-item {
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
@@ -223,30 +197,44 @@
     animation-delay: 0.4s;
 }
 
+.soft-skill-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.soft-skill-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.soft-skill-item:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
     .soft-skills {
-        padding: 4rem 1.5rem;
+        padding: 60px 0;
     }
 
     .soft-skills h2 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
         margin-bottom: 3rem;
     }
 
     .soft-skill-item {
-        padding: 2rem;
+        padding: 25px;
     }
 
     .soft-skill-item .iconify {
         font-size: 3rem;
+        margin-bottom: 1.5rem;
     }
 
     .soft-skill-item h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .soft-skill-item p {
         font-size: 1rem;
-        line-height: 1.6;
     }
 }

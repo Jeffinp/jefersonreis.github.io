@@ -1,19 +1,27 @@
 /* Seção de Contatos */
 .Contact_section {
-    padding: 4rem 0;
+    padding: 80px 0;
+    /* Aumentei o padding */
+    background-color: var(--background-color);
 }
 
 .Contact_title {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    /* Tamanho do título mais responsivo */
-    margin-bottom: 3rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    /* Tamanho do título responsivo */
+    margin-bottom: 4rem;
+    /* Aumentei o margin-bottom */
     text-align: center;
     position: relative;
     padding-bottom: 20px;
-    color: var(--secondary-color);
-    font-weight: 600;
-    /* Peso da fonte mais forte para destaque */
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Alterei a cor para a cor do texto principal */
+    font-weight: 700;
+    /* Aumentei o font-weight */
+    text-transform: uppercase;
 }
 
 .Contact_title::after {
@@ -23,13 +31,17 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
-    /* Largura aumentada para uma aparência mais robusta */
-    height: 5px;
-    /* Espessura aumentada */
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    height: 3px;
+    /* Diminui a altura */
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    /* Gradiente atualizado */
     border-radius: 5px;
     transition: width 0.3s ease;
-    /* Adicione transição suave */
+}
+
+.Contact_title:hover::after {
+    width: 150px;
+    /* Aumenta a largura no hover */
 }
 
 .section_title {
@@ -39,7 +51,7 @@
     text-align: center;
     color: var(--text-color);
     opacity: 0.7;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 /* CONTATOS  */
@@ -51,45 +63,49 @@
 
 .contact__container>div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Aumentei o minmax */
+    gap: 40px;
+    /* Aumentei o gap */
 }
 
 .contact__information {
-    background-color: var(--dark-color);
-    border-radius: 20px;
+    background-color: var(--card-background);
+    /* Fundo do card */
+    border-radius: var(--border-radius-lg);
+    /* Aumentei o border-radius */
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+    /* Sombra mais sutil */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px 30px;
+    /* Aumentei o padding */
+    border: none;
+    /* Removi a borda */
 }
 
 .contact__information:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-15px);
+    /* Efeito de elevação mais sutil */
+    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.3);
+    /* Sombra mais sutil */
 }
 
-.contact__icon {
-    font-size: 3rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
-    display: inline-block;
-    width: 3rem;
-    /* Definir largura e altura */
-    height: 3rem;
-}
-
-/* Estilo de ícones dentro da seção de contatos */
 .Contact_section .iconify {
     font-size: 3rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
+    color: var(--primary-color);
+    /* Cor do ícone alterada para a cor primária */
+    margin-bottom: 1.5rem;
+    /* Aumentei o margin-bottom */
     transition: transform 0.3s ease;
+    display: inline-block;
+    width: auto;
+    /* Removido o width fixo */
+    height: auto;
+    /* Removido o height fixo */
 }
 
 .Contact_section .contact__information:hover .iconify {
@@ -97,22 +113,28 @@
 }
 
 .contact__title {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    color: var(--secondary-color);
-    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    /* Aumentei o tamanho da fonte */
+    margin-bottom: 1.5rem;
+    /* Aumentei o margin-bottom */
+    color: var(--text-color);
+    /* Cor do texto principal */
+    font-family: 'Nunito Sans', sans-serif;
     text-align: center;
+    font-weight: 600;
+    /* Aumentei o font-weight */
 }
 
 .contact__subtitle {
-    font-size: 1rem;
-    color: var(--text-color);
+    font-size: 1.1rem;
+    /* Aumentei o tamanho da fonte */
+    color: var(--text-color-secondary);
     opacity: 0.8;
     transition: var(--transition);
     display: block;
     word-break: break-word;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     line-height: 1.7;
     margin-bottom: 1.5rem;
 }
@@ -128,7 +150,8 @@
 }
 
 .contact__information:hover .contact__subtitle a {
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    /* Cor do link no hover alterada para a cor primária */
 }
 
 .contact__link {
@@ -145,7 +168,7 @@
     transition: all 0.3s ease;
     cursor: pointer;
     text-transform: uppercase;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .contact__button:hover,
@@ -162,10 +185,23 @@
     }
 
     .Contact_title {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
     }
 
     .section_title {
+        font-size: 1rem;
+    }
+
+    .contact__information {
+        padding: 30px 20px;
+    }
+
+    .contact__title {
+        font-size: 1.5rem;
+    }
+
+    .contact__subtitle {
         font-size: 1rem;
     }
 }

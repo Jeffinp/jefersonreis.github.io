@@ -5,6 +5,7 @@
     padding: 4rem 0 2rem;
     position: relative;
     overflow: hidden;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .footer::before {

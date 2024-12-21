@@ -23,7 +23,7 @@
     position: relative;
     display: inline-block;
     font-weight: 700;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 #return-section .return-title::after {
@@ -44,7 +44,7 @@
     margin: 0 auto 2rem;
     max-width: 800px;
     line-height: 1.6;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 #return-section .return-link {

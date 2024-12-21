@@ -1,76 +1,103 @@
 /* Seção de Projetos */
+.projects {
+    padding: 80px 0; /* Aumentei o padding */
+    background-color: var(--background-color);
+}
+
 .project-container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    padding: 4rem 2rem;
-}
-
-.project-item {
-    background-color: var(--card-background);
-    /* Cor de fundo do card */
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    /* Sombra média */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.projects h2 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800; /* Aumentei o font-weight */
+    margin-bottom: 4rem; /* Aumentei o margin-bottom */
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
-    height: 350px;
 }
 
-.project-item::before {
+.projects h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    margin: 1rem auto 0; /* Centralizei e adicionei margin-top */
+    transition: width 0.3s ease;
+}
+
+.projects h2:hover::after {
+    width: 150px; /* Aumenta a largura no hover */
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
+    border: none; /* Removendo borda */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); /* Transição mais suave */
+    touch-action: pan-y pinch-zoom;
+}
+
+.carousel-item {
+    background-color: var(--card-background);
+    padding: 30px; /* Aumentei o padding */
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Coloca a imagem acima do texto */
+}
+
+.project-image {
+    width: 100%;
+    height: 250px; /* Altura fixa para a imagem */
+    margin-bottom: 20px; /* Espaço entre a imagem e o texto */
+    position: relative; /* Para o gradiente e label */
+    overflow: hidden; /* Para o border-radius */
+    border-radius: 15px; /* Arredondamento para a imagem */
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out; /* Transição mais suave */
+}
+
+.carousel-item:hover .project-image img {
+    transform: scale(1.1); /* Efeito de zoom mais sutil */
+}
+
+/* Gradiente na imagem */
+.project-image::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(37, 99, 235, 0.3), rgba(37, 99, 235, 0.7));
-    /* Gradiente com a cor primária */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 2;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
+    transition: opacity 0.4s ease-in-out;
 }
 
-.projects h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-    padding-bottom: 20px;
-    color: var(--primary-color);
-    /* Cor primária para o título */
-    font-weight: 600;
-}
-
-.projects h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 5px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: 5px;
-    transition: width 0.3s ease;
-}
-
-.project-item:hover::before {
+.carousel-item:hover .project-image::before {
     opacity: 1;
-}
-
-.project-item:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--shadow-lg);
-    /* Sombra grande */
 }
 
 .project-label {
@@ -83,98 +110,70 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    z-index: 2;
+    z-index: 3; /* Acima do gradiente */
+    color: white;
+    border: none;
     backdrop-filter: blur(8px);
-    box-shadow: var(--shadow-sm);
-    /* Sombra pequena */
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-label.contratado {
-    background-color: rgba(16, 185, 129, 0.85);
-    /* Verde para "Contratado" */
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--success-color);
 }
 
 .project-label.pessoal {
-    background-color: rgba(96, 165, 250, 0.85);
-    /* Azul claro para "Pessoal" */
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--info-color);
 }
 
-.project-item:hover .project-label {
-    transform: translateY(-3px);
-}
-
-.project-image {
-    width: 100%;
-    height: 60%;
-    background-size: cover;
-    background-position: center;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.project-item:hover .project-image img {
-    transform: scale(1.05);
+.carousel-item:hover .project-label {
+    transform: translateY(-5px); /* Efeito de elevação mais sutil */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais sutil */
 }
 
 .project-info {
-    padding: 1.5rem;
+    padding: 0; /* Removido o padding */
     position: relative;
     z-index: 2;
-    background-color: var(--background-color-light);
-    /* Cor de fundo clara */
+    background-color: transparent; /* Sem cor de fundo */
     transition: background-color 0.3s ease, transform 0.3s ease;
-    /* Adicionado transição de cor */
-}
-
-.project-item:hover .project-info {
-    background-color: var(--hover-color);
-    /* Cor de fundo no hover */
-    transform: translateY(-5px);
 }
 
 .project-info h3 {
     margin-top: 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem; /* Aumentei o tamanho da fonte */
     color: var(--text-color);
-    /* Cor do texto principal */
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem; /* Aumentei o margin-bottom */
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700; /* Aumentei o font-weight */
 }
 
 .project-info p {
-    margin: 0 0 1rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    margin: 0 0 1.5rem; /* Aumentei o margin-bottom */
+    font-size: 1.1rem; /* Aumentei o tamanho da fonte */
+    line-height: 1.6; /* Aumentei o line-height */
     color: var(--text-color-secondary);
-    /* Cor do texto secundário */
     max-height: 5em;
     overflow: hidden;
     transition: max-height 0.6s ease, opacity 0.6s ease;
+    font-family: 'Roboto', sans-serif;
 }
 
 .project-link {
     display: inline-block;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem; /* Aumentei o padding */
     background-color: var(--primary-color);
-    /* Cor primária para o botão */
     color: white;
-    /* Cor do texto do botão */
     text-decoration: none;
     border-radius: 30px;
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adicionada transição de transform */
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.1rem; /* Aumentei o tamanho da fonte */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
 }
 
 .project-link::after {
@@ -185,7 +184,7 @@
     width: 300%;
     height: 300%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
 }
@@ -196,152 +195,33 @@
 
 .project-link:hover {
     background-color: var(--hover-color);
-    /* Cor do botão no hover */
-}
-
-/* Estilos do Modal de Serviços */
-.services__modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
-}
-
-.services__modal.active-modal {
-    opacity: 1;
-    visibility: visible;
-}
-
-.services__modal-content {
-    background: linear-gradient(145deg,
-            rgba(var(--card-background-rgb), 0.9),
-            rgba(var(--card-background-rgb), 0.7));
-    backdrop-filter: blur(10px);
-    padding: 3rem;
-    border-radius: 20px;
-    width: 92%;
-    max-width: 560px;
-    position: relative;
-    box-shadow: var(--shadow-lg);
-    /* Sombra grande */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transform: scale(0.95);
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.services__modal.active-modal .services__modal-content {
-    transform: scale(1);
-}
-
-.services__modal-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.services__modal-service {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
-    color: var(--text-color-secondary);
-    /* Cor do texto secundário */
-}
-
-.services__modal-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--text-color);
-    /* Cor do texto principal */
-    transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.services__modal-close:hover {
-    color: var(--accent-color);
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: rotate(90deg);
-}
-
-/* Carousel */
-.carousel {
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
-    /* Sombra média */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    cursor: grab;
-}
-
-.carousel-item {
-    min-width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-    opacity: 0.7;
-    transform: scale(0.95);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.carousel-item.active {
-    opacity: 1;
-    transform: scale(1);
+    transform: translateY(-5px); /* Efeito de elevação mais sutil */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais sutil */
 }
 
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: var(--secondary-color);
-    /* Cor secundária para o botão */
+    background-color: var(--primary-color);
     color: white;
-    /* Cor do texto do botão */
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 50px; /* Aumentei o tamanho */
+    height: 50px;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1.6rem; /* Aumentei o tamanho da fonte */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
 }
 
 .carousel-button:hover {
     background-color: var(--hover-color);
+    transform: translateY(-50%) scale(1.05); /* Efeito de escala no hover */
 }
 
 .prev {
@@ -352,75 +232,52 @@
     right: 1rem;
 }
 
-/* Progress indicator */
-.carousel-progress {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.5rem;
-}
-
-.progress-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.progress-dot.active {
-    background-color: var(--secondary-color);
-    transform: scale(1.2);
-}
-
-/* ... responsividade ... */
+/* Responsividade */
 @media (max-width: 768px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-        /* Uma coluna em telas menores */
-        gap: 1.5rem;
+    .projects {
+        padding: 60px 0;
     }
 
-    .project-item {
-        height: auto;
-        /* Altura automática em telas menores */
+    .projects h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .carousel-item {
+        padding: 20px;
     }
 
     .project-image {
-        height: 250px;
-        /* Altura da imagem ajustada */
+        height: 200px;
+        margin-bottom: 15px;
     }
 
     .project-info h3 {
-        font-size: 1.2rem;
-        /* Tamanho do título ajustado */
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
     }
 
     .project-info p {
-        font-size: 0.9rem;
-        /* Tamanho da descrição ajustado */
-        max-height: 6em;
-        /* Altura máxima da descrição ajustada */
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
 
     .project-link {
-        padding: 0.7rem 1.2rem;
-        /* Tamanho do botão ajustado */
-        font-size: 0.9rem;
-        /* Tamanho da fonte do botão ajustado */
-    }
-}
-
-@media (max-width: 480px) {
-    .project-grid {
-        padding: 3rem 1rem;
-        /* Padding ajustado */
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
     }
 
-    .project-label {
-        font-size: 0.7rem;
-        /* Tamanho do label ajustado */
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+
+    .prev {
+        left: 0.5rem;
+    }
+
+    .next {
+        right: 0.5rem;
     }
 }

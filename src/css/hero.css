@@ -23,19 +23,25 @@
 .hero .container {
     position: relative;
     z-index: 2;
-    max-width: 900px;
     padding: 0 2rem;
     margin-top: 2rem;
 }
 
 /* Hero Heading */
 .hero h1 {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 4.5rem;
     margin-bottom: 1.5rem;
     color: white;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-    animation: fadeInDown 1s ease-out;
+    text-transform: uppercase;
+    /* Animação de fade-in da esquerda para a direita */
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    /* Começa com largura zero */
+    animation: text-fade-in-left 3s ease-out forwards;
+    font-weight: 800;
 }
 
 /* Hero Paragraph */
@@ -138,6 +144,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Animações */
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -192,46 +199,17 @@
     animation: pulse 2s infinite;
 }
 
-/* Adiciona um efeito de typing para o título */
-.hero h1 {
-    overflow: hidden;
-    border-right: 0.15em solid var(--secondary-color);
-    white-space: nowrap;
-    margin: 0 auto;
-    animation:
-        typing 1.5s steps(40, end) forwards,
-        blink-caret 0.75s step-end infinite;
-}
-
-/* Define a animação typing */
-@keyframes typing {
+/* Animação de fade-in da esquerda para a direita */
+@keyframes text-fade-in-left {
     from {
-        width: 0
+        width: 0;
+        opacity: 0;
     }
 
     to {
-        width: 100%
+        width: 100%;
+        opacity: 1;
     }
-}
-
-/* Define a animação blink-caret */
-@keyframes blink-caret {
-
-    0%,
-    100% {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: var(--secondary-color);
-    }
-}
-
-/* Define a classe para remover o caret */
-.hero h1.remove-caret {
-    border-right: none;
-    animation: none;
-    /* Remove animação de caret */
 }
 
 /* Seções gerais */

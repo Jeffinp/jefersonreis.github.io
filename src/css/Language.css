@@ -31,7 +31,7 @@
     transition: var(--transition-normal);
     gap: 6px;
     /* Espaçamento reduzido */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .language-switch img {

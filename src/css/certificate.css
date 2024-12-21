@@ -1,65 +1,84 @@
 /* Seção de Certificados */
 .certificates {
-    padding: 4rem 0;
-    background-color: var(--background-color-light);
-    /* Cor de fundo clara */
+    padding: 80px 0;
+    /* Aumentei o padding */
+    background-color: var(--background-color);
 }
 
-.section-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    margin-bottom: 3rem;
+.certificates .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.certificates .section-title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     text-align: center;
+    font-weight: 800;
+    /* Aumentei o font-weight */
+    margin-bottom: 4rem;
+    /* Aumentei o margin-bottom */
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
-    color: var(--primary-color);
-    /* Cor primária para o título */
-    font-weight: 700;
+    text-transform: uppercase;
 }
 
-.section-title::after {
+.certificates .section-title::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
     width: 100px;
-    height: 5px;
+    height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: 5px;
+    margin: 1rem auto 0;
+    /* Centralizei e adicionei margin-top */
     transition: width 0.3s ease;
 }
 
-.section-title:hover::after {
-    width: 120px;
+.certificates .section-title:hover::after {
+    width: 150px;
+    /* Aumenta a largura no hover */
 }
 
 .certificate-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Aumentei o minmax */
+    gap: 40px;
+    /* Aumentei o gap */
+    padding: 0;
+    /* Removi o padding */
 }
 
 .certificate-item {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--card-background);
     border-radius: 20px;
+    /* Aumentei o border-radius */
     overflow: hidden;
-    box-shadow: var(--shadow-md);
-    /* Sombra média */
-    transition: all 0.4s ease-in-out;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+    /* Sombra mais sutil */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Transição suave */
+    border: none;
+    /* Removendo bordas */
 }
 
 .certificate-item:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    /* Sombra grande no hover */
+    transform: translateY(-15px);
+    /* Efeito de elevação mais sutil */
+    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.3);
+    /* Sombra mais sutil */
 }
 
 .certificate-image-wrapper {
     overflow: hidden;
     margin: 0;
+    line-height: 0;
+    /* Remover espaçamento extra */
 }
 
 .certificate-image {
@@ -68,40 +87,42 @@
     aspect-ratio: 4 / 3;
     object-fit: cover;
     transition: transform 0.5s ease;
+    display: block;
 }
 
 .certificate-item:hover .certificate-image {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .certificate-info {
-    padding: 2rem;
-    background-color: var(--background-color-light);
-    /* Cor de fundo clara */
+    padding: 30px;
+    /* Aumentei o padding */
+    background-color: var(--card-background);
     transition: background-color 0.4s ease;
-}
-
-.certificate-item:hover .certificate-info {
-    background-color: var(--hover-color);
 }
 
 .certificate-title {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
+    /* Aumentei o tamanho da fonte */
     color: var(--text-color);
-    /* Cor do texto principal */
-    margin-bottom: 0.5rem;
-    font-family: 'Roboto', sans-serif;
+    margin-bottom: 1rem;
+    /* Aumentei o margin-bottom */
+    font-family: 'Nunito Sans', sans-serif;
     text-transform: capitalize;
+    font-weight: 700;
+    /* Aumentei o font-weight */
 }
 
 .certificate-description {
-    margin: 0 0 1rem;
-    font-size: 1rem;
-    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    /* Aumentei o margin-bottom */
+    font-size: 1.1rem;
+    /* Aumentei o tamanho da fonte */
+    line-height: 1.7;
+    /* Aumentei o line-height */
     color: var(--text-color-secondary);
-    /* Cor do texto secundário */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .certificate-link {
@@ -111,21 +132,22 @@
 .view-button {
     display: inline-block;
     position: relative;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
+    /* Aumentei o padding */
     background-color: var(--primary-color);
-    /* Cor primária para o botão */
     color: white;
-    /* Cor do texto do botão */
     border: none;
     border-radius: 30px;
     font-weight: 700;
     transition: all 0.3s ease;
     cursor: pointer;
     text-transform: uppercase;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     letter-spacing: 1px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* Sombra mais sutil */
     overflow: hidden;
+    font-size: 1.1rem;
 }
 
 .view-button::after {
@@ -148,27 +170,35 @@
 .view-button:hover,
 .view-button:focus {
     background-color: var(--hover-color);
-    color: white;
-    /* Cor do texto no hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* Sombra mais sutil */
     outline: none;
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    /* Efeito de elevação mais sutil */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
+    .certificates {
+        padding: 60px 0;
+    }
+
     .certificate-grid {
         grid-template-columns: 1fr;
         /* Uma coluna em telas menores */
+        gap: 30px;
     }
 
     .certificate-title {
-        font-size: 1.4rem;
-        /* Tamanho do título ajustado */
+        font-size: 1.5rem;
     }
 
     .certificate-description {
-        font-size: 0.9rem;
-        /* Tamanho da descrição ajustado */
+        font-size: 1rem;
+    }
+
+    .view-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
     }
 }
