@@ -1,11 +1,8 @@
-/* Seção de Soft Skills */
+/* ========= SEÇÃO DE SOFT SKILLS ========= */
 .soft-skills {
-    padding: 80px 0;
-    /* Aumentei o padding */
+    padding: 4rem 0; /* Reduzido o padding */
     color: var(--text-color);
-    background: linear-gradient(170deg,
-            rgba(var(--background-rgb), 0.4),
-            rgba(var(--background-rgb), 0.1));
+    background: linear-gradient(170deg, rgba(var(--background-rgb), 0.4), rgba(var(--background-rgb), 0.1));
     position: relative;
     overflow: hidden;
 }
@@ -17,9 +14,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: radial-gradient(circle at 50% 50%,
-            rgba(var(--accent-rgb), 0.03) 0%,
-            transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(var(--accent-rgb), 0.03) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -29,69 +24,56 @@
     padding: 0 2rem;
 }
 
-.soft-skills h2 {
+.soft-skills .section__title { /* Alterado para usar a classe section__title */
     font-family: 'Nunito Sans', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: 2rem; /* Reduzido o tamanho da fonte */
     text-align: center;
     font-weight: 800;
-    /* Aumentei o font-weight */
-    margin-bottom: 4rem;
-    /* Aumentei o margin-bottom */
+    margin-bottom: 3rem; /* Reduzido o margin-bottom */
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
-    padding-bottom: 25px;
     text-transform: uppercase;
 }
 
-.soft-skills h2::after {
+.soft-skills .section__title::after { /* Alterado para usar a classe section__title */
     content: '';
     display: block;
-    width: 100px;
+    width: 80px; /* Reduzido o tamanho inicial */
     height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: 5px;
+    border-radius: var(--border-radius-full);
     margin: 1rem auto 0;
-    /* Centralizei e adicionei margin-top */
     transition: width 0.3s ease;
 }
 
-.soft-skills h2:hover::after {
-    width: 150px;
-    /* Aumenta a largura no hover */
+.soft-skills .section__title:hover::after { /* Alterado para usar a classe section__title */
+    width: 120px; /* Reduzido o tamanho no hover */
 }
 
-.soft-skills-container {
+.soft-skills__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    /* Aumentei o minmax */
-    gap: 40px;
-    /* Aumentei o gap */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduzido o minmax */
+    gap: 2rem; /* Reduzido o gap */
     padding: 0;
-    /* Removi o padding */
+    list-style: none; /* Removido o estilo de lista */
 }
 
-.soft-skill-item {
+.soft-skill__item {
     position: relative;
     background-color: var(--card-background);
-    /* Fundo sólido */
-    padding: 30px;
-    /* Diminui um pouco o padding */
-    border-radius: 20px;
-    border: none;
-    /* Removendo borda */
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
-    /* Sombra mais sutil */
+    padding: 2rem; /* Reduzido o padding */
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
     text-align: center;
     transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-    /* Transição mais suave */
     transform-style: preserve-3d;
     overflow: hidden;
 }
 
-.soft-skill-item::before {
+.soft-skill__item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -99,45 +81,36 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    /* Brilho mais sutil */
     transition: left 0.5s ease-in-out;
-    /* Transição do brilho */
     z-index: 1;
-    /* Z-index para ficar acima do conteúdo */
 }
 
-.soft-skill-item:hover {
-    transform: translateY(-15px) rotateX(5deg);
-    /* Efeito 3D mais sutil */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.soft-skill__item:hover {
+    transform: translateY(-10px) rotateX(5deg); /* Reduzido o translateY e rotateX */
+    box-shadow: var(--shadow-lg);
 }
 
-.soft-skill-item:hover::before {
+.soft-skill__item:hover::before {
     left: 100%;
 }
 
-.soft-skill-item .iconify {
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
+.soft-skill__icon {
+    font-size: 3rem; /* Reduzido o tamanho do ícone */
+    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
     color: var(--primary-color);
-    /* Cor do ícone primária */
     transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), color 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     position: relative;
     z-index: 2;
-    /* Z-index para ficar acima do brilho */
 }
 
-.soft-skill-item:hover .iconify {
+.soft-skill__item:hover .soft-skill__icon {
     transform: scale(1.1);
     color: var(--accent-color);
-    /* Cor do ícone no hover */
 }
 
-.soft-skill-item h3 {
-    font-size: 1.7rem;
-    /* Aumentei o tamanho do título */
-    margin-bottom: 1.5rem;
-    /* Aumentei o margin-bottom */
+.soft-skill__title {
+    font-size: 1.3rem; /* Reduzido o tamanho do título */
+    margin-bottom: 1rem; /* Reduzido o margin-bottom */
     font-weight: 700;
     position: relative;
     color: var(--text-color);
@@ -145,28 +118,21 @@
     transition: all 0.3s ease;
 }
 
-.soft-skill-item p {
-    font-size: 1.1rem;
-    /* Aumentei o tamanho do texto */
-    line-height: 1.7;
-    /* Aumentei o line-height */
+.soft-skill__description {
+    font-size: 0.9rem; /* Reduzido o tamanho do texto */
+    line-height: 1.6; /* Reduzido o line-height */
     color: var(--text-color-secondary);
-    margin-bottom: 0;
-    /* Removi o margin-bottom */
     transition: all 0.3s ease;
     position: relative;
     z-index: 2;
-    /* Z-index para ficar acima do brilho */
     font-family: 'Nunito Sans', sans-serif;
 }
 
-/* Removi o .soft-skill-item::after, pois não é mais necessário */
-
+/* ========= Animação de entrada ========= */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
-        /* Aumentei a distância de translação */
+        transform: translateY(30px); /* Reduzido o translateY */
     }
 
     to {
@@ -175,66 +141,69 @@
     }
 }
 
-/* Delays para animação de entrada */
-.soft-skill-item {
+.soft-skill__item {
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
 }
 
-.soft-skill-item:nth-child(1) {
+.soft-skill__item:nth-child(1) {
     animation-delay: 0.1s;
 }
 
-.soft-skill-item:nth-child(2) {
+.soft-skill__item:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.soft-skill-item:nth-child(3) {
+.soft-skill__item:nth-child(3) {
     animation-delay: 0.3s;
 }
 
-.soft-skill-item:nth-child(4) {
+.soft-skill__item:nth-child(4) {
     animation-delay: 0.4s;
 }
 
-.soft-skill-item:nth-child(5) {
+.soft-skill__item:nth-child(5) {
     animation-delay: 0.5s;
 }
 
-.soft-skill-item:nth-child(6) {
+.soft-skill__item:nth-child(6) {
     animation-delay: 0.6s;
 }
 
-.soft-skill-item:nth-child(7) {
+.soft-skill__item:nth-child(7) {
     animation-delay: 0.7s;
 }
 
-/* Media Queries */
+/* ========= Media Queries ========= */
 @media (max-width: 768px) {
     .soft-skills {
-        padding: 60px 0;
+        padding: 3rem 0; /* Reduzido o padding */
     }
 
-    .soft-skills h2 {
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
+    .soft-skills .section__title { /* Alterado para usar a classe section__title */
+        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 2rem; /* Reduzido o margin-bottom */
     }
 
-    .soft-skill-item {
-        padding: 25px;
+    .soft-skills__list {
+        gap: 1.5rem; /* Reduzido o gap */
     }
 
-    .soft-skill-item .iconify {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
+    .soft-skill__item {
+        padding: 1.5rem; /* Reduzido o padding */
     }
 
-    .soft-skill-item h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+    .soft-skill__icon {
+        font-size: 2.5rem; /* Reduzido o tamanho do ícone */
+        margin-bottom: 1rem; /* Reduzido o margin-bottom */
     }
 
-    .soft-skill-item p {
-        font-size: 1rem;
+    .soft-skill__title {
+        font-size: 1.2rem; /* Reduzido o tamanho do título */
+        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
+    }
+
+    .soft-skill__description {
+        font-size: 0.8rem; /* Reduzido o tamanho do texto */
     }
 }

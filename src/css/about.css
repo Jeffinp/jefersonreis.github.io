@@ -1,6 +1,6 @@
-/* SEÇÃO SOBRE */
+/* ========= SEÇÃO SOBRE ========= */
 .about {
-    padding: 80px 0; /* Aumentei o padding */
+    padding: 4rem 0; /* Reduzido o padding */
     background: linear-gradient(to bottom, rgba(var(--background-color-rgb), 0.03), rgba(var(--background-color-rgb), 0.1));
     color: var(--text-color);
 }
@@ -8,56 +8,55 @@
 .about .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 2rem; /* Reduzido o padding */
 }
 
-.about h2 {
+.about .section__title { /* Alterado para usar a classe section__title */
     font-family: 'Nunito Sans', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: 2rem; /* Reduzido o tamanho da fonte */
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem; /* Reduzido o margin-bottom */
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    position: relative;
     text-transform: uppercase;
+    font-weight: 800; /* Adicionado para deixar o título mais bold */
 }
 
-.about h2::after {
+.about .section__title::after { /* Alterado para usar a classe section__title */
     content: '';
     display: block;
     margin: 1rem auto 0;
-    width: 100px;
+    width: 80px; /* Reduzido o tamanho inicial */
     height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: var(--border-radius-full);
     transition: width 0.3s ease;
 }
 
-.about h2:hover::after {
-    width: 150px; /* Aumentei o tamanho da linha no hover */
+.about .section__title:hover::after { /* Alterado para usar a classe section__title */
+    width: 120px; /* Reduzido o tamanho no hover */
 }
 
-.about-content {
+.about__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px; /* Aumentei o gap */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduzido o minmax */
+    gap: 2rem; /* Reduzido o gap */
 }
 
-.about-item {
+.about__item {
     background: var(--card-background);
-    padding: 40px; /* Aumentei o padding */
+    padding: 2rem; /* Reduzido o padding */
     border-radius: var(--border-radius-lg);
-    box-shadow: 0px 10px 30px -10px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
+    box-shadow: var(--shadow-md);
     text-align: center;
-    position: relative;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative; /* Para o efeito de brilho */
     overflow: hidden; /* Para o efeito de brilho */
 }
 
-/* Efeito de brilho no hover */
-.about-item::before {
+.about__item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -69,94 +68,93 @@
     z-index: 1;
 }
 
-.about-item:hover::before {
+.about__item:hover::before {
     left: 100%;
 }
 
-.about-item:hover {
-    transform: translateY(-15px);
-    box-shadow: 0px 15px 40px -5px rgba(0, 0, 0, 0.3);
+.about__item:hover {
+    transform: translateY(-10px); /* Reduzido o translateY */
+    box-shadow: var(--shadow-lg);
 }
 
-.about-item .iconify {
-    font-size: 4rem; /* Reduzi um pouco o tamanho do ícone */
+.about__icon {
+    font-size: 3rem; /* Reduzido o tamanho do ícone */
     color: var(--primary-color);
-    margin-bottom: 25px;
-    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out; /* Adicionei transição de cor */
-    position: relative;
+    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
+    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
     z-index: 2;
-}
-
-.about-item:hover .iconify {
-    transform: scale(1.1);
-    color: var(--accent-color); /* Mudando a cor do ícone no hover */
-}
-
-.about-item h3 {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.8rem; /* Aumentei o tamanho da fonte */
-    color: var(--text-color);
-    margin-bottom: 20px;
     position: relative;
-    font-weight: 800; /* Deixei mais bold */
 }
 
-.about-item h3::after {
+.about__item:hover .about__icon {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+.about__item-title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.5rem; /* Reduzido o tamanho da fonte */
+    color: var(--text-color);
+    margin-bottom: 1rem; /* Reduzido o margin-bottom */
+    font-weight: 700; /* Reduzido o font-weight */
+}
+
+.about__item-title::after {
     content: '';
     display: block;
-    width: 50px;
+    width: 40px; /* Reduzido o tamanho */
     height: 3px;
     background: var(--primary-color);
-    margin: 1rem auto;
+    margin: 0.8rem auto; /* Reduzido o margin */
     transition: width 0.3s ease;
 }
 
-.about-item:hover h3::after {
-    width: 80px;
+.about__item:hover .about__item-title::after {
+    width: 60px; /* Reduzido o tamanho no hover */
 }
 
-.about-item p {
-    font-size: 1.1rem;
-    line-height: 1.7;
+.about__item-description {
+    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+    line-height: 1.6; /* Reduzido o line-height */
     color: var(--text-color-secondary);
-    position: relative;
-    z-index: 2;
     font-family: 'Nunito Sans', sans-serif;
+    z-index: 2;
+    position: relative;
 }
 
-/* AJUSTES RESPONSIVOS PARA SOBRE */
+/* ========= AJUSTES RESPONSIVOS PARA SOBRE ========= */
 @media (max-width: 768px) {
     .about {
-        padding: 60px 0;
+        padding: 3rem 0; /* Reduzido o padding */
     }
 
-    .about h2 {
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
+    .about .section__title { /* Alterado para usar a classe section__title */
+        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 2rem; /* Reduzido o margin-bottom */
     }
 
-    .about-content {
-        gap: 30px;
+    .about__content {
+        gap: 1.5rem; /* Reduzido o gap */
     }
 
-    .about-item {
-        padding: 30px; /* Reduzi um pouco o padding */
+    .about__item {
+        padding: 1.5rem; /* Reduzido o padding */
     }
 
-    .about-item h3 {
-        font-size: 1.6rem;
+    .about__item-title {
+        font-size: 1.3rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
     }
 
-    .about-item p {
-        font-size: 1rem;
+    .about__item-description {
+        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
     }
 }
 
-/* SEÇÃO PORTFÓLIO DIGITAL */
+/* ========= SEÇÃO PORTFÓLIO DIGITAL ========= */
 #digital-portfolio {
-    padding: 80px 0; /* Aumentei o padding */
+    padding: 4rem 0; /* Reduzido o padding */
     text-align: center;
-    position: relative;
     background: linear-gradient(170deg, rgba(var(--background-rgb), 0.8), rgba(var(--background-rgb), 0.6));
     overflow: hidden;
 }
@@ -167,7 +165,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 6px;
+    height: 4px; /* Reduzido a altura */
     background: linear-gradient(90deg, var(--accent-color), var(--secondary-color), var(--accent-color));
     background-size: 200% 100%;
     animation: gradientMove 8s linear infinite;
@@ -186,113 +184,107 @@
 #digital-portfolio .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2.5rem;
-    position: relative;
+    padding: 0 2rem; /* Reduzido o padding */
+    position: relative; /* Adicionado para o ::before */
 }
 
-#digital-portfolio .section-title {
+#digital-portfolio .section__title { /* Alterado para usar a classe section__title */
     font-family: 'Nunito Sans', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: 2rem; /* Reduzido o tamanho da fonte */
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 4rem; /* Aumentei o margin-bottom */
-    position: relative;
-    display: inline-block;
+    margin-bottom: 2rem; /* Reduzido o margin-bottom */
     font-weight: 800;
     letter-spacing: -1px;
 }
 
-#digital-portfolio .section-title::after {
+#digital-portfolio .section__title::after { /* Alterado para usar a classe section__title */
     content: '';
     display: block;
     width: 60%;
     height: 3px;
     background: linear-gradient(90deg, var(--accent-color), transparent);
-    margin: 1rem auto 0;
-    border-radius: 2px;
+    margin: 0.8rem auto 0; /* Reduzido o margin-top */
     transition: width 0.3s ease;
 }
 
-#digital-portfolio .section-title:hover::after {
+#digital-portfolio .section__title:hover::after { /* Alterado para usar a classe section__title */
     width: 80%;
 }
 
-#digital-portfolio .portfolio-description {
-    font-size: 1.3rem;
+#digital-portfolio .section__subtitle { /* Alterado para usar a classe section__subtitle */
+    font-size: 1rem; /* Reduzido o tamanho da fonte */
     color: var(--text-color-secondary);
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem; /* Reduzido o margin-bottom */
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.8;
-    opacity: 0.9;
+    line-height: 1.7; /* Reduzido o line-height */
     font-family: 'Nunito Sans', sans-serif;
 }
 
-#digital-portfolio .portfolio-link .view-portfolio-button {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); /* Gradiente atualizado */
+#digital-portfolio .button--primary { /* Alterado para usar a classe button--primary */
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: white;
     border: none;
-    padding: 1.2rem 2.5rem;
-    font-size: 1.2rem;
+    padding: 0.8rem 2rem; /* Reduzido o padding */
+    font-size: 1rem; /* Reduzido o tamanho da fonte */
     font-weight: 700;
     border-radius: var(--border-radius-lg);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Reduzido a intensidade da sombra */
     text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
+    letter-spacing: 1px; /* Reduzido o letter-spacing */
     overflow: hidden;
-    isolation: isolate;
     font-family: 'Nunito Sans', sans-serif;
 }
 
-#digital-portfolio .portfolio-link .view-portfolio-button::before {
+#digital-portfolio .button--primary::before { /* Alterado para usar a classe button--primary */
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     transition: 0.5s;
     z-index: -1;
 }
 
-#digital-portfolio .portfolio-link .view-portfolio-button:hover {
+#digital-portfolio .button--primary:hover { /* Alterado para usar a classe button--primary */
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Reduzido a intensidade da sombra */
 }
 
-#digital-portfolio .portfolio-link .view-portfolio-button:hover::before {
+#digital-portfolio .button--primary:hover::before { /* Alterado para usar a classe button--primary */
     left: 100%;
 }
 
-#digital-portfolio .portfolio-link .view-portfolio-button:active {
+#digital-portfolio .button--primary:active { /* Alterado para usar a classe button--primary */
     transform: translateY(1px) scale(0.98);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Reduzido a intensidade da sombra */
 }
 
-/* AJUSTES RESPONSIVOS PARA PORTFÓLIO */
+/* ========= AJUSTES RESPONSIVOS PARA PORTFÓLIO ========= */
 @media (max-width: 768px) {
     #digital-portfolio {
-        padding: 4rem 0;
+        padding: 3rem 0; /* Reduzido o padding */
     }
 
-    #digital-portfolio .section-title {
-        font-size: 2.2rem;
+    #digital-portfolio .section__title { /* Alterado para usar a classe section__title */
+        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
     }
 
-    #digital-portfolio .portfolio-description {
-        font-size: 1.1rem;
-        margin-bottom: 2.5rem;
+    #digital-portfolio .section__subtitle { /* Alterado para usar a classe section__subtitle */
+        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 2rem; /* Reduzido o margin-bottom */
     }
 
-    #digital-portfolio .portfolio-link .view-portfolio-button {
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
+    #digital-portfolio .button--primary { /* Alterado para usar a classe button--primary */
+        padding: 0.7rem 1.5rem; /* Reduzido o padding */
+        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
     }
 }

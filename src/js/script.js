@@ -828,3 +828,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializa o carrossel
     initialize();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.header__menu-toggle');
+    const navMenu = document.querySelector('.header__nav');
+    const menuIcon = document.querySelector('.header__menu-icon');
+    const navLinks = document.querySelectorAll('.header__nav-link');
+
+    // Toggle menu
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('open');
+        menuToggle.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Fechar menu ao clicar em um link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            navMenu.classList.remove('open');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Atualizar link ativo ao rolar
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
+            
+            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                document.querySelector(`.header__nav-link[href*=${sectionId}]`).classList.add('active');
+            } else {
+                document.querySelector(`.header__nav-link[href*=${sectionId}]`).classList.remove('active');
+            }
+        });
+    });
+});

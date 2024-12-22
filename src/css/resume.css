@@ -1,7 +1,6 @@
-/* Seção de Currículo */
+/* ========= SEÇÃO DE CURRÍCULO ========= */
 .resume {
-    padding: 80px 0;
-    /* Aumentei o padding */
+    padding: 4rem 0; /* Reduzido o padding */
     background-color: var(--background-color);
 }
 
@@ -11,15 +10,13 @@
     padding: 0 2rem;
 }
 
-.resume h2 {
+.resume .section__title { /* Alterado para usar a classe section__title */
     font-family: 'Nunito Sans', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: 2rem; /* Reduzido o tamanho da fonte */
     text-align: center;
     font-weight: 800;
-    /* Aumentei o font-weight */
     text-transform: uppercase;
-    margin-bottom: 4rem;
-    /* Aumentei o margin-bottom */
+    margin-bottom: 3rem; /* Reduzido o margin-bottom */
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
@@ -27,126 +24,110 @@
     position: relative;
 }
 
-.resume h2::after {
+.resume .section__title::after { /* Alterado para usar a classe section__title */
     content: '';
     display: block;
-    width: 100px;
+    width: 80px; /* Reduzido o tamanho inicial */
     height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: 5px;
+    border-radius: var(--border-radius-full);
     margin: 1rem auto 0;
-    /* Centralizei e adicionei margin-top */
     transition: width 0.3s ease;
 }
 
-.resume h2:hover::after {
-    width: 150px;
-    /* Aumenta a largura no hover */
+.resume .section__title:hover::after { /* Alterado para usar a classe section__title */
+    width: 120px; /* Reduzido o tamanho no hover */
 }
 
-.resume-content {
+.resume__content {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
-    /* Aumentei o gap */
+    gap: 2rem; /* Reduzido o gap */
     background-color: var(--card-background);
-    border-radius: 20px;
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
-    /* Sombra mais sutil */
+    box-shadow: var(--shadow-md);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    /* Transição suave */
 }
 
-.resume-content:hover {
+.resume__content:hover {
     transform: translateY(-10px);
-    /* Efeito de elevação mais sutil */
-    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.3);
-    /* Sombra mais sutil */
+    box-shadow: var(--shadow-lg);
 }
 
-.resume-highlights,
-.resume-cta {
+.resume__highlights,
+.resume__cta {
     flex: 1;
-    padding: 40px;
-    /* Aumentei o padding */
+    padding: 2.5rem; /* Reduzido o padding */
     background-color: var(--background-color-light);
     transition: background-color 0.5s ease;
 }
 
-.resume-highlights h3 {
+.resume__highlights-title {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.8rem;
-    /* Aumentei o tamanho da fonte */
+    font-size: 1.5rem; /* Reduzido o tamanho da fonte */
     font-weight: 700;
     color: var(--text-color);
-    margin-bottom: 2rem;
-    /* Aumentei o margin-bottom */
+    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
 }
 
-.resume-highlights ul {
+.resume__highlights-list {
     list-style: none;
     padding: 0;
 }
 
-.resume-highlights li {
+.resume__highlights-item {
     font-family: 'Nunito Sans', sans-serif;
     color: var(--text-color-secondary);
-    font-size: 1.1rem;
-    /* Aumentei o tamanho da fonte */
-    line-height: 2;
-    /* Aumentei o line-height */
+    font-size: 1rem; /* Reduzido o tamanho da fonte */
+    line-height: 1.8; /* Reduzido o line-height */
     display: flex;
     align-items: center;
 }
 
-.resume-highlights li::before {
+.resume__highlights-item::before {
     content: '•';
     color: var(--primary-color);
-    font-size: 1.8em;
-    /* Aumentei o tamanho do marcador */
-    margin-right: 0.8rem;
-    /* Aumentei o margin-right */
+    font-size: 1.5em; /* Reduzido o tamanho do marcador */
+    margin-right: 0.6rem; /* Reduzido o margin-right */
 }
 
-.resume-cta {
+.resume__cta {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.resume-cta p {
+.resume__cta-text {
     font-family: 'Nunito Sans', sans-serif;
     color: var(--text-color-secondary);
-    margin-bottom: 2rem;
-    /* Aumentei o margin-bottom */
+    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
     text-align: center;
-    font-size: 1.1rem;
-    /* Aumentei o tamanho da fonte */
+    font-size: 1rem; /* Reduzido o tamanho da fonte */
 }
 
-.download-resume-button {
+.button--primary {
+    /* Estilos para o botão de download do currículo */
     display: inline-block;
-    padding: 1rem 2rem;
-    /* Aumentei o padding */
+    padding: 0.8rem 1.6rem; /* Reduzido o padding */
     background-color: var(--primary-color);
     color: white;
     text-decoration: none;
-    border-radius: 30px;
-    font-weight: 700;
+    border-radius: var(--border-radius-full);
+    font-weight: 600; /* Reduzido o font-weight */
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    /* Sombra mais sutil */
+    box-shadow: var(--shadow-sm);
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+    border: none; /* Removendo a borda */
 }
 
-.download-resume-button::after {
+.button--primary::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -157,38 +138,57 @@
     transition: transform 0.5s ease;
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
+    pointer-events: none; /* Evita problemas de clique */
 }
 
-.download-resume-button:hover::after {
+.button--primary:hover::after {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.download-resume-button:hover {
+.button--primary:hover {
     background-color: var(--hover-color);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    /* Sombra mais sutil */
-    transform: translateY(-5px);
-    /* Efeito de elevação mais sutil */
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px); /* Reduzido o translateY */
 }
 
-/* Responsividade */
+/* ========= Responsividade ========= */
 @media (max-width: 768px) {
-    .resume-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
     .resume {
-        padding: 60px 0;
+        padding: 3rem 0; /* Reduzido o padding */
     }
 
-    .resume h2 {
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
+    .resume .section__title { /* Alterado para usar a classe section__title */
+        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 2rem; /* Reduzido o margin-bottom */
     }
 
-    .resume-highlights,
-    .resume-cta {
-        padding: 30px;
+    .resume__content {
+        flex-direction: column;
+        gap: 1.5rem; /* Reduzido o gap */
+    }
+
+    .resume__highlights,
+    .resume__cta {
+        padding: 2rem; /* Reduzido o padding */
+    }
+
+    .resume__highlights-title {
+        font-size: 1.3rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 1rem; /* Reduzido o margin-bottom */
+    }
+
+    .resume__highlights-item {
+        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+        line-height: 1.6; /* Reduzido o line-height */
+    }
+
+    .resume__cta-text {
+        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 1rem; /* Reduzido o margin-bottom */
+    }
+
+    .button--primary {
+        padding: 0.7rem 1.4rem; /* Reduzido o padding */
+        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
     }
 }

@@ -1,11 +1,8 @@
-/* Seção de Serviços */
+/* ========= SEÇÃO DE SERVIÇOS ========= */
 .services {
-    padding: 80px 0;
-    /* Aumentei o padding */
+    padding: 4rem 0; /* Reduzido o padding */
     color: var(--text-color);
-    background: linear-gradient(170deg,
-            rgba(var(--background-rgb), 0.4),
-            rgba(var(--background-rgb), 0.1));
+    background: linear-gradient(170deg, rgba(var(--background-rgb), 0.4), rgba(var(--background-rgb), 0.1));
     position: relative;
     overflow: hidden;
 }
@@ -17,9 +14,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: radial-gradient(circle at 50% 50%,
-            rgba(var(--accent-rgb), 0.03) 0%,
-            transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(var(--accent-rgb), 0.03) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -29,14 +24,12 @@
     padding: 0 2rem;
 }
 
-.services h2 {
+.services .section__title { /* Alterado para usar a classe section__title */
     font-family: 'Nunito Sans', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: 2rem; /* Reduzido o tamanho da fonte */
     text-align: center;
     font-weight: 800;
-    /* Aumentei o font-weight */
-    margin-bottom: 4rem;
-    /* Aumentei o margin-bottom */
+    margin-bottom: 3rem; /* Reduzido o margin-bottom */
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
@@ -45,53 +38,43 @@
     text-transform: uppercase;
 }
 
-.services h2::after {
+.services .section__title::after { /* Alterado para usar a classe section__title */
     content: '';
     display: block;
-    width: 100px;
+    width: 80px; /* Reduzido o tamanho inicial */
     height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: 5px;
+    border-radius: var(--border-radius-full);
     margin: 1rem auto 0;
-    /* Centralizei e adicionei margin-top */
     transition: width 0.3s ease;
 }
 
-.services h2:hover::after {
-    width: 150px;
-    /* Aumenta a largura no hover */
+.services .section__title:hover::after { /* Alterado para usar a classe section__title */
+    width: 120px; /* Reduzido o tamanho no hover */
 }
 
-.services__container {
+.services__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    /* Aumentei o minmax */
-    gap: 40px;
-    /* Aumentei o gap */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reduzido o minmax */
+    gap: 2rem; /* Reduzido o gap */
     perspective: 1000px;
 }
 
-.services__content {
+.services__card {
     position: relative;
     background-color: var(--card-background);
-    /* Fundo sólido */
-    padding: 40px;
-    /* Aumentei o padding */
-    border-radius: 20px;
-    border: none;
-    /* Removendo borda */
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
-    /* Sombra mais sutil */
+    padding: 2.5rem; /* Reduzido o padding */
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
     text-align: center;
     transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-    /* Transição mais suave */
     transform-style: preserve-3d;
     overflow: hidden;
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
 }
 
-.services__content::before {
+.services__card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -99,44 +82,43 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    /* Brilho mais sutil */
     transition: left 0.5s ease-in-out;
-    /* Transição do brilho */
     z-index: 1;
-    /* Z-index para ficar acima do conteúdo */
 }
 
-.services__content:hover {
-    transform: translateY(-15px) rotateX(5deg);
-    /* Efeito 3D mais sutil */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.services__card:hover {
+    transform: translateY(-10px) rotateX(5deg); /* Reduzido o translateY e rotateX */
+    box-shadow: var(--shadow-lg);
 }
 
-.services__content:hover::before {
+.services__card:hover::before {
     left: 100%;
 }
 
+.services__icon-container {
+    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
+    display: flex;
+    flex-direction: column; /* Alinhar verticalmente */
+    align-items: center; /* Centralizar */
+}
+
 .services__icon {
-    font-size: 4rem;
-    /* Aumentei o tamanho do ícone */
-    margin-bottom: 2rem;
+    font-size: 3rem; /* Reduzido o tamanho do ícone */
+    margin-bottom: 1rem; /* Reduzido o margin-bottom */
     color: var(--primary-color);
-    /* Cor do ícone primária */
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     position: relative;
     z-index: 2;
-    /* Z-index para ficar acima do brilho */
 }
 
-.services__content:hover .services__icon {
+.services__card:hover .services__icon {
     transform: scale(1.1);
+    color: var(--accent-color);
 }
 
 .services__title {
-    font-size: 1.7rem;
-    /* Aumentei o tamanho do título */
-    margin-bottom: 1.5rem;
-    /* Aumentei o margin-bottom */
+    font-size: 1.3rem; /* Reduzido o tamanho do título */
+    margin-bottom: 0; /* Removido o margin-bottom */
     font-weight: 700;
     position: relative;
     color: var(--text-color);
@@ -144,45 +126,28 @@
     transition: all 0.3s ease;
 }
 
-.services__description {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    /* Aumentei o line-height */
-    color: var(--text-color-secondary);
-    margin-bottom: 2rem;
-    /* Aumentei o margin-bottom */
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 2;
-    /* Z-index para ficar acima do brilho */
-    font-family: 'Nunito Sans', sans-serif;
-}
-
 .services__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8rem;
-    padding: 1.2rem 2rem;
+    gap: 0.5rem; /* Reduzido o gap */
+    padding: 0.8rem 1.5rem; /* Reduzido o padding */
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    /* Gradiente no botão */
     color: #fff;
-    border-radius: 12px;
+    border-radius: var(--border-radius-md);
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
-    /* Diminui o margin-top */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem; /* Aumentado o margin-top */
     width: auto;
-    /* Largura automática */
     position: relative;
     overflow: hidden;
     border: none;
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
 }
 
 .services__button::before {
@@ -194,9 +159,7 @@
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s ease-in-out;
-    /* Transição do brilho */
     z-index: 1;
-    /* Z-index para ficar acima do conteúdo */
 }
 
 .services__button:hover::before {
@@ -204,12 +167,11 @@
 }
 
 .services__button:hover {
-    transform: translateY(-5px);
-    /* Efeito de elevação mais sutil */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* MODAL */
+/* ========= MODAL ========= */
 .services__modal {
     position: fixed;
     top: 0;
@@ -234,17 +196,13 @@
 
 .services__modal-content {
     background: var(--card-background);
-    /* Fundo sólido */
-    padding: 40px;
-    /* Aumentei o padding */
-    border-radius: 20px;
+    padding: 2.5rem; /* Reduzido o padding */
+    border-radius: var(--border-radius-lg);
     width: 90%;
-    max-width: 600px;
-    /* Aumentei o max-width */
+    max-width: 500px; /* Reduzido o max-width */
     position: relative;
     box-shadow: 0 35px 80px rgba(0, 0, 0, 0.25);
     border: none;
-    /* Removendo borda */
     transform: scale(0.95);
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -255,9 +213,9 @@
 
 .services__modal-title {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem; /* Reduzido o tamanho da fonte */
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reduzido o margin-bottom */
     text-align: center;
     letter-spacing: -0.5px;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
@@ -266,29 +224,42 @@
     -webkit-text-fill-color: transparent;
 }
 
-.services__modal-service {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    /* Aumentei o line-height */
-    margin-bottom: 1.2rem;
+.services__modal-list {
+    padding-left: 0; /* Removido o padding */
+    list-style: none; /* Removido o estilo da lista */
+}
+
+.services__modal-item {
+    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+    line-height: 1.6; /* Reduzido o line-height */
+    margin-bottom: 1rem; /* Reduzido o margin-bottom */
     color: var(--text-color-secondary);
     font-family: 'Nunito Sans', sans-serif;
+    display: flex; /* Alinhar texto com ícone */
+    align-items: flex-start; /* Alinhar no topo */
+}
+
+.services__modal-item::before {
+    content: '✓'; /* Adicionado um ícone de check */
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    font-size: 1.2rem; /* Aumentar tamanho do ícone */
+    line-height: 1; /* Ajustar a altura da linha para alinhar melhor */
+    margin-top: 0.2rem;
 }
 
 .services__modal-close {
     position: absolute;
-    top: 1.5rem;
-    right: 1.6rem;
-    font-size: 2rem;
-    /* Aumentei o tamanho do ícone */
+    top: 1rem; /* Reduzido o espaçamento */
+    right: 1rem; /* Reduzido o espaçamento */
+    font-size: 1.5rem; /* Reduzido o tamanho do ícone */
     cursor: pointer;
     color: var(--text-color);
     transition: all 0.3s ease;
     background-color: transparent;
-    /* Fundo transparente */
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 35px; /* Reduzido o tamanho */
+    height: 35px; /* Reduzido o tamanho */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -297,12 +268,15 @@
 
 .services__modal-close:hover {
     color: var(--primary-color);
-    /* Cor do ícone no hover */
     transform: scale(1.1);
-    /* Efeito de escala no hover */
 }
 
-/* Animações */
+.services__portfolio-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* ========= Animações ========= */
 @keyframes gradientFlow {
     0% {
         background-position: 0% 50%;
@@ -320,8 +294,7 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
-        /* Aumentei a distância de translação */
+        transform: translateY(30px); /* Reduzido o translateY */
     }
 
     to {
@@ -331,64 +304,76 @@
 }
 
 /* Delays para animação de entrada */
-.services__content:nth-child(1) {
+.services__card:nth-child(1) {
     animation-delay: 0.1s;
 }
 
-.services__content:nth-child(2) {
+.services__card:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.services__content:nth-child(3) {
+.services__card:nth-child(3) {
     animation-delay: 0.3s;
 }
 
-.services__content:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-/* Media Queries */
+/* ========= Media Queries ========= */
 @media (max-width: 768px) {
     .services {
-        padding: 60px 0;
+        padding: 3rem 0; /* Reduzido o padding */
     }
 
-    .services h2 {
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
+    .services .section__title { /* Alterado para usar a classe section__title */
+        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 2rem; /* Reduzido o margin-bottom */
     }
 
-    .services__container {
-        grid-template-columns: 1fr;
-        /* Uma coluna em telas menores */
-        gap: 30px;
+    .services__grid {
+        gap: 1.5rem; /* Reduzido o gap */
     }
 
-    .services__content {
-        padding: 30px;
+    .services__card {
+        padding: 1.5rem; /* Reduzido o padding */
     }
 
     .services__icon {
-        font-size: 3.5rem;
+        font-size: 2.5rem; /* Reduzido o tamanho do ícone */
+        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
     }
 
     .services__title {
-        font-size: 1.5rem;
+        font-size: 1.2rem; /* Reduzido o tamanho do título */
     }
 
-    .services__description {
-        font-size: 1rem;
+    .services__button {
+        padding: 0.7rem 1.2rem; /* Reduzido o padding */
+        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
+        margin-top: 1rem; /* Reduzido o margin-top */
     }
 
     .services__modal-content {
-        padding: 30px;
+        padding: 2rem; /* Reduzido o padding */
     }
 
     .services__modal-title {
-        font-size: 2rem;
+        font-size: 1.6rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
     }
 
-    .services__modal-service {
-        font-size: 1rem;
+    .services__modal-item {
+        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
+    }
+
+    .services__modal-item::before {
+        font-size: 1rem; /* Reduzido o tamanho do ícone */
+        margin-top: 0.1rem; /* Ajustado o margin-top */
+    }
+
+    .services__modal-close {
+        top: 0.8rem; /* Reduzido o espaçamento */
+        right: 0.8rem; /* Reduzido o espaçamento */
+        font-size: 1.2rem; /* Reduzido o tamanho do ícone */
+        width: 30px; /* Reduzido o tamanho */
+        height: 30px; /* Reduzido o tamanho */
     }
 }
