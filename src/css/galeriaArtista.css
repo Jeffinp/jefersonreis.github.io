@@ -1,23 +1,23 @@
-/* ========= ÁREA DE ARTISTA DIGITAL / GALERIA ========= */
+/* ========= ÁREA DE GALERIA DE ARTE ========= */
 
 /* --- Geral --- */
-.gallery {
-    padding: 4rem 0; /* Reduzido o padding */
+.art-gallery {
+    padding: 4rem 0;
     background-color: var(--background-color);
 }
 
-.gallery .container {
+.gallery-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-.gallery .section__title { /* Alterado para usar a classe section__title */
+.art-gallery .section__title {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 2rem; /* Reduzido o tamanho da fonte */
+    font-size: 2rem;
     text-align: center;
     font-weight: 800;
-    margin-bottom: 3rem; /* Reduzido o margin-bottom */
+    margin-bottom: 3rem;
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
@@ -26,10 +26,10 @@
     text-transform: uppercase;
 }
 
-.gallery .section__title::after { /* Alterado para usar a classe section__title */
+.art-gallery .section__title::after {
     content: '';
     display: block;
-    width: 80px; /* Reduzido o tamanho inicial */
+    width: 80px;
     height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: var(--border-radius-full);
@@ -37,41 +37,41 @@
     transition: width 0.3s ease;
 }
 
-.gallery .section__title:hover::after { /* Alterado para usar a classe section__title */
-    width: 120px; /* Reduzido o tamanho no hover */
+.art-gallery .section__title:hover::after {
+    width: 120px;
 }
 
 /* --- Carrossel --- */
-.gallery__carousel {
-    position: relative; /* Para posicionar os botões de navegação */
+.art-carousel {
+    position: relative;
     overflow: hidden;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
     background-color: var(--card-background);
     max-width: 900px;
-    margin: 0 auto; /* Centralizar o carrossel */
+    margin: 0 auto;
 }
 
-.carousel-track {
+.art-carousel__track {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
     will-change: transform;
     width: fit-content;
 }
 
-.carousel-item {
-    min-width: 100%; /* Cada item ocupa 100% da largura do carrossel */
+.art-carousel__item {
+    min-width: 100%;
     display: flex;
-    justify-content: center; /* Centraliza a imagem */
+    justify-content: center;
     padding: 2rem 0;
 }
 
-.carousel-item img {
+.art-carousel__item img {
     display: block;
     width: 100%;
     max-width: 900px;
     height: auto;
-    max-height: 506px; 
+    max-height: 506px;
     object-fit: contain;
     user-select: none;
     -webkit-user-select: none;
@@ -85,16 +85,17 @@
 }
 
 /* A imagem ativa agora recebe a opacidade 1 via JavaScript */
-.carousel-item.active img {
+.art-carousel__item.active img {
     opacity: 1 !important;
     transform: scale(1) !important;
 }
 
 /* Manter a opacidade reduzida enquanto carrega */
-.carousel-item img.loading {
+.art-carousel__item img.loading {
     opacity: 0.5 !important;
 }
-.carousel-button {
+
+.art-carousel__button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -114,85 +115,86 @@
     justify-content: center; /* Centralizar horizontalmente */
 }
 
-.carousel-button:hover {
+.art-carousel__button:hover {
     opacity: 1;
 }
 
-.carousel-button:focus-visible {
+.art-carousel__button:focus-visible {
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
 }
 
-.carousel-button.prev {
+.art-carousel__button--prev {
     left: 1rem;
 }
 
-.carousel-button.next {
+.art-carousel__button--next {
     right: 1rem;
 }
 
-.carousel-button::before {
+/* Estilizando as setas de navegação */
+.art-carousel__button::before {
     content: '';
     display: block;
-    width: 1rem; /* Tamanho da seta */
-    height: 1rem; /* Tamanho da seta */
+    width: 1rem;
+    height: 1rem;
     border-top: 3px solid var(--text-color);
     border-right: 3px solid var(--text-color);
 }
 
-.carousel-button.prev::before {
+.art-carousel__button--prev::before {
     transform: rotate(-135deg);
 }
 
-.carousel-button.next::before {
+.art-carousel__button--next::before {
     transform: rotate(45deg);
 }
 
 /* ========= Responsividade ========= */
 @media (max-width: 768px) {
-    .gallery {
-        padding: 3rem 0; /* Reduzido o padding */
+    .art-gallery {
+        padding: 3rem 0;
     }
 
-    .gallery .section__title { /* Alterado para usar a classe section__title */
-        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 2rem; /* Reduzido o margin-bottom */
+    .art-gallery .section__title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
     }
 
-    .gallery__carousel {
+    .art-carousel {
         border-radius: var(--border-radius-md);
     }
 
-    .carousel-item {
-        padding: 1rem 0; /* Reduzido o padding */
+    .art-carousel__item {
+        padding: 1rem 0;
     }
 
-    .carousel-item img {
-        max-height: 400px; /* Altura máxima da imagem reduzida */
+    .art-carousel__item img {
+        max-height: 400px;
     }
 
-    .carousel-button {
-        font-size: 1.5rem; /* Reduzido o tamanho da fonte */
-        width: 35px; /* Reduzido o tamanho do botão */
-        height: 35px; /* Reduzido o tamanho do botão */
+    .art-carousel__button {
+        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
     }
 
-    .carousel-button::before {
-        width: 0.8rem; /* Reduzido o tamanho da seta */
-        height: 0.8rem; /* Reduzido o tamanho da seta */
+    .art-carousel__button::before {
+        width: 0.8rem;
+        height: 0.8rem;
     }
 
-    .carousel-button.prev {
-        left: 0.5rem; /* Reduzido o espaçamento */
+    .art-carousel__button--prev {
+        left: 0.5rem;
     }
 
-    .carousel-button.next {
-        right: 0.5rem; /* Reduzido o espaçamento */
+    .art-carousel__button--next {
+        right: 0.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .gallery .section__title { /* Alterado para usar a classe section__title */
-        font-size: 1.5rem; /* Reduzido o tamanho da fonte */
+    .art-gallery .section__title {
+        font-size: 1.5rem;
     }
 }
