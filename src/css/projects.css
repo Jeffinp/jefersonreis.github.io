@@ -1,39 +1,47 @@
 /* Seção de Projetos */
 .projects {
+    font-family: 'Nunito Sans', sans-serif;
     padding: 4rem 0;
     background: var(--background-color);
 }
 
 .project-container {
+    font-family: 'Nunito Sans', sans-serif;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
-.section__title{
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    margin-bottom: 3rem;
+
+.section__title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 2rem;
+    /* Reduzido o tamanho da fonte */
     text-align: center;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    /* Reduzido o margin-bottom */
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
-    padding-bottom: 20px;
-    color: var(--primary-color);
-    /* Cor primária para o título */
-    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .section__title::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 5px;
+    display: block;
+    width: 80px;
+    /* Reduzido o tamanho inicial */
+    height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: 5px;
+    border-radius: var(--border-radius-full);
+    margin: 1rem auto 0;
     transition: width 0.3s ease;
 }
+
 .project-grid {
+    font-family: 'Nunito Sans', sans-serif;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
@@ -41,6 +49,7 @@
 }
 
 .project-item {
+    font-family: 'Nunito Sans', sans-serif;
     background-color: var(--card-background);
     border-radius: 20px;
     overflow: hidden;
@@ -50,7 +59,7 @@
     height: 350px;
 }
 
-/*Efeito de Transição*/
+/* Efeito de Transição */
 .project-item::before {
     content: '';
     position: absolute;
@@ -64,7 +73,7 @@
     z-index: 1;
 }
 
-/*Efeito de Transição ao passar o mouse*/
+/* Efeito de Transição ao passar o mouse */
 .project-item:hover::before {
     opacity: 1;
 }
@@ -74,8 +83,9 @@
     box-shadow: var(--shadow-lg);
 }
 
-/*Labels dos projetos*/
+/* Labels dos projetos */
 .project-label {
+    font-family: 'Nunito Sans', sans-serif;
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -91,26 +101,27 @@
     transition: transform 0.3s ease;
 }
 
-/*Estilo para projeto contratado*/
+/* Estilo para projeto contratado */
 .project-label--contracted {
     background-color: rgba(16, 185, 129, 0.85);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/*Estilo para projeto pessoal*/
+/* Estilo para projeto pessoal */
 .project-label--personal {
     background-color: rgba(96, 165, 250, 0.85);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/*Efeito de Transição ao passar o mouse*/
+/* Efeito de Transição ao passar o mouse */
 .project-item:hover .project-label {
     transform: translateY(-3px);
 }
 
 .project-image {
+    font-family: 'Nunito Sans', sans-serif;
     width: 100%;
     height: 60%;
     background-size: cover;
@@ -118,18 +129,20 @@
 }
 
 .project-image img {
+    font-family: 'Nunito Sans', sans-serif;
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-/*Efeito de Transição ao passar o mouse*/
+/* Efeito de Transição ao passar o mouse */
 .project-item:hover .project-image img {
     transform: scale(1.05);
 }
 
 .project-info {
+    font-family: 'Nunito Sans', sans-serif;
     padding: 1.5rem;
     position: relative;
     z-index: 2;
@@ -137,13 +150,14 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/*Efeito de Transição ao passar o mouse*/
+/* Efeito de Transição ao passar o mouse */
 .project-item:hover .project-info {
     background-color: var(--hover-color);
     transform: translateY(-5px);
 }
 
 .project-info h3 {
+    font-family: 'Nunito Sans', sans-serif;
     margin-top: 0;
     font-size: 1.4rem;
     color: var(--text-color);
@@ -151,6 +165,7 @@
 }
 
 .project-info p {
+    font-family: 'Nunito Sans', sans-serif;
     margin: 0 0 1rem;
     font-size: 0.95rem;
     line-height: 1.5;
@@ -160,8 +175,9 @@
     transition: max-height 0.6s ease, opacity 0.6s ease;
 }
 
-/*Estilo do botão*/
+/* Estilo do botão */
 .project-link {
+    font-family: 'Nunito Sans', sans-serif;
     display: inline-block;
     padding: 0.8rem 1.5rem;
     background-color: var(--primary-color);
@@ -175,7 +191,7 @@
     text-transform: uppercase;
 }
 
-/*Efeito de brilho*/
+/* Efeito de brilho */
 .project-link::after {
     content: '';
     position: absolute;
@@ -184,15 +200,20 @@
     width: 300%;
     height: 300%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    transition: transform 0.4s ease, opacity 0.4s ease; /* Adicionada transição para opacity */
-    transform: translate(-50%, -50%) scale(0); /* Completando a propriedade transform */
-    border-radius: 50%; /* Para o efeito ficar circular */
-    opacity: 0; /* Inicialmente invisível */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    /* Adicionada transição para opacity */
+    transform: translate(-50%, -50%) scale(0);
+    /* Completando a propriedade transform */
+    border-radius: 50%;
+    /* Para o efeito ficar circular */
+    opacity: 0;
+    /* Inicialmente invisível */
 }
 
 .project-link:hover::after {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 1; /* Fica visível no hover */
+    opacity: 1;
+    /* Fica visível no hover */
 }
 
 .project-link:hover {
@@ -201,6 +222,7 @@
 
 /* ----- CAROUSEL ----- */
 .carousel {
+    font-family: 'Nunito Sans', sans-serif;
     position: relative;
     overflow: hidden;
     max-width: 100%;
@@ -210,12 +232,14 @@
 }
 
 .carousel-track {
+    font-family: 'Nunito Sans', sans-serif;
     display: flex;
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     cursor: grab;
 }
 
 .carousel-item {
+    font-family: 'Nunito Sans', sans-serif;
     min-width: 100%;
     padding: 1rem;
     box-sizing: border-box;
@@ -225,11 +249,13 @@
 }
 
 .carousel-item.active {
+    font-family: 'Nunito Sans', sans-serif;
     opacity: 1;
     transform: scale(1);
 }
 
 .carousel-button {
+    font-family: 'Nunito Sans', sans-serif;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -253,76 +279,102 @@
 }
 
 .prev {
+    font-family: 'Nunito Sans', sans-serif;
     left: 1rem;
 }
 
 .next {
+    font-family: 'Nunito Sans', sans-serif;
     right: 1rem;
 }
 
 /* ----- RESPONSIVIDADE ----- */
 @media (max-width: 768px) {
     .project-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        font-family: 'Nunito Sans', sans-serif;
+        grid-template-columns: 1fr;
+        /* Uma coluna em telas menores */
         gap: 1.5rem;
     }
 
     .project-item {
-        height: auto; /* Altura automática em telas menores */
+        font-family: 'Nunito Sans', sans-serif;
+        height: auto;
+        /* Altura automática em telas menores */
     }
 
     .project-image {
-        height: 250px; /* Altura da imagem ajustada */
+        font-family: 'Nunito Sans', sans-serif;
+        height: 250px;
+        /* Altura da imagem ajustada */
     }
 
     .project-info h3 {
-        font-size: 1.2rem; /* Tamanho do título ajustado */
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 1.2rem;
+        /* Tamanho do título ajustado */
     }
 
     .project-info p {
-        font-size: 0.9rem; /* Tamanho da descrição ajustado */
-        max-height: 6em; /* Altura máxima da descrição ajustada */
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 0.9rem;
+        /* Tamanho da descrição ajustado */
+        max-height: 6em;
+        /* Altura máxima da descrição ajustada */
     }
 
     .project-link {
-        padding: 0.7rem 1.2rem; /* Tamanho do botão ajustado */
-        font-size: 0.9rem; /* Tamanho da fonte do botão ajustado */
+        font-family: 'Nunito Sans', sans-serif;
+        padding: 0.7rem 1.2rem;
+        /* Tamanho do botão ajustado */
+        font-size: 0.9rem;
+        /* Tamanho da fonte do botão ajustado */
     }
 
     .carousel-button {
+        font-family: 'Nunito Sans', sans-serif;
         width: 30px;
         height: 30px;
         font-size: 1rem;
     }
 
     .prev {
+        font-family: 'Nunito Sans', sans-serif;
         left: 0.5rem;
     }
 
     .next {
+        font-family: 'Nunito Sans', sans-serif;
         right: 0.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .project-grid {
-        padding: 3rem 1rem; /* Padding ajustado */
+        font-family: 'Nunito Sans', sans-serif;
+        padding: 3rem 1rem;
+        /* Padding ajustado */
     }
 
     .project-label {
-        font-size: 0.7rem; /* Tamanho do label ajustado */
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 0.7rem;
+        /* Tamanho do label ajustado */
     }
 
     .carousel-button {
+        font-family: 'Nunito Sans', sans-serif;
         width: 25px;
         height: 25px;
         font-size: 0.8rem;
     }
+
     .prev {
+        font-family: 'Nunito Sans', sans-serif;
         left: 0.3rem;
     }
 
     .next {
-        right: 0.3rem;
+        font-family: 'Nunito Sans', sans-serif;
     }
 }
