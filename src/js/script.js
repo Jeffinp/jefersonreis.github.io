@@ -284,41 +284,48 @@ function debounce(func, wait) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicia o carrossel
-    const carousel = new ImageCarousel({
-        sensitivity: 100,
-        autoAdvanceInterval: 5000,
-        transitionDuration: 500
-    });
+    // Initialize the carousels if the necessary elements exist.
+    if (document.querySelector('.carousel-track')) {
+        new ImageCarousel();
+    }
+    if (document.querySelector('.art-carousel__track')) {
+        new ArtImageCarousel();
+    }
 
-    // Inicia o gerenciamento das habilidades
-    const skillsManager = new SkillsManager();
+    // Initialize the skills management if the necessary elements exist.
+    if (document.querySelector('.skills__content')) {
+        new SkillsManager();
+    }
+
+    // Initialize the modal manager if the necessary elements exist
+    if (document.querySelector(".services.section")) {
+        new ModalManager();
+    }
 });
 
-// Classe para gerenciar o carrossel de imagens
+// Class to manage the main image carousel
 class ImageCarousel {
     constructor(options = {}) {
-        // Configuração com valores padrão
-        this.transitionDuration = options.transitionDuration || 500; // Duração da transição em ms
-        this.autoAdvanceInterval = options.autoAdvanceInterval || 5000; // Intervalo de avanço automático em ms
-        this.touchSensitivity = options.touchSensitivity || 50; // Sensibilidade ao toque (pixels)
+        // Configuration with default values
+        this.transitionDuration = options.transitionDuration || 500;
+        this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
+        this.touchSensitivity = options.touchSensitivity || 100; // Increased sensitivity
 
-        // Estado
-        this.currentIndex = 0; // Índice da imagem atual
-        this.isDragging = false; // Flag para verificar se está arrastando
-        this.dragStartX = 0; // Posição X inicial do arrasto
-        this.dragDiff = 0; // Diferença entre a posição inicial e a atual do arrasto
-        this.autoAdvanceTimer = null; // Timer para avanço automático
+        // State
+        this.currentIndex = 0;
+        this.isDragging = false;
+        this.dragStartX = 0;
+        this.dragDiff = 0;
+        this.autoAdvanceTimer = null;
 
-        // Elementos do DOM
-        this.carousel = document.querySelector('.gallery__carousel');
+        // DOM elements
+        this.carousel = document.querySelector('.project-container'); // Targeting the correct container
         this.track = document.querySelector('.carousel-track');
         this.items = document.querySelectorAll('.carousel-item');
-        this.images = document.querySelectorAll('.carousel-item img');
         this.prevButton = document.querySelector('.carousel-button.prev');
         this.nextButton = document.querySelector('.carousel-button.next');
 
-        // Se não houver imagens, interrompe a execução
+        // If there are no images, stop execution
         if (this.items.length === 0) return;
 
         this.init();
@@ -331,11 +338,11 @@ class ImageCarousel {
     }
 
     setupEventListeners() {
-        // Eventos de clique nos botões
+        // Click events on buttons
         this.prevButton.addEventListener('click', () => this.prevSlide());
         this.nextButton.addEventListener('click', () => this.nextSlide());
 
-        // Eventos de arrastar (touch e mouse)
+        // Drag events (touch and mouse)
         this.track.addEventListener('mousedown', this.handleDragStart.bind(this));
         this.track.addEventListener('touchstart', this.handleDragStart.bind(this));
         this.track.addEventListener('mousemove', this.handleDrag.bind(this));
@@ -344,261 +351,173 @@ class ImageCarousel {
         this.track.addEventListener('mouseleave', this.handleDragEnd.bind(this));
         this.track.addEventListener('touchend', this.handleDragEnd.bind(this));
 
-        // Eventos de teclado
+        // Keyboard events
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') this.prevSlide();
             if (e.key === 'ArrowRight') this.nextSlide();
         });
-
-        // Eventos de carregamento de imagem (para transição suave)
-        this.images.forEach(img => {
-            img.addEventListener('load', () => {
-                img.style.transition = `opacity ${this.transitionDuration}ms ease-in-out, transform ${this.transitionDuration}ms ease-in-out`;
-                if (img.parentElement.classList.contains('active')) {
-                    img.style.opacity = '1';
-                }
-            });
-        });
     }
 
-    // Mostra o slide especificado pelo índice
+    // Show the slide specified by the index
     showSlide(index) {
-        // Certifique-se de que o índice esteja dentro dos limites
         if (index < 0 || index >= this.items.length) return;
 
-        // Remove a classe 'active' de todos os itens
-        this.items.forEach(item => item.classList.remove('active'));
-
-        // Adiciona a classe 'active' ao item atual
-        this.items[index].classList.add('active');
-
-        // Define a transformação do track para mover o carrossel
+        this.currentIndex = index;
         const offset = -index * 100;
         this.track.style.transform = `translateX(${offset}%)`;
 
-        this.currentIndex = index;
         this.resetAutoAdvance();
     }
 
-    // Avança para o próximo slide
+    // Move to the next slide
     nextSlide() {
         const newIndex = (this.currentIndex + 1) % this.items.length;
         this.showSlide(newIndex);
     }
 
-    // Volta para o slide anterior
+    // Move to the previous slide
     prevSlide() {
         const newIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
         this.showSlide(newIndex);
     }
 
-    // Inicia o arrasto
+    // Start dragging
     handleDragStart(e) {
         this.isDragging = true;
         this.track.style.cursor = 'grabbing';
         this.dragStartX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        // Pausa o avanço automático ao iniciar o arrasto
-        clearInterval(this.autoAdvanceTimer);
+        this.pauseAutoAdvance();
     }
 
-    // Move o carrossel durante o arrasto
+    // Move the carousel during dragging
     handleDrag(e) {
         if (!this.isDragging) return;
         e.preventDefault();
 
         const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        this.dragDiff = (this.dragStartX - x);
-        const newOffset = -this.currentIndex * 100 - (this.dragDiff / this.carousel.offsetWidth * 100);
+        this.dragDiff = x - this.dragStartX;
+        const newOffset = -this.currentIndex * 100 + (this.dragDiff / this.carousel.offsetWidth * 100);
         this.track.style.transform = `translateX(${newOffset}%)`;
-
-        // Ajustar o índice atual com base no arrasto
-        if (Math.abs(this.dragDiff) > this.touchSensitivity) {
-            if (this.dragDiff > 0) {
-                // Arrastou para a esquerda
-                this.currentIndex = (this.currentIndex + 1) % this.items.length;
-            } else {
-                // Arrastou para a direita
-                this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-            }
-
-            // Atualizar a posição inicial do arrasto para a próxima ação
-            this.dragStartX = x;
-
-            // Mover o carrossel para o novo índice
-            this.showSlide(this.currentIndex);
-        }
     }
 
-    // Finaliza o arrasto
+    // End dragging
     handleDragEnd() {
+        if (!this.isDragging) return;
         this.isDragging = false;
         this.track.style.cursor = 'grab';
+
+        // Determine whether to move to the next or previous slide based on the drag distance
+        if (Math.abs(this.dragDiff) > this.touchSensitivity) {
+            if (this.dragDiff > 0) {
+                this.prevSlide();
+            } else {
+                this.nextSlide();
+            }
+        } else {
+            this.showSlide(this.currentIndex); // Return to the current slide
+        }
+
+        this.dragDiff = 0;
         this.resetAutoAdvance();
     }
 
-    // Inicia o avanço automático
+    // Start auto-advance
     startAutoAdvance() {
         clearInterval(this.autoAdvanceTimer);
         this.autoAdvanceTimer = setInterval(() => this.nextSlide(), this.autoAdvanceInterval);
     }
 
-    // Reinicia o avanço automático
-    resetAutoAdvance() {
+    // Pause auto-advance
+    pauseAutoAdvance() {
         clearInterval(this.autoAdvanceTimer);
+    }
+
+    // Reset auto-advance
+    resetAutoAdvance() {
+        this.pauseAutoAdvance();
         this.startAutoAdvance();
     }
 }
 
-// Inicializa o carrossel
-document.addEventListener('DOMContentLoaded', () => {
-    new ImageCarousel();
-});
+// Class to manage the digital art carousel
+class ArtImageCarousel {
+    constructor() {
+        this.track = document.querySelector('.art-carousel__track');
+        this.items = Array.from(this.track.children);
+        this.nextButton = document.querySelector('.art-carousel__button--next');
+        this.prevButton = document.querySelector('.art-carousel__button--prev');
+        this.currentIndex = 0;
+        this.isDragging = false;
+        this.startPos = 0;
+        this.currentTranslate = 0;
+        this.prevTranslate = 0;
 
-//CARROUSEL ARTISTA DIGITAL
-document.addEventListener('DOMContentLoaded', () => {
-/**
- * Seleciona os elementos do carrossel.
- */
-const track = document.querySelector('.art-carousel__track'); // Faixa do carrossel
-const items = Array.from(track.children); // Itens do carrossel (imagens)
-const nextButton = document.querySelector('.art-carousel__button--next'); // Botão "próximo"
-const prevButton = document.querySelector('.art-carousel__button--prev'); // Botão "anterior"
+        this.init();
+    }
 
-/**
- * Variáveis de controle do carrossel.
- */
-let currentIndex = 0; // Índice do slide atual
-const itemWidth = items[0].offsetWidth; // Largura de um item (assume que todos têm a mesma largura)
+    init() {
+        // Wait for images to load before calculating item width
+        Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
+            this.itemWidth = this.items[0].offsetWidth;
+            this.setupEventListeners();
+            this.items[0].classList.add('active');
+        });
+    }
 
-/**
- * Move o carrossel para um slide específico.
- * @param {number} index - O índice do slide para o qual mover.
- */
-function moveToSlide(index) {
-    track.style.transform = `translateX(-${itemWidth * index}px)`; // Move a faixa
-    currentIndex = index; // Atualiza o índice atual
+    setupEventListeners() {
+        this.nextButton.addEventListener('click', () => this.moveToSlide(this.currentIndex + 1));
+        this.prevButton.addEventListener('click', () => this.moveToSlide(this.currentIndex - 1));
 
-    // Atualiza a classe 'active' para o item atual
-    items.forEach(item => item.classList.remove('active'));
-    items[currentIndex].classList.add('active');
+        this.track.addEventListener('mousedown', this.dragStart.bind(this));
+        this.track.addEventListener('touchstart', this.dragStart.bind(this));
+        this.track.addEventListener('mouseup', this.dragEnd.bind(this));
+        this.track.addEventListener('mouseleave', this.dragEnd.bind(this));
+        this.track.addEventListener('touchend', this.dragEnd.bind(this));
+        this.track.addEventListener('mousemove', this.drag.bind(this));
+        this.track.addEventListener('touchmove', this.drag.bind(this));
+    }
+
+    moveToSlide(index) {
+        if (index < 0) {
+            index = this.items.length - 1;
+        } else if (index >= this.items.length) {
+            index = 0;
+        }
+        this.track.style.transform = `translateX(-${this.itemWidth * index}px)`;
+        this.currentIndex = index;
+
+        this.items.forEach(item => item.classList.remove('active'));
+        this.items[this.currentIndex].classList.add('active');
+    }
+
+    dragStart(e) {
+        this.isDragging = true;
+        this.startPos = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        this.prevTranslate = this.currentTranslate;
+        this.track.style.cursor = 'grabbing';
+    }
+
+    drag(e) {
+        if (!this.isDragging) return;
+        const currentPosition = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+        this.currentTranslate = this.prevTranslate + currentPosition - this.startPos;
+        this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+    }
+
+    dragEnd() {
+        this.isDragging = false;
+        this.track.style.cursor = 'grab';
+        const movedBy = this.currentTranslate - this.prevTranslate;
+        if (movedBy < -100 && this.currentIndex < this.items.length - 1) {
+            this.currentIndex += 1;
+        } else if (movedBy > 100 && this.currentIndex > 0) {
+            this.currentIndex -= 1;
+        }
+        this.moveToSlide(this.currentIndex);
+    }
 }
 
-/**
- * Evento de clique no botão "próximo".
- */
-nextButton.addEventListener('click', () => {
-    if (currentIndex < items.length - 1) {
-        moveToSlide(currentIndex + 1); // Move para o próximo slide
-    } else {
-        moveToSlide(0); // Volta para o primeiro slide se estiver no último
-    }
-});
-
-/**
- * Evento de clique no botão "anterior".
- */
-prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        moveToSlide(currentIndex - 1); // Move para o slide anterior
-    } else {
-        moveToSlide(items.length - 1); // Vai para o último slide se estiver no primeiro
-    }
-});
-
-/**
- * Define o primeiro item como ativo inicialmente.
- */
-items[0].classList.add('active');
-
-/**
- * Variáveis para a funcionalidade de arrastar.
- */
-let isDragging = false;
-let startPos = 0;
-let currentTranslate = 0;
-let prevTranslate = 0;
-
-/**
- * Evento de 'mousedown' (clique e segurar) na faixa do carrossel.
- */
-track.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startPos = e.clientX; // Posição X inicial do mouse
-    prevTranslate = currentTranslate; // Armazena a translação atual
-    track.style.cursor = 'grabbing'; // Muda o cursor para 'grabbing'
-});
-
-/**
- * Evento de 'mousemove' (mover o mouse) na faixa do carrossel.
- */
-track.addEventListener('mousemove', (e) => {
-    if (!isDragging) return; // Se não estiver arrastando, não faz nada
-    const currentPosition = e.clientX; // Posição X atual do mouse
-    currentTranslate = prevTranslate + currentPosition - startPos; // Calcula a nova translação
-    track.style.transform = `translateX(${currentTranslate}px)`; // Move a faixa
-});
-
-/**
- * Evento de 'mouseup' (soltar o clique) na faixa do carrossel.
- */
-track.addEventListener('mouseup', () => {
-    isDragging = false;
-    track.style.cursor = 'grab'; // Muda o cursor para 'grab'
-    const movedBy = currentTranslate - prevTranslate; // Calcula o deslocamento
-
-    // Se moveu mais que 100px ou menos que -100px, muda de slide
-    if (movedBy < -100 && currentIndex < items.length - 1) {
-        currentIndex += 1;
-    } else if (movedBy > 100 && currentIndex > 0) {
-        currentIndex -= 1;
-    }
-
-    moveToSlide(currentIndex); // Move para o slide correto
-});
-
-/**
- * Evento de 'mouseleave' (mouse sair da faixa) na faixa do carrossel.
- */
-track.addEventListener('mouseleave', () => {
-    isDragging = false;
-    track.style.cursor = 'grab';
-    moveToSlide(currentIndex); // Retorna para o slide atual
-});
-
-/**
- * Eventos de toque para dispositivos móveis.
- */
-track.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    startPos = e.touches[0].clientX; // Posição X inicial do toque
-    prevTranslate = currentTranslate;
-    track.style.cursor = 'grabbing';
-});
-
-track.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const currentPosition = e.touches[0].clientX; // Posição X atual do toque
-    currentTranslate = prevTranslate + currentPosition - startPos;
-    track.style.transform = `translateX(${currentTranslate}px)`;
-});
-
-track.addEventListener('touchend', () => {
-    isDragging = false;
-    track.style.cursor = 'grab';
-    const movedBy = currentTranslate - prevTranslate;
-
-    if (movedBy < -100 && currentIndex < items.length - 1) {
-        currentIndex += 1;
-    } else if (movedBy > 100 && currentIndex > 0) {
-        currentIndex -= 1;
-    }
-
-    moveToSlide(currentIndex);
-});
-
-});
-
-// Classe para gerenciar as seções de habilidades
+// Class to manage the skills sections
 class SkillsManager {
     constructor() {
         this.skillsContents = document.querySelectorAll('.skills__content');
@@ -679,62 +598,48 @@ class SkillsManager {
     }
 }
 
-// Inicialização quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function () {
-    // Inicializa o carrossel se houver elementos necessários
-    if (document.querySelector('.main-image-container')) {
-        new ImageCarousel();
+// Class to manage the Modals
+class ModalManager {
+    constructor() {
+        this.servicesSection = document.querySelector(".services.section");
+        this.modalViews = document.querySelectorAll(".services__modal");
+        this.init();
     }
 
-    // Inicializa o gerenciador de habilidades se houver elementos necessários
-    if (document.querySelector('.skills__content')) {
-        new SkillsManager();
+    init() {
+        this.servicesSection.addEventListener("click", this.handleModalEvents.bind(this));
+        document.addEventListener('keydown', this.handleKeyDown.bind(this));
     }
-});
 
-// Inicializa o gerenciador quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', () => {
-    new SkillsManager();
-});
+    openModal(index) {
+        this.modalViews[index].classList.add("active-modal");
+    }
 
-// Seleciona o contêiner de serviços e modais
-const servicesSection = document.querySelector(".services.section");
-const modalViews = document.querySelectorAll(".services__modal");
+    closeModal() {
+        this.modalViews.forEach(modal => modal.classList.remove("active-modal"));
+    }
 
-// Função para abrir o modal
-function openModal(index) {
-    modalViews[index].classList.add("active-modal");
+    handleModalEvents(event) {
+        const target = event.target;
+    
+        if (target.closest('.services__button')) {
+            const button = target.closest('.services__button');
+            const modalIndex = button.getAttribute('data-modal');
+            this.openModal(parseInt(modalIndex));
+        }
+    
+        if (target.classList.contains("services__modal-close") ||
+            target.classList.contains("services__modal")) {
+            this.closeModal();
+        }
+    }
+    
+    handleKeyDown(event) {
+        if (event.key === 'Escape') {
+            this.closeModal();
+        }
+    }
 }
-
-// Função para fechar todos os modais
-function closeModal() {
-    modalViews.forEach(modal => modal.classList.remove("active-modal"));
-}
-
-// Manipulador de eventos para abrir e fechar modais
-servicesSection.addEventListener("click", (event) => {
-    const target = event.target;
-
-    // Verifica se o botão de abrir modal foi clicado
-    if (target.closest('.services__button')) {
-        const button = target.closest('.services__button');
-        const modalIndex = button.getAttribute('data-modal');
-        openModal(parseInt(modalIndex));
-    }
-
-    // Verifica se o botão de fechar modal foi clicado ou se clicou fora do modal
-    if (target.classList.contains("services__modal-close") ||
-        target.classList.contains("services__modal")) {
-        closeModal();
-    }
-});
-
-// Adiciona listener para fechar modal com a tecla ESC
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-});
 
 // Carrossel de Depoimentos
 document.addEventListener('DOMContentLoaded', function() {
