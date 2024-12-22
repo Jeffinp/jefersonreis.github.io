@@ -6,215 +6,234 @@
     <title>Jeferson Reis - Illustrator & Designer</title>
     <meta name="author" content="Jeferson Reis Almeida">
     <meta name="description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras.">
-    <meta name="keywords" content="Digital Artist, Illustrator, Art, Graphic Design, Creativity, Digital Art Portfolio">
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="keywords" content="Artista Digital, Ilustrador, Arte, Design Gráfico, Criatividade, Portfólio de Arte Digital, Jeferson Reis, Bahia, Camaçari, Freelancer, Web Design, Graphic Design, Ilustrações, Pintura Digital">
+
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
+    <meta property="og:url" content="https://jefersonreis-github-io.vercel.app/Artistadigital.html">
     <meta property="og:title" content="Jeferson Reis - Illustrator & Designer">
     <meta property="og:description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras.">
-    <meta property="og:image" content="https://jeffinp.github.io/jefersonreis.github.io/src/image/Linkedin-foto.webp">
+    <meta property="og:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
+    <meta property="og:image:alt" content="Foto de Jeferson Reis">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
+    <meta name="twitter:url" content="https://jefersonreis-github-io.vercel.app/Artistadigital.html">
     <meta name="twitter:title" content="Jeferson Reis - Illustrator & Designer">
     <meta name="twitter:description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras.">
-    <meta name="twitter:image" content="https://jeffinp.github.io/jefersonreis.github.io/src/image/Linkedin-foto.webp">
+    <meta name="twitter:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
+    <meta name="twitter:image:alt" content="Foto de Jeferson Reis">
 
-    <!-- Favicon -->
     <link rel="icon" href="./src/image/icon/Iconsite.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="./src/image/apple-touch-icon.png">
 
-    <!-- Estilos -->
-    <script src="/src/js/script.js" defer></script>
-    <script src="/src/js/Particles.js" defer></script>
     <link rel="stylesheet" href="./src/css/import.css">
-    
-    <!-- Scripts -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
-</head>    
+    <script src="/src/js/script.js" defer></script>
+    <script src="/src/js/Particles.js" defer></script>
+    <link rel="canonical" href="https://jefersonreis-github-io.vercel.app/Artistadigital.html">
+</head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="language-switch">
-            <a href="./Artistadigital.html" data-lang="pt" aria-label="Portuguese">
-                <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português">PT
-            </a>
-            <a href="./Artistadigital-en.html" data-lang="en" aria-label="English">
-                <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês">EN
-            </a>
-        </div>        
-        <div class="container">
-            <h1 class="logo" aria-label="Logo de Jeferson Reis">JR</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
+    <header class="header">
+        <div class="container header__container">
+            <a href="./index.html" class="header__logo" aria-label="Logo de Jeferson Reis">JR</a>
+            <nav class="header__nav" aria-label="Navegação principal">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="./index.html#home" class="header__nav-link">Início</a></li>
+                    <li class="header__nav-item"><a href="#sobre" class="header__nav-link">Sobre</a></li>
+                    <li class="header__nav-item"><a href="#galeria" class="header__nav-link">Galeria</a></li>
                 </ul>
             </nav>
+            <div class="header__actions">
+                <div class="language-switch">
+                    <a href="./Artistadigital.html" data-lang="pt" aria-label="Português" class="language-switch__link">
+                        <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português" class="language-switch__icon">PT
+                    </a>
+                    <a href="./Artistadigital-en.html" data-lang="en" aria-label="English" class="language-switch__link">
+                        <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês" class="language-switch__icon">EN
+                    </a>
+                </div>
+                <button id="darkModeToggle" class="header__dark-mode-toggle" aria-label="Alternar modo escuro">
+                    <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-
-    <!-- DARK MODE TOGGLE BUTTON -->
-    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
-        <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
-    </button>
-
-    <!-- HERO SECTION -->
     <main>
         <section id="home" class="hero parallax" aria-label="Home">
-            <div id="particles-js"></div>
-            <div class="container">
-                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
-                <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Ilustrador e Designer</p>
-                <a href="#galeria" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">Ver galeria</a>
+            <div id="particles-js" class="hero__particles"></div>
+            <div class="container hero__container">
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="hero__profile-pic" loading="lazy" width="100" height="210">
+                <h1 id="heroTitle" class="hero__title" data-aos="fade-up">Jeferson Reis Almeida</h1>
+                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">Ilustrador e Designer</p>
+                <a href="#galeria" class="button button--primary" data-aos="fade-up" data-aos-delay="400">Ver galeria</a>
             </div>
-        </section>                 
+        </section>
 
-        <!-- SOBRE MIM COMO ARTISTA -->
-        <section id="sobre-artista" class="about" aria-labelledby="sobreArtistaTitle">
+        <section id="sobre" class="section about" aria-labelledby="sobreArtistaTitle">
             <div class="container">
-                <h2 id="sobreArtistaTitle">Sobre Mim</h2>
-                <div class="about-content">
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:palette" data-width="48" data-height="48" aria-hidden="true"></span>
-                        <div class="about-item-content">
-                            <h3>Artista Digital</h3>
-                            <p>🎨 Como artista digital, crio desde ilustrações detalhadas até composições abstratas. Minhas obras transmitem emoções e histórias, utilizando técnicas digitais para materializar ideias únicas.</p>
+                <h2 id="sobreArtistaTitle" class="section__title">Sobre Mim</h2>
+                <div class="about__content grid">
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:palette" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Artista Digital</h3>
+                            <p class="about__item-description">🎨 Como artista digital, crio desde ilustrações detalhadas até composições abstratas. Minhas obras transmitem emoções e histórias, utilizando técnicas digitais para materializar ideias únicas.</p>
                         </div>
                     </article>
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:brush" data-width="48" data-height="48" aria-hidden="true"></span>
-                        <div class="about-item-content">
-                            <h3>Designer Gráfico</h3>
-                            <p>🖌️ Além de ser artista digital, trabalho como designer gráfico. Crio artes personalizadas e materiais comerciais como banners e produtos promocionais, atendendo diversas necessidades do mercado.</p>
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:brush" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Designer Gráfico</h3>
+                            <p class="about__item-description">🖌️ Além de ser artista digital, trabalho como designer gráfico. Crio artes personalizadas e materiais comerciais como banners e produtos promocionais, atendendo diversas necessidades do mercado.</p>
                         </div>
                     </article>
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:lightbulb-on-outline" data-width="48" data-height="48" aria-hidden="true"></span>
-                        <div class="about-item-content">
-                            <h3>Inspiração e Criatividade</h3>
-                            <p>💡 Minha inspiração vem de diversas fontes, mas o que me move é contar histórias visuais. Cada projeto é uma oportunidade de combinar criatividade com técnica, criando obras atraentes e significativas.</p>
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:lightbulb-on-outline" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Inspiração e Criatividade</h3>
+                            <p class="about__item-description">💡 Minha inspiração vem de diversas fontes, mas o que me move é contar histórias visuais. Cada projeto é uma oportunidade de combinar criatividade com técnica, criando obras atraentes e significativas.</p>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- GALERIA DE ARTE -->
-        <section id="galeria" class="gallery" aria-labelledby="galeriaTitle">
+        <section id="galeria" class="gallery section" aria-labelledby="galeriaTitle">
             <div class="container">
-                <h2 id="galeriaTitle">Minha Galeria</h2>
-                <div class="modern-carousel">
-                    <button class="nav prev" aria-label="Anterior"></button>
-                    <div class="main-image-container">
-                        <img src="./src/image/Artes/A dupla do terror.webp" alt="A dupla do terror" class="main-image active">
-                        <img src="./src/image/design/design-nerf.webp" class="main-image">
-                        <img src="./src/image/design/design-nerf2.webp" class="main-image">
-                        <img src="./src/image/Artes/Azete.webp" alt="Azeite de oliva" class="main-image">
-                        <img src="./src/image/Artes/bandeira estilosa do brasil.webp" alt="Bandeira estilosa do Brasil" class="main-image">
-                        <img src="./src/image/Artes/Design computador.webp" alt="Design Computador" class="main-image">
-                        <img src="./src/image/Artes/Estampa_de_camisa_2_A_Tenico frente.webp" alt="Estampa de Camisa Tênico Frente" class="main-image">
-                        <img src="./src/image/Artes/FJIMG_20230515_144702 copiar.webp" alt="FJIMG Copiar" class="main-image">
-                        <img src="./src/image/Artes/giratina.webp" alt="Giratina" class="main-image">
-                        <img src="./src/image/Artes/hamburguer.webp" alt="Hambúrguer" class="main-image">
-                        <img src="./src/image/Artes/IMG_20220505_160629.webp" alt="Imagem 20220505" class="main-image">
-                        <img src="./src/image/Artes/Pizza_do_sul .webp" alt="Pizza do Sul" class="main-image">
-                        <img src="./src/image/Artes/pizza_no_insta.webp" alt="Pizza no Insta" class="main-image">
-                        <img src="./src/image/Artes/Protótipo de nave padrão de Brail.webp" alt="Protótipo de Nave Padrão de Brail" class="main-image">
-                        <img src="./src/image/Artes/bratails-360-2023.jpg" alt="Protótipo de Nave Padrão de Brail" class="main-image">
-                        <img src="./src/image/Artes/Bratails-V2-sorrindo.jpg" alt="Bratails sorrindo" class="main-image">
-                        <img src="./src/image/Artes/Bratailsnave.jpg" alt="Bratails na nave" class="main-image">
-                        <img src="./src/image/Artes/As-Gemeas.jpg" alt="Duas espadas" class="main-image">
-                        <img src="./src/image/Artes/Simbolos-da-forma-ANGEL.jpg" alt="Duas espadas" class="main-image">
-                        <img src="./src/image/Artes/the-four-kingdoms-(2).jpg" alt="Duas espadas" class="main-image">
-                        <img src="./src/image/Artes/O-furry-que-mata-furrys.jpg" alt="Duas espadas" class="main-image">
-                        <img src="./src/image/Artes/Annie.jpg" alt="Duas espadas" class="main-image">
-                    </div>
-                    <button class="nav next" aria-label="Próximo"></button>
+                <h2 id="galeriaTitle" class="section__title">Minha Galeria</h2>
+                <div class="gallery__carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/A dupla do terror.webp" alt="A dupla do terror" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Azete.webp" alt="Azeite de oliva" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/bandeira estilosa do brasil.webp" alt="Bandeira estilosa do Brasil" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Design computador.webp" alt="Design Computador" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Estampa_de_camisa_2_A_Tenico frente.webp" alt="Estampa de Camisa Tênico Frente" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/FJIMG_20230515_144702 copiar.webp" alt="FJIMG Copiar" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/giratina.webp" alt="Giratina" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/hamburguer.webp" alt="Hambúrguer" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/IMG_20220505_160629.webp" alt="Imagem 20220505" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Pizza_do_sul .webp" alt="Pizza do Sul" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/pizza_no_insta.webp" alt="Pizza no Insta" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Protótipo de nave padrão de Brail.webp" alt="Protótipo de Nave Padrão de Brail" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/bratails-360-2023.jpg" alt="Protótipo de Nave Padrão de Brail" class="main-image" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Bratails-V2-sorrindo.jpg" alt="Bratails sorrindo" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Bratailsnave.jpg" alt="Bratails na nave" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/As-Gemeas.jpg" alt="Duas espadas" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Simbolos-da-forma-ANGEL.jpg" alt="Duas espadas" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/the-four-kingdoms-(2).jpg" alt="The Four Kingdoms" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/O-furry-que-mata-furrys.jpg" alt="O Furry que mata Furrys" loading="lazy">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./src/image/Artes/Annie.jpg" alt="Annie" loading="lazy">
+                        </div>
+                        </div>
+                    <button class="carousel-button prev" aria-label="Anterior">❮</button>
+                    <button class="carousel-button next" aria-label="Próximo">❯</button>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO DE RETORNO À PÁGINA PRINCIPAL -->
-        <section id="return-section">
+        <section id="return-section" class="section">
             <div class="container">
-                <h2 class="return-title">Voltar para a Página Principal</h2>
-                <p class="return-description">Volte para a página inicial para explorar mais conteúdo.</p>
-                <div class="return-link">
-                    <a href="index.html" class="return-button">
-                        <span class="iconify" data-icon="mdi:home" data-width="24" data-height="24"></span>
-                        Ir para a Página Inicial
-                    </a>
-                </div>
+                <h2 class="section__title">Voltar para a Página Principal</h2>
+                <p class="section__subtitle">Volte para a página inicial para explorar mais conteúdo.</p>
+                <a href="index.html" class="button button--primary">
+                    <span class="iconify" data-icon="mdi:home" data-width="24" data-height="24"></span>
+                    Ir para a Página Inicial
+                </a>
             </div>
         </section>
-
     </main>
 
-        <!-- FOOTER -->
-        <footer class="footer">
-            <div class="footer__container">
-                <div class="footer__content">
-                    <div class="footer__logo">
-                        <h2>Jeferson Reis</h2>
-                        <p>Desenvolvedor Web Full Stack</p>
-                    </div>
-                    <nav class="footer__nav">
-                        <h3>Links Rápidos</h3>
-                        <ul>
-                            <li><a href="#home">Início</a></li>
-                            <li><a href="#about">Sobre</a></li>
-                            <li><a href="#portfolio">Portfólio</a></li>
-                            <li><a href="#contact">Contato</a></li>
-                        </ul>
-                    </nav>
-                    <div class="footer__social">
-                        <h3>Conecte-se</h3>
-                        <ul class="social-links">
-                            <li>
-                                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
-                                    <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
-                                    <span class="sr-only">LinkedIn</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
-                                    <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
-                                    <span class="sr-only">GitHub</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
-                                    <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
-                                    <span class="sr-only">Instagram</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
-                                    <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
-                                    <span class="sr-only">WhatsApp</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__content">
+                <div class="footer__logo">
+                    <h2 class="footer__logo-text"><a href="#" class="footer__logo-link">Jeferson Reis</a></h2>
+                    <p class="footer__logo-subtitle">Desenvolvedor Web Full Stack</p>
                 </div>
-                <div class="footer__bottom">
-                    <p>&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
+
+                <div class="footer__social">
+                    <h3 class="footer__social-title">Conecte-se</h3>
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item">
+                            <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida" class="footer__social-link">
+                                <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
+                                <span class="sr-only">LinkedIn</span>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida" class="footer__social-link">
+                                <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
+                                <span class="sr-only">GitHub</span>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida" class="footer__social-link">
+                                <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida" class="footer__social-link">
+                                <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
+                                <span class="sr-only">WhatsApp</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </footer>
 
-        <!-- SCROLL TO TOP BUTTON -->
-        <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
-
-        <noscript>  
-            <p>Custom margins for printing are not supported in Safari. Consider using a different browser for better results.</p>
+            <div class="footer__bottom">
+                <p class="footer__copy">&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+        <button id="scrollToTopBtn" class="scroll-to-top" title="Ir para o topo" aria-label="Voltar ao topo">↑</button>
+    
+        <noscript>
+            <p>Este site funciona melhor com JavaScript habilitado. Por favor, habilite o JavaScript para uma experiência completa.</p>
         </noscript>
-</body>
-</html>
+    </body>
+    </html>

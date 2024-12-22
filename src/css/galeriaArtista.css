@@ -1,285 +1,198 @@
-/* ÁREA DE ARTISTA DIGITAL */
-.modern-carousel {
-    max-width: 900px;
-    /* Tamanho de 16:9*/
-    max-height: calc(900px * 9 / 16);
-    margin: 0 auto;
-    box-shadow: var(--shadow-lg);
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    background-color: var(--card-background);
-    position: relative;
-}
+/* ========= ÁREA DE ARTISTA DIGITAL / GALERIA ========= */
 
-.main-image-container {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-}
-
-.main-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.1);
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
-}
-
-.main-image.active {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--card-background);
-    border: 2px solid var(--border-color);
-    border-radius: var(--border-radius-full);
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.nav.prev {
-    left: 10px;
-}
-
-.nav.next {
-    right: 10px;
-}
-
-.nav:hover {
-    background-color: var(--hover-color);
-    color: var(--text-color);
-}
-
-.nav.prev::before {
-    content: '◄';
-    font-size: 18px;
-}
-
-.nav.next::before {
-    content: '►';
-    font-size: 18px;
-}
-
-/* GALERIA DE ARTE */
-#galeria {
-    background-color: var(--background-color);
-    padding: 4rem 0;
-    overflow: hidden;
-}
-
+/* --- Geral --- */
 .gallery {
-    position: relative;
+    padding: 4rem 0; /* Reduzido o padding */
+    background-color: var(--background-color);
 }
 
-.container {
+.gallery .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
-#galeriaTitle {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    color: var(--secondary-color);
+.gallery .section__title { /* Alterado para usar a classe section__title */
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 2rem; /* Reduzido o tamanho da fonte */
     text-align: center;
-    margin-bottom: 3rem;
+    font-weight: 800;
+    margin-bottom: 3rem; /* Reduzido o margin-bottom */
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
-    padding-bottom: 1rem;
-    font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
-#galeriaTitle::after {
+.gallery .section__title::after { /* Alterado para usar a classe section__title */
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    border-radius: 2px;
+    display: block;
+    width: 80px; /* Reduzido o tamanho inicial */
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius-full);
+    margin: 1rem auto 0;
+    transition: width 0.3s ease;
 }
 
-.modern-carousel {
-    position: relative;
+.gallery .section__title:hover::after { /* Alterado para usar a classe section__title */
+    width: 120px; /* Reduzido o tamanho no hover */
+}
+
+/* --- Carrossel --- */
+.gallery__carousel {
+    position: relative; /* Para posicionar os botões de navegação */
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    background-color: var(--card-background);
+    max-width: 900px;
+    margin: 0 auto; /* Centralizar o carrossel */
+}
+
+.carousel-track {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+    width: fit-content;
+}
+
+.carousel-item {
+    min-width: 100%; /* Cada item ocupa 100% da largura do carrossel */
+    display: flex;
+    justify-content: center; /* Centraliza a imagem */
     padding: 2rem 0;
 }
 
-.main-image {
-    position: absolute;
-    top: 0;
-    left: 0;
+.carousel-item img {
+    display: block;
     width: 100%;
-    height: 100%;
+    max-width: 900px;
+    height: auto;
+    max-height: 506px; 
     object-fit: contain;
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    transform: scale(1.1);
-}
-
-.main-image.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.nav {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--secondary-color);
-    cursor: pointer;
-    padding: 1rem;
-    transition: all 0.3s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.nav::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    border-top: 3px solid var(--secondary-color);
-    border-right: 3px solid var(--secondary-color);
-    transition: all 0.3s ease;
-}
-
-.nav.prev {
-    left: 2rem;
-}
-
-.nav.next {
-    right: 2rem;
-}
-
-.nav.prev::before {
-    left: 0;
-    transform: translate(25%, -50%) rotate(-135deg);
-}
-
-.nav.next::before {
-    right: 0;
-    transform: translate(-25%, -50%) rotate(45deg);
-}
-
-.nav:hover::before {
-    border-color: var(--hover-color);
-}
-
-.nav:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--secondary-color-rgb), 0.5);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.modern-carousel {
-    animation: fadeIn 1s ease-out forwards;
-}
-
-@media (max-width: 768px) {
-    .nav {
-        font-size: 1.5rem;
-    }
-
-    .nav.prev {
-        left: 0.5rem;
-    }
-
-    .nav.next {
-        right: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    #galeriaTitle {
-        font-size: 1.8rem;
-    }
-}
-
-/* Add these to your existing CSS */
-.main-image-container {
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     cursor: grab;
-}
-
-.main-image-container:active {
-    cursor: grabbing;
-}
-
-/* Smooth transition for images */
-.main-image {
-    will-change: opacity, transform;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    border-radius: var(--border-radius-md);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 
-/* Enhanced button styles */
-.nav {
+/* A imagem ativa agora recebe a opacidade 1 via JavaScript */
+.carousel-item.active img {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* Manter a opacidade reduzida enquanto carrega */
+.carousel-item img.loading {
+    opacity: 0.5 !important;
+}
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
     opacity: 0.7;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    width: 40px; /* Aumentar a área de clique */
+    height: 40px; /* Aumentar a área de clique */
+    display: flex; /* Para centralizar as setas */
+    align-items: center; /* Centralizar verticalmente */
+    justify-content: center; /* Centralizar horizontalmente */
 }
 
-.nav:hover {
+.carousel-button:hover {
     opacity: 1;
-    transform: translateY(-50%) scale(1.1);
 }
 
-/* Accessibility improvements */
-.nav:focus-visible {
+.carousel-button:focus-visible {
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
 }
 
-/* Loading state */
-.main-image.loading {
-    opacity: 0.5;
+.carousel-button.prev {
+    left: 1rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
-    .main-image-container {
-        height: 300px;
+.carousel-button.next {
+    right: 1rem;
+}
+
+.carousel-button::before {
+    content: '';
+    display: block;
+    width: 1rem; /* Tamanho da seta */
+    height: 1rem; /* Tamanho da seta */
+    border-top: 3px solid var(--text-color);
+    border-right: 3px solid var(--text-color);
+}
+
+.carousel-button.prev::before {
+    transform: rotate(-135deg);
+}
+
+.carousel-button.next::before {
+    transform: rotate(45deg);
+}
+
+/* ========= Responsividade ========= */
+@media (max-width: 768px) {
+    .gallery {
+        padding: 3rem 0; /* Reduzido o padding */
     }
 
-    .nav {
-        padding: 8px;
-        width: 32px;
-        height: 32px;
+    .gallery .section__title { /* Alterado para usar a classe section__title */
+        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
+        margin-bottom: 2rem; /* Reduzido o margin-bottom */
+    }
+
+    .gallery__carousel {
+        border-radius: var(--border-radius-md);
+    }
+
+    .carousel-item {
+        padding: 1rem 0; /* Reduzido o padding */
+    }
+
+    .carousel-item img {
+        max-height: 400px; /* Altura máxima da imagem reduzida */
+    }
+
+    .carousel-button {
+        font-size: 1.5rem; /* Reduzido o tamanho da fonte */
+        width: 35px; /* Reduzido o tamanho do botão */
+        height: 35px; /* Reduzido o tamanho do botão */
+    }
+
+    .carousel-button::before {
+        width: 0.8rem; /* Reduzido o tamanho da seta */
+        height: 0.8rem; /* Reduzido o tamanho da seta */
+    }
+
+    .carousel-button.prev {
+        left: 0.5rem; /* Reduzido o espaçamento */
+    }
+
+    .carousel-button.next {
+        right: 0.5rem; /* Reduzido o espaçamento */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery .section__title { /* Alterado para usar a classe section__title */
+        font-size: 1.5rem; /* Reduzido o tamanho da fonte */
     }
 }

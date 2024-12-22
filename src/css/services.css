@@ -1,6 +1,7 @@
 /* ========= SEÇÃO DE SERVIÇOS ========= */
 .services {
-    padding: 4rem 0; /* Reduzido o padding */
+    padding: 4rem 0;
+    /* Reduzido o padding */
     color: var(--text-color);
     background: linear-gradient(170deg, rgba(var(--background-rgb), 0.4), rgba(var(--background-rgb), 0.1));
     position: relative;
@@ -18,18 +19,22 @@
     pointer-events: none;
 }
 
-.services .container {
+.services__container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-.services .section__title { /* Alterado para usar a classe section__title */
+
+.services .section__title {
+    /* Alterado para usar a classe section__title */
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 2rem; /* Reduzido o tamanho da fonte */
+    font-size: 2rem;
+    /* Reduzido o tamanho da fonte */
     text-align: center;
     font-weight: 800;
-    margin-bottom: 3rem; /* Reduzido o margin-bottom */
+    margin-bottom: 3rem;
+    /* Reduzido o margin-bottom */
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
@@ -38,10 +43,12 @@
     text-transform: uppercase;
 }
 
-.services .section__title::after { /* Alterado para usar a classe section__title */
+.services .section__title::after {
+    /* Alterado para usar a classe section__title */
     content: '';
     display: block;
-    width: 80px; /* Reduzido o tamanho inicial */
+    width: 80px;
+    /* Reduzido o tamanho inicial */
     height: 3px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: var(--border-radius-full);
@@ -49,21 +56,26 @@
     transition: width 0.3s ease;
 }
 
-.services .section__title:hover::after { /* Alterado para usar a classe section__title */
-    width: 120px; /* Reduzido o tamanho no hover */
+.services .section__title:hover::after {
+    /* Alterado para usar a classe section__title */
+    width: 120px;
+    /* Reduzido o tamanho no hover */
 }
 
 .services__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reduzido o minmax */
-    gap: 2rem; /* Reduzido o gap */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Reduzido o minmax */
+    gap: 2rem;
+    /* Reduzido o gap */
     perspective: 1000px;
 }
 
 .services__card {
     position: relative;
     background-color: var(--card-background);
-    padding: 2.5rem; /* Reduzido o padding */
+    padding: 2.5rem;
+    /* Reduzido o padding */
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
     text-align: center;
@@ -87,7 +99,8 @@
 }
 
 .services__card:hover {
-    transform: translateY(-10px) rotateX(5deg); /* Reduzido o translateY e rotateX */
+    transform: translateY(-10px) rotateX(5deg);
+    /* Reduzido o translateY e rotateX */
     box-shadow: var(--shadow-lg);
 }
 
@@ -96,15 +109,20 @@
 }
 
 .services__icon-container {
-    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
+    margin-bottom: 1.5rem;
+    /* Reduzido o margin-bottom */
     display: flex;
-    flex-direction: column; /* Alinhar verticalmente */
-    align-items: center; /* Centralizar */
+    flex-direction: column;
+    /* Alinhar verticalmente */
+    align-items: center;
+    /* Centralizar */
 }
 
 .services__icon {
-    font-size: 3rem; /* Reduzido o tamanho do ícone */
-    margin-bottom: 1rem; /* Reduzido o margin-bottom */
+    font-size: 3rem;
+    /* Reduzido o tamanho do ícone */
+    margin-bottom: 1rem;
+    /* Reduzido o margin-bottom */
     color: var(--primary-color);
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     position: relative;
@@ -117,8 +135,10 @@
 }
 
 .services__title {
-    font-size: 1.3rem; /* Reduzido o tamanho do título */
-    margin-bottom: 0; /* Removido o margin-bottom */
+    font-size: 1.3rem;
+    /* Reduzido o tamanho do título */
+    margin-bottom: 0;
+    /* Removido o margin-bottom */
     font-weight: 700;
     position: relative;
     color: var(--text-color);
@@ -130,8 +150,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem; /* Reduzido o gap */
-    padding: 0.8rem 1.5rem; /* Reduzido o padding */
+    gap: 0.5rem;
+    /* Reduzido o gap */
+    padding: 0.8rem 1.5rem;
+    /* Reduzido o padding */
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
     color: #fff;
     border-radius: var(--border-radius-md);
@@ -141,13 +163,15 @@
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 1.5rem; /* Aumentado o margin-top */
+    margin-top: 1.5rem;
+    /* Aumentado o margin-top */
     width: auto;
     position: relative;
     overflow: hidden;
     border: none;
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+    font-size: 0.9rem;
+    /* Reduzido o tamanho da fonte */
 }
 
 .services__button::before {
@@ -196,10 +220,12 @@
 
 .services__modal-content {
     background: var(--card-background);
-    padding: 2.5rem; /* Reduzido o padding */
+    padding: 2.5rem;
+    /* Reduzido o padding */
     border-radius: var(--border-radius-lg);
     width: 90%;
-    max-width: 500px; /* Reduzido o max-width */
+    max-width: 500px;
+    /* Reduzido o max-width */
     position: relative;
     box-shadow: 0 35px 80px rgba(0, 0, 0, 0.25);
     border: none;
@@ -213,9 +239,11 @@
 
 .services__modal-title {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.8rem; /* Reduzido o tamanho da fonte */
+    font-size: 1.8rem;
+    /* Reduzido o tamanho da fonte */
     font-weight: 700;
-    margin-bottom: 1rem; /* Reduzido o margin-bottom */
+    margin-bottom: 1rem;
+    /* Reduzido o margin-bottom */
     text-align: center;
     letter-spacing: -0.5px;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
@@ -225,41 +253,56 @@
 }
 
 .services__modal-list {
-    padding-left: 0; /* Removido o padding */
-    list-style: none; /* Removido o estilo da lista */
+    padding-left: 0;
+    /* Removido o padding */
+    list-style: none;
+    /* Removido o estilo da lista */
 }
 
 .services__modal-item {
-    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-    line-height: 1.6; /* Reduzido o line-height */
-    margin-bottom: 1rem; /* Reduzido o margin-bottom */
+    font-size: 0.9rem;
+    /* Reduzido o tamanho da fonte */
+    line-height: 1.6;
+    /* Reduzido o line-height */
+    margin-bottom: 1rem;
+    /* Reduzido o margin-bottom */
     color: var(--text-color-secondary);
     font-family: 'Nunito Sans', sans-serif;
-    display: flex; /* Alinhar texto com ícone */
-    align-items: flex-start; /* Alinhar no topo */
+    display: flex;
+    /* Alinhar texto com ícone */
+    align-items: flex-start;
+    /* Alinhar no topo */
 }
 
 .services__modal-item::before {
-    content: '✓'; /* Adicionado um ícone de check */
+    content: '✓';
+    /* Adicionado um ícone de check */
     color: var(--primary-color);
     margin-right: 0.5rem;
-    font-size: 1.2rem; /* Aumentar tamanho do ícone */
-    line-height: 1; /* Ajustar a altura da linha para alinhar melhor */
+    font-size: 1.2rem;
+    /* Aumentar tamanho do ícone */
+    line-height: 1;
+    /* Ajustar a altura da linha para alinhar melhor */
     margin-top: 0.2rem;
 }
 
 .services__modal-close {
     position: absolute;
-    top: 1rem; /* Reduzido o espaçamento */
-    right: 1rem; /* Reduzido o espaçamento */
-    font-size: 1.5rem; /* Reduzido o tamanho do ícone */
+    top: 1rem;
+    /* Reduzido o espaçamento */
+    right: 1rem;
+    /* Reduzido o espaçamento */
+    font-size: 1.5rem;
+    /* Reduzido o tamanho do ícone */
     cursor: pointer;
     color: var(--text-color);
     transition: all 0.3s ease;
     background-color: transparent;
     border: none;
-    width: 35px; /* Reduzido o tamanho */
-    height: 35px; /* Reduzido o tamanho */
+    width: 35px;
+    /* Reduzido o tamanho */
+    height: 35px;
+    /* Reduzido o tamanho */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -294,7 +337,8 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px); /* Reduzido o translateY */
+        transform: translateY(30px);
+        /* Reduzido o translateY */
     }
 
     to {
@@ -319,61 +363,85 @@
 /* ========= Media Queries ========= */
 @media (max-width: 768px) {
     .services {
-        padding: 3rem 0; /* Reduzido o padding */
+        padding: 3rem 0;
+        /* Reduzido o padding */
     }
 
-    .services .section__title { /* Alterado para usar a classe section__title */
-        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 2rem; /* Reduzido o margin-bottom */
+    .services .section__title {
+        /* Alterado para usar a classe section__title */
+        font-size: 1.8rem;
+        /* Reduzido o tamanho da fonte */
+        margin-bottom: 2rem;
+        /* Reduzido o margin-bottom */
     }
 
     .services__grid {
-        gap: 1.5rem; /* Reduzido o gap */
+        gap: 1.5rem;
+        /* Reduzido o gap */
     }
 
     .services__card {
-        padding: 1.5rem; /* Reduzido o padding */
+        padding: 1.5rem;
+        /* Reduzido o padding */
     }
 
     .services__icon {
-        font-size: 2.5rem; /* Reduzido o tamanho do ícone */
-        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
+        font-size: 2.5rem;
+        /* Reduzido o tamanho do ícone */
+        margin-bottom: 0.8rem;
+        /* Reduzido o margin-bottom */
     }
 
     .services__title {
-        font-size: 1.2rem; /* Reduzido o tamanho do título */
+        font-size: 1.2rem;
+        /* Reduzido o tamanho do título */
     }
 
     .services__button {
-        padding: 0.7rem 1.2rem; /* Reduzido o padding */
-        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
-        margin-top: 1rem; /* Reduzido o margin-top */
+        padding: 0.7rem 1.2rem;
+        /* Reduzido o padding */
+        font-size: 0.8rem;
+        /* Reduzido o tamanho da fonte */
+        margin-top: 1rem;
+        /* Reduzido o margin-top */
     }
 
     .services__modal-content {
-        padding: 2rem; /* Reduzido o padding */
+        padding: 2rem;
+        /* Reduzido o padding */
     }
 
     .services__modal-title {
-        font-size: 1.6rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
+        font-size: 1.6rem;
+        /* Reduzido o tamanho da fonte */
+        margin-bottom: 0.8rem;
+        /* Reduzido o margin-bottom */
     }
 
     .services__modal-item {
-        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
+        font-size: 0.8rem;
+        /* Reduzido o tamanho da fonte */
+        margin-bottom: 0.8rem;
+        /* Reduzido o margin-bottom */
     }
 
     .services__modal-item::before {
-        font-size: 1rem; /* Reduzido o tamanho do ícone */
-        margin-top: 0.1rem; /* Ajustado o margin-top */
+        font-size: 1rem;
+        /* Reduzido o tamanho do ícone */
+        margin-top: 0.1rem;
+        /* Ajustado o margin-top */
     }
 
     .services__modal-close {
-        top: 0.8rem; /* Reduzido o espaçamento */
-        right: 0.8rem; /* Reduzido o espaçamento */
-        font-size: 1.2rem; /* Reduzido o tamanho do ícone */
-        width: 30px; /* Reduzido o tamanho */
-        height: 30px; /* Reduzido o tamanho */
+        top: 0.8rem;
+        /* Reduzido o espaçamento */
+        right: 0.8rem;
+        /* Reduzido o espaçamento */
+        font-size: 1.2rem;
+        /* Reduzido o tamanho do ícone */
+        width: 30px;
+        /* Reduzido o tamanho */
+        height: 30px;
+        /* Reduzido o tamanho */
     }
 }

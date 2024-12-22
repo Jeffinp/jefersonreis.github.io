@@ -43,7 +43,8 @@
 .skills__grid {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); Removido para garantir uma coluna */
-    grid-template-columns: 1fr; /* Forçando uma coluna */
+    grid-template-columns: 1fr;
+    /* Forçando uma coluna */
     gap: 2rem;
 }
 
@@ -122,9 +123,12 @@
     overflow: hidden;
     transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
     padding: 0 1.5rem;
-    display: flex; /* Adicionado para flexibilizar a lista */
-    flex-direction: column; /* Adicionado para alinhar itens verticalmente */
-    gap: 1rem; /* Adicionado para espaçamento entre os itens */
+    display: flex;
+    /* Adicionado para flexibilizar a lista */
+    flex-direction: column;
+    /* Adicionado para alinhar itens verticalmente */
+    gap: 1rem;
+    /* Adicionado para espaçamento entre os itens */
 }
 
 .skills__open .skills__list {
@@ -141,7 +145,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Adicionado para ocupar a largura total */
+    width: 100%;
+    /* Adicionado para ocupar a largura total */
 }
 
 .skill__name {
@@ -154,7 +159,8 @@
     color: var(--text-color);
     font-weight: 600;
     font-size: 1rem;
-    white-space: nowrap; /* Impede quebra de linha */
+    white-space: nowrap;
+    /* Impede quebra de linha */
 }
 
 .skill__bar {
@@ -162,7 +168,8 @@
     height: 8px;
     border-radius: var(--border-radius-full);
     overflow: hidden;
-    margin-top: 0.5rem; /* Adicionado margem superior */
+    margin-top: 0.5rem;
+    /* Adicionado margem superior */
 }
 
 .skill__progress {

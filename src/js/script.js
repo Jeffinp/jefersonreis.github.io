@@ -282,146 +282,6 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-document.addEventListener('DOMContentLoaded', () => {
-    // Unified Carousel Class
-    class ImageCarousel {
-        constructor(options = {}) {
-            // Configuration
-            this.sensitivity = options.sensitivity || 100;
-            this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
-            this.transitionDuration = options.transitionDuration || 500;
-
-            // State
-            this.currentIndex = 0;
-            this.isDragging = false;
-            this.startX = 0;
-            this.autoAdvanceTimer = null;
-
-            // DOM Elements
-            this.track = document.querySelector('.carousel-track');
-            this.items = document.querySelectorAll('.carousel-item, .main-image');
-            this.prevButton = document.querySelector('.nav.prev, .prev');
-            this.nextButton = document.querySelector('.nav.next, .next');
-
-            if (this.items.length === 0) return;
-
-            this.init();
-        }
-
-        init() {
-            // Initial setup
-            this.showSlide(0, false);
-
-            // Event Listeners
-            this.setupEventListeners();
-
-            // Start auto-advance
-            if (this.autoAdvanceInterval) {
-                this.startAutoAdvance();
-            }
-        }
-
-        setupEventListeners() {
-            // Navigation buttons
-            this.prevButton?.addEventListener('click', () => this.prevSlide());
-            this.nextButton?.addEventListener('click', () => this.nextSlide());
-
-            // Touch and mouse events
-            if (this.track) {
-                this.track.addEventListener('mousedown', (e) => this.handleDragStart(e));
-                this.track.addEventListener('touchstart', (e) => this.handleDragStart(e));
-                this.track.addEventListener('mousemove', (e) => this.handleDrag(e));
-                this.track.addEventListener('touchmove', (e) => this.handleDrag(e));
-                this.track.addEventListener('mouseup', () => this.handleDragEnd());
-                this.track.addEventListener('mouseleave', () => this.handleDragEnd());
-                this.track.addEventListener('touchend', () => this.handleDragEnd());
-            }
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') this.prevSlide();
-                if (e.key === 'ArrowRight') this.nextSlide();
-            });
-        }
-
-        showSlide(index, smooth = true) {
-            if (this.track) {
-                // For track-based carousel
-                const offset = -index * 100;
-                this.track.style.transition = smooth ? `transform ${this.transitionDuration}ms ease` : 'none';
-                this.track.style.transform = `translateX(${offset}%)`;
-            } else {
-                // For opacity-based carousel
-                this.items.forEach(item => item.classList.remove('active'));
-                this.items[index]?.classList.add('active');
-            }
-
-            this.currentIndex = index;
-        }
-
-        nextSlide() {
-            const newIndex = (this.currentIndex + 1) % this.items.length;
-            this.showSlide(newIndex);
-            this.resetAutoAdvance();
-        }
-
-        prevSlide() {
-            const newIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-            this.showSlide(newIndex);
-            this.resetAutoAdvance();
-        }
-
-        handleDragStart(e) {
-            this.isDragging = true;
-            this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            if (this.track) {
-                this.track.style.cursor = 'grabbing';
-            }
-        }
-
-        handleDrag(e) {
-            if (!this.isDragging) return;
-            e.preventDefault();
-
-            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            const diff = currentX - this.startX;
-
-            if (Math.abs(diff) > this.sensitivity) {
-                if (diff > 0) {
-                    this.prevSlide();
-                } else {
-                    this.nextSlide();
-                }
-                this.isDragging = false;
-            }
-        }
-
-        handleDragEnd() {
-            this.isDragging = false;
-            if (this.track) {
-                this.track.style.cursor = 'grab';
-            }
-        }
-
-        startAutoAdvance() {
-            this.autoAdvanceTimer = setInterval(() => this.nextSlide(), this.autoAdvanceInterval);
-        }
-
-        resetAutoAdvance() {
-            if (this.autoAdvanceTimer) {
-                clearInterval(this.autoAdvanceTimer);
-                this.startAutoAdvance();
-            }
-        }
-    }
-
-    // Initialize the carousel
-    const carousel = new ImageCarousel({
-        sensitivity: 100,
-        autoAdvanceInterval: 5000,
-        transitionDuration: 500
-    });
-});
 
 document.addEventListener('DOMContentLoaded', () => {
     // Inicia o carrossel
@@ -438,124 +298,161 @@ document.addEventListener('DOMContentLoaded', () => {
 // Classe para gerenciar o carrossel de imagens
 class ImageCarousel {
     constructor(options = {}) {
-        // Configuração
-        this.sensitivity = options.sensitivity || 100;
-        this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
-        this.transitionDuration = options.transitionDuration || 500;
+        // Configuração com valores padrão
+        this.transitionDuration = options.transitionDuration || 500; // Duração da transição em ms
+        this.autoAdvanceInterval = options.autoAdvanceInterval || 5000; // Intervalo de avanço automático em ms
+        this.touchSensitivity = options.touchSensitivity || 50; // Sensibilidade ao toque (pixels)
 
         // Estado
-        this.currentIndex = 0;
-        this.isDragging = false;
-        this.startX = 0;
-        this.autoAdvanceTimer = null;
+        this.currentIndex = 0; // Índice da imagem atual
+        this.isDragging = false; // Flag para verificar se está arrastando
+        this.dragStartX = 0; // Posição X inicial do arrasto
+        this.dragDiff = 0; // Diferença entre a posição inicial e a atual do arrasto
+        this.autoAdvanceTimer = null; // Timer para avanço automático
 
         // Elementos do DOM
+        this.carousel = document.querySelector('.gallery__carousel');
         this.track = document.querySelector('.carousel-track');
-        this.items = document.querySelectorAll('.carousel-item, .main-image');
-        this.prevButton = document.querySelector('.nav.prev, .prev');
-        this.nextButton = document.querySelector('.nav.next, .next');
+        this.items = document.querySelectorAll('.carousel-item');
+        this.images = document.querySelectorAll('.carousel-item img');
+        this.prevButton = document.querySelector('.carousel-button.prev');
+        this.nextButton = document.querySelector('.carousel-button.next');
 
+        // Se não houver imagens, interrompe a execução
         if (this.items.length === 0) return;
 
         this.init();
     }
 
     init() {
-        this.showSlide(0, false);
         this.setupEventListeners();
-
-        if (this.autoAdvanceInterval) {
-            this.startAutoAdvance();
-        }
+        this.showSlide(this.currentIndex);
+        this.startAutoAdvance();
     }
 
     setupEventListeners() {
-        this.prevButton?.addEventListener('click', () => this.prevSlide());
-        this.nextButton?.addEventListener('click', () => this.nextSlide());
+        // Eventos de clique nos botões
+        this.prevButton.addEventListener('click', () => this.prevSlide());
+        this.nextButton.addEventListener('click', () => this.nextSlide());
 
-        if (this.track) {
-            this.track.addEventListener('mousedown', (e) => this.handleDragStart(e));
-            this.track.addEventListener('touchstart', (e) => this.handleDragStart(e));
-            this.track.addEventListener('mousemove', (e) => this.handleDrag(e));
-            this.track.addEventListener('touchmove', (e) => this.handleDrag(e));
-            this.track.addEventListener('mouseup', () => this.handleDragEnd());
-            this.track.addEventListener('mouseleave', () => this.handleDragEnd());
-            this.track.addEventListener('touchend', () => this.handleDragEnd());
-        }
+        // Eventos de arrastar (touch e mouse)
+        this.track.addEventListener('mousedown', this.handleDragStart.bind(this));
+        this.track.addEventListener('touchstart', this.handleDragStart.bind(this));
+        this.track.addEventListener('mousemove', this.handleDrag.bind(this));
+        this.track.addEventListener('touchmove', this.handleDrag.bind(this));
+        this.track.addEventListener('mouseup', this.handleDragEnd.bind(this));
+        this.track.addEventListener('mouseleave', this.handleDragEnd.bind(this));
+        this.track.addEventListener('touchend', this.handleDragEnd.bind(this));
 
+        // Eventos de teclado
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') this.prevSlide();
             if (e.key === 'ArrowRight') this.nextSlide();
         });
+
+        // Eventos de carregamento de imagem (para transição suave)
+        this.images.forEach(img => {
+            img.addEventListener('load', () => {
+                img.style.transition = `opacity ${this.transitionDuration}ms ease-in-out, transform ${this.transitionDuration}ms ease-in-out`;
+                if (img.parentElement.classList.contains('active')) {
+                    img.style.opacity = '1';
+                }
+            });
+        });
     }
 
-    showSlide(index, smooth = true) {
-        if (this.track) {
-            const offset = -index * 100;
-            this.track.style.transition = smooth ? `transform ${this.transitionDuration}ms ease` : 'none';
-            this.track.style.transform = `translateX(${offset}%)`;
-        } else {
-            this.items.forEach(item => item.classList.remove('active'));
-            this.items[index]?.classList.add('active');
-        }
+    // Mostra o slide especificado pelo índice
+    showSlide(index) {
+        // Certifique-se de que o índice esteja dentro dos limites
+        if (index < 0 || index >= this.items.length) return;
+
+        // Remove a classe 'active' de todos os itens
+        this.items.forEach(item => item.classList.remove('active'));
+
+        // Adiciona a classe 'active' ao item atual
+        this.items[index].classList.add('active');
+
+        // Define a transformação do track para mover o carrossel
+        const offset = -index * 100;
+        this.track.style.transform = `translateX(${offset}%)`;
+
         this.currentIndex = index;
+        this.resetAutoAdvance();
     }
 
+    // Avança para o próximo slide
     nextSlide() {
         const newIndex = (this.currentIndex + 1) % this.items.length;
         this.showSlide(newIndex);
-        this.resetAutoAdvance();
     }
 
+    // Volta para o slide anterior
     prevSlide() {
         const newIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
         this.showSlide(newIndex);
-        this.resetAutoAdvance();
     }
 
+    // Inicia o arrasto
     handleDragStart(e) {
         this.isDragging = true;
-        this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        if (this.track) {
-            this.track.style.cursor = 'grabbing';
-        }
+        this.track.style.cursor = 'grabbing';
+        this.dragStartX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        // Pausa o avanço automático ao iniciar o arrasto
+        clearInterval(this.autoAdvanceTimer);
     }
 
+    // Move o carrossel durante o arrasto
     handleDrag(e) {
         if (!this.isDragging) return;
         e.preventDefault();
 
-        const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        const diff = currentX - this.startX;
+        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        this.dragDiff = (this.dragStartX - x);
+        const newOffset = -this.currentIndex * 100 - (this.dragDiff / this.carousel.offsetWidth * 100);
+        this.track.style.transform = `translateX(${newOffset}%)`;
 
-        if (Math.abs(diff) > this.sensitivity) {
-            if (diff > 0) {
-                this.prevSlide();
+        // Ajustar o índice atual com base no arrasto
+        if (Math.abs(this.dragDiff) > this.touchSensitivity) {
+            if (this.dragDiff > 0) {
+                // Arrastou para a esquerda
+                this.currentIndex = (this.currentIndex + 1) % this.items.length;
             } else {
-                this.nextSlide();
+                // Arrastou para a direita
+                this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
             }
-            this.isDragging = false;
+
+            // Atualizar a posição inicial do arrasto para a próxima ação
+            this.dragStartX = x;
+
+            // Mover o carrossel para o novo índice
+            this.showSlide(this.currentIndex);
         }
     }
 
+    // Finaliza o arrasto
     handleDragEnd() {
         this.isDragging = false;
-        if (this.track) {
-            this.track.style.cursor = 'grab';
-        }
+        this.track.style.cursor = 'grab';
+        this.resetAutoAdvance();
     }
 
+    // Inicia o avanço automático
     startAutoAdvance() {
+        clearInterval(this.autoAdvanceTimer);
         this.autoAdvanceTimer = setInterval(() => this.nextSlide(), this.autoAdvanceInterval);
     }
 
+    // Reinicia o avanço automático
     resetAutoAdvance() {
-        if (this.autoAdvanceTimer) {
-            clearInterval(this.autoAdvanceTimer);
-            this.startAutoAdvance();
-        }
+        clearInterval(this.autoAdvanceTimer);
+        this.startAutoAdvance();
     }
 }
+
+// Inicializa o carrossel
+document.addEventListener('DOMContentLoaded', () => {
+    new ImageCarousel();
+});
 
 // Classe para gerenciar as seções de habilidades
 class SkillsManager {
