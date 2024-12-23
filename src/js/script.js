@@ -1,44 +1,206 @@
-// ------------------------------
-// INICIALIZAÇÃO
-// ------------------------------
+/**
+ * FUNÇÕES UTILITÁRIAS
+ * ====================
+ * Funções auxiliares para tarefas comuns.
+ */
 
+/**
+ * Debounce - Limita a frequência de execução de uma função.
+ * @param {function} func - A função a ser executada após o atraso.
+ * @param {number} wait - O atraso em milissegundos.
+ * @returns {function} - Função debounce.
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+/**
+ * Smooth Scroll - Rola suavemente até um elemento alvo.
+ * @param {Event} e - O evento de clique.
+ */
+function smoothScroll(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+        const targetPosition = targetElement.offsetTop;
+        smoothScrollTo(0, targetPosition);
+    }
+}
+
+/**
+ * Smooth Scroll To - Rola suavemente até uma posição específica.
+ * @param {number} endX - Posição horizontal final.
+ * @param {number} endY - Posição vertical final.
+ * @param {number} [duration=1000] - Duração da animação em milissegundos.
+ */
+function smoothScrollTo(endX, endY, duration = 1000) {
+    const startX = window.pageXOffset || window.scrollX || document.documentElement.scrollLeft;
+    const startY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    const distanceX = endX - startX;
+    const distanceY = endY - startY;
+    const startTime = new Date().getTime();
+
+    const easeInOutQuart = (time, from, distance, duration) => {
+        if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
+        return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
+    };
+
+    const timer = setInterval(() => {
+        const time = new Date().getTime() - startTime;
+        const newX = easeInOutQuart(time, startX, distanceX, duration);
+        const newY = easeInOutQuart(time, startY, distanceY, duration);
+        if (time >= duration) {
+            clearInterval(timer);
+            window.scrollTo(endX, endY); // Garante que a rolagem chegue ao final
+        } else {
+            window.scrollTo(newX, newY);
+        }
+    }, 1000 / 60);
+}
+
+/**
+ * Toggle Scroll To Top Button - Mostra ou oculta o botão de rolagem para o topo.
+ */
+function toggleScrollToTopButton() {
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.classList.add("show");
+    } else {
+        scrollToTopBtn.classList.remove("show");
+    }
+}
+
+/**
+ * INICIALIZAÇÃO
+ * =============
+ * Configuração inicial após o DOM ser carregado.
+ */
 document.addEventListener('DOMContentLoaded', () => {
+    /**
+     * Elementos do DOM
+     * -----------------
+     * Seletores para os elementos utilizados no script.
+     */
     const elements = {
-        menuToggle: document.querySelector('.menu-toggle'),
-        navMenu: document.querySelector('nav ul'),
+        menuToggle: document.querySelector('.header__menu-toggle'),
+        navMenu: document.querySelector('.header__nav'),
+        navLinks: document.querySelectorAll('.header__nav-link'),
         links: document.querySelectorAll('a[href^="#"]'),
         scrollToTopBtn: document.getElementById("scrollToTopBtn"),
         darkModeToggle: document.getElementById("darkModeToggle"),
+        darkModeIcon: document.getElementById('darkModeIcon'),
         projectItems: document.querySelectorAll('.project-item'),
         modal: document.getElementById('project-modal'),
         closeModal: document.querySelector('.close'),
-        form: document.getElementById('contact-form'),
-        lazyImages: document.querySelectorAll('img.lazy'),
+        form: document.getElementById('contact-form'), // Se necessário, implemente a lógica do formulário
+        lazyImages: document.querySelectorAll('img.lazy'), // Se necessário, implemente o lazy loading
         fadeInSections: document.querySelectorAll(".fade-in-section"),
         animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item'),
+        languageLinks: document.querySelectorAll('.language-switch a'),
+        carouselTrack: document.querySelector('.carousel-track'),
+        artCarouselTrack: document.querySelector('.art-carousel__track'),
+        skillsContent: document.querySelector('.skills__content'),
+        servicesSection: document.querySelector(".services.section"),
+        testimonialsTrack: document.querySelector('.testimonials-track'),
     };
 
+    /**
+     * Navegação do Menu e Links
+     * ---------------------------
+     * Gerencia o comportamento do menu e dos links de navegação.
+     */
 
-    // ------------------------------
-    // SMOOTH SCROLL
-    // ------------------------------
+    // Toggle do menu hambúrguer
+    if (elements.menuToggle) {
+        elements.menuToggle.addEventListener('click', function () {
+            elements.navMenu.classList.toggle('open');
+            this.classList.toggle('active');
+            document.body.style.overflow = elements.navMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Fecha o menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!elements.navMenu.contains(e.target) && !elements.menuToggle.contains(e.target)) {
+                elements.navMenu.classList.remove('open');
+                elements.menuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Fecha o menu ao clicar em um link (para mobile)
+        elements.navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                elements.navMenu.classList.remove('open');
+                elements.menuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // Smooth scroll para links internos
     elements.links.forEach(link => link.addEventListener('click', smoothScroll));
 
-    // ------------------------------
-    // SCROLL TO TOP BUTTON
-    // ------------------------------
-    window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
+    // Adiciona classe 'selected' ao link da seção visível
+    elements.navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            elements.navLinks.forEach(link => link.classList.remove('selected'));
+            this.classList.add('selected');
+            smoothScroll.call(this, e);
+        });
+    });
+
+    // Atualiza link ativo ao rolar
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
+            const navLink = document.querySelector(`.header__nav-link[href*=${sectionId}]`);
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLink?.classList.add('active');
+            } else {
+                navLink?.classList.remove('active');
+            }
+        });
+    });
+
+    /**
+     * Botão Scroll To Top
+     * -------------------
+     * Controla a visibilidade e o comportamento do botão de rolagem para o topo.
+     */
     if (elements.scrollToTopBtn) {
+        window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
         elements.scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
     }
 
-    // ------------------------------
-    // PROJECT MODAL
-    // ------------------------------
+    /**
+     * Modal de Projeto
+     * ----------------
+     * Gerencia a abertura e o fechamento do modal de detalhes do projeto.
+     */
     elements.projectItems.forEach(item => {
         const detailsBtn = item.querySelector('.project-details-btn');
         if (detailsBtn) {
-            detailsBtn.addEventListener('click', () => openModal(item));
+            detailsBtn.addEventListener('click', () => {
+                const itemId = item.id;
+                const projectContent = document.getElementById(`${itemId}-content`).innerHTML;
+
+                elements.modal.querySelector('.project-modal-content').innerHTML = projectContent;
+                elements.modal.style.display = "block";
+            });
         }
     });
 
@@ -54,9 +216,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ------------------------------
-    // FADE-IN EFFECT
-    // ------------------------------
+    /**
+     * Efeito Fade-in
+     * --------------
+     * Aplica um efeito de fade-in para seções à medida que se tornam visíveis na tela.
+     */
     if (elements.fadeInSections.length) {
         const fadeInObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -70,56 +234,61 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.fadeInSections.forEach(section => fadeInObserver.observe(section));
     }
 
+    /**
+     * Modo Escuro/Claro
+     * -----------------
+     * Alterna entre os modos escuro e claro e armazena a preferência do usuário.
+     */
+
     // Função para alternar entre os modos escuro e claro
     function toggleDarkMode() {
         document.body.classList.toggle('dark-mode');
-        document.getElementById('darkModeToggle').classList.add('rotate');
+        elements.darkModeToggle.classList.add('rotate');
 
         // Muda o ícone conforme o modo
-        const iconElement = document.getElementById('darkModeIcon');
         if (document.body.classList.contains('dark-mode')) {
-            iconElement.setAttribute('data-icon', 'mdi:weather-night');
+            elements.darkModeIcon.setAttribute('data-icon', 'mdi:weather-night');
             localStorage.setItem('darkMode', 'enabled'); // Armazena como escuro
         } else {
-            iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
+            elements.darkModeIcon.setAttribute('data-icon', 'mdi:white-balance-sunny');
             localStorage.setItem('darkMode', 'disabled'); // Armazena como claro
         }
 
         // Remove a animação de rotação após 300ms
         setTimeout(() => {
-            document.getElementById('darkModeToggle').classList.remove('rotate');
+            elements.darkModeToggle.classList.remove('rotate');
         }, 300);
     }
 
     // Verifica e carrega a preferência armazenada ou ativa o modo escuro por padrão
     function loadUserPreference() {
         const darkMode = localStorage.getItem('darkMode');
-        const iconElement = document.getElementById('darkModeIcon');
 
         if (darkMode === 'enabled') {
             document.body.classList.add('dark-mode');
-            iconElement.setAttribute('data-icon', 'mdi:weather-night');
+            elements.darkModeIcon.setAttribute('data-icon', 'mdi:weather-night');
         } else if (darkMode === 'disabled') {
             document.body.classList.remove('dark-mode');
-            iconElement.setAttribute('data-icon', 'mdi:white-balance-sunny');
+            elements.darkModeIcon.setAttribute('data-icon', 'mdi:white-balance-sunny');
         } else {
             // Configura o modo escuro por padrão na primeira visita
             document.body.classList.add('dark-mode');
-            iconElement.setAttribute('data-icon', 'mdi:weather-night');
+            elements.darkModeIcon.setAttribute('data-icon', 'mdi:weather-night');
             localStorage.setItem('darkMode', 'enabled'); // Salva a preferência inicial como escuro
         }
     }
 
     // Adiciona o evento de clique ao botão de alternância
-    document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+    elements.darkModeToggle.addEventListener('click', toggleDarkMode);
 
     // Carrega a preferência do usuário ao carregar a página
     loadUserPreference();
 
-    // ------------------------------
-    // ANIMATION ON SCROLL (Smooth Fade and Slide)
-    // ------------------------------
-
+    /**
+     * Animação ao Rolar
+     * -----------------
+     * Aplica animações suaves de fade e slide a elementos à medida que eles entram na viewport.
+     */
     const animationOptions = {
         threshold: 0.15,
         rootMargin: '0px',
@@ -169,28 +338,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ------------------------------
-    // CHECK IF BROWSER IS SAFARI
-    // ------------------------------
+    /**
+     * Detecção do Navegador Safari
+     * ---------------------------
+     * Adiciona uma classe específica para o Safari para lidar com possíveis peculiaridades de renderização.
+     */
     if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
         document.body.classList.add('safari');
     }
 
-    // ------------------------------
-    // LANGUAGE SWITCH
-    // ------------------------------
+    /**
+     * Troca de Idioma
+     * ---------------
+     * Gerencia a funcionalidade de troca de idioma, destacando o idioma atual.
+     */
     const currentPage = window.location.href;
-    const languageLinks = document.querySelectorAll('.language-switch a');
 
     // Função para remover a classe 'active' de todos os links
     function removeActiveClass() {
-        languageLinks.forEach(link => {
+        elements.languageLinks.forEach(link => {
             link.classList.remove('active');
         });
     }
 
     // Adiciona 'active' ao link correspondente à página atual
-    languageLinks.forEach(link => {
+    elements.languageLinks.forEach(link => {
         const linkHref = link.getAttribute('href');
         // Verifica se a URL atual corresponde exatamente ao href do link
         if (currentPage.endsWith(linkHref)) {
@@ -204,106 +376,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-});
+    /**
+     * Inicialização de Componentes
+     * ----------------------------
+     * Inicializa os carrosséis, gerenciador de skills e modais, se os elementos necessários existirem.
+     */
 
-// Seleciona todos os links de navegação
-const navLinks = document.querySelectorAll('nav ul li a');
-
-// Adiciona um ouvinte de evento de clique a cada link
-navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-        // Remove a classe 'selected' de todos os links
-        navLinks.forEach(link => link.classList.remove('selected'));
-
-        // Adiciona a classe 'selected' ao link clicado
-        this.classList.add('selected');
-
-        // Chama a função de rolagem suave
-        smoothScroll.call(this, e);
-    });
-});
-
-// Função para rolar suavemente até um elemento
-function smoothScroll(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-        const targetPosition = targetElement.offsetTop;
-        smoothScrollTo(0, targetPosition);
-    }
-}
-
-// Função para rolar suavemente até uma posição
-function smoothScrollTo(endX, endY, duration = 1000) {
-    const startX = window.pageXOffset || window.scrollX || document.documentElement.scrollLeft;
-    const startY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
-    const distanceX = endX - startX;
-    const distanceY = endY - startY;
-    const startTime = new Date().getTime();
-
-    const easeInOutQuart = (time, from, distance, duration) => {
-        if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
-        return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
-    };
-
-    const timer = setInterval(() => {
-        const time = new Date().getTime() - startTime;
-        const newX = easeInOutQuart(time, startX, distanceX, duration);
-        const newY = easeInOutQuart(time, startY, distanceY, duration);
-        if (time >= duration) {
-            clearInterval(timer);
-            window.scrollTo(endX, endY); // Garante que a rolagem chegue ao final
-        } else {
-            window.scrollTo(newX, newY);
-        }
-    }, 1000 / 60);
-}
-
-// Função para alternar o botão de rolar para o topo
-function toggleScrollToTopButton() {
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollToTopBtn.classList.add("show");
-    } else {
-        scrollToTopBtn.classList.remove("show");
-    }
-}
-
-// Função debounce para limitar a frequência de execução
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize the carousels if the necessary elements exist.
-    if (document.querySelector('.carousel-track')) {
+    // Carrossel de Imagens
+    if (elements.carouselTrack) {
         new ImageCarousel();
     }
-    if (document.querySelector('.art-carousel__track')) {
+
+    // Carrossel de Arte Digital
+    if (elements.artCarouselTrack) {
         new ArtImageCarousel();
     }
 
-    // Initialize the skills management if the necessary elements exist.
-    if (document.querySelector('.skills__content')) {
+    // Gerenciador de Skills
+    if (elements.skillsContent) {
         new SkillsManager();
     }
 
-    // Initialize the modal manager if the necessary elements exist
-    if (document.querySelector(".services.section")) {
+    // Gerenciador de Modais
+    if (elements.servicesSection) {
         new ModalManager();
+    }
+
+    // Carrossel de Depoimentos
+    if (elements.testimonialsTrack) {
+        new TestimonialsCarousel();
     }
 });
 
-// Class to manage the main image carousel
+/**
+ * COMPONENTES
+ * ===========
+ * Classes para gerenciar componentes individuais da página.
+ */
+
+/**
+ * Image Carousel - Gerencia o carrossel de imagens principal.
+ */
 class ImageCarousel {
     constructor(options = {}) {
         // Configuration with default values
@@ -439,7 +552,9 @@ class ImageCarousel {
     }
 }
 
-// Class to manage the digital art carousel
+/**
+ * Art Image Carousel - Gerencia o carrossel de arte digital.
+ */
 class ArtImageCarousel {
     constructor() {
         this.track = document.querySelector('.art-carousel__track');
@@ -517,7 +632,9 @@ class ArtImageCarousel {
     }
 }
 
-// Class to manage the skills sections
+/**
+ * Skills Manager - Gerencia as seções de habilidades, incluindo a animação das barras de progresso.
+ */
 class SkillsManager {
     constructor() {
         this.skillsContents = document.querySelectorAll('.skills__content');
@@ -598,7 +715,9 @@ class SkillsManager {
     }
 }
 
-// Class to manage the Modals
+/**
+ * Modal Manager - Gerencia a abertura e o fechamento dos modais de serviços.
+ */
 class ModalManager {
     constructor() {
         this.servicesSection = document.querySelector(".services.section");
@@ -621,19 +740,19 @@ class ModalManager {
 
     handleModalEvents(event) {
         const target = event.target;
-    
+
         if (target.closest('.services__button')) {
             const button = target.closest('.services__button');
             const modalIndex = button.getAttribute('data-modal');
             this.openModal(parseInt(modalIndex));
         }
-    
+
         if (target.classList.contains("services__modal-close") ||
             target.classList.contains("services__modal")) {
             this.closeModal();
         }
     }
-    
+
     handleKeyDown(event) {
         if (event.key === 'Escape') {
             this.closeModal();
@@ -641,186 +760,119 @@ class ModalManager {
     }
 }
 
-// Carrossel de Depoimentos
-document.addEventListener('DOMContentLoaded', function() {
-    const track = document.querySelector('.testimonials-track');
-    const slides = Array.from(track.children);
-    const nextButton = document.querySelector('.next-testimonial');
-    const prevButton = document.querySelector('.prev-testimonial');
-    // Procura o container de dots existente em vez de criar um novo
-    const dotsContainer = document.querySelector('.testimonial-dots');
-    let activeSlideIndex = 0;
-    let autoplayInterval;
-    const autoplayDelay = 5000; // 5 segundos entre cada slide
+/**
+ * Testimonials Carousel - Gerencia o carrossel de depoimentos.
+ */
+class TestimonialsCarousel {
+    constructor() {
+        this.track = document.querySelector('.testimonials-track');
+        this.slides = Array.from(this.track.children);
+        this.nextButton = document.querySelector('.next-testimonial');
+        this.prevButton = document.querySelector('.prev-testimonial');
+        this.dotsContainer = document.querySelector('.testimonial-dots');
+        this.activeSlideIndex = 0;
+        this.autoplayInterval = null;
+        this.autoplayDelay = 5000;
 
-    // Configuração inicial
-    function initialize() {
-        // Limpa os dots existentes (se houver)
-        dotsContainer.innerHTML = '';
-        
-        // Adiciona os indicadores de slide (dots)
-        slides.forEach((_, index) => {
+        this.init();
+    }
+
+    init() {
+        this.dotsContainer.innerHTML = '';
+
+        this.slides.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.className = `testimonial-dot ${index === 0 ? 'active' : ''}`;
             dot.setAttribute('aria-label', `Ir para depoimento ${index + 1}`);
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
+            dot.addEventListener('click', () => this.goToSlide(index));
+            this.dotsContainer.appendChild(dot);
         });
 
-        // Configura a largura inicial dos slides
-        updateSlideWidth();
-        
-        // Inicia o autoplay
-        startAutoplay();
+        this.updateSlideWidth();
+        this.startAutoplay();
 
-        // Pausa o autoplay quando o mouse está sobre o carrossel
-        track.parentElement.addEventListener('mouseenter', stopAutoplay);
-        track.parentElement.addEventListener('mouseleave', startAutoplay);
+        this.track.parentElement.addEventListener('mouseenter', () => this.stopAutoplay());
+        this.track.parentElement.addEventListener('mouseleave', () => this.startAutoplay());
+        this.nextButton.addEventListener('click', () => this.moveToNextSlide());
+        this.prevButton.addEventListener('click', () => this.moveToPrevSlide());
+        window.addEventListener('resize', () => this.updateSlideWidth());
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        this.track.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        this.track.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe(touchStartX, touchEndX);
+        }, { passive: true });
     }
 
-    // Atualiza a largura dos slides baseado no container
-    function updateSlideWidth() {
-        const containerWidth = track.parentElement.offsetWidth;
-        slides.forEach(slide => {
+    updateSlideWidth() {
+        const containerWidth = this.track.parentElement.offsetWidth;
+        this.slides.forEach(slide => {
             slide.style.width = `${containerWidth}px`;
         });
-        updateSlidePosition();
+        this.updateSlidePosition();
     }
 
-    // Atualiza a posição dos slides
-    function updateSlidePosition() {
-        const slideWidth = slides[0].offsetWidth;
-        track.style.transform = `translateX(${-slideWidth * activeSlideIndex}px)`;
-        
-        // Atualiza os dots
-        const dots = dotsContainer.children;
+    updateSlidePosition() {
+        const slideWidth = this.slides[0].offsetWidth;
+        this.track.style.transform = `translateX(${-slideWidth * this.activeSlideIndex}px)`;
+
+        const dots = this.dotsContainer.children;
         Array.from(dots).forEach((dot, index) => {
-            dot.classList.toggle('active', index === activeSlideIndex);
+            dot.classList.toggle('active', index === this.activeSlideIndex);
         });
     }
 
-    // Vai para um slide específico
-    function goToSlide(index) {
-        activeSlideIndex = index;
-        updateSlidePosition();
-        resetAutoplay();
+    goToSlide(index) {
+        this.activeSlideIndex = index;
+        this.updateSlidePosition();
+        this.resetAutoplay();
     }
 
-    // Move para o próximo slide
-    function moveToNextSlide() {
-        activeSlideIndex = (activeSlideIndex + 1) % slides.length;
-        updateSlidePosition();
-        resetAutoplay();
+    moveToNextSlide() {
+        this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
+        this.updateSlidePosition();
+        this.resetAutoplay();
     }
 
-    // Move para o slide anterior
-    function moveToPrevSlide() {
-        activeSlideIndex = (activeSlideIndex - 1 + slides.length) % slides.length;
-        updateSlidePosition();
-        resetAutoplay();
+    moveToPrevSlide() {
+        this.activeSlideIndex = (this.activeSlideIndex - 1 + this.slides.length) % this.slides.length;
+        this.updateSlidePosition();
+        this.resetAutoplay();
     }
 
-    // Inicia o autoplay
-    function startAutoplay() {
-        if (autoplayInterval) return;
-        autoplayInterval = setInterval(moveToNextSlide, autoplayDelay);
+    startAutoplay() {
+        if (this.autoplayInterval) return;
+        this.autoplayInterval = setInterval(() => this.moveToNextSlide(), this.autoplayDelay);
     }
 
-    // Para o autoplay
-    function stopAutoplay() {
-        if (autoplayInterval) {
-            clearInterval(autoplayInterval);
-            autoplayInterval = null;
+    stopAutoplay() {
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
         }
     }
 
-    // Reseta o autoplay
-    function resetAutoplay() {
-        stopAutoplay();
-        startAutoplay();
+    resetAutoplay() {
+        this.stopAutoplay();
+        this.startAutoplay();
     }
 
-    // Event Listeners
-    nextButton.addEventListener('click', moveToNextSlide);
-    prevButton.addEventListener('click', moveToPrevSlide);
-    window.addEventListener('resize', updateSlideWidth);
-
-    // Suporte a gestos touch para dispositivos móveis
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    track.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    track.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
-        const swipeThreshold = 50; // Mínima distância para considerar como swipe
+    handleSwipe(touchStartX, touchEndX) {
+        const swipeThreshold = 50;
         const difference = touchStartX - touchEndX;
 
         if (Math.abs(difference) > swipeThreshold) {
             if (difference > 0) {
-                moveToNextSlide();
+                this.moveToNextSlide();
             } else {
-                moveToPrevSlide();
+                this.moveToPrevSlide();
             }
         }
     }
-
-    // Inicializa o carrossel
-    initialize();
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.header__menu-toggle');
-    const navMenu = document.querySelector('.header__nav');
-    const menuIcon = document.querySelector('.header__menu-icon');
-    const navLinks = document.querySelectorAll('.header__nav-link');
-
-    // Toggle menu
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('open');
-        menuToggle.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
-    });
-
-    // Fechar menu ao clicar em um link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('open');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-
-    // Fechar menu ao clicar fora
-    document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-            navMenu.classList.remove('open');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Atualizar link ativo ao rolar
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
-        
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            const sectionId = section.getAttribute('id');
-            
-            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                document.querySelector(`.header__nav-link[href*=${sectionId}]`).classList.add('active');
-            } else {
-                document.querySelector(`.header__nav-link[href*=${sectionId}]`).classList.remove('active');
-            }
-        });
-    });
-});
+}
