@@ -6,7 +6,9 @@
     <title>Jeferson Reis - Desenvolvedor Full-Stack | Portfólio</title>
 
     <meta name="language" content="pt-BR">
-    <meta name="geo.region" content="BR-BA"> <meta name="geo.placename" content="Camaçari"> <meta name="geo.position" content="-12.697684;-38.324719"> <meta name="ICBM" content="-12.697684, -38.324719"> <meta name="description" content="Portfólio de Jeferson Reis, desenvolvedor Full-Stack especializado em React, Node.js e design gráfico. Explore projetos inovadores e habilidades técnicas avançadas.">
+    <meta name="geo.region" content="BR">
+
+    <meta name="description" content="Portfólio de Jeferson Reis, desenvolvedor Full-Stack especializado em React, Node.js e design gráfico. Explore projetos inovadores e habilidades técnicas avançadas.">
     <meta name="author" content="Jeferson Reis Almeida">
     <meta name="keywords" content="Desenvolvedor Full-Stack, React, Node.js, JavaScript, HTML, CSS, Design Gráfico, Portfólio, Jeferson Reis, Bahia, Camaçari, Freelancer, Web Development, Front-end, Back-end, UX Design, UI Design">
     <meta name="robots" content="index, follow">
@@ -20,7 +22,7 @@
     <meta property="og:description" content="Explore meu portfólio, desenvolvedor Full-Stack especializado em React, Node.js e design gráfico. Descubra projetos inovadores e habilidades técnicas avançadas.">
     <meta property="og:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
     <meta property="og:image:alt" content="Foto de Jeferson Reis">
-    <meta property="og:image:type" content="image/webp"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale" content="pt_BR">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jefersonreis-github-io.vercel.app/">
@@ -29,24 +31,24 @@
     <meta name="twitter:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
     <meta name="twitter:image:alt" content="Foto de Jeferson Reis">
 
-    <link rel="icon" href="./src/image/icon/Iconsite.svg" type="image/svg+xml">
-    <link rel="icon" href="./src/image/icon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./src/image/icon/apple-touch-icon.png">
+    <link rel="icon" href="./src/image/icon/Iconsite.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./src/image/apple-touch-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://code.iconify.design">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./src/css/style.min.css">
+    <link rel="stylesheet" href="./src/css/import.css">
 
-    <link rel="prefetch" href="https://code.iconify.design/3/3.1.0/iconify.min.js">
-    <link rel="prefetch" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js">
-
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
     <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="/src/js/script.js" defer></script>
+    <script src="/src/js/Particles.js" defer></script>
+
     <link rel="canonical" href="https://jefersonreis-github-io.vercel.app/">
 
     <script type="application/ld+json">
@@ -68,76 +70,36 @@
         }
     }
     </script>
-
-    <style>
-        .page-transition-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff; /* Cor de fundo, ajuste conforme o design */
-            z-index: 10000; /* Garante que fique acima de tudo */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out; /* Transição suave */
-        }
-
-        .page-transition-overlay.fade-out {
-            opacity: 0;
-            pointer-events: none; /* Permite clicar através após o fade out */
-        }
-
-        .page-transition-spinner {
-            border: 4px solid #f3f3f3; /* Cor do spinner */
-            border-top: 4px solid #3498db; /* Cor do spinner ativo */
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
 </head>
 <body>
-
-    <div class="page-transition-overlay">
-        <div class="page-transition-spinner"></div>
-    </div>
 
     <header role="banner" class="header">
         <div class="container header__container">
             <a href="#" class="header__logo" aria-label="Logo de Jeferson Reis">JR</a>
-
+    
             <button class="header__menu-toggle" aria-label="Abrir menu">
                 <span class="header__menu-icon"></span>
             </button>
-
+    
             <nav class="header__nav" aria-label="Navegação principal">
                 <ul class="header__nav-list">
                     <li class="header__nav-item"><a href="#home" class="header__nav-link">Início</a></li>
-                    <li class="header__nav-item"><a href="#sobre" class="header__nav-link" rel="prefetch">Sobre</a></li>
-                    <li class="header__nav-item"><a href="#habilidades" class="header__nav-link" rel="prefetch">Habilidades</a></li>
-                    <li class="header__nav-item"><a href="#services" class="header__nav-link" rel="prefetch">Serviços</a></li>
-                    <li class="header__nav-item"><a href="#Portfolio" class="header__nav-link" rel="prefetch">Portfólio</a></li>
-                    <li class="header__nav-item"><a href="#certificates" class="header__nav-link" rel="prefetch">Certificados</a></li>
-                    <li class="header__nav-item"><a href="#Contatos" class="header__nav-link" rel="prefetch">Contatos</a></li>
+                    <li class="header__nav-item"><a href="#sobre" class="header__nav-link">Sobre</a></li>
+                    <li class="header__nav-item"><a href="#habilidades" class="header__nav-link">Habilidades</a></li>
+                    <li class="header__nav-item"><a href="#services" class="header__nav-link">Serviços</a></li>
+                    <li class="header__nav-item"><a href="#Portfolio" class="header__nav-link">Portfólio</a></li>
+                    <li class="header__nav-item"><a href="#certificates" class="header__nav-link">Certificados</a></li>
+                    <li class="header__nav-item"><a href="#Contatos" class="header__nav-link">Contatos</a></li>
                 </ul>
             </nav>
-
+    
             <div class="header__actions">
                 <div class="language-switch">
                     <a href="index.html" data-lang="pt" aria-label="Português" class="language-switch__link">
-                        <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português" class="language-switch__icon" rel="preload" as="image">PT
+                        <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português" class="language-switch__icon">PT
                     </a>
                     <a href="index-en.html" data-lang="en" aria-label="English" class="language-switch__link">
-                        <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês" class="language-switch__icon" rel="preload" as="image">EN
+                        <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês" class="language-switch__icon">EN
                     </a>
                 </div>
                 <button id="darkModeToggle" class="header__dark-mode-toggle" aria-label="Alternar modo escuro">
@@ -151,13 +113,7 @@
         <section id="home" class="hero parallax" aria-labelledby="heroTitle">
             <div id="particles-js" class="hero__particles"></div>
             <div class="container hero__container">
-                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="hero__profile-pic" loading="lazy"
-                    srcset="./src/image/Linkedin-foto-480w.webp 480w,
-                            ./src/image/Linkedin-foto-768w.webp 768w,
-                            ./src/image/Linkedin-foto.webp 1280w"
-                    sizes="(max-width: 480px) 480px,
-                           (max-width: 768px) 768px,
-                           1280px">
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="hero__profile-pic" loading="lazy">
                 <h1 id="heroTitle" class="hero__title" data-aos="fade-up">Jeferson Reis Almeida</h1>
                 <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack</p>
                 <div class="hero__cta-buttons" data-aos="fade-up" data-aos-delay="400">
@@ -175,7 +131,7 @@
             <div class="container">
                 <h2 id="portfolio-title" class="section__title">Portfólio de Arte Digital e Design Gráfico</h2>
                 <p class="section__subtitle">Explore minha coleção de projetos inovadores em design gráfico e arte digital, demonstrando criatividade e habilidades técnicas avançadas.</p>
-                <a href="Artistadigital.html" class="button button--primary" rel="prefetch">
+                <a href="Artistadigital.html" class="button button--primary" rel="noopener noreferrer">
                 Explorar Portfólio Completo
                 </a>
             </div>
@@ -206,8 +162,7 @@
                             <p class="about__item-description">🚀 Minha trajetória me proporcionou experiência em diversas tecnologias, incluindo HTML5, CSS3, JavaScript, React, PHP, Vue.js, Bootstrap, Node.js, jQuery, MySQL, PostgreSQL e MongoDB. Tenho um olhar apurado para UX Design, buscando sempre melhorar a experiência do usuário.</p>
                         </div>
                     </article>
-
- <article class="about__item">
+                    <article class="about__item">
                         <span class="iconify about__icon" data-icon="mdi:palette" aria-hidden="true"></span>
                         <div class="about__item-content">
                             <h3 class="about__item-title">Design Gráfico</h3>
@@ -240,7 +195,7 @@
                             </div>
                             <i class="skills__arrow uil uil-angle-down"></i>
                         </div>
-
+        
                         <div class="skills__list">
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
@@ -251,7 +206,7 @@
                                     <div class="skill__progress" data-percentage="100"></div>
                                 </div>
                             </div>
-
+        
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">CSS</span>
@@ -261,7 +216,7 @@
                                     <div class="skill__progress" data-percentage="100"></div>
                                 </div>
                             </div>
-
+        
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">JavaScript</span>
@@ -271,7 +226,7 @@
                                     <div class="skill__progress" data-percentage="100"></div>
                                 </div>
                             </div>
-
+        
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">React</span>
@@ -283,7 +238,7 @@
                             </div>
                         </div>
                     </div>
-
+        
                     <div class="skills__content">
                         <div class="skills__header">
                             <div class="skill__icon-wrapper">
@@ -295,7 +250,7 @@
                             </div>
                             <i class="skills__arrow uil uil-angle-down"></i>
                         </div>
-
+        
                         <div class="skills__list">
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
@@ -306,7 +261,7 @@
                                     <div class="skill__progress" data-percentage="85"></div>
                                 </div>
                             </div>
-
+        
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">Node.js</span>
@@ -316,7 +271,7 @@
                                     <div class="skill__progress" data-percentage="90"></div>
                                 </div>
                             </div>
-
+        
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">MySQL</span>
@@ -326,7 +281,7 @@
                                     <div class="skill__progress" data-percentage="90"></div>
                                 </div>
                             </div>
-
+        
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">Python</span>
@@ -338,7 +293,7 @@
                             </div>
                         </div>
                     </div>
-
+        
                     <div class="skills__content">
                         <div class="skills__header">
                             <div class="skill__icon-wrapper">
@@ -350,7 +305,7 @@
                             </div>
                             <i class="skills__arrow uil uil-angle-down"></i>
                         </div>
-
+        
                         <div class="skills__list">
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
@@ -361,7 +316,7 @@
                                     <div class="skill__progress" data-percentage="85"></div>
                                 </div>
                             </div>
-
+        
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">Angular</span>
@@ -371,325 +326,9 @@
                                     <div class="skill__progress" data-percentage="90"></div>
                                 </div>
                             </div>
-
+        
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">Bootstrap</span>
                                     <span class="skill__percentage">80%</span>
-                                </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill__item">
-                                <div class="skill__name-wrapper">
-                                    <span class="skill__name">Tailwind CSS</span>
-                                    <span class="skill__percentage">95%</span>
-                                </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="95"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="section services" aria-labelledby="services-title">
-            <div class="container">
-                <h2 id="services-title" class="section__title">Serviços Oferecidos</h2>
-                <p class="section__subtitle">Descubra os serviços que ofereço para ajudar seu negócio a crescer e se destacar no mercado digital.</p>
-        
-                <div class="services__grid">
-                    <article class="service">
-                        <span class="iconify service__icon" data-icon="mdi:web" aria-hidden="true"></span>
-                        <h3 class="service__title">Desenvolvimento Web Full-Stack</h3>
-                        <p class="service__description">Criação de sites e aplicações web completas, desde o design até a implementação, com foco em responsividade, performance e SEO.</p>
-                    </article>
-        
-                    <article class="service">
-                        <span class="iconify service__icon" data-icon="mdi:react" aria-hidden="true"></span>
-                        <h3 class="service__title">Desenvolvimento com React</h3>
-                        <p class="service__description">Desenvolvimento de interfaces de usuário interativas e dinâmicas utilizando React, para uma experiência de usuário rica e envolvente.</p>
-                    </article>
-        
-                    <article class="service">
-                        <span class="iconify service__icon" data-icon="mdi:nodejs" aria-hidden="true"></span>
-                        <h3 class="service__title">Desenvolvimento com Node.js</h3>
-                        <p class="service__description">Construção de back-ends robustos e escaláveis com Node.js, ideais para aplicações web modernas e APIs.</p>
-                    </article>
-        
-                    <article class="service">
-                        <span class="iconify service__icon" data-icon="mdi:database" aria-hidden="true"></span>
-                        <h3 class="service__title">Soluções em Banco de Dados</h3>
-                        <p class="service__description">Implementação e otimização de bancos de dados, incluindo MySQL, PostgreSQL e MongoDB, para garantir a segurança e eficiência dos dados.</p>
-                    </article>
-        
-                    <article class="service">
-                        <span class="iconify service__icon" data-icon="mdi:brush" aria-hidden="true"></span>
-                        <h3 class="service__title">Design Gráfico e Identidade Visual</h3>
-                        <p class="service__description">Criação de designs gráficos personalizados, incluindo logotipos, banners e materiais de marketing digital, para fortalecer a identidade visual da sua marca.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-        
-        <section id="Portfolio" class="portfolio section" aria-labelledby="portfolio-section-title">
-            <div class="container">
-                <h2 id="portfolio-section-title" class="section__title">Meu Portfólio</h2>
-                <p class="section__subtitle">Confira alguns dos meus projetos mais recentes e inovadores, demonstrando minhas habilidades em desenvolvimento web e design gráfico.</p>
-                <div class="portfolio__filters">
-                    <button class="filter-button active" data-filter="all">Todos</button>
-                    <button class="filter-button" data-filter="web">Web</button>
-                    <button class="filter-button" data-filter="design">Design</button>
-                    <button class="filter-button" data-filter="react">React</button>
-                    <button class="filter-button" data-filter="nodejs">Node.js</button>
-                </div>
-        
-                <div class="portfolio__grid">
-                    <article class="portfolio-item" data-category="react">
-                        <img src="./src/image/portfolio/Projeto-Tryunfo.webp" alt="Projeto Tryunfo" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto Tryunfo</h3>
-                            <a href="https://github.com/Jeffinp/Projeto-Tryunfo" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-        
-                    <article class="portfolio-item" data-category="react">
-                        <img src="./src/image/portfolio/projeto-Trybewallet.webp" alt="Projeto Trybewallet" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto Trybewallet</h3>
-                            <a href="https://github.com/Jeffinp/Projeto-Trybewallet" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-item" data-category="react">
-                        <img src="./src/image/portfolio/Projeto-Trivia.webp" alt="Projeto Trivia" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto Trivia</h3>
-                            <a href="https://github.com/Jeffinp/Projeto-Trivia" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-item" data-category="react">
-                        <img src="./src/image/portfolio/Projeto-Starwars.webp" alt="Projeto StarWars" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto Starwars</h3>
-                            <a href="https://github.com/Jeffinp/projeto-Starwars" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-item" data-category="react">
-                        <img src="./src/image/portfolio/Projeto-FrontEnd-Online-Store.webp" alt="Projeto FrontEnd-Online-Store" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto FrontEnd-Online-Store</h3>
-                            <a href="https://github.com/Jeffinp/Projeto-FrontEnd-Online-Store" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-item" data-category="react">
-                        <img src="./src/image/portfolio/projeto-App-Receitas.webp" alt="Projeto App-Receitas" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto App-Receitas</h3>
-                            <a href="https://github.com/Jeffinp/projeto-App-Receitas" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
                     
-                    <article class="portfolio-item" data-category="nodejs">
-                        <img src="./src/image/portfolio/Projeto-Blogs-Api.webp" alt="Projeto Blogs-Api" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto Blogs-Api</h3>
-                            <a href="https://github.com/Jeffinp/Projeto-Blogs-Api" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-item" data-category="nodejs">
-                        <img src="./src/image/portfolio/projeto-Store-Manager.webp" alt="Projeto Store-Manager" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto Store-Manager</h3>
-                            <a href="https://github.com/Jeffinp/projeto-Store-Manager" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-item" data-category="nodejs">
-                        <img src="./src/image/portfolio/Projeto-Trybe-Futebol-Clube.webp" alt="Projeto Trybe-Futebol-Clube" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Projeto Trybe-Futebol-Clube</h3>
-                            <a href="https://github.com/Jeffinp/Projeto-Trybe-Futebol-Clube" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-item" data-category="design">
-                        <img src="./src/image/portfolio/Logo-jeff-imports.webp" alt="Logo Jeff-imports" class="portfolio-item__image" loading="lazy">
-<h3 class="portfolio-item__title">Logo Pizzaria-Don-Corleone</h3>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-item" data-category="design">
-                        <img src="./src/image/portfolio/Logo-Alfa-cell.webp" alt="Logo Alfa-cell" class="portfolio-item__image" loading="lazy">
-                        <div class="portfolio-item__overlay">
-                            <h3 class="portfolio-item__title">Logo Alfa-cell</h3>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="portfolio-item__link">Ver Projeto</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="certificates" class="section certificates" aria-labelledby="certificates-section-title">
-            <div class="container">
-                <h2 id="certificates-section-title" class="section__title">Certificados</h2>
-                <p class="section__subtitle">Confira os certificados que conquistei ao longo da minha jornada de aprendizado e aprimoramento contínuo.</p>
-        
-                <div class="certificates__grid">
-                    <div class="certificate__item">
-                        <img src="./src/image/certificates/Certificado-Fundamentos.webp" alt="Certificado Fundamentos" class="certificate__image" loading="lazy">
-                        <div class="certificate__overlay">
-                            <h3 class="certificate__title">Certificado Fundamentos</h3>
-                            <a href="https://www.credential.net/5498ce55-9579-4754-8867-d7d357747f34" target="_blank" rel="noopener noreferrer" class="certificate__link">Ver Certificado</a>
-                        </div>
-                    </div>
-
-                    <div class="certificate__item">
-                        <img src="./src/image/certificates/Certificado-frontend.webp" alt="Certificado Frontend" class="certificate__image" loading="lazy">
-                        <div class="certificate__overlay">
-                            <h3 class="certificate__title">Certificado Frontend</h3>
-                            <a href="https://www.credential.net/f590a4f6-bb75-4f04-85d5-c0fd9f34c2c5#gs.6p7o9w" target="_blank" rel="noopener noreferrer" class="certificate__link">Ver Certificado</a>
-                        </div>
-                    </div>
-
-                    <div class="certificate__item">
-                        <img src="./src/image/certificates/Certificado-backend.webp" alt="Certificado Backend" class="certificate__image" loading="lazy">
-                        <div class="certificate__overlay">
-                            <h3 class="certificate__title">Certificado Backend</h3>
-                            <a href="https://www.credential.net/179d00e8-8259-45f2-9704-9960f0977d8e#gs.6p7pd8" target="_blank" rel="noopener noreferrer" class="certificate__link">Ver Certificado</a>
-                        </div>
-                    </div>
-
-                    <div class="certificate__item">
-                        <img src="./src/image/certificates/Certificado-ciencia-da-computacao.webp" alt="Certificado Ciência da computação" class="certificate__image" loading="lazy">
-                        <div class="certificate__overlay">
-                            <h3 class="certificate__title">Certificado Ciência da computação</h3>
-                            <a href="https://www.credential.net/46b657d1-9a92-4e5c-b5ef-8536f5e0e990#gs.6p7q32" target="_blank" rel="noopener noreferrer" class="certificate__link">Ver Certificado</a>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <section id="Contatos" class="contact section" aria-labelledby="contact-section-title">
-            <div class="container">
-                <h2 id="contact-section-title" class="section__title">Entre em Contato</h2>
-                <p class="section__subtitle">Estou animado para ouvir sobre seus projetos e como posso ajudar a transformá-los em realidade. Entre em contato para começarmos a trabalhar juntos!</p>
-        
-                <div class="contact__container">
-                    <div class="contact__info">
-                        <h3 class="contact__info-title">Informações de Contato</h3>
-                        <ul class="contact__list">
-                            <li>
-                                <span class="iconify" data-icon="mdi:email" aria-hidden="true"></span>
-                                <a href="mailto:jeffersonreis2006@gmail.com">jeffersonreis2006@gmail.com</a>
-                            </li>
-                            <li>
-                                <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
-                                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                            </li>
-                            <li>
-                                <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
-                                <a href="https://github.com/Jeffinp" target="_blank" rel="noopener noreferrer">GitHub</a>
-                            </li>
-                            <li>
-                                <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
-                                <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                            </li>
-                        </ul>
-                    </div>
-        
-                    <form action="#" method="POST" class="contact__form">
-                        <div class="form__group">
-                            <label for="name" class="form__label">Nome</label>
-                            <input type="text" id="name" name="name" class="form__input" required>
-                        </div>
-        
-                        <div class="form__group">
-                            <label for="email" class="form__label">E-mail</label>
-                            <input type="email" id="email" name="email" class="form__input" required>
-                        </div>
-        
-                        <div class="form__group">
-                            <label for="message" class="form__label">Mensagem</label>
-                            <textarea id="message" name="message" rows="5" class="form__input" required></textarea>
-                        </div>
-        
-                        <button type="submit" class="button button--primary">Enviar Mensagem</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p class="footer__text">© 2024 Jeferson Reis. Todos os direitos reservados.</p>
-            <ul class="footer__links">
-                <li><a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener noreferrer" class="footer__link">
-                    <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
-                </a></li>
-                <li><a href="https://github.com/Jeffinp" target="_blank" rel="noopener noreferrer" class="footer__link">
-                    <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
-                </a></li>
-                <li><a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener noreferrer" class="footer__link">
-                    <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
-                </a></li>
-            </ul>
-        </div>
-    </footer>
-    <script src="./src/js/script.min.js" defer></script>
-    <script src="./src/js/particles.min.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const overlay = document.querySelector('.page-transition-overlay');
-          
-          // Verifica se o overlay foi encontrado
-          if (overlay) {
-            window.addEventListener('pageshow', (event) => {
-              if (event.persisted) {
-                // A página foi carregada do cache (ex: botão "voltar")
-                overlay.classList.add('fade-out');
-              } else {
-                // Primeira vez que a página é carregada
-                overlay.classList.add('fade-out');
-              }
-            });
-        
-            // Adiciona o ouvinte de evento para transições de página
-            document.querySelectorAll('a').forEach(link => {
-              link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-        
-                // Verifica se o link é para uma âncora na mesma página
-                if (!href || href.startsWith('#') || (href.startsWith(window.location.origin) && href.includes('#'))) {
-                  return;
-                }
-        
-                e.preventDefault();
-                overlay.classList.remove('fade-out');
-        
-                setTimeout(() => {
-                  window.location.href = href;
-                }, 500); // Tempo que a transição deve durar
-              });
-            });
-          } else {
-            console.error('Elemento .page-transition-overlay não encontrado.');
-          }
-        });
-    </script>
-</body>
-</html>
-
-
-      
