@@ -75,12 +75,10 @@
 
     <header role="banner" class="header">
         <div class="container header__container">
-            <a href="#" class="header__logo" aria-label="Jeferson Reis' Logo">JR</a>
+            <a href="#" class="header__logo" aria-label="Jeferson Reis's Logo">JR</a>
     
             <button class="header__menu-toggle" aria-label="Open menu">
-                <span class="header__menu-icon">
-                    <span class="visually-hidden">Open Menu</span>
-                </span>
+                <span class="header__menu-icon"></span>
             </button>
     
             <nav class="header__nav" aria-label="Main navigation">
@@ -91,6 +89,7 @@
                     <li class="header__nav-item"><a href="#services" class="header__nav-link">Services</a></li>
                     <li class="header__nav-item"><a href="#Portfolio" class="header__nav-link">Portfolio</a></li>
                     <li class="header__nav-item"><a href="#certificates" class="header__nav-link">Certificates</a></li>
+                    <li class="header__nav-item"><a href="#Contatos" class="header__nav-link">Contact</a></li>
                 </ul>
             </nav>
     
@@ -109,11 +108,6 @@
             </div>
         </div>
     </header>
-        
-    <!-- DARK MODE TOGGLE BUTTON -->
-    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Alternar modo escuro">
-        <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
-    </button>
 
     <main>
 
@@ -417,86 +411,78 @@
         </section>
         
         <section class="section services" id="services">
-            <div class="container services__container">
-                <h2 class="section__title">Services</h2>
+            <div class="services__container">
+                <h2 class="section__title" id="servicesTitle">My Services</h2>
+                <p class="services__subtitle">Professional solutions tailored to your needs</p>
+        
                 <div class="services__grid">
-                    <article class="services__card">
+                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
                         <div class="services__icon-container">
-                            <i class="uil uil-arrow services__icon"></i>
-                            <h3 class="services__title">Frontend Developer</h3>
+                            <i class="uil uil-web-grid services__icon" aria-hidden="true"></i>
                         </div>
-                        <button class="button button--flex button--small button--link services__button" data-modal="0">
-                            View More
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </button>
+                        <h3 class="services__title" itemprop="name">Web Development</h3>
+                        <p class="services__description" itemprop="description">
+                            Creation of professional Landing Pages, Institutional Websites, E-commerce stores, and Blogs. All websites are responsive, SEO-optimized, and feature a custom design tailored to your brand.
+                        </p>
                     </article>
         
-                    <article class="services__card">
+                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
                         <div class="services__icon-container">
-                            <i class="uil uil-server services__icon"></i>
-                            <h3 class="services__title">Backend Developer</h3>
+                            <i class="uil uil-palette services__icon" aria-hidden="true"></i>
                         </div>
-                        <button class="button button--flex button--small button--link services__button" data-modal="1">
-                            View More
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </button>
+                        <h3 class="services__title" itemprop="name">Design & Brand Identity</h3>
+                        <p class="services__description" itemprop="description">
+                            Development of logos, comprehensive brand identities, social media graphics, banners, flyers, and marketing materials that strengthen your brand's presence in the market.
+                        </p>
                     </article>
         
-                    <article class="services__card">
+                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
                         <div class="services__icon-container">
-                            <i class="uil uil-palette services__icon"></i>
-                            <h3 class="services__title">Graphic Design</h3>
+                            <i class="uil uil-file-alt services__icon" aria-hidden="true"></i>
                         </div>
-                        <button class="button button--flex button--small button--link services__button" data-modal="2">
-                            View More
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </button>
+                        <h3 class="services__title" itemprop="name">Professional Documentation</h3>
+                        <p class="services__description" itemprop="description">
+                            Creation of impactful presentations, business documents, advanced spreadsheets, resumes, and academic papers with professional formatting, including APA style.
+                        </p>
+                    </article>
+        
+                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                        <div class="services__icon-container">
+                            <i class="uil uil-cube services__icon" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="services__title" itemprop="name">3D Modeling</h3>
+                        <p class="services__description" itemprop="description">
+                            Creation of 3D models and environments, photorealistic rendering, animations, and AR/VR assets. Projects optimized for 3D printing and professional visualization.
+                        </p>
+                    </article>
+        
+                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                        <div class="services__icon-container">
+                            <i class="uil uil-desktop services__icon" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="services__title" itemprop="name">Technical Support</h3>
+                        <p class="services__description" itemprop="description">
+                            Services including formatting, optimization, cleanup, data recovery, and preventative maintenance. Remote or on-site support to keep your equipment running smoothly.
+                        </p>
+                    </article>
+        
+                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                        <div class="services__icon-container">
+                            <i class="uil uil-rocket services__icon" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="services__title" itemprop="name">Digital Marketing</h3>
+                        <p class="services__description" itemprop="description">
+                            Comprehensive social media management, digital marketing strategies, SEO optimization, content creation, and traffic management to boost your online presence.
+                        </p>
                     </article>
                 </div>
         
-                <div class="services__modal">
-                    <div class="services__modal-content">
-                        <h4 class="services__modal-title">Frontend Developer</h4>
-                        <button class="services__modal-close">
-                            <i class="uil uil-times"></i>
-                        </button>
-                        <ul class="services__modal-list">
-                            <li class="services__modal-item">Creation of beautiful and responsive websites that work on any device.</li>
-                            <li class="services__modal-item">Development of web applications and systems that meet your exact needs.</li>
-                            <li class="services__modal-item">Building strong and scalable applications that grow with your business.</li>
-                            <li class="services__modal-item">SEO optimization, helping your site to be easily found on search engines.</li>
-                        </ul>
-                    </div>
-                </div>
-        
-                <div class="services__modal">
-                    <div class="services__modal-content">
-                        <h4 class="services__modal-title">Backend Developer</h4>
-                        <button class="services__modal-close">
-                            <i class="uil uil-times"></i>
-                        </button>
-                        <ul class="services__modal-list">
-                            <li class="services__modal-item">Creation of testable APIs and applications with clean and efficient code.</li>
-                            <li class="services__modal-item">Configuration and maintenance of servers to ensure optimal performance.</li>
-                            <li class="services__modal-item">Security and scalability for your web applications, ensuring they grow with your business.</li>
-                        </ul>
-                    </div>
-                </div>
-        
-                <div class="services__modal">
-                    <div class="services__modal-content">
-                        <h4 class="services__modal-title">Graphic Design</h4>
-                        <button class="services__modal-close">
-                            <i class="uil uil-times"></i>
-                        </button>
-                        <ul class="services__modal-list">
-                            <li class="services__modal-item">Creation of impactful and unique visual identities that convey the essence of your brand.</li>
-                            <li class="services__modal-item">Design of professional graphic materials such as logos, banners, business cards, and custom pamphlets.</li>
-                            <li class="services__modal-item">Creative and strategic development of artwork for use on various digital and print platforms.</li>
-                            <li class="services__modal-item">Editing and creation of attractive images for social media, advertising campaigns, and high-impact digital projects.</li>
-                            <li class="services__modal-item"><a href="./Artistadigital.html" class="services__portfolio-link">View Portfolio</a></li>
-                        </ul>
-                    </div>
+                <div class="services__download">
+                    <a href="/src/Services_Pricing.pdf" download class="services__download-btn" aria-label="Download PDF with detailed services">
+                        <i class="uil uil-file-download-alt" aria-hidden="true"></i>
+                        Download PDF with Detailed Services
+                    </a>
+                    <p class="services__download-info">Check out all services and pricing in our complete catalog</p>
                 </div>
             </div>
         </section>

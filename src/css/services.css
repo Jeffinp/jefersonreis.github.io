@@ -17,7 +17,6 @@
     background: radial-gradient(circle at 50% 50%, rgba(var(--accent-rgb), 0.03) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
-    /* Adicionado para garantir que o gradiente fique atrás do conteúdo */
 }
 
 .services__container {
@@ -25,30 +24,36 @@
     margin: 0 auto;
     padding: 0 2rem;
     position: relative;
-    /* Adicionado para o ::before funcionar corretamente */
     z-index: 1;
-    /* Adicionado para garantir que o conteúdo fique acima do gradiente */
 }
 
 .services .section__title {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     font-weight: 800;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
     text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.services__subtitle {
+    text-align: center;
+    color: var(--text-color-secondary);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
 }
 
 .services .section__title::after {
     content: '';
     display: block;
     width: 80px;
-    height: 3px;
+    height: 4px;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: var(--border-radius-full);
     margin: 1rem auto 0;
@@ -64,20 +69,21 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     perspective: 1000px;
+    margin-bottom: 4rem;
 }
-
 .services__card {
     position: relative;
     background-color: var(--card-background);
     padding: 2.5rem;
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
     transform-style: preserve-3d;
     overflow: hidden;
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
 }
 
 .services__card::before {
@@ -94,7 +100,8 @@
 
 .services__card:hover {
     transform: translateY(-10px) rotateX(5deg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    border-color: rgba(var(--primary-rgb), 0.2);
 }
 
 .services__card:hover::before {
@@ -110,7 +117,6 @@
 
 .services__icon {
     font-size: 3rem;
-    margin-bottom: 1rem;
     color: var(--primary-color);
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     position: relative;
@@ -118,218 +124,98 @@
 }
 
 .services__card:hover .services__icon {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
     color: var(--accent-color);
 }
 
 .services__title {
     font-size: 1.3rem;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     font-weight: 700;
-    position: relative;
     color: var(--text-color);
     font-family: 'Nunito Sans', sans-serif;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.services__button {
+.services__description {
+    font-size: 1rem;
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Estilos do Botão de Download */
+.services__download {
+    text-align: center;
+    padding: 2rem 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 0.7s;
+    opacity: 0;
+}
+
+.services__download-btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    color: #fff;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: var(--container-color);
     border-radius: var(--border-radius-md);
-    text-transform: uppercase;
     font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 1.5rem;
-    width: auto;
-    position: relative;
-    overflow: hidden;
-    border: none;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 0.9rem;
-}
-
-.services__button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease-in-out;
-    z-index: 1;
-}
-
-.services__button:hover::before {
-    left: 100%;
-}
-
-.services__button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ========= MODAL ========= */
-.services__modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
-}
-
-.services__modal.active-modal {
-    opacity: 1;
-    visibility: visible;
-}
-
-.services__modal-content {
-    background: var(--card-background);
-    padding: 2.5rem;
-    border-radius: var(--border-radius-lg);
-    width: 90%;
-    max-width: 500px;
-    position: relative;
-    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.25);
-    border: none;
-    transform: scale(0.95);
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.services__modal.active-modal .services__modal-content {
-    transform: scale(1);
-}
-
-.services__modal-title {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-align: center;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.services__modal-list {
-    padding-left: 0;
-    list-style: none;
-}
-
-.services__modal-item {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: var(--text-color-secondary);
-    font-family: 'Nunito Sans', sans-serif;
-    display: flex;
-    align-items: flex-start;
-}
-
-.services__modal-item::before {
-    content: '✓';
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-    line-height: 1;
-    margin-top: 0.2rem;
-}
-
-.services__modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-color);
+    text-decoration: none;
     transition: all 0.3s ease;
-    background-color: transparent;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.2);
 }
 
-.services__modal-close:hover {
-    color: var(--primary-color);
-    transform: scale(1.1);
+.services__download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.3);
+    background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
 }
 
-.services__portfolio-link {
-    color: var(--primary-color);
-    text-decoration: underline;
+.services__download-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
 }
 
-/* ========= Animações ========= */
-@keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+.services__download-btn:hover i {
+    transform: translateY(-2px);
 }
+
+.services__download-info {
+    margin-top: 1rem;
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+}
+
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Delays para animação de entrada */
-.services__card:nth-child(1) {
-    animation-delay: 0.1s;
-}
+/* Animation delays */
+.services__card:nth-child(1) { animation-delay: 0.1s; }
+.services__card:nth-child(2) { animation-delay: 0.2s; }
+.services__card:nth-child(3) { animation-delay: 0.3s; }
+.services__card:nth-child(4) { animation-delay: 0.4s; }
+.services__card:nth-child(5) { animation-delay: 0.5s; }
+.services__card:nth-child(6) { animation-delay: 0.6s; }
 
-.services__card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.services__card:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-/* ========= Media Queries ========= */
+/* Media Queries */
 @media (max-width: 768px) {
     .services {
         padding: 3rem 0;
     }
 
     .services .section__title {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin-bottom: 2rem;
     }
 
@@ -338,55 +224,18 @@
     }
 
     .services__card {
-        padding: 1.5rem;
+        padding: 2rem;
     }
 
     .services__icon {
         font-size: 2.5rem;
-        margin-bottom: 0.8rem;
     }
 
     .services__title {
-        font-size: 1.3rem;
-        /* Valor de font-size estava faltando */
-        margin-bottom: 0;
-        font-weight: 700;
-        position: relative;
-        color: var(--text-color);
-        font-family: 'Nunito Sans', sans-serif;
-        transition: all 0.3s ease;
-    }
-
-    .services__button {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.8rem;
-        margin-top: 1rem;
-    }
-
-    .services__modal-content {
-        padding: 2rem;
-    }
-
-    .services__modal-title {
-        font-size: 1.6rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .services__modal-item {
-        font-size: 0.8rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .services__modal-item::before {
-        font-size: 1rem;
-        margin-top: 0.1rem;
-    }
-
-    .services__modal-close {
-        top: 0.8rem;
-        right: 0.8rem;
         font-size: 1.2rem;
-        width: 30px;
-        height: 30px;
+    }
+
+    .services__description {
+        font-size: 0.95rem;
     }
 }

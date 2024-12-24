@@ -135,7 +135,7 @@ body.dark-mode {
 
 html,
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);

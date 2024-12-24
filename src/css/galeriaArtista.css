@@ -108,11 +108,11 @@
     z-index: 10;
     opacity: 0.7;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    width: 40px; /* Aumentar a área de clique */
-    height: 40px; /* Aumentar a área de clique */
-    display: flex; /* Para centralizar as setas */
-    align-items: center; /* Centralizar verticalmente */
-    justify-content: center; /* Centralizar horizontalmente */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .art-carousel__button:hover {
