@@ -6,220 +6,552 @@
     <title>Jeferson Reis - Illustrator & Designer</title>
     <meta name="author" content="Jeferson Reis Almeida">
     <meta name="description" content="Explore the portfolio of Jeferson Reis, a digital artist and illustrator specializing in innovative visual creations.">
-    <meta name="keywords" content="Digital Artist, Illustrator, Art, Graphic Design, Creativity, Digital Art Portfolio">
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="keywords" content="Digital Artist, Illustrator, Art, Graphic Design, Creativity, Digital Art Portfolio, Jeferson Reis, Bahia, Camaçari, Freelancer, Web Design, Graphic Design, Illustrations, Digital Painting">
+
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
+    <meta property="og:url" content="https://jefersonreis-github-io.vercel.app/Artistadigital-en.html">
     <meta property="og:title" content="Jeferson Reis - Illustrator & Designer">
     <meta property="og:description" content="Explore the portfolio of Jeferson Reis, a digital artist and illustrator specializing in innovative visual creations.">
-    <meta property="og:image" content="https://jeffinp.github.io/jefersonreis.github.io/src/image/Linkedin-foto.webp">
+    <meta property="og:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
+    <meta property="og:image:alt" content="Photo of Jeferson Reis">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://jeffinp.github.io/jefersonreis.github.io/">
+    <meta name="twitter:url" content="https://jefersonreis-github-io.vercel.app/Artistadigital-en.html">
     <meta name="twitter:title" content="Jeferson Reis - Illustrator & Designer">
     <meta name="twitter:description" content="Explore the portfolio of Jeferson Reis, a digital artist and illustrator specializing in innovative visual creations.">
-    <meta name="twitter:image" content="https://jeffinp.github.io/jefersonreis.github.io/src/image/Linkedin-foto.webp">
+    <meta name="twitter:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
+    <meta name="twitter:image:alt" content="Photo of Jeferson Reis">
 
-    <!-- Favicon -->
     <link rel="icon" href="./src/image/icon/Iconsite.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="./src/image/apple-touch-icon.png">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="./src/css/import.css">
-    
-    <!-- Scripts -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+    <script src="/src/js/script.js" defer></script>
+    <script src="/src/js/Particles.js" defer></script>
+    <link rel="canonical" href="https://jefersonreis-github-io.vercel.app/Artistadigital-en.html">
 </head>
 <body>
-    <div id="shape-container"></div>
-
-    <!-- HEADER SECTION -->
-    <header>
-        <div class="language-switch">
-            <a href="./Artistadigital.html" data-lang="pt" aria-label="Portuguese">
-                <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português">PT
-            </a>
-            <a href="./Artistadigital-en.html" data-lang="en" aria-label="English">
-                <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="Inglês">EN
-            </a>
-        </div>               
-        <div class="container">
-            <h1 class="logo" aria-label="Jeferson Reis Logo">JR</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+    <header class="header">
+        <div class="container header__container">
+            <a href="./index.html" class="header__logo" aria-label="Jeferson Reis's Logo">JR</a>
+            <nav class="header__nav" aria-label="Main navigation">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="./index.html#home" class="header__nav-link">Home</a></li>
+                    <li class="header__nav-item"><a href="#about" class="header__nav-link">About</a></li>
+                    <li class="header__nav-item"><a href="#gallery" class="header__nav-link">Gallery</a></li>
                 </ul>
             </nav>
+            <div class="header__actions">
+                <div class="language-switch">
+                    <a href="./Artistadigital.html" data-lang="pt" aria-label="Português" class="language-switch__link">
+                        <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português" class="language-switch__icon">PT
+                    </a>
+                    <a href="./Artistadigital-en.html" data-lang="en" aria-label="English" class="language-switch__link">
+                        <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="English" class="language-switch__icon">EN
+                    </a>
+                </div>
+                <button id="darkModeToggle" class="header__dark-mode-toggle" aria-label="Toggle dark mode">
+                    <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- DARK MODE TOGGLE BUTTON -->
-    <button id="darkModeToggle" class="toggle-dark-mode" aria-label="Toggle dark mode">
-        <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
-    </button>
-
     <main>
-        <!-- HERO SECTION -->
         <section id="home" class="hero parallax" aria-label="Home">
-            <div id="particles-js"></div>
-            <div class="container">
-                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="profile-pic" id="profilePic" loading="lazy" width="100" height="210">
-                <h1 id="heroTitle" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                <p id="heroSubtitle" data-aos="fade-up" data-aos-delay="200">Digital Artist & Illustrator</p>
-                <a href="#gallery" class="cta-button button-hover" id="ctaButton" data-aos="fade-up" data-aos-delay="400">View gallery</a>
+            <div id="particles-js" class="hero__particles"></div>
+            <div class="container hero__container">
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="hero__profile-pic" loading="lazy" width="100" height="210">
+                <h1 id="heroTitle" class="hero__title" data-aos="fade-up">Jeferson Reis Almeida</h1>
+                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">Illustrator and Designer</p>
+                <a href="#gallery" class="button button--primary" data-aos="fade-up" data-aos-delay="400">View Gallery</a>
             </div>
         </section>
 
-        <!-- ABOUT ME AS AN ARTIST -->
-        <section id="about-artist" class="about" aria-labelledby="aboutArtistTitle">
+        <section id="about" class="section about" aria-labelledby="aboutArtistTitle">
             <div class="container">
-                <h2 id="aboutArtistTitle">About Me</h2>
-                <div class="about-content">
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:palette" data-width="48" data-height="48" aria-hidden="true"></span>
-                        <div class="about-item-content">
-                            <h3>Digital Artist</h3>
-                            <p>🎨 As a digital artist, I create a wide range of works, from detailed illustrations to abstract compositions. My creations capture emotions and stories, using digital techniques to bring unique ideas to life.</p>
+                <h2 id="aboutArtistTitle" class="section__title">About Me</h2>
+                <div class="about__content grid">
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:palette" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Digital Artist</h3>
+                            <p class="about__item-description">🎨 As a digital artist, I create everything from detailed illustrations to abstract compositions. My works convey emotions and stories, using digital techniques to bring unique ideas to life.</p>
                         </div>
                     </article>
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:brush" data-width="48" data-height="48" aria-hidden="true"></span>
-                        <div class="about-item-content">
-                            <h3>Graphic Designer</h3>
-                            <p>🖌️ In addition to being a digital artist, I also work as a graphic designer. I create custom artworks and commercial products ranging from banners to promotional materials, meeting the needs of print shops, sales, internet cafes, and more.</p>
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:brush" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Graphic Designer</h3>
+                            <p class="about__item-description">🖌️ In addition to being a digital artist, I work as a graphic designer. I create custom artwork and commercial materials such as banners and promotional products, catering to various market needs.</p>
                         </div>
                     </article>
-                    <article class="about-item">
-                        <span class="iconify" data-icon="mdi:lightbulb-on-outline" data-width="48" data-height="48" aria-hidden="true"></span>
-                        <div class="about-item-content">
-                            <h3>Inspiration and Creativity</h3>
-                            <p>💡 My inspiration comes from various sources, but my passion for visual storytelling truly drives me. Every project is an opportunity to combine creativity with technique, resulting in works that are not only visually appealing but also meaningful.</p>
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:lightbulb-on-outline" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Inspiration and Creativity</h3>
+                            <p class="about__item-description">💡 My inspiration comes from various sources, but what drives me is telling visual stories. Each project is an opportunity to combine creativity with technique, creating attractive and meaningful works.</p>
                         </div>
                     </article>
                 </div>
             </div>
-        </section> 
+        </section>
 
-        <!-- GALERIA DE ARTE -->
-        <section id="galeria" class="gallery" aria-labelledby="galeriaTitle">
-            <div class="container">
-                <h2 id="galeriaTitle">My gallery </h2>
-                <div class="modern-carousel">
-                    <button class="nav prev" aria-label="Anterior"></button>
-                    <div class="main-image-container">
-                        <img src="./src/image/Artes/A dupla do terror.webp" alt="A dupla do terror" class="main-image active">
-                        <img src="./src/image/design/design-nerf.webp" class="main-image">
-                        <img src="./src/image/design/design-nerf2.webp" class="main-image">
-                        <img src="./src/image/Artes/Azete.webp" alt="Azeite de oliva" class="main-image">
-                        <img src="./src/image/Artes/bandeira estilosa do brasil.webp" alt="Bandeira estilosa do Brasil" class="main-image">
-                        <img src="./src/image/Artes/Design computador.webp" alt="Design Computador" class="main-image">
-                        <img src="./src/image/Artes/Estampa_de_camisa_2_A_Tenico frente.webp" alt="Estampa de Camisa Tênico Frente" class="main-image">
-                        <img src="./src/image/Artes/FJIMG_20230515_144702 copiar.webp" alt="FJIMG Copiar" class="main-image">
-                        <img src="./src/image/Artes/giratina.webp" alt="Giratina" class="main-image">
-                        <img src="./src/image/Artes/hamburguer.webp" alt="Hambúrguer" class="main-image">
-                        <img src="./src/image/Artes/IMG_20220505_160629.webp" alt="Imagem 20220505" class="main-image">
-                        <img src="./src/image/Artes/Pizza_do_sul .webp" alt="Pizza do Sul" class="main-image">
-                        <img src="./src/image/Artes/pizza_no_insta.webp" alt="Pizza no Insta" class="main-image">
-                        <img src="./src/image/Artes/Protótipo de nave padrão de Brail.webp" alt="Protótipo de Nave Padrão de Brail" class="main-image">
-                        <img src="./src/image/Artes/bratails-360-2023.jpg" alt="Protótipo de Nave Padrão de Brail" class="main-image">
-                        <img src="./src/image/Artes/Bratails-V2-sorrindo.jpg" alt="Bratails sorrindo" class="main-image">
-                        <img src="./src/image/Artes/Bratailsnave.jpg" alt="Bratails na nave" class="main-image">
-                        <img src="./src/image/Artes/As-Gemeas.jpg" alt="Duas espadas" class="main-image">
-                        <img src="./src/image/Artes/Simbolos-da-forma-ANGEL.jpg" alt="Duas espadas" class="main-image">
-                        <img src="./src/image/Artes/the-four-kingdoms-(2).jpg" alt="Duas espadas" class="main-image">
-                        <img src="./src/image/Artes/O-furry-que-mata-furrys.jpg" alt="Duas espadas" class="main-image">
-                        <img src="./src/image/Artes/Annie.jpg" alt="Duas espadas" class="main-image">
+        <section id="gallery" class="art-gallery section" aria-labelledby="galleryTitle">
+            <div class="gallery-container">
+                <h2 id="galleryTitle" class="section__title">My Gallery</h2>
+
+                <div class="art-carousel">
+                    <div class="art-carousel__track">
+
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/A dupla do terror.webp" alt="The Terror Duo" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Azete.webp" alt="Olive Oil" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/bandeira estilosa do brasil.webp" alt="Stylish Flag of Brazil" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Design computador.webp" alt="Computer Design" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Estampa_de_camisa_2_A_Tenico frente.webp" alt="T-Shirt Print Front" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/FJIMG_20230515_144702 copiar.webp" alt="FJIMG Copy" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/giratina.webp" alt="Giratina" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/hamburguer.webp" alt="Hamburger" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/IMG_20220505_160629.webp" alt="Image 20220505" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Pizza_do_sul .webp" alt="Southern Pizza" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/pizza_no_insta.webp" alt="Pizza on Insta" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Protótipo de nave padrão de Brail.webp" alt="Brail Standard Spaceship Prototype" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/bratails-360-2023.jpg" alt="Bratails 360" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Bratails-V2-sorrindo.jpg" alt="Bratails Smiling" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Bratailsnave.jpg" alt="Bratails in the Spaceship" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/As-Gemeas.jpg" alt="The Twin Swords" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Simbolos-da-forma-ANGEL.jpg" alt="Symbols of the ANGEL Form" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/the-four-kingdoms-(2).jpg" alt="The Four Kingdoms" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/O-furry-que-mata-furrys.jpg" alt="The Furry who Kills Furries" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Annie.jpg" alt="Annie" loading="lazy">
+                            </figure>
+                        </div>
+                        </div>
+
+                        <button class="art-carousel__button art-carousel__button--prev" aria-label="Previous">❮</button>
+                        <button class="art-carousel__button art-carousel__button--next" aria-label="Next">❯</button>
                     </div>
-                    <button class="nav next" aria-label="Próximo"></button>
+                </div>
+            </section>
+
+            <section id="return-section" class="section">
+                <div class="container">
+                <h2 class="section__title return-title">Back to the Main Page</h2>
+                <p class="section__subtitle return-description">Return to the homepage to explore more content.</p>
+                <a href="index.html" class="button button--primary return-link">
+                    <span class="iconify" data-icon="mdi:home" data-width="24" data-height="24"></span>
+                    Go to Homepage
+                </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__container">
+                <div class="footer__content">
+                    <div class="footer__logo">
+                        <h2 class="footer__logo-text"><a href="#" class="footer__logo-link">Jeferson Reis</a></h2>
+                        <p class="footer__logo-subtitle">Full Stack Web Developer</p>
+                    </div>
+
+                    <div class="footer__social">
+                        <h3 class="footer__social-title">Connect</h3>
+                        <ul class="footer__social-list">
+                            <li class="footer__social-item">
+                                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
+                                    <span class="sr-only">LinkedIn</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
+                                    <span class="sr-only">Instagram</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
+                                    <span class="sr-only">WhatsApp</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <p class="footer__copy">&copy; 2024 Jeferson Reis. All rights reserved.</p>
                 </div>
             </div>
-        </section>
+        </footer>
+        
+        <button id="scrollToTopBtn" class="scroll-to-top" title="Go to top" aria-label="Back<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeferson Reis - Illustrator & Designer</title>
+    <meta name="author" content="Jeferson Reis Almeida">
+    <meta name="description" content="Explore the portfolio of Jeferson Reis, a digital artist and illustrator specializing in innovative visual creations.">
+    <meta name="keywords" content="Digital Artist, Illustrator, Art, Graphic Design, Creativity, Digital Art Portfolio, Jeferson Reis, Bahia, Camaçari, Freelancer, Web Design, Graphic Design, Illustrations, Digital Painting">
 
-                
-        <!-- RETURN TO MAIN PAGE SECTION -->
-        <section id="return-section">
-            <div class="container">
-                <h2 class="return-title">Return to the Main Page</h2>
-                <p class="return-description">Go back to the homepage to explore more content.</p>
-                <div class="return-link">
-                    <a href="index-en.html" class="return-button">
-                        <span class="iconify" data-icon="mdi:home" data-width="24" data-height="24"></span>
-                        Go to Homepage
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jefersonreis-github-io.vercel.app/Artistadigital-en.html">
+    <meta property="og:title" content="Jeferson Reis - Illustrator & Designer">
+    <meta property="og:description" content="Explore the portfolio of Jeferson Reis, a digital artist and illustrator specializing in innovative visual creations.">
+    <meta property="og:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
+    <meta property="og:image:alt" content="Photo of Jeferson Reis">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jefersonreis-github-io.vercel.app/Artistadigital-en.html">
+    <meta name="twitter:title" content="Jeferson Reis - Illustrator & Designer">
+    <meta name="twitter:description" content="Explore the portfolio of Jeferson Reis, a digital artist and illustrator specializing in innovative visual creations.">
+    <meta name="twitter:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
+    <meta name="twitter:image:alt" content="Photo of Jeferson Reis">
+
+    <link rel="icon" href="./src/image/icon/Iconsite.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./src/image/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="./src/css/import.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+    <script src="/src/js/script.js" defer></script>
+    <script src="/src/js/Particles.js" defer></script>
+    <link rel="canonical" href="https://jefersonreis-github-io.vercel.app/Artistadigital-en.html">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="./index.html" class="header__logo" aria-label="Jeferson Reis's Logo">JR</a>
+            <nav class="header__nav" aria-label="Main navigation">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="./index.html#home" class="header__nav-link">Home</a></li>
+                    <li class="header__nav-item"><a href="#about" class="header__nav-link">About</a></li>
+                    <li class="header__nav-item"><a href="#gallery" class="header__nav-link">Gallery</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <div class="language-switch">
+                    <a href="./Artistadigital.html" data-lang="pt" aria-label="Português" class="language-switch__link">
+                        <img src="https://img.icons8.com/?size=100&id=Mf5IDKBchhlr&format=png&color=000000" alt="Português" class="language-switch__icon">PT
+                    </a>
+                    <a href="./Artistadigital-en.html" data-lang="en" aria-label="English" class="language-switch__link">
+                        <img src="https://img.icons8.com/?size=100&id=15532&format=png&color=000000" alt="English" class="language-switch__icon">EN
                     </a>
                 </div>
+                <button id="darkModeToggle" class="header__dark-mode-toggle" aria-label="Toggle dark mode">
+                    <span id="darkModeIcon" class="iconify" data-icon="mdi:white-balance-sunny" data-inline="false"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero parallax" aria-label="Home">
+            <div id="particles-js" class="hero__particles"></div>
+            <div class="container hero__container">
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="hero__profile-pic" loading="lazy" width="100" height="210">
+                <h1 id="heroTitle" class="hero__title" data-aos="fade-up">Jeferson Reis Almeida</h1>
+                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">Illustrator and Designer</p>
+                <a href="#gallery" class="button button--primary" data-aos="fade-up" data-aos-delay="400">View Gallery</a>
             </div>
         </section>
 
-    </main>
-
-
-    <!-- SCROLL TO TOP BUTTON -->
-    <button id="scrollToTopBtn" title="Ir para o topo">↑</button>
-
-     <!-- FOOTER -->
-     <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__content">
-                <div class="footer__logo">
-                    <h2>Jeferson Reis</h2>
-                    <p>Desenvolvedor Web Full Stack</p>
-                </div>
-                <nav class="footer__nav">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#portfolio">Portfólio</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                    </ul>
-                </nav>
-                <div class="footer__social">
-                    <h3>Conecte-se</h3>
-                    <ul class="social-links">
-                        <li>
-                            <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida">
-                                <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
-                                <span class="sr-only">LinkedIn</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida">
-                                <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
-                                <span class="sr-only">GitHub</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida">
-                                <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
-                                <span class="sr-only">Instagram</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida">
-                                <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
-                                <span class="sr-only">WhatsApp</span>
-                            </a>
-                        </li>
-                    </ul>
+        <section id="about" class="section about" aria-labelledby="aboutArtistTitle">
+            <div class="container">
+                <h2 id="aboutArtistTitle" class="section__title">About Me</h2>
+                <div class="about__content grid">
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:palette" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Digital Artist</h3>
+                            <p class="about__item-description">🎨 As a digital artist, I create everything from detailed illustrations to abstract compositions. My works convey emotions and stories, using digital techniques to bring unique ideas to life.</p>
+                        </div>
+                    </article>
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:brush" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Graphic Designer</h3>
+                            <p class="about__item-description">🖌️ In addition to being a digital artist, I work as a graphic designer. I create custom artwork and commercial materials such as banners and promotional products, catering to various market needs.</p>
+                        </div>
+                    </article>
+                    <article class="about__item">
+                        <span class="iconify about__icon" data-icon="mdi:lightbulb-on-outline" aria-hidden="true"></span>
+                        <div class="about__item-content">
+                            <h3 class="about__item-title">Inspiration and Creativity</h3>
+                            <p class="about__item-description">💡 My inspiration comes from various sources, but what drives me is telling visual stories. Each project is an opportunity to combine creativity with technique, creating attractive and meaningful works.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
+        </section>
+
+        <section id="gallery" class="art-gallery section" aria-labelledby="galleryTitle">
+            <div class="gallery-container">
+                <h2 id="galleryTitle" class="section__title">My Gallery</h2>
+
+                <div class="art-carousel">
+                    <div class="art-carousel__track">
+
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/A dupla do terror.webp" alt="The Terror Duo" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Azete.webp" alt="Olive Oil" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/bandeira estilosa do brasil.webp" alt="Stylish Flag of Brazil" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Design computador.webp" alt="Computer Design" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Estampa_de_camisa_2_A_Tenico frente.webp" alt="T-Shirt Print Front" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/FJIMG_20230515_144702 copiar.webp" alt="FJIMG Copy" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/giratina.webp" alt="Giratina" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/hamburguer.webp" alt="Hamburger" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/IMG_20220505_160629.webp" alt="Image 20220505" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Pizza_do_sul .webp" alt="Southern Pizza" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/pizza_no_insta.webp" alt="Pizza on Insta" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Protótipo de nave padrão de Brail.webp" alt="Brail Standard Spaceship Prototype" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/bratails-360-2023.jpg" alt="Bratails 360" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Bratails-V2-sorrindo.jpg" alt="Bratails Smiling" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Bratailsnave.jpg" alt="Bratails in the Spaceship" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/As-Gemeas.jpg" alt="The Twin Swords" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Simbolos-da-forma-ANGEL.jpg" alt="Symbols of the ANGEL Form" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/the-four-kingdoms-(2).jpg" alt="The Four Kingdoms" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/O-furry-que-mata-furrys.jpg" alt="The Furry who Kills Furries" loading="lazy">
+                            </figure>
+                        </div>
+                        <div class="art-carousel__item">
+                            <figure class="artwork-image">
+                                <img src="./src/image/Artes/Annie.jpg" alt="Annie" loading="lazy">
+                            </figure>
+                        </div>
+                        </div>
+
+                        <button class="art-carousel__button art-carousel__button--prev" aria-label="Previous">❮</button>
+                        <button class="art-carousel__button art-carousel__button--next" aria-label="Next">❯</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="return-section" class="section">
+                <div class="container">
+                <h2 class="section__title return-title">Back to the Main Page</h2>
+                <p class="section__subtitle return-description">Return to the homepage to explore more content.</p>
+                <a href="index.html" class="button button--primary return-link">
+                    <span class="iconify" data-icon="mdi:home" data-width="24" data-height="24"></span>
+                    Go to Homepage
+                </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__container">
+                <div class="footer__content">
+                    <div class="footer__logo">
+                        <h2 class="footer__logo-text"><a href="#" class="footer__logo-link">Jeferson Reis</a></h2>
+                        <p class="footer__logo-subtitle">Full Stack Web Developer</p>
+                    </div>
+
+                    <div class="footer__social">
+                        <h3 class="footer__social-title">Connect</h3>
+                        <ul class="footer__social-list">
+                            <li class="footer__social-item">
+                                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
+                                    <span class="sr-only">LinkedIn</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
+                                    <span class="sr-only">Instagram</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
+                                    <span class="sr-only">WhatsApp</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <p class="footer__copy">&copy; 2024 Jeferson Reis. All rights reserved.</p>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+        
+        <button id="scrollToTopBtn" class="scroll-to-top" title="Go to top" aria-label="Backto top">↑</button>
 
-    
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    <script src="/src/js/script.js" defer></script>
-     <script src="/src/js/Particles.js" defer></script>
-
-    <noscript>  
-        <p>Custom margins for printing are not supported in Safari. Consider using a different browser for better results.</p>
-    </noscript>
-</body>
-</html>
+        <noscript>
+            <p>This site works best with JavaScript enabled. Please enable JavaScript for the full experience.</p>
+        </noscript>
+    </body>
+    </html>
