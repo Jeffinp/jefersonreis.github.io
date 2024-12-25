@@ -1,35 +1,38 @@
-/* Botão Scroll to Top */
+/* ========= BOTÃO SCROLL TO TOP ========= */
 #scrollToTopBtn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    font-size: 20px;
+    bottom: var(--resume-spacing-lg); /* Usando variável */
+    right: var(--resume-spacing-lg); /* Usando variável */
+    z-index: 99; /* Para ficar acima de outros elementos */
     border: none;
     outline: none;
-    background-color: var(--secondary-color);
-    color: var(--dark-color);
+    background-color: var(--resume-secondary-color);
+    color: var(--resume-card-background); /* Cor do ícone */
     cursor: pointer;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    opacity: 0;
-    visibility: hidden;
+    padding: var(--resume-spacing-sm);
+    border-radius: var(--resume-border-radius-full); /* Deixando o botão redondo */
+    box-shadow: var(--resume-shadow-md);
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Inicialmente invisível */
+    transition: opacity var(--resume-transition-normal), visibility var(--resume-transition-normal), transform var(--resume-transition-normal), box-shadow var(--resume-transition-normal), background-color var(--resume-transition-normal);
 }
 
 #scrollToTopBtn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    background-color: var(--dark-color);
-    color: var(--secondary-color);
+    transform: translateY(-5px); /* Sobe um pouco no hover */
+    box-shadow: var(--resume-shadow-lg);
+    background-color: var(--resume-primary-color); /* Cor de fundo no hover */
 }
 
 #scrollToTopBtn:focus {
-    outline: none;
+    outline: none; /* Removendo o outline padrão do focus */
 }
 
 #scrollToTopBtn.show {
     opacity: 1;
     visibility: visible;
+}
+
+#scrollToTopBtn .iconify {
+    font-size: 2rem; /* Ajuste o tamanho do ícone conforme necessário */
+    display: flex;
 }
