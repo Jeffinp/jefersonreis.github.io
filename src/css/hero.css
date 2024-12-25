@@ -95,11 +95,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ========= BUTTON PRIMARY ========= */
-.button--primary {
-    /* Estilos específicos para o botão primário, se necessário */
-}
-
 /* ========= BUTTON SECONDARY ========= */
 .button--secondary {
     background-color: transparent;
