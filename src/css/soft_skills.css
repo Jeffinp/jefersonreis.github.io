@@ -1,12 +1,13 @@
 /* ========= SEÇÃO DE SOFT SKILLS ========= */
 .soft-skills {
-    padding: 4rem 0; /* Reduzido o padding */
-    color: var(--text-color);
-    background: linear-gradient(170deg, rgba(var(--background-rgb), 0.4), rgba(var(--background-rgb), 0.1));
+    padding: var(--resume-spacing-xl) 0;
+    color: var(--resume-text-color);
+    background-color: var(--resume-background-color);
     position: relative;
     overflow: hidden;
 }
 
+/* Efeito de brilho sutil de fundo */
 .soft-skills::before {
     content: '';
     position: absolute;
@@ -14,23 +15,24 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(var(--accent-rgb), 0.03) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(var(--resume-accent-color-rgb), 0.03) 0%, transparent 70%); /* Adicionado variável para a cor */
     pointer-events: none;
 }
 
 .soft-skills .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--resume-spacing-lg);
 }
 
-.soft-skills .section__title { /* Alterado para usar a classe section__title */
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 2rem; /* Reduzido o tamanho da fonte */
+/* Título da Seção */
+.soft-skills .section__title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
     text-align: center;
-    font-weight: 800;
-    margin-bottom: 3rem; /* Reduzido o margin-bottom */
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    font-weight: var(--resume-font-weight-extrabold);
+    margin-bottom: var(--resume-spacing-xl);
+    background: linear-gradient(45deg, var(--resume-primary-color), var(--resume-accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -38,41 +40,42 @@
     text-transform: uppercase;
 }
 
-.soft-skills .section__title::after { /* Alterado para usar a classe section__title */
+.soft-skills .section__title::after {
     content: '';
     display: block;
-    width: 80px; /* Reduzido o tamanho inicial */
+    width: 80px;
     height: 3px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: var(--border-radius-full);
-    margin: 1rem auto 0;
-    transition: width 0.3s ease;
+    background: linear-gradient(to right, var(--resume-primary-color), var(--resume-secondary-color));
+    border-radius: var(--resume-border-radius-full);
+    margin: var(--resume-spacing-md) auto 0;
+    transition: width var(--resume-transition-normal);
 }
 
-.soft-skills .section__title:hover::after { /* Alterado para usar a classe section__title */
-    width: 120px; /* Reduzido o tamanho no hover */
+.soft-skills .section__title:hover::after {
+    width: 120px;
 }
 
 .soft-skills__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduzido o minmax */
-    gap: 2rem; /* Reduzido o gap */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--resume-spacing-lg);
     padding: 0;
-    list-style: none; /* Removido o estilo de lista */
+    list-style: none;
 }
 
 .soft-skill__item {
     position: relative;
-    background-color: var(--card-background);
-    padding: 2rem; /* Reduzido o padding */
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
+    background-color: var(--resume-card-background);
+    padding: var(--resume-spacing-lg);
+    border-radius: var(--resume-border-radius-lg);
+    box-shadow: var(--resume-shadow-md);
     text-align: center;
-    transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    transition: all var(--resume-transition-slow) cubic-bezier(0.65, 0, 0.35, 1);
     transform-style: preserve-3d;
     overflow: hidden;
 }
 
+/* Efeito de brilho no hover */
 .soft-skill__item::before {
     content: '';
     position: absolute;
@@ -81,58 +84,59 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease-in-out;
+    transition: left var(--resume-transition-slow);
     z-index: 1;
 }
 
 .soft-skill__item:hover {
-    transform: translateY(-10px) rotateX(5deg); /* Reduzido o translateY e rotateX */
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: var(--resume-shadow-lg);
 }
 
 .soft-skill__item:hover::before {
     left: 100%;
 }
 
+/* Ícone */
 .soft-skill__icon {
-    font-size: 3rem; /* Reduzido o tamanho do ícone */
-    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
-    color: var(--primary-color);
-    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), color 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    font-size: 3rem;
+    margin-bottom: var(--resume-spacing-md);
+    color: var(--resume-primary-color);
+    transition: transform var(--resume-transition-normal), color var(--resume-transition-normal);
     position: relative;
     z-index: 2;
 }
 
 .soft-skill__item:hover .soft-skill__icon {
     transform: scale(1.1);
-    color: var(--accent-color);
+    color: var(--resume-accent-color);
 }
 
 .soft-skill__title {
-    font-size: 1.3rem; /* Reduzido o tamanho do título */
-    margin-bottom: 1rem; /* Reduzido o margin-bottom */
-    font-weight: 700;
+    font-size: var(--resume-font-size-section-title);
+    margin-bottom: var(--resume-spacing-md);
+    font-weight: var(--resume-font-weight-bold);
     position: relative;
-    color: var(--text-color);
-    font-family: 'Nunito Sans', sans-serif;
-    transition: all 0.3s ease;
+    color: var(--resume-text-color);
+    font-family: var(--resume-font-family-base);
+    transition: all var(--resume-transition-normal);
 }
 
 .soft-skill__description {
-    font-size: 0.9rem; /* Reduzido o tamanho do texto */
-    line-height: 1.6; /* Reduzido o line-height */
-    color: var(--text-color-secondary);
-    transition: all 0.3s ease;
+    font-size: var(--resume-font-size-base);
+    line-height: var(--resume-line-height-base);
+    color: var(--resume-text-color-secondary);
+    transition: all var(--resume-transition-normal);
     position: relative;
     z-index: 2;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: var(--resume-font-family-base);
 }
 
 /* ========= Animação de entrada ========= */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px); /* Reduzido o translateY */
+        transform: translateY(30px);
     }
 
     to {
@@ -146,6 +150,7 @@
     opacity: 0;
 }
 
+/* Atraso para cada item */
 .soft-skill__item:nth-child(1) {
     animation-delay: 0.1s;
 }
@@ -177,33 +182,33 @@
 /* ========= Media Queries ========= */
 @media (max-width: 768px) {
     .soft-skills {
-        padding: 3rem 0; /* Reduzido o padding */
+        padding: var(--resume-spacing-lg) 0;
     }
 
-    .soft-skills .section__title { /* Alterado para usar a classe section__title */
-        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 2rem; /* Reduzido o margin-bottom */
+    .soft-skills .section__title {
+        font-size: var(--resume-font-size-section-title);
+        margin-bottom: var(--resume-spacing-lg);
     }
 
     .soft-skills__list {
-        gap: 1.5rem; /* Reduzido o gap */
+        gap: var(--resume-spacing-md);
     }
 
     .soft-skill__item {
-        padding: 1.5rem; /* Reduzido o padding */
+        padding: var(--resume-spacing-md);
     }
 
     .soft-skill__icon {
-        font-size: 2.5rem; /* Reduzido o tamanho do ícone */
-        margin-bottom: 1rem; /* Reduzido o margin-bottom */
+        font-size: 2.5rem;
+        margin-bottom: var(--resume-spacing-sm);
     }
 
     .soft-skill__title {
-        font-size: 1.2rem; /* Reduzido o tamanho do título */
-        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
+        font-size: var(--resume-font-size-item-title);
+        margin-bottom: var(--resume-spacing-sm);
     }
 
     .soft-skill__description {
-        font-size: 0.8rem; /* Reduzido o tamanho do texto */
+        font-size: var(--resume-font-size-base);
     }
 }

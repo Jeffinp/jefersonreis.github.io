@@ -1,22 +1,22 @@
 /* ========= SEÇÃO DE CERTIFICADOS ========= */
 .certificates {
-    padding: 4rem 0; /* Reduzido o padding */
-    background-color: var(--background-color);
+    padding: var(--resume-spacing-xl) 0;
+    background-color: var(--resume-background-color);
 }
 
 .certificates .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--resume-spacing-lg);
 }
 
-.certificates .section__title { /* Alterado para usar a classe section__title */
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 2rem; /* Reduzido o tamanho da fonte */
+.certificates .section__title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
     text-align: center;
-    font-weight: 800;
-    margin-bottom: 3rem; /* Reduzido o margin-bottom */
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    font-weight: var(--resume-font-weight-extrabold);
+    margin-bottom: var(--resume-spacing-xl);
+    background: linear-gradient(45deg, var(--resume-primary-color), var(--resume-accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -24,102 +24,105 @@
     text-transform: uppercase;
 }
 
-.certificates .section__title::after { /* Alterado para usar a classe section__title */
+.certificates .section__title::after {
     content: '';
     display: block;
-    width: 80px; /* Reduzido o tamanho inicial */
+    width: 80px;
     height: 3px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: var(--border-radius-full);
-    margin: 1rem auto 0;
-    transition: width 0.3s ease;
+    background: linear-gradient(to right, var(--resume-primary-color), var(--resume-secondary-color));
+    border-radius: var(--resume-border-radius-full);
+    margin: var(--resume-spacing-md) auto 0;
+    transition: width var(--resume-transition-normal);
 }
 
-.certificates .section__title:hover::after { /* Alterado para usar a classe section__title */
-    width: 120px; /* Reduzido o tamanho no hover */
+.certificates .section__title:hover::after {
+    width: 120px;
 }
 
 .certificates__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reduzido o minmax */
-    gap: 2rem; /* Reduzido o gap */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--resume-spacing-lg);
 }
 
 .certificate__item {
-    background-color: var(--card-background);
-    border-radius: var(--border-radius-lg);
+    background-color: var(--resume-card-background);
+    border-radius: var(--resume-border-radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: var(--resume-shadow-md);
+    transition: transform var(--resume-transition-normal), box-shadow var(--resume-transition-normal);
 }
 
 .certificate__item:hover {
-    transform: translateY(-10px); /* Reduzido o translateY */
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px);
+    box-shadow: var(--resume-shadow-lg);
 }
 
 .certificate__image-wrapper {
     overflow: hidden;
-    line-height: 0;
+    line-height: 0; /* Para remover o espaço extra abaixo da imagem */
+    height: 500px;
+    position: relative;
 }
 
 .certificate__image {
     width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform var(--resume-transition-slow);
     display: block;
 }
 
 .certificate__item:hover .certificate__image {
-    transform: scale(1.05); /* Reduzido o scale */
+    transform: scale(1.05);
 }
 
 .certificate__info {
-    padding: 2rem; /* Reduzido o padding */
-    background-color: var(--card-background);
-    transition: background-color 0.4s ease;
+    padding: var(--resume-spacing-lg);
+    background-color: var(--resume-card-background);
+    transition: background-color var(--resume-transition-normal);
 }
 
 .certificate__title {
     margin: 0;
-    font-size: 1.3rem; /* Reduzido o tamanho da fonte */
-    color: var(--text-color);
-    margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
-    font-family: 'Nunito Sans', sans-serif;
+    font-size: var(--resume-font-size-section-title);
+    color: var(--resume-text-color);
+    margin-bottom: var(--resume-spacing-md);
+    font-family: var(--resume-font-family-base);
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: var(--resume-font-weight-bold);
 }
 
 .certificate__description {
-    margin: 0 0 1rem; /* Reduzido o margin-bottom */
-    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-    line-height: 1.6; /* Reduzido o line-height */
-    color: var(--text-color-secondary);
-    font-family: 'Nunito Sans', sans-serif;
+    margin: 0 0 var(--resume-spacing-md);
+    font-size: var(--resume-font-size-base);
+    line-height: var(--resume-line-height-base);
+    color: var(--resume-text-color-secondary);
+    font-family: var(--resume-font-family-base);
 }
 
 .certificate__link {
     display: inline-block;
-    margin-top: 1rem; /* Adicionado margin-top */
+    margin-top: var(--resume-spacing-md);
 }
 
-.button--secondary {
-    /* Removido background-color, pois já está definido no botão global */
-    /* Removido color, pois já está definido no botão global */
-    border: 2px solid var(--secondary-color); /* Adicionada borda */
-    padding: 0.7rem 1.5rem; /* Reduzido o padding */
-    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-    font-weight: 600; /* Reduzido o font-weight */
-    border-radius: var(--border-radius-full);
-    transition: all 0.3s ease;
+/* Botão Secundário - Adaptado para o novo tema */
+.button--secondary-certificate {
+    display: inline-block;
+    padding: var(--resume-spacing-sm) var(--resume-spacing-lg);
+    background-color: transparent;
+    color: var(--resume-text-color);
+    border: 2px solid var(--resume-primary-color);
+    text-decoration: none;
+    border-radius: var(--resume-border-radius-full);
+    font-weight: var(--resume-font-weight-semibold);
+    transition: all var(--resume-transition-normal);
     text-transform: uppercase;
-    font-family: 'Nunito Sans', sans-serif;
-    letter-spacing: 1px;
-    /* Removido box-shadow, pois já está definido no botão global */
+    font-family: var(--resume-font-family-base);
+    letter-spacing: 0.5px;
     overflow: hidden;
     position: relative;
+    z-index: 1; /* Para o efeito de brilho ficar atrás do texto */
 }
 
 .button--secondary::after {
@@ -129,62 +132,65 @@
     left: 50%;
     width: 300%;
     height: 300%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    transition: transform 0.5s ease;
+    background: radial-gradient(circle, rgba(var(--resume-primary-color-rgb), 0.3) 0%, rgba(var(--resume-primary-color-rgb), 0) 70%);
+    transition: transform var(--resume-transition-slow), opacity var(--resume-transition-slow);
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
     pointer-events: none;
+    opacity: 0;
+    z-index: -1; /* Para ficar atrás do texto */
 }
 
 .button--secondary:hover::after {
     transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
 
 .button--secondary:hover,
 .button--secondary:focus {
-    background-color: var(--hover-color);
-    box-shadow: var(--shadow-md);
+    background-color: var(--resume-primary-color);
+    color: var(--resume-card-background);
+    box-shadow: var(--resume-shadow-md);
     outline: none;
-    transform: translateY(-3px); /* Reduzido o translateY */
-    color: var(--text-color); /* Alterado a cor do texto no hover */
+    transform: translateY(-3px);
 }
 
 /* ========= Responsividade ========= */
 @media (max-width: 768px) {
     .certificates {
-        padding: 3rem 0; /* Reduzido o padding */
+        padding: var(--resume-spacing-lg) 0;
     }
 
-    .certificates .section__title { /* Alterado para usar a classe section__title */
-        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 2rem; /* Reduzido o margin-bottom */
+    .certificates .section__title {
+        font-size: var(--resume-font-size-section-title);
+        margin-bottom: var(--resume-spacing-lg);
     }
 
     .certificates__grid {
         grid-template-columns: 1fr; /* Uma coluna em telas menores */
-        gap: 1.5rem; /* Reduzido o gap */
+        gap: var(--resume-spacing-md);
     }
 
-    .certificate__info{
-        padding: 1.5rem;
+    .certificate__info {
+        padding: var(--resume-spacing-md);
     }
 
     .certificate__title {
-        font-size: 1.2rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 0.5rem; /* Reduzido o margin-bottom */
+        font-size: var(--resume-font-size-item-title);
+        margin-bottom: var(--resume-spacing-xs);
     }
 
     .certificate__description {
-        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
+        font-size: var(--resume-font-size-base);
+        margin-bottom: var(--resume-spacing-sm);
     }
 
     .certificate__link {
-        margin-top: 0.5rem;
+        margin-top: var(--resume-spacing-xs);
     }
 
     .button--secondary {
-        padding: 0.6rem 1.2rem; /* Reduzido o padding */
-        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
+        padding: var(--resume-spacing-xs) var(--resume-spacing-md);
+        font-size: var(--resume-font-size-base);
     }
 }

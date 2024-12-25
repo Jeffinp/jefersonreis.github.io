@@ -1,158 +1,144 @@
 /* ========= FOOTER ========= */
 .footer {
-    background-color: var(--background-color-light);
-    color: var(--text-color);
-    padding: 0 0 2rem; /* Reduzido o padding superior */
-    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--resume-background-color-light);
+    color: var(--resume-text-color);
+    padding: 0 0 var(--resume-spacing-lg);
+    font-family: var(--resume-font-family-base);
 }
 
 .footer::before {
     content: '';
     display: block;
     height: 4px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    margin-bottom: 2rem; /* Adicionado margin-bottom para separar do conteúdo */
+    background: linear-gradient(to right, var(--resume-primary-color), var(--resume-secondary-color));
+    margin-bottom: var(--resume-spacing-xl);
 }
 
 .footer__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--resume-spacing-lg);
 }
 
 .footer__content {
     display: grid;
     grid-template-columns: 1fr; /* Força uma coluna */
-    gap: 2rem; /* Reduzido o gap */
-    margin-bottom: 3rem; /* Aumentado o margin-bottom */
+    gap: var(--resume-spacing-xl);
+    margin-bottom: var(--resume-spacing-xl);
     text-align: center;
 }
 
 .footer__logo-link {
-    font-size: 1.5rem; /* Reduzido o tamanho da fonte */
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-    font-weight: 700;
+    font-size: var(--resume-font-size-title);
+    margin-bottom: var(--resume-spacing-xs);
+    color: var(--resume-text-color);
+    font-weight: var(--resume-font-weight-bold);
     text-decoration: none;
     display: inline-block;
 }
 
 .footer__logo-subtitle {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    color: var(--text-color-secondary);
-    margin-bottom: 2rem;
+    font-size: var(--resume-font-size-base);
+    color: var(--resume-text-color-secondary);
+    margin-bottom: var(--resume-spacing-lg);
 }
 
-.footer__nav-title,
 .footer__social-title {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-    font-weight: 700;
+    font-size: var(--resume-font-size-section-title);
+    margin-bottom: var(--resume-spacing-md);
+    color: var(--resume-text-color);
+    font-weight: var(--resume-font-weight-bold);
 }
 
-.footer__nav-list,
 .footer__social-list {
     list-style: none;
     padding: 0;
-    margin: 0; /* Removido margin */
-}
-
-.footer__nav-item {
-    margin-bottom: 0.8rem; /* Aumentado o margin-bottom */
-}
-
-.footer__nav-link,
-.footer__social-link {
-    color: var(--text-color-secondary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-    display: inline-block; /* Para aplicar margin-bottom */
-    margin-bottom: 0.5rem; /* Adicionado margin-bottom */
-}
-
-.footer__nav-link:hover,
-.footer__social-link:hover {
-    color: var(--hover-color);
-}
-
-.footer__social-list {
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem; /* Aumentado o gap */
+    gap: var(--resume-spacing-lg);
 }
 
 .footer__social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px; /* Aumentado o tamanho */
-    height: 40px; /* Aumentado o tamanho */
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: transparent;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--resume-transition-normal), transform var(--resume-transition-normal);
 }
 
 .footer__social-link:hover {
-    background-color: var(--card-background);
-    transform: translateY(-3px); /* Adicionado efeito de elevação */
+    background-color: var(--resume-card-background);
+    transform: translateY(-3px);
 }
 
 .footer__social-link .iconify {
-    font-size: 1.8rem; /* Aumentado o tamanho do ícone */
-    color: var(--text-color);
-    transition: color 0.3s ease;
+    font-size: 1.8rem;
+    color: var(--resume-text-color);
+    transition: color var(--resume-transition-normal);
 }
 
 .footer__social-link:hover .iconify {
-    color: var(--primary-color);
+    color: var(--resume-primary-color);
+}
+
+.footer__social-item {
+    display: flex; /* Permite que o link ocupe todo o espaço do item */
+}
+
+.footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color var(--resume-transition-normal), transform var(--resume-transition-normal);
 }
 
 .footer__bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 2rem;
+    border-top: 1px solid var(--resume-border-color);
+    padding-top: var(--resume-spacing-lg);
     text-align: center;
-    font-size: 0.8rem; /* Reduzido o tamanho da fonte */
-    color: var(--text-color-secondary);
+    font-size: var(--resume-font-size-base);
+    color: var(--resume-text-color-secondary);
 }
 
 /* ========= Media Queries ========= */
 
 @media (min-width: 769px) {
-
     /* Desktop */
     .footer__content {
-        grid-template-columns: repeat(3, 1fr);
-        /* Três colunas */
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas */
         text-align: left;
     }
 
     .footer__logo-subtitle {
-        margin-bottom: 0; /* Remove a margem inferior */
+        margin-bottom: 0;
     }
 
-    .footer__nav-list,
     .footer__social-list {
-        justify-content: flex-start; /* Alinha à esquerda */
+        justify-content: flex-start;
+    }
+    .footer__logo{
+        grid-column: span 2;
+        text-align: center;
     }
 }
 
-
 @media (max-width: 768px) {
-
     /* Tablet para baixo */
     .footer {
-        padding: 0 0 2rem;
-        /* Reduzido o padding */
+        padding: 0 0 var(--resume-spacing-lg);
     }
 
     .footer__content {
-        gap: 3rem;
-        /* Aumentado o gap */
-        margin-bottom: 2rem;
-        /* Reduzido o margin-bottom */
+        gap: var(--resume-spacing-lg);
+        margin-bottom: var(--resume-spacing-lg);
     }
 }

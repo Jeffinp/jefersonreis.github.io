@@ -1,59 +1,59 @@
 /* ========= SEÇÃO SOBRE ========= */
 .about {
-    padding: 4rem 0; /* Reduzido o padding */
-    background: linear-gradient(to bottom, rgba(var(--background-color-rgb), 0.03), rgba(var(--background-color-rgb), 0.1));
-    color: var(--text-color);
+    padding: var(--resume-spacing-xl) 0;
+    background-color: var(--resume-background-color);
+    color: var(--resume-text-color);
 }
 
 .about .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem; /* Reduzido o padding */
+    padding: 0 var(--resume-spacing-lg);
 }
 
-.about .section__title { /* Alterado para usar a classe section__title */
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 2rem; /* Reduzido o tamanho da fonte */
+.about .section__title { /* Alterado para usar a variável resume__section-title */
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
     text-align: center;
-    margin-bottom: 3rem; /* Reduzido o margin-bottom */
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    margin-bottom: var(--resume-spacing-xl);
+    background: linear-gradient(45deg, var(--resume-primary-color), var(--resume-accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
-    font-weight: 800; /* Adicionado para deixar o título mais bold */
+    font-weight: var(--resume-font-weight-extrabold);
 }
 
-.about .section__title::after { /* Alterado para usar a classe section__title */
+.about .section__title::after { /* Alterado para usar a variável resume__section-title */
     content: '';
     display: block;
-    margin: 1rem auto 0;
-    width: 80px; /* Reduzido o tamanho inicial */
+    margin: var(--resume-spacing-md) auto 0;
+    width: 80px;
     height: 3px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: var(--border-radius-full);
-    transition: width 0.3s ease;
+    background: linear-gradient(to right, var(--resume-primary-color), var(--resume-secondary-color));
+    border-radius: var(--resume-border-radius-full);
+    transition: width var(--resume-transition-normal);
 }
 
-.about .section__title:hover::after { /* Alterado para usar a classe section__title */
-    width: 120px; /* Reduzido o tamanho no hover */
+.about .section__title:hover::after { /* Alterado para usar a variável resume__section-title */
+    width: 120px;
 }
 
 .about__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduzido o minmax */
-    gap: 2rem; /* Reduzido o gap */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--resume-spacing-lg);
 }
 
 .about__item {
-    background: var(--card-background);
-    padding: 2rem; /* Reduzido o padding */
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
+    background: var(--resume-card-background);
+    padding: var(--resume-spacing-lg);
+    border-radius: var(--resume-border-radius-lg);
+    box-shadow: var(--resume-shadow-md);
     text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    position: relative; /* Para o efeito de brilho */
-    overflow: hidden; /* Para o efeito de brilho */
+    transition: transform var(--resume-transition-normal), box-shadow var(--resume-transition-normal);
+    position: relative;
+    overflow: hidden;
 }
 
 .about__item::before {
@@ -64,7 +64,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease-in-out;
+    transition: left var(--resume-transition-slow);
     z-index: 1;
 }
 
@@ -73,51 +73,51 @@
 }
 
 .about__item:hover {
-    transform: translateY(-10px); /* Reduzido o translateY */
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px);
+    box-shadow: var(--resume-shadow-lg);
 }
 
 .about__icon {
-    font-size: 3rem; /* Reduzido o tamanho do ícone */
-    color: var(--primary-color);
-    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
-    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
+    font-size: 3rem;
+    color: var(--resume-primary-color);
+    margin-bottom: var(--resume-spacing-md);
+    transition: transform var(--resume-transition-normal), color var(--resume-transition-normal);
     z-index: 2;
     position: relative;
 }
 
 .about__item:hover .about__icon {
     transform: scale(1.1);
-    color: var(--accent-color);
+    color: var(--resume-accent-color);
 }
 
 .about__item-title {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.5rem; /* Reduzido o tamanho da fonte */
-    color: var(--text-color);
-    margin-bottom: 1rem; /* Reduzido o margin-bottom */
-    font-weight: 700; /* Reduzido o font-weight */
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-section-title);
+    color: var(--resume-text-color);
+    margin-bottom: var(--resume-spacing-md);
+    font-weight: var(--resume-font-weight-bold);
 }
 
 .about__item-title::after {
     content: '';
     display: block;
-    width: 40px; /* Reduzido o tamanho */
+    width: 40px;
     height: 3px;
-    background: var(--primary-color);
-    margin: 0.8rem auto; /* Reduzido o margin */
-    transition: width 0.3s ease;
+    background: var(--resume-primary-color);
+    margin: var(--resume-spacing-md) auto;
+    transition: width var(--resume-transition-normal);
 }
 
 .about__item:hover .about__item-title::after {
-    width: 60px; /* Reduzido o tamanho no hover */
+    width: 60px;
 }
 
 .about__item-description {
-    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-    line-height: 1.6; /* Reduzido o line-height */
-    color: var(--text-color-secondary);
-    font-family: 'Nunito Sans', sans-serif;
+    font-size: var(--resume-font-size-base);
+    line-height: var(--resume-line-height-base);
+    color: var(--resume-text-color-secondary);
+    font-family: var(--resume-font-family-base);
     z-index: 2;
     position: relative;
 }
@@ -125,37 +125,51 @@
 /* ========= AJUSTES RESPONSIVOS PARA SOBRE ========= */
 @media (max-width: 768px) {
     .about {
-        padding: 3rem 0; /* Reduzido o padding */
+        padding: var(--resume-spacing-lg) 0;
     }
 
-    .about .section__title { /* Alterado para usar a classe section__title */
-        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 2rem; /* Reduzido o margin-bottom */
+    .about .section__title { /* Alterado para usar a variável resume__section-title */
+        font-size: var(--resume-font-size-section-title);
+        margin-bottom: var(--resume-spacing-lg);
     }
 
     .about__content {
-        gap: 1.5rem; /* Reduzido o gap */
+        gap: var(--resume-spacing-md);
     }
 
     .about__item {
-        padding: 1.5rem; /* Reduzido o padding */
+        padding: var(--resume-spacing-md);
     }
 
     .about__item-title {
-        font-size: 1.3rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
+        font-size: var(--resume-font-size-item-title);
+        margin-bottom: var(--resume-spacing-sm);
+    }
+
+    .about__item-title::after {
+        margin: var(--resume-spacing-sm) auto;
     }
 
     .about__item-description {
-        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
+        font-size: var(--resume-font-size-base);
+    }
+
+    .about__icon {
+        margin-bottom: var(--resume-spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .about__content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 
 /* ========= SEÇÃO PORTFÓLIO DIGITAL ========= */
 #digital-portfolio {
-    padding: 4rem 0; /* Reduzido o padding */
+    padding: var(--resume-spacing-xl) 0;
     text-align: center;
-    background: linear-gradient(170deg, rgba(var(--background-rgb), 0.8), rgba(var(--background-rgb), 0.6));
+    background-color: var(--resume-background-color);
     overflow: hidden;
 }
 
@@ -165,8 +179,8 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px; /* Reduzido a altura */
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color), var(--accent-color));
+    height: 4px;
+    background: linear-gradient(90deg, var(--resume-accent-color), var(--resume-secondary-color), var(--resume-accent-color));
     background-size: 200% 100%;
     animation: gradientMove 8s linear infinite;
 }
@@ -184,65 +198,65 @@
 #digital-portfolio .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem; /* Reduzido o padding */
-    position: relative; /* Adicionado para o ::before */
+    padding: 0 var(--resume-spacing-lg);
+    position: relative; /* Para o ::before */
 }
 
-#digital-portfolio .section__title { /* Alterado para usar a classe section__title */
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 2rem; /* Reduzido o tamanho da fonte */
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+#digital-portfolio .section__title { /* Alterado para usar a variável resume__section-title */
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
+    background: linear-gradient(45deg, var(--resume-primary-color), var(--resume-accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 2rem; /* Reduzido o margin-bottom */
-    font-weight: 800;
+    margin-bottom: var(--resume-spacing-md);
+    font-weight: var(--resume-font-weight-extrabold);
     letter-spacing: -1px;
 }
 
-#digital-portfolio .section__title::after { /* Alterado para usar a classe section__title */
+#digital-portfolio .section__title::after { /* Alterado para usar a variável resume__section-title */
     content: '';
     display: block;
     width: 60%;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-color), transparent);
-    margin: 0.8rem auto 0; /* Reduzido o margin-top */
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, var(--resume-accent-color), transparent);
+    margin: var(--resume-spacing-md) auto 0;
+    transition: width var(--resume-transition-normal);
 }
 
-#digital-portfolio .section__title:hover::after { /* Alterado para usar a classe section__title */
+#digital-portfolio .section__title:hover::after { /* Alterado para usar a variável resume__section-title */
     width: 80%;
 }
 
-#digital-portfolio .section__subtitle { /* Alterado para usar a classe section__subtitle */
-    font-size: 1rem; /* Reduzido o tamanho da fonte */
-    color: var(--text-color-secondary);
-    margin-bottom: 2.5rem; /* Reduzido o margin-bottom */
+#digital-portfolio .section__subtitle { /* Alterado para usar a variável resume__section-subtitle */
+    font-size: var(--resume-font-size-base);
+    color: var(--resume-text-color-secondary);
+    margin-bottom: var(--resume-spacing-xl);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.7; /* Reduzido o line-height */
-    font-family: 'Nunito Sans', sans-serif;
+    line-height: var(--resume-line-height-base);
+    font-family: var(--resume-font-family-base);
 }
 
-#digital-portfolio .button--primary { /* Alterado para usar a classe button--primary */
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+#digital-portfolio .button--primary {
+    background: linear-gradient(45deg, var(--resume-primary-color), var(--resume-secondary-color));
     color: white;
     border: none;
-    padding: 0.8rem 2rem; /* Reduzido o padding */
-    font-size: 1rem; /* Reduzido o tamanho da fonte */
-    font-weight: 700;
-    border-radius: var(--border-radius-lg);
+    padding: var(--resume-spacing-md) var(--resume-spacing-lg);
+    font-size: var(--resume-font-size-base);
+    font-weight: var(--resume-font-weight-bold);
+    border-radius: var(--resume-border-radius-lg);
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Reduzido a intensidade da sombra */
+    transition: all var(--resume-transition-normal);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     text-transform: uppercase;
-    letter-spacing: 1px; /* Reduzido o letter-spacing */
+    letter-spacing: 1px;
     overflow: hidden;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: var(--resume-font-family-base);
 }
 
-#digital-portfolio .button--primary::before { /* Alterado para usar a classe button--primary */
+#digital-portfolio .button--primary::before {
     content: '';
     position: absolute;
     top: 0;
@@ -250,41 +264,51 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: 0.5s;
+    transition: left var(--resume-transition-slow);
     z-index: -1;
 }
 
-#digital-portfolio .button--primary:hover { /* Alterado para usar a classe button--primary */
+#digital-portfolio .button--primary:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Reduzido a intensidade da sombra */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-#digital-portfolio .button--primary:hover::before { /* Alterado para usar a classe button--primary */
+#digital-portfolio .button--primary:hover::before {
     left: 100%;
 }
 
-#digital-portfolio .button--primary:active { /* Alterado para usar a classe button--primary */
+#digital-portfolio .button--primary:active {
     transform: translateY(1px) scale(0.98);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Reduzido a intensidade da sombra */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ========= AJUSTES RESPONSIVOS PARA PORTFÓLIO ========= */
 @media (max-width: 768px) {
     #digital-portfolio {
-        padding: 3rem 0; /* Reduzido o padding */
+        padding: var(--resume-spacing-lg) 0;
     }
 
-    #digital-portfolio .section__title { /* Alterado para usar a classe section__title */
-        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
+    #digital-portfolio .section__title { /* Alterado para usar a variável resume__section-title */
+        font-size: var(--resume-font-size-section-title);
     }
 
-    #digital-portfolio .section__subtitle { /* Alterado para usar a classe section__subtitle */
-        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 2rem; /* Reduzido o margin-bottom */
+    #digital-portfolio .section__subtitle { /* Alterado para usar a variável resume__section-subtitle */
+        font-size: var(--resume-font-size-base);
+        margin-bottom: var(--resume-spacing-lg);
     }
 
-    #digital-portfolio .button--primary { /* Alterado para usar a classe button--primary */
-        padding: 0.7rem 1.5rem; /* Reduzido o padding */
-        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
+    #digital-portfolio .button--primary {
+        padding: var(--resume-spacing-sm) var(--resume-spacing-lg);
+        font-size: var(--resume-font-size-base);
+    }
+}
+
+@media (max-width: 480px) {
+    #digital-portfolio .section__title::after { /* Alterado para usar a variável resume__section-title */
+        width: 95%;
+    }
+
+    #digital-portfolio .section__title:hover::after { /* Alterado para usar a variável resume__section-title */
+        width: 98%;
     }
 }

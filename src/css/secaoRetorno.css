@@ -1,7 +1,8 @@
+/* ========= SEÇÃO DE RETORNO (RETURN) ========= */
 #return-section {
-    background: linear-gradient(180deg, var(--background-color) 0%, rgba(0, 82, 136, 0.1) 100%);
-    color: var(--text-color);
-    padding: 4rem 0;
+    background: linear-gradient(180deg, var(--resume-background-color) 0%, rgba(var(--resume-primary-color-rgb), 0.1) 100%); /* Usando a variável *-rgb */
+    color: var(--resume-text-color);
+    padding: var(--resume-spacing-xl) 0;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -10,6 +11,12 @@
     text-align: center;
 }
 
+/* Adicionado background-color para o modo escuro */
+body.dark-mode #return-section {
+    background: linear-gradient(180deg, var(--resume-background-color) 0%, rgba(var(--resume-primary-color-rgb), 0.2) 100%);
+}
+
+/* Padrão de fundo sutil */
 #return-section::before {
     content: '';
     position: absolute;
@@ -20,31 +27,28 @@
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     opacity: 0.1;
     z-index: 0;
-    /* Adicionado para garantir que o conteúdo fique acima do background */
 }
 
 #return-section .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--resume-spacing-lg);
     position: relative;
     z-index: 1;
 }
 
 #return-section .section__title {
-    /* Alterado para .section__title */
-    font-size: 3.5rem;
-    font-weight: 800;
+    font-size: var(--resume-font-size-title);
+    font-weight: var(--resume-font-weight-extrabold);
     letter-spacing: -0.02em;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-    font-family: 'Inter', sans-serif;
+    color: var(--resume-text-color);
+    margin-bottom: var(--resume-spacing-lg);
+    font-family: var(--resume-font-family-base);
     position: relative;
     display: inline-block;
 }
 
 #return-section .section__title::after {
-    /* Alterado para .section__title */
     content: '';
     position: absolute;
     bottom: -0.5rem;
@@ -52,42 +56,40 @@
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-    border-radius: var(--border-radius-full);
+    background: linear-gradient(90deg, var(--resume-secondary-color), var(--resume-accent-color));
+    border-radius: var(--resume-border-radius-full);
 }
 
 #return-section .section__subtitle {
-    /* Alterado para .section__subtitle */
-    font-size: 1.25rem;
-    line-height: 1.7;
-    color: var(--text-color-secondary);
+    font-size: var(--resume-font-size-base);
+    line-height: var(--resume-line-height-base);
+    color: var(--resume-text-color-secondary);
     max-width: 700px;
-    margin: 0 auto 3rem;
-    font-family: 'Inter', sans-serif;
+    margin: 0 auto var(--resume-spacing-xl);
+    font-family: var(--resume-font-family-base);
     text-align: center;
 }
 
 #return-section .return-link {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    color: var(--text-color);
+    background: linear-gradient(135deg, var(--resume-secondary-color), var(--resume-primary-color));
+    color: var(--resume-card-background); /* Alterado para a cor do card background */
     border: none;
-    padding: 1.25rem 3rem;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: var(--resume-spacing-md) var(--resume-spacing-xxl);
+    font-size: var(--resume-font-size-base);
+    font-weight: var(--resume-font-weight-semibold);
     letter-spacing: 0.5px;
-    border-radius: var(--border-radius-md);
+    border-radius: var(--resume-border-radius-md);
     cursor: pointer;
-    transition: all var(--transition-normal);
-    box-shadow: 0 4px 20px rgba(0, 178, 255, 0.3);
+    transition: all var(--resume-transition-normal);
+    box-shadow: 0 4px 20px rgba(var(--resume-primary-color-rgb), 0.3); /* Usando a variável *-rgb */
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    /* Removendo sublinhado do link */
-    display: inline-block;
-    /* Para o link se comportar como bloco */
+    display: inline-flex;
+    gap: var(--resume-spacing-xs);
 }
 
 #return-section .return-link::before {
@@ -98,12 +100,13 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: var(--transition-normal);
+    transition: left var(--resume-transition-slow);
+    z-index: 1;
 }
 
 #return-section .return-link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(0, 178, 255, 0.4);
+    box-shadow: 0 6px 30px rgba(var(--resume-primary-color-rgb), 0.4); /* Usando a variável *-rgb */
 }
 
 #return-section .return-link:hover::before {
@@ -112,25 +115,34 @@
 
 #return-section .return-link:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(0, 178, 255, 0.2);
+    box-shadow: 0 2px 10px rgba(var(--resume-primary-color-rgb), 0.2); /* Usando a variável *-rgb */
 }
 
+#return-section .return-link .iconify{
+    color: var(--resume-card-background);
+    position: relative;
+    z-index: 2;
+}
+
+/* ========= Responsividade ========= */
 @media (max-width: 768px) {
     #return-section {
-        padding: 3rem 1rem;
+        padding: var(--resume-spacing-lg) var(--resume-spacing-md);
     }
 
     #return-section .section__title {
-        font-size: 2.5rem;
+        font-size: var(--resume-font-size-section-title);
+        margin-bottom: var(--resume-spacing-md);
     }
 
     #return-section .section__subtitle {
-        font-size: 1.1rem;
-        padding: 0 1rem;
+        font-size: var(--resume-font-size-base);
+        padding: 0 var(--resume-spacing-xs);
+        margin-bottom: var(--resume-spacing-lg);
     }
 
     #return-section .return-link {
-        padding: 1rem 2rem;
-        font-size: 1rem;
+        padding: var(--resume-spacing-sm) var(--resume-spacing-xl);
+        font-size: var(--resume-font-size-base);
     }
 }

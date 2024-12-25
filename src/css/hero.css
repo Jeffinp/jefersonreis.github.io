@@ -7,10 +7,10 @@
     text-align: center;
     background: linear-gradient(rgba(31, 41, 55, 0.8), rgba(31, 41, 55, 0.7)), url('/src/image/nebula-space-blue-12k-2v.jpg') no-repeat center center / cover;
     position: relative;
-    color: var(--hero-text-color); /* Cor do texto no hero */
+    color: var(--resume-text-color-light); /* Cor do texto no hero */
 }
 
-/* ========= PARTICLES.JS ========= */
+/* ========= PARTICLES.JS (configurar via JS) ========= */
 .hero__particles {
     position: absolute;
     top: 0;
@@ -24,53 +24,53 @@
 .hero__container {
     position: relative;
     z-index: 2;
-    padding: 0 2rem;
-    max-width: 800px; /* Ajustado para um visual mais compacto */
+    padding: 0 var(--resume-spacing-lg);
+    max-width: 800px;
     margin: 0 auto;
     width: 100%;
 }
 
 /* ========= PROFILE PICTURE ========= */
 .hero__profile-pic {
-    width: 180px; /* Reduzido ligeiramente */
-    height: 180px; /* Reduzido ligeiramente */
-    border-radius: var(--border-radius-full);
-    box-shadow: 0 0 15px rgba(96, 165, 250, 0.7); /* Sombra mais suave */
-    border: 3px solid var(--secondary-color);
-    transition: all var(--transition-normal);
-    margin-bottom: 1.5rem; /* Ajustado margin-bottom */
+    width: 160px;
+    height: 160px;
+    border-radius: var(--resume-border-radius-full);
+    box-shadow: 0 0 15px rgba(var(--resume-primary-color-rgb), 0.7);
+    border: 3px solid var(--resume-primary-color);
+    transition: all var(--resume-transition-normal);
+    margin-bottom: var(--resume-spacing-lg);
 }
 
 .hero__profile-pic:hover {
-    transform: scale(1.03); /* Efeito de hover mais sutil */
-    box-shadow: 0 0 30px rgba(96, 165, 250, 0.9); /* Sombra mais suave no hover */
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(var(--resume-primary-color-rgb), 0.9);
 }
 
 /* ========= HERO TITLE ========= */
 .hero__title {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 3rem; /* Reduzido o tamanho da fonte */
-    margin-bottom: 0.8rem; /* Reduzido o margin-bottom */
-    color: var(--hero-title-color);
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Sombra mais suave */
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
+    margin-bottom: var(--resume-spacing-md);
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: var(--resume-font-weight-extrabold);
     animation: text-fade-in-left 3s ease-out forwards;
 }
 
 /* ========= HERO SUBTITLE ========= */
 .hero__subtitle {
-    font-size: 1.1rem; /* Reduzido o tamanho da fonte */
-    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
-    color: var(--hero-subtitle-color);
+    font-size: var(--resume-font-size-base);
+    margin-bottom: var(--resume-spacing-lg);
+    color: white;
     opacity: 0.9;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sombra mais suave */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* ========= CTA BUTTONS ========= */
 .hero__cta-buttons {
     display: flex;
-    gap: 1rem;
+    gap: var(--resume-spacing-md);
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -78,33 +78,33 @@
 .button {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.8rem; /* Ajustado o padding */
-    background-color: var(--secondary-color);
-    color: var(--background-color);
+    gap: var(--resume-spacing-xs);
+    padding: var(--resume-spacing-sm) var(--resume-spacing-xl);
+    background-color: var(--resume-secondary-color);
+    color: var(--resume-background-color);
     text-decoration: none;
-    border-radius: var(--border-radius-md); /* Ajustado o border-radius */
-    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-    font-weight: 600;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: var(--resume-border-radius-md);
+    font-size: var(--resume-font-size-base);
+    font-weight: var(--resume-font-weight-semibold);
+    transition: all var(--resume-transition-normal);
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
-    letter-spacing: 0.8px; /* Ajustado o letter-spacing */
+    letter-spacing: 0.5px;
     border: 2px solid transparent;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ========= BUTTON PRIMARY ========= */
 .button--primary {
-    /* Estilos específicos para o botão primário */
+    /* Estilos específicos para o botão primário, se necessário */
 }
 
 /* ========= BUTTON SECONDARY ========= */
 .button--secondary {
     background-color: transparent;
-    border-color: var(--secondary-color);
-    color: var(--hero-text-color);
+    border-color: var(--resume-secondary-color);
+    color: white;
 }
 
 /* ========= BUTTON HOVER EFFECTS ========= */
@@ -116,7 +116,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    transition: all 0.4s ease-in-out;
+    transition: all var(--resume-transition-normal);
     pointer-events: none;
 }
 
@@ -136,18 +136,18 @@
 }
 
 .button:hover {
-    transform: translateY(-2px) scale(1.02); /* Efeito de hover mais sutil */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra mais suave no hover */
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .button:active {
-    transform: translateY(-1px) scale(0.99); /* Efeito de clique mais sutil */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra mais suave no clique */
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* ========= ICON ========= */
 .button .iconify {
-    font-size: 1.1rem; /* Ajustado o tamanho do ícone */
+    font-size: 1.1rem;
 }
 
 /* ========= ANIMAÇÕES ========= */
@@ -170,7 +170,7 @@
     }
 
     .hero__subtitle {
-        font-size: 1rem;
+        font-size: var(--resume-font-size-base);
     }
 
     .hero__profile-pic {
@@ -179,9 +179,10 @@
     }
 
     .button {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
+        padding: var(--resume-spacing-xs) var(--resume-spacing-lg);
+        font-size: var(--resume-font-size-base);
     }
+
     .hero__container {
         max-width: 90%;
     }
@@ -193,7 +194,7 @@
     }
 
     .hero__subtitle {
-        font-size: 0.9rem;
+        font-size: var(--resume-font-size-base);
     }
 
     .hero__profile-pic {
@@ -202,9 +203,10 @@
     }
 
     .button {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
+        padding: var(--resume-spacing-xs) var(--resume-spacing-md);
+        font-size: var(--resume-font-size-base);
     }
+
     .hero__container {
         max-width: 95%;
     }

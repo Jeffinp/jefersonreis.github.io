@@ -1,74 +1,264 @@
+
 /* ========= SEÇÃO DE CURRÍCULO ========= */
-.resume {
-    padding: 4rem 0; /* Reduzido o padding */
-    background-color: var(--background-color);
+section.resume {
+    padding: var(--resume-spacing-xxl) 0;
+    background-color: var(--resume-background-color);
 }
 
-.resume .container {
-    max-width: 1200px;
+.container_resume { /* Nome da classe atualizado para corresponder ao HTML */
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--resume-spacing-lg);
 }
 
-.resume .section__title { /* Alterado para usar a classe section__title */
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 2rem; /* Reduzido o tamanho da fonte */
+.resume__title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
     text-align: center;
-    font-weight: 800;
+    font-weight: var(--resume-font-weight-extrabold);
     text-transform: uppercase;
-    margin-bottom: 3rem; /* Reduzido o margin-bottom */
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    margin-bottom: var(--resume-spacing-xl);
+    background: linear-gradient(45deg, var(--resume-primary-color), var(--resume-accent-color));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
 }
 
-.resume .section__title::after { /* Alterado para usar a classe section__title */
+.resume__title::after {
     content: '';
     display: block;
-    width: 80px; /* Reduzido o tamanho inicial */
+    width: 80px;
     height: 3px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: var(--border-radius-full);
-    margin: 1rem auto 0;
-    transition: width 0.3s ease;
+    background: linear-gradient(to right, var(--resume-primary-color), var(--resume-secondary-color));
+    border-radius: var(--resume-border-radius-full);
+    margin: var(--resume-spacing-md) auto 0;
+    transition: width var(--resume-transition-normal);
 }
 
-.resume .section__title:hover::after { /* Alterado para usar a classe section__title */
-    width: 120px; /* Reduzido o tamanho no hover */
+.resume__title:hover::after {
+    width: 120px;
 }
 
+/* ========= CONTEÚDO DO CURRÍCULO ========= */
 .resume__content {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem; /* Reduzido o gap */
-    background-color: var(--card-background);
-    border-radius: var(--border-radius-lg);
+    background-color: var(--resume-card-background);
+    border-radius: var(--resume-border-radius-lg);
+    box-shadow: var(--resume-shadow-md);
     overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding: var(--resume-spacing-xl);
 }
 
-.resume__content:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+/* ========= SEÇÕES GERAIS ========= */
+.resume__section {
+    padding: var(--resume-spacing-lg) 0;
 }
 
-.resume__highlights,
-.resume__cta {
-    flex: 1;
-    padding: 2.5rem; /* Reduzido o padding */
-    background-color: var(--background-color-light);
-    transition: background-color 0.5s ease;
+.resume__section + .resume__section {
+    border-top: 1px solid var(--resume-border-color);
+}
+
+.resume__section-title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-section-title);
+    font-weight: var(--resume-font-weight-bold);
+    color: var(--resume-text-color);
+    margin-bottom: var(--resume-spacing-md);
+    margin-top: var(--resume-spacing-md);
+}
+
+.resume__section-list {
+    list-style: none;
+    padding: 0;
+}
+
+.resume__section-item {
+    margin-bottom: var(--resume-spacing-md);
+}
+
+.resume__section-item-title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-item-title);
+    font-weight: var(--resume-font-weight-bold);
+    color: var(--resume-text-color);
+    margin-bottom: var(--resume-spacing-xs);
+}
+
+.resume__section-item-details {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-base);
+    line-height: var(--resume-line-height-base);
+    color: var(--resume-text-color-secondary);
+}
+
+.resume__section-item-details li::marker {
+    color: var(--resume-primary-color);
+}
+
+/* ========= SEÇÃO DE CURRÍCULO ========= */
+section.resume {
+    padding: var(--resume-spacing-xxl) 0;
+    background-color: var(--resume-background-color);
+}
+
+.container_resume { /* Nome da classe atualizado para corresponder ao HTML */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--resume-spacing-lg);
+}
+
+.section__title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
+    text-align: center;
+    font-weight: var(--resume-font-weight-extrabold);
+    margin-bottom: var(--resume-spacing-xl);
+    background: linear-gradient(45deg, var(--resume-primary-color), var(--resume-accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.section__title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--resume-primary-color), var(--resume-secondary-color));
+    border-radius: var(--resume-border-radius-full);
+    margin: var(--resume-spacing-md) auto 0;
+    transition: width var(--resume-transition-normal);
+}
+
+.resume__title:hover::after {
+    width: 120px;
+}
+
+/* ========= CONTEÚDO DO CURRÍCULO ========= */
+.resume__content {
+    background-color: var(--resume-card-background);
+    border-radius: var(--resume-border-radius-lg);
+    box-shadow: var(--resume-shadow-md);
+    overflow: hidden;
+    padding: var(--resume-spacing-xl);
+}
+
+/* ========= SEÇÕES GERAIS ========= */
+.resume__section {
+    padding: var(--resume-spacing-lg) 0;
+}
+
+.resume__section + .resume__section {
+    border-top: 1px solid var(--resume-border-color);
+}
+
+.resume__section-title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-section-title);
+    font-weight: var(--resume-font-weight-bold);
+    color: var(--resume-text-color);
+    margin-bottom: var(--resume-spacing-md);
+    margin-top: var(--resume-spacing-md);
+}
+
+.resume__section-list {
+    list-style: none;
+    padding: 0;
+}
+
+.resume__section-item {
+    margin-bottom: var(--resume-spacing-md);
+}
+
+.resume__section-item-title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-item-title);
+    font-weight: var(--resume-font-weight-bold);
+    color: var(--resume-text-color);
+    margin-bottom: var(--resume-spacing-xs);
+}
+
+.resume__section-item-details {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-base);
+    line-height: var(--resume-line-height-base);
+    color: var(--resume-text-color-secondary);
+}
+
+.resume__section-item-details li::marker {
+    color: var(--resume-primary-color);
+}
+
+/* ========= BOTÃO VER MAIS GERAL ========= */
+.resume__see-more-container {
+    text-align: center;
+    padding: var(--resume-spacing-lg) 0;
+}
+
+.resume__see-more {
+    cursor: pointer;
+    color: var(--resume-primary-color);
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-base);
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    background: none;
+    transition: color var(--resume-transition-normal);
+}
+
+.resume__see-more:hover {
+    text-decoration: underline;
+    color: var(--resume-hover-color);
+}
+
+.resume__see-more .uil {
+    margin-left: var(--resume-spacing-xs);
+    transition: transform var(--resume-transition-normal);
+}
+
+.resume__content.expanded .resume__see-more .uil {
+    transform: rotate(180deg);
+}
+
+/* ========= OCULTAR SEÇÕES INICIALMENTE ========= */
+.resume__experience,
+.resume__education,
+.resume__certifications,
+.resume__skills,
+.resume__awards,
+.resume__contact,
+.resume__soft-skills,
+.resume__objective {
+    display: none;
+}
+
+.resume__content.expanded .resume__experience,
+.resume__content.expanded .resume__education,
+.resume__content.expanded .resume__certifications,
+.resume__content.expanded .resume__skills,
+.resume__content.expanded .resume__awards,
+.resume__content.expanded .resume__contact,
+.resume__content.expanded .resume__soft-skills,
+.resume__content.expanded .resume__objective {
+    display: block;
+}
+
+/* ========= DESTAQUES ========= */
+.resume__highlights {
+    padding: 2.5rem 0;
+    background-color: transparent;
 }
 
 .resume__highlights-title {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.5rem; /* Reduzido o tamanho da fonte */
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-color);
-    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
+    margin-bottom: 1.5rem;
 }
 
 .resume__highlights-list {
@@ -76,55 +266,180 @@
     padding: 0;
 }
 
-.resume__highlights-item {
-    font-family: 'Nunito Sans', sans-serif;
-    color: var(--text-color-secondary);
-    font-size: 1rem; /* Reduzido o tamanho da fonte */
-    line-height: 1.8; /* Reduzido o line-height */
+.resume__highlights-list .resume__highlights-item {
+    font-family: var(--resume-font-family-base);
+    color: var(--resume-text-color-secondary);
+    font-size: var(--resume-font-size-base);
+    line-height: 1.8;
     display: flex;
     align-items: center;
 }
 
 .resume__highlights-item::before {
     content: '•';
-    color: var(--primary-color);
-    font-size: 1.5em; /* Reduzido o tamanho do marcador */
-    margin-right: 0.6rem; /* Reduzido o margin-right */
+    color: var(--resume-primary-color);
+    font-size: 1.5em;
+    margin-right: var(--resume-spacing-sm);
 }
 
-.resume__cta {
+
+/* ========= EXPERIÊNCIA PROFISSIONAL ========= */
+.resume__experience {
+    padding: 1.5rem 0;
+}
+
+.resume__experience-title {
+    margin-top: 1.5rem;
+}
+
+.resume__experience-item-details {
+    list-style: disc;
+    margin-left: var(--resume-spacing-lg);
+}
+
+/* ========= FORMAÇÃO ACADÊMICA ========= */
+.resume__education {
+    padding: 1.5rem 0;
+}
+.resume__education-title {
+    margin-top: 1.5rem;
+}
+
+/* ========= CERTIFICAÇÕES E CURSOS ========= */
+.resume__certifications {
+    padding: 1.5rem 0;
+}
+.resume__certifications-title {
+    margin-top: 1.5rem;
+}
+
+.resume__certifications-item {
+    margin-bottom: var(--resume-spacing-sm);
+}
+
+.resume__certifications-item::before {
+    content: '•';
+    color: var(--resume-primary-color);
+    font-size: 1.5em;
+    margin-right: var(--resume-spacing-sm);
+}
+
+/* ========= HABILIDADES TÉCNICAS ========= */
+.resume__skills {
+    padding: 1.5rem 0;
+}
+
+.resume__skills-title {
+    margin-top: 1.5rem;
+}
+
+/* ========= PRÊMIOS E REALIZAÇÕES ========= */
+.resume__awards {
+    padding: 1.5rem 0;
+}
+
+.resume__awards-title {
+    margin-top: 1.5rem;
+}
+
+.resume__awards-item {
+    margin-bottom: var(--resume-spacing-sm);
+}
+
+.resume__awards-item::before {
+    content: '•';
+    color: var(--resume-primary-color);
+    font-size: 1.5em;
+    margin-right: var(--resume-spacing-sm);
+}
+
+/* ========= CONTATO ========= */
+.resume__contact {
+    padding: 1.5rem 0;
+}
+
+.resume__contact-title {
+    margin-top: 1.5rem;
+}
+
+.resume__contact-item {
+    margin-bottom: var(--resume-spacing-sm);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-.resume__cta-text {
-    font-family: 'Nunito Sans', sans-serif;
-    color: var(--text-color-secondary);
-    margin-bottom: 1.5rem; /* Reduzido o margin-bottom */
-    text-align: center;
-    font-size: 1rem; /* Reduzido o tamanho da fonte */
+.resume__contact-item a {
+    color: var(--resume-primary-color);
+    text-decoration: none;
+    transition: color var(--resume-transition-normal);
 }
 
+.resume__contact-item a:hover {
+    text-decoration: underline;
+    color: var(--resume-hover-color);
+}
+
+.resume__contact-item::before {
+    content: '•';
+    color: var(--resume-primary-color);
+    font-size: 1.5em;
+    margin-right: var(--resume-spacing-sm);
+}
+
+/* ========= SOFT SKILLS ========= */
+.resume__soft-skills {
+    padding: 1.5rem 0;
+}
+.resume__soft-skills-title {
+    margin-top: 1.5rem;
+}
+
+.resume__soft-skills-item {
+    margin-bottom: var(--resume-spacing-xs);
+}
+
+/* ========= OBJETIVO PROFISSIONAL ========= */
+.resume__objective {
+    padding: 1.5rem 0;
+}
+
+.resume__objective-title {
+    margin-top: 1.5rem;
+}
+
+/* ========= CTA ========= */
+.resume__cta {
+    padding: var(--resume-spacing-lg) 0;
+    text-align: center;
+    border-top: 1px solid var(--resume-border-color);
+}
+
+.resume__cta-text {
+    font-family: var(--resume-font-family-base);
+    color: var(--resume-text-color-secondary);
+    margin-bottom: var(--resume-spacing-md);
+    text-align: center;
+    font-size: var(--resume-font-size-base);
+}
+
+/* ========= BOTÃO DE DOWNLOAD ========= */
 .button--primary {
-    /* Estilos para o botão de download do currículo */
     display: inline-block;
-    padding: 0.8rem 1.6rem; /* Reduzido o padding */
-    background-color: var(--primary-color);
+    padding: var(--resume-spacing-md) var(--resume-spacing-lg);
+    background-color: var(--resume-primary-color);
     color: white;
     text-decoration: none;
-    border-radius: var(--border-radius-full);
-    font-weight: 600; /* Reduzido o font-weight */
-    transition: all 0.3s ease;
+    border-radius: var(--resume-border-radius-md);
+    font-weight: var(--resume-font-weight-semibold);
+    transition: all var(--resume-transition-normal);
     position: relative;
     overflow: hidden;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    box-shadow: var(--shadow-sm);
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-    border: none; /* Removendo a borda */
+    box-shadow: var(--resume-shadow-sm);
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-base);
+    border: none;
 }
 
 .button--primary::after {
@@ -135,10 +450,10 @@
     width: 300%;
     height: 300%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    transition: transform 0.5s ease;
+    transition: transform var(--resume-transition-slow);
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
-    pointer-events: none; /* Evita problemas de clique */
+    pointer-events: none;
 }
 
 .button--primary:hover::after {
@@ -146,49 +461,87 @@
 }
 
 .button--primary:hover {
-    background-color: var(--hover-color);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px); /* Reduzido o translateY */
+    background-color: var(--resume-hover-color);
+    box-shadow: var(--resume-shadow-md);
+    transform: translateY(-2px);
 }
 
-/* ========= Responsividade ========= */
+/* ========= RESPONSIVIDADE ========= */
 @media (max-width: 768px) {
-    .resume {
-        padding: 3rem 0; /* Reduzido o padding */
+    section.resume {
+        padding: var(--resume-spacing-xl) 0;
     }
 
-    .resume .section__title { /* Alterado para usar a classe section__title */
-        font-size: 1.8rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 2rem; /* Reduzido o margin-bottom */
+    .container_resume { /* Nome da classe atualizado */
+        padding: 0 var(--resume-spacing-md);
+    }
+
+    .resume__title {
+        font-size: var(--resume-font-size-section-title);
+        margin-bottom: var(--resume-spacing-lg);
     }
 
     .resume__content {
-        flex-direction: column;
-        gap: 1.5rem; /* Reduzido o gap */
+        padding: var(--resume-spacing-md);
     }
 
-    .resume__highlights,
+    .resume__section {
+        padding: var(--resume-spacing-md) 0;
+    }
+
+    .resume__section-title {
+        font-size: var(--resume-font-size-item-title);
+        margin-bottom: var(--resume-spacing-md);
+        margin-top: var(--resume-spacing-xs);
+    }
+
+    .resume__section-item-details {
+        font-size: var(--resume-font-size-base);
+    }
+
     .resume__cta {
-        padding: 2rem; /* Reduzido o padding */
-    }
-
-    .resume__highlights-title {
-        font-size: 1.3rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 1rem; /* Reduzido o margin-bottom */
-    }
-
-    .resume__highlights-item {
-        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-        line-height: 1.6; /* Reduzido o line-height */
+        padding: var(--resume-spacing-md) 0;
     }
 
     .resume__cta-text {
-        font-size: 0.9rem; /* Reduzido o tamanho da fonte */
-        margin-bottom: 1rem; /* Reduzido o margin-bottom */
+        font-size: var(--resume-font-size-base);
+        margin-bottom: var(--resume-spacing-md);
     }
 
     .button--primary {
-        padding: 0.7rem 1.4rem; /* Reduzido o padding */
-        font-size: 0.8rem; /* Reduzido o tamanho da fonte */
+        padding: var(--resume-spacing-sm) var(--resume-spacing-md);
+        font-size: var(--resume-font-size-base);
+    }
+
+    .resume__see-more-container {
+        padding: var(--resume-spacing-md) 0;
+    }
+
+    .resume__experience-item-details {
+        margin-left: var(--resume-spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .resume__title {
+        font-size: var(--resume-font-size-section-title);
+    }
+
+    .resume__content {
+        padding: var(--resume-spacing-sm);
+    }
+
+    .resume__section-title {
+        margin-top: var(--resume-spacing-xs);
+    }
+
+    .resume__highlights-item::before {
+        margin-right: var(--resume-spacing-xs);
+    }
+
+    .resume__certifications-item::before,
+    .resume__awards-item::before,
+    .resume__contact-item::before {
+        margin-right: var(--resume-spacing-xs);
     }
 }
