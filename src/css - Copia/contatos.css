@@ -1,0 +1,149 @@
+/* ========= SEÇÃO DE CONTATOS ========= */
+.contact {
+    padding: var(--resume-spacing-xl) 0;
+    background-color: var(--resume-background-color);
+}
+
+.contact .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--resume-spacing-lg);
+}
+
+.contact .section__title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
+    margin-bottom: var(--resume-spacing-xl);
+    text-align: center;
+    position: relative;
+    background: linear-gradient(45deg, var(--resume-primary-color), var(--resume-accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: var(--resume-font-weight-extrabold);
+    text-transform: uppercase;
+}
+
+.contact .section__title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--resume-primary-color), var(--resume-secondary-color));
+    border-radius: var(--resume-border-radius-full);
+    transition: width var(--resume-transition-normal);
+}
+
+.contact .section__title:hover::after {
+    width: 120px;
+}
+
+.contact__container {
+    display: flex;
+    justify-content: center;
+}
+
+.contact__info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas de tamanho igual */
+    gap: var(--resume-spacing-lg);
+    width: 100%;
+    max-width: 1000px; /* Limita a largura máxima do grid */
+}
+
+.contact__card {
+    background-color: var(--resume-card-background);
+    border-radius: var(--resume-border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--resume-shadow-md);
+    transition: transform var(--resume-transition-normal), box-shadow var(--resume-transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--resume-spacing-lg);
+    text-align: center;
+    height: 100%; /* Garante que todos os cards tenham a mesma altura */
+}
+
+.contact__card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--resume-shadow-lg);
+}
+
+.contact__icon {
+    font-size: 2.5rem;
+    color: var(--resume-primary-color);
+    margin-bottom: var(--resume-spacing-md);
+    transition: transform var(--resume-transition-normal);
+    display: inline-block;
+}
+
+.contact__card:hover .contact__icon {
+    transform: scale(1.1);
+}
+
+.contact__card-title {
+    font-size: var(--resume-font-size-item-title);
+    margin-bottom: var(--resume-spacing-sm);
+    color: var(--resume-text-color);
+    font-family: var(--resume-font-family-base);
+    font-weight: var(--resume-font-weight-bold);
+}
+
+.contact__card-link {
+    font-size: var(--resume-font-size-base);
+    color: var(--resume-text-color-secondary);
+    transition: color var(--resume-transition-normal);
+    display: block;
+    word-break: break-word;
+    font-family: var(--resume-font-family-base);
+    line-height: var(--resume-line-height-base);
+}
+
+.contact__card:hover .contact__card-link {
+    color: var(--resume-primary-color);
+}
+
+/* ========= Responsividade ========= */
+@media (max-width: 968px) {
+    .contact__info {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas médias */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: var(--resume-spacing-lg) 0;
+    }
+
+    .contact .section__title {
+        font-size: var(--resume-font-size-section-title);
+        margin-bottom: var(--resume-spacing-lg);
+    }
+
+    .contact__info {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+        gap: var(--resume-spacing-md);
+    }
+
+    .contact__card {
+        padding: var(--resume-spacing-md);
+    }
+
+    .contact__icon {
+        font-size: 2rem;
+        margin-bottom: var(--resume-spacing-sm);
+    }
+
+    .contact__card-title {
+        font-size: var(--resume-font-size-base);
+        margin-bottom: var(--resume-spacing-xs);
+    }
+
+    .contact__card-link {
+        font-size: var(--resume-font-size-base);
+    }
+}

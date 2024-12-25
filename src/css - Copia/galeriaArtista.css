@@ -1,0 +1,200 @@
+/* ========= ÁREA DE GALERIA DE ARTE ========= */
+
+/* --- Geral --- */
+.art-gallery {
+    padding: 4rem 0;
+    background-color: var(--background-color);
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.art-gallery .section__title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.art-gallery .section__title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius-full);
+    margin: 1rem auto 0;
+    transition: width 0.3s ease;
+}
+
+.art-gallery .section__title:hover::after {
+    width: 120px;
+}
+
+/* --- Carrossel --- */
+.art-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    background-color: var(--card-background);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.art-carousel__track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+    width: fit-content;
+}
+
+.art-carousel__item {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.art-carousel__item img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    max-height: 506px;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: grab;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    border-radius: var(--border-radius-md);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* A imagem ativa agora recebe a opacidade 1 via JavaScript */
+.art-carousel__item.active img {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* Manter a opacidade reduzida enquanto carrega */
+.art-carousel__item img.loading {
+    opacity: 0.5 !important;
+}
+
+.art-carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.art-carousel__button:hover {
+    opacity: 1;
+}
+
+.art-carousel__button:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+.art-carousel__button--prev {
+    left: 1rem;
+}
+
+.art-carousel__button--next {
+    right: 1rem;
+}
+
+/* Estilizando as setas de navegação */
+.art-carousel__button::before {
+    content: '';
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-top: 3px solid var(--text-color);
+    border-right: 3px solid var(--text-color);
+}
+
+.art-carousel__button--prev::before {
+    transform: rotate(-135deg);
+}
+
+.art-carousel__button--next::before {
+    transform: rotate(45deg);
+}
+
+/* ========= Responsividade ========= */
+@media (max-width: 768px) {
+    .art-gallery {
+        padding: 3rem 0;
+    }
+
+    .art-gallery .section__title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .art-carousel {
+        border-radius: var(--border-radius-md);
+    }
+
+    .art-carousel__item {
+        padding: 1rem 0;
+    }
+
+    .art-carousel__item img {
+        max-height: 400px;
+    }
+
+    .art-carousel__button {
+        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
+    }
+
+    .art-carousel__button::before {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .art-carousel__button--prev {
+        left: 0.5rem;
+    }
+
+    .art-carousel__button--next {
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .art-gallery .section__title {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,63 @@
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--secondary-color);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+}
+
+.close {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--secondary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Lazy Loading */
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy.loaded {
+    opacity: 1;
+}
+
+/* animation on scroll  */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-out {
+    opacity: 0;
+    transform: translateX(-10px);
+}
