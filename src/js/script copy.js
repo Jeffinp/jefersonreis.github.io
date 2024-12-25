@@ -882,12 +882,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resumeContent = document.querySelector('.resume__content');
 
     seeMoreButton.addEventListener('click', function() {
-        if (resumeContent.classList.contains('expanded')) {
-            resumeContent.classList.remove('expanded');
-            this.innerHTML = 'Ver Mais <i class="uil uil-arrow-down"></i>';
-        } else {
-            resumeContent.classList.add('expanded');
-            this.innerHTML = 'Ver Menos <i class="uil uil-arrow-up"></i>';
-        }
+        resumeContent.classList.toggle('expanded');
     });
 });
+
