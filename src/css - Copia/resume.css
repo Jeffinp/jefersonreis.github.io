@@ -35,7 +35,8 @@
 }
 
 .resume {
-    padding: var(--resume-spacing-xxl) 0
+    padding: var(--resume-spacing-xxl) 0;
+    background-color: var(--resume-background-color);
 }
 
 .container_resume {
