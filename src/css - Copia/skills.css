@@ -42,7 +42,7 @@
 
 .skills__grid {
     display: grid;
-    grid-template-columns: 1fr; /* Mantendo uma única coluna */
+    grid-template-columns: 1fr; /* Forçando uma coluna */
     gap: var(--resume-spacing-lg);
 }
 
@@ -69,7 +69,7 @@
 
 .skill__icon-wrapper {
     background-color: var(--resume-primary-color);
-    color: white;
+    color: var(--resume-card-background); /* Alterado para a cor de fundo do card para contraste */
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -80,8 +80,10 @@
     transition: background-color var(--resume-transition-normal), transform var(--resume-transition-normal);
 }
 
+/* Usando Iconify */
 .skill__icon {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Mantido o tamanho anterior dos ícones */
+    color: var(--resume-card-background); /* Cor do ícone para contraste */
 }
 
 .skills__content:hover .skill__icon-wrapper {
@@ -107,13 +109,21 @@
 }
 
 .skills__arrow {
-    position: absolute;
-    top: 50%;
-    right: var(--resume-spacing-xl);
-    transform: translateY(-50%);
     font-size: 1.5rem;
     color: var(--resume-text-color-secondary);
     transition: transform var(--resume-transition-normal);
+}
+
+/* Posicionamento da seta */
+.skills__header .skills__arrow {
+    margin-left: auto;
+    position: static; /* Alterado para static */
+    transform: none;  /* Removido translateY */
+}
+
+/* Ajuste no estado aberto para a nova estrutura */
+.skills__open .skills__arrow {
+    transform: rotate(180deg);
 }
 
 .skills__list {
@@ -129,10 +139,6 @@
 .skills__open .skills__list {
     max-height: 1000px;
     padding: var(--resume-spacing-lg) var(--resume-spacing-xl);
-}
-
-.skills__open .skills__arrow {
-    transform: translateY(-50%) rotate(180deg);
 }
 
 .skill__name-wrapper {
@@ -210,11 +216,6 @@
 
     .skill__experience {
         font-size: var(--resume-font-size-base);
-    }
-
-    .skills__arrow {
-        right: var(--resume-spacing-md);
-        font-size: 1.2rem;
     }
 
     .skills__list {
