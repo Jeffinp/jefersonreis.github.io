@@ -1,14 +1,14 @@
 /**
- * FUNÇÕES UTILITÁRIAS
+ * Funções Utilitárias
  * ====================
  * Funções auxiliares para tarefas comuns.
  */
 
 /**
- * Debounce - Limita a frequência de execução de uma função.
+ * Debounce - Limita a taxa de execução de uma função.
  * @param {function} func - A função a ser executada após o atraso.
  * @param {number} wait - O atraso em milissegundos.
- * @returns {function} - Função debounce.
+ * @returns {function} - Função com debounce.
  */
 function debounce(func, wait) {
     let timeout;
@@ -23,52 +23,48 @@ function debounce(func, wait) {
 }
 
 /**
- * Smooth Scroll - Rola suavemente até um elemento alvo.
- * @param {Event} e - O evento de clique.
+ * Rola suavemente até um elemento.
+ * @param {HTMLElement} element - O elemento alvo para o qual rolar.
  */
-function smoothScroll(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-        const targetPosition = targetElement.offsetTop;
-        smoothScrollTo(0, targetPosition);
+function smoothScrollToElement(element) {
+    if (element) {
+        const offsetTop = element.offsetTop;
+        smoothScroll(offsetTop);
     }
 }
 
 /**
- * Smooth Scroll To - Rola suavemente até uma posição específica.
- * @param {number} endX - Posição horizontal final.
- * @param {number} endY - Posição vertical final.
- * @param {number} [duration=1000] - Duração da animação em milissegundos.
+ * Rola suavemente até uma posição específica na página.
+ * @param {number} to - A posição alvo para rolar (em pixels).
+ * @param {number} duration - A duração da animação de rolagem (em milissegundos).
  */
-function smoothScrollTo(endX, endY, duration = 1000) {
-    const startX = window.pageXOffset || window.scrollX || document.documentElement.scrollLeft;
-    const startY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
-    const distanceX = endX - startX;
-    const distanceY = endY - startY;
-    const startTime = new Date().getTime();
+function smoothScroll(to, duration = 600) {
+    const start = window.pageYOffset;
+    const change = to - start;
+    const startTime = performance.now();
 
-    const easeInOutQuart = (time, from, distance, duration) => {
-        if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
-        return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
-    };
-
-    const timer = setInterval(() => {
-        const time = new Date().getTime() - startTime;
-        const newX = easeInOutQuart(time, startX, distanceX, duration);
-        const newY = easeInOutQuart(time, startY, distanceY, duration);
-        if (time >= duration) {
-            clearInterval(timer);
-            window.scrollTo(endX, endY); // Garante que a rolagem chegue ao final
-        } else {
-            window.scrollTo(newX, newY);
+    function animateScroll(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const newPosition = easeInOutQuad(elapsedTime, start, change, duration);
+        window.scrollTo(0, newPosition);
+        if (elapsedTime < duration) {
+            requestAnimationFrame(animateScroll);
         }
-    }, 1000 / 60);
+    }
+
+    // Função de easing para uma animação suave
+    function easeInOutQuad(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animateScroll);
 }
 
 /**
- * Toggle Scroll To Top Button - Mostra ou oculta o botão de rolagem para o topo.
+ * Alterna a visibilidade do botão "Voltar ao Topo" com base na posição de rolagem.
  */
 function toggleScrollToTopButton() {
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -80,336 +76,7 @@ function toggleScrollToTopButton() {
 }
 
 /**
- * INICIALIZAÇÃO
- * =============
- * Configuração inicial após o DOM ser carregado.
- */
-document.addEventListener('DOMContentLoaded', () => {
-    /**
-     * Elementos do DOM
-     * -----------------
-     * Seletores para os elementos utilizados no script.
-     */
-    const elements = {
-        menuToggle: document.querySelector('.header__menu-toggle'),
-        navMenu: document.querySelector('.header__nav'),
-        navLinks: document.querySelectorAll('.header__nav-link'),
-        links: document.querySelectorAll('a[href^="#"]'),
-        scrollToTopBtn: document.getElementById("scrollToTopBtn"),
-        darkModeToggle: document.getElementById("darkModeToggle"),
-        darkModeIcon: document.getElementById('darkModeIcon'),
-        projectItems: document.querySelectorAll('.project-item'),
-        modal: document.getElementById('project-modal'),
-        closeModal: document.querySelector('.close'),
-        form: document.getElementById('contact-form'), // Se necessário, implemente a lógica do formulário
-        lazyImages: document.querySelectorAll('img.lazy'), // Se necessário, implemente o lazy loading
-        fadeInSections: document.querySelectorAll(".fade-in-section"),
-        animateOnScrollElements: document.querySelectorAll('section, .project-item, .skill-item, .timeline-item'),
-        languageLinks: document.querySelectorAll('.language-switch a'),
-        carouselTrack: document.querySelector('.carousel-track'),
-        artCarouselTrack: document.querySelector('.art-carousel__track'),
-        skillsContent: document.querySelector('.skills__content'),
-        servicesSection: document.querySelector(".services.section"),
-        testimonialsTrack: document.querySelector('.testimonials-track'),
-    };
-
-    /**
-     * Navegação do Menu e Links
-     * ---------------------------
-     * Gerencia o comportamento do menu e dos links de navegação.
-     */
-
-    // Toggle do menu hambúrguer
-    if (elements.menuToggle) {
-        elements.menuToggle.addEventListener('click', function () {
-            elements.navMenu.classList.toggle('open');
-            this.classList.toggle('active');
-            document.body.style.overflow = elements.navMenu.classList.contains('open') ? 'hidden' : '';
-        });
-
-        // Fecha o menu ao clicar fora
-        document.addEventListener('click', (e) => {
-            if (!elements.navMenu.contains(e.target) && !elements.menuToggle.contains(e.target)) {
-                elements.navMenu.classList.remove('open');
-                elements.menuToggle.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Fecha o menu ao clicar em um link (para mobile)
-        elements.navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                elements.navMenu.classList.remove('open');
-                elements.menuToggle.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-    }
-
-    // Smooth scroll para links internos
-    elements.links.forEach(link => link.addEventListener('click', smoothScroll));
-
-    // Adiciona classe 'selected' ao link da seção visível
-    elements.navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            elements.navLinks.forEach(link => link.classList.remove('selected'));
-            this.classList.add('selected');
-            smoothScroll.call(this, e);
-        });
-    });
-
-    // Atualiza link ativo ao rolar
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.header__nav-link[href*=${sectionId}]`);
-
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLink?.classList.add('active');
-            } else {
-                navLink?.classList.remove('active');
-            }
-        });
-    });
-
-    /**
-     * Botão Scroll To Top
-     * -------------------
-     * Controla a visibilidade e o comportamento do botão de rolagem para o topo.
-     */
-    if (elements.scrollToTopBtn) {
-        window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
-        elements.scrollToTopBtn.addEventListener("click", () => smoothScrollTo(0, 0));
-    }
-
-    /**
-     * Modal de Projeto
-     * ----------------
-     * Gerencia a abertura e o fechamento do modal de detalhes do projeto.
-     */
-    elements.projectItems.forEach(item => {
-        const detailsBtn = item.querySelector('.project-details-btn');
-        if (detailsBtn) {
-            detailsBtn.addEventListener('click', () => {
-                const itemId = item.id;
-                const projectContent = document.getElementById(`${itemId}-content`).innerHTML;
-
-                elements.modal.querySelector('.project-modal-content').innerHTML = projectContent;
-                elements.modal.style.display = "block";
-            });
-        }
-    });
-
-    if (elements.closeModal) {
-        elements.closeModal.addEventListener('click', () => {
-            elements.modal.style.display = "none";
-        });
-    }
-
-    window.addEventListener('click', (event) => {
-        if (event.target === elements.modal) {
-            elements.modal.style.display = "none";
-        }
-    });
-
-    /**
-     * Efeito Fade-in
-     * --------------
-     * Aplica um efeito de fade-in para seções à medida que se tornam visíveis na tela.
-     */
-    if (elements.fadeInSections.length) {
-        const fadeInObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("fade-in");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        elements.fadeInSections.forEach(section => fadeInObserver.observe(section));
-    }
-
-    /**
-     * Modo Escuro/Claro
-     * -----------------
-     * Alterna entre os modos escuro e claro e armazena a preferência do usuário.
-     */
-
-    // Função para alternar entre os modos escuro e claro
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-        elements.darkModeToggle.classList.add('rotate');
-
-        // Muda o ícone conforme o modo
-        if (document.body.classList.contains('dark-mode')) {
-            elements.darkModeIcon.setAttribute('data-icon', 'mdi:weather-night');
-            localStorage.setItem('darkMode', 'enabled'); // Armazena como escuro
-        } else {
-            elements.darkModeIcon.setAttribute('data-icon', 'mdi:white-balance-sunny');
-            localStorage.setItem('darkMode', 'disabled'); // Armazena como claro
-        }
-
-        // Remove a animação de rotação após 300ms
-        setTimeout(() => {
-            elements.darkModeToggle.classList.remove('rotate');
-        }, 300);
-    }
-
-    // Verifica e carrega a preferência armazenada ou ativa o modo escuro por padrão
-    function loadUserPreference() {
-        const darkMode = localStorage.getItem('darkMode');
-
-        if (darkMode === 'enabled') {
-            document.body.classList.add('dark-mode');
-            elements.darkModeIcon.setAttribute('data-icon', 'mdi:weather-night');
-        } else if (darkMode === 'disabled') {
-            document.body.classList.remove('dark-mode');
-            elements.darkModeIcon.setAttribute('data-icon', 'mdi:white-balance-sunny');
-        } else {
-            // Configura o modo escuro por padrão na primeira visita
-            document.body.classList.add('dark-mode');
-            elements.darkModeIcon.setAttribute('data-icon', 'mdi:weather-night');
-            localStorage.setItem('darkMode', 'enabled'); // Salva a preferência inicial como escuro
-        }
-    }
-
-    // Adiciona o evento de clique ao botão de alternância
-    elements.darkModeToggle.addEventListener('click', toggleDarkMode);
-
-    // Carrega a preferência do usuário ao carregar a página
-    loadUserPreference();
-
-    /**
-     * Animação ao Rolar
-     * -----------------
-     * Aplica animações suaves de fade e slide a elementos à medida que eles entram na viewport.
-     */
-    const animationOptions = {
-        threshold: 0.15,
-        rootMargin: '0px',
-        once: false // Permite que a animação ocorra várias vezes
-    };
-
-    const animateElement = (element, direction) => {
-        const animationClass = direction === 'down' ? 'animate-in' : 'animate-out';
-        element.classList.add(animationClass);
-        if (direction === 'down') {
-            element.style.opacity = '1';
-            element.style.transform = 'translateX(0)';
-        } else {
-            element.style.opacity = '0';
-            element.style.transform = 'translateX(-10px)';
-        }
-
-        element.addEventListener('transitionend', () => {
-            if (direction === 'up') {
-                element.classList.remove('animate-in', 'animate-out');
-            }
-        }, { once: true });
-    };
-
-    const handleIntersection = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateElement(entry.target, 'down');
-            } else {
-                const boundingRect = entry.target.getBoundingClientRect();
-                if (boundingRect.top > 0) {
-                    animateElement(entry.target, 'up');
-                }
-            }
-        });
-    };
-
-    if (elements.animateOnScrollElements.length) {
-        const animateOnScrollObserver = new IntersectionObserver(handleIntersection, animationOptions);
-
-        elements.animateOnScrollElements.forEach(element => {
-            element.classList.add('animate-on-scroll');
-            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            element.style.opacity = '0';
-            element.style.transform = 'translateX(-10px)';
-            animateOnScrollObserver.observe(element);
-        });
-    }
-
-    /**
-     * Detecção do Navegador Safari
-     * ---------------------------
-     * Adiciona uma classe específica para o Safari para lidar com possíveis peculiaridades de renderização.
-     */
-    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-        document.body.classList.add('safari');
-    }
-
-    /**
-     * Troca de Idioma
-     * ---------------
-     * Gerencia a funcionalidade de troca de idioma, destacando o idioma atual.
-     */
-    const currentPage = window.location.href;
-
-    // Função para remover a classe 'active' de todos os links
-    function removeActiveClass() {
-        elements.languageLinks.forEach(link => {
-            link.classList.remove('active');
-        });
-    }
-
-    // Adiciona 'active' ao link correspondente à página atual
-    elements.languageLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        // Verifica se a URL atual corresponde exatamente ao href do link
-        if (currentPage.endsWith(linkHref)) {
-            link.classList.add('active');
-        }
-
-        // Adiciona o evento de clique a cada link
-        link.addEventListener('click', () => {
-            removeActiveClass();  // Remove a classe 'active' de todos os links
-            link.classList.add('active');  // Adiciona 'active' ao link clicado
-        });
-    });
-
-    /**
-     * Inicialização de Componentes
-     * ----------------------------
-     * Inicializa os carrosséis, gerenciador de skills e modais, se os elementos necessários existirem.
-     */
-
-    // Carrossel de Imagens
-    if (elements.carouselTrack) {
-        new ImageCarousel();
-    }
-
-    // Carrossel de Arte Digital
-    if (elements.artCarouselTrack) {
-        new ArtImageCarousel();
-    }
-
-    // Gerenciador de Skills
-    if (elements.skillsContent) {
-        new SkillsManager();
-    }
-
-    // Gerenciador de Modais
-    if (elements.servicesSection) {
-        new ModalManager();
-    }
-
-    // Carrossel de Depoimentos
-    if (elements.testimonialsTrack) {
-        new TestimonialsCarousel();
-    }
-});
-
-/**
- * COMPONENTES
+ * Componentes
  * ===========
  * Classes para gerenciar componentes individuais da página.
  */
@@ -419,26 +86,26 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 class ImageCarousel {
     constructor(options = {}) {
-        // Configuration with default values
+        // Configuração com valores padrão
         this.transitionDuration = options.transitionDuration || 500;
         this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
-        this.touchSensitivity = options.touchSensitivity || 100; // Increased sensitivity
+        this.touchSensitivity = options.touchSensitivity || 100; // Aumentei a sensibilidade
 
-        // State
+        // Estado
         this.currentIndex = 0;
         this.isDragging = false;
         this.dragStartX = 0;
         this.dragDiff = 0;
         this.autoAdvanceTimer = null;
 
-        // DOM elements
-        this.carousel = document.querySelector('.project-container'); // Targeting the correct container
+        // Elementos do DOM
+        this.carousel = document.querySelector('.project-container'); // Selecionando o container correto
         this.track = document.querySelector('.carousel-track');
         this.items = document.querySelectorAll('.carousel-item');
         this.prevButton = document.querySelector('.carousel-button.prev');
         this.nextButton = document.querySelector('.carousel-button.next');
 
-        // If there are no images, stop execution
+        // Se não houver imagens, interrompe a execução
         if (this.items.length === 0) return;
 
         this.init();
@@ -451,11 +118,11 @@ class ImageCarousel {
     }
 
     setupEventListeners() {
-        // Click events on buttons
+        // Eventos de clique nos botões
         this.prevButton.addEventListener('click', () => this.prevSlide());
         this.nextButton.addEventListener('click', () => this.nextSlide());
 
-        // Drag events (touch and mouse)
+        // Eventos de arrastar (toque e mouse)
         this.track.addEventListener('mousedown', this.handleDragStart.bind(this));
         this.track.addEventListener('touchstart', this.handleDragStart.bind(this));
         this.track.addEventListener('mousemove', this.handleDrag.bind(this));
@@ -464,14 +131,14 @@ class ImageCarousel {
         this.track.addEventListener('mouseleave', this.handleDragEnd.bind(this));
         this.track.addEventListener('touchend', this.handleDragEnd.bind(this));
 
-        // Keyboard events
+        // Eventos de teclado
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') this.prevSlide();
             if (e.key === 'ArrowRight') this.nextSlide();
         });
     }
 
-    // Show the slide specified by the index
+    // Mostra o slide especificado pelo índice
     showSlide(index) {
         if (index < 0 || index >= this.items.length) return;
 
@@ -482,19 +149,19 @@ class ImageCarousel {
         this.resetAutoAdvance();
     }
 
-    // Move to the next slide
+    // Move para o próximo slide
     nextSlide() {
         const newIndex = (this.currentIndex + 1) % this.items.length;
         this.showSlide(newIndex);
     }
 
-    // Move to the previous slide
+    // Move para o slide anterior
     prevSlide() {
         const newIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
         this.showSlide(newIndex);
     }
 
-    // Start dragging
+    // Inicia o arrastar
     handleDragStart(e) {
         this.isDragging = true;
         this.track.style.cursor = 'grabbing';
@@ -502,7 +169,7 @@ class ImageCarousel {
         this.pauseAutoAdvance();
     }
 
-    // Move the carousel during dragging
+    // Move o carrossel durante o arrastar
     handleDrag(e) {
         if (!this.isDragging) return;
         e.preventDefault();
@@ -513,13 +180,13 @@ class ImageCarousel {
         this.track.style.transform = `translateX(${newOffset}%)`;
     }
 
-    // End dragging
+    // Finaliza o arrastar
     handleDragEnd() {
         if (!this.isDragging) return;
         this.isDragging = false;
         this.track.style.cursor = 'grab';
 
-        // Determine whether to move to the next or previous slide based on the drag distance
+        // Determina se deve mover para o próximo ou anterior com base na distância do arrasto
         if (Math.abs(this.dragDiff) > this.touchSensitivity) {
             if (this.dragDiff > 0) {
                 this.prevSlide();
@@ -527,25 +194,25 @@ class ImageCarousel {
                 this.nextSlide();
             }
         } else {
-            this.showSlide(this.currentIndex); // Return to the current slide
+            this.showSlide(this.currentIndex); // Retorna ao slide atual
         }
 
         this.dragDiff = 0;
         this.resetAutoAdvance();
     }
 
-    // Start auto-advance
+    // Inicia o avanço automático
     startAutoAdvance() {
         clearInterval(this.autoAdvanceTimer);
         this.autoAdvanceTimer = setInterval(() => this.nextSlide(), this.autoAdvanceInterval);
     }
 
-    // Pause auto-advance
+    // Pausa o avanço automático
     pauseAutoAdvance() {
         clearInterval(this.autoAdvanceTimer);
     }
 
-    // Reset auto-advance
+    // Reinicia o avanço automático
     resetAutoAdvance() {
         this.pauseAutoAdvance();
         this.startAutoAdvance();
@@ -571,7 +238,7 @@ class ArtImageCarousel {
     }
 
     init() {
-        // Wait for images to load before calculating item width
+        // Espera as imagens carregarem antes de calcular a largura do item
         Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
             this.itemWidth = this.items[0].offsetWidth;
             this.setupEventListeners();
@@ -795,7 +462,7 @@ class TestimonialsCarousel {
         this.track.parentElement.addEventListener('mouseleave', () => this.startAutoplay());
         this.nextButton.addEventListener('click', () => this.moveToNextSlide());
         this.prevButton.addEventListener('click', () => this.moveToPrevSlide());
-        window.addEventListener('resize', () => this.updateSlideWidth());
+        window.window.addEventListener('resize', () => this.updateSlideWidth());
 
         let touchStartX = 0;
         let touchEndX = 0;
@@ -877,12 +544,203 @@ class TestimonialsCarousel {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const seeMoreButton = document.querySelector('.resume__see-more');
-    const resumeContent = document.querySelector('.resume__content');
+document.addEventListener('DOMContentLoaded', () => {
+    /**
+     * Elementos do DOM
+     * -----------------
+     * Seletores para os elementos utilizados no script.
+     */
+    const elements = {
+        menuToggle: document.querySelector('.header__menu-toggle'),
+        navMenu: document.querySelector('.header__nav'),
+        navLinks: document.querySelectorAll('.header__nav-link'),
+        scrollToTopBtn: document.getElementById("scrollToTopBtn"),
+        darkModeToggle: document.getElementById("darkModeToggle"),
+        darkModeIcon: document.getElementById('darkModeIcon'),
+        languageLinks: document.querySelectorAll('.language-switch a'),
+        // Seletores para os componentes (se forem ser usados)
+        carouselTrack: document.querySelector('.carousel-track'),
+        artCarouselTrack: document.querySelector('.art-carousel__track'),
+        skillsContent: document.querySelector('.skills__content'),
+        servicesSection: document.querySelector(".services.section"),
+        testimonialsTrack: document.querySelector('.testimonials-track'),
+    };
 
-    seeMoreButton.addEventListener('click', function() {
-        resumeContent.classList.toggle('expanded');
+    /**
+     * Navegação do Menu e Links
+     * ---------------------------
+     * Gerencia o comportamento do menu e dos links de navegação.
+     */
+
+    // Toggle do menu hambúrguer
+    if (elements.menuToggle) {
+        elements.menuToggle.addEventListener('click', function () {
+            elements.navMenu.classList.toggle('open');
+            this.classList.toggle('active');
+            // Trava o scroll quando o menu estiver aberto
+            document.body.style.overflow = elements.navMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Fecha o menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!elements.navMenu.contains(e.target) && !elements.menuToggle.contains(e.target)) {
+                elements.navMenu.classList.remove('open');
+                elements.menuToggle.classList.remove('active');
+                document.body.style.overflow = ''; // Libera o scroll
+            }
+        });
+
+        // Fecha o menu ao clicar em um link (para mobile)
+        elements.navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                elements.navMenu.classList.remove('open');
+                elements.menuToggle.classList.remove('active');
+                document.body.style.overflow = ''; // Libera o scroll
+            });
+        });
+    }
+
+    // Smooth scroll para links internos
+    elements.navLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Previne o comportamento padrão do link
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            smoothScrollToElement(targetElement); // Chama a função de rolagem suave
+        });
     });
-});
 
+    // Adiciona classe 'selected' ao link da seção visível (Não está sendo usado no momento, mas é útil)
+    elements.navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            elements.navLinks.forEach(l => l.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+
+    // Atualiza link ativo ao rolar
+    const sections = document.querySelectorAll('section[id]'); // Todas as seções com ID
+    window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100; // 100 é um offset para começar a transição mais cedo
+            const sectionId = section.getAttribute('id');
+            const navLink = document.querySelector(`.header__nav-link[href="#${sectionId}"]`);
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLink?.classList.add('active');
+            } else {
+                navLink?.classList.remove('active');
+            }
+        });
+    });
+
+    /**
+     * Botão Scroll To Top
+     * -------------------
+     * Controla a visibilidade e o comportamento do botão de rolagem para o topo.
+     */
+    if (elements.scrollToTopBtn) {
+        window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
+        elements.scrollToTopBtn.addEventListener("click", () => smoothScroll(0)); // Rola para o topo da página
+    }
+
+    /**
+     * Modo Escuro/Claro
+     * -----------------
+     * Alterna entre os modos escuro e claro e armazena a preferência do usuário.
+     */
+    const toggleDarkMode = () => {
+        const isDarkMode = document.body.classList.toggle('dark-mode');
+        elements.darkModeToggle.classList.add('rotate');
+
+        // Atualiza o ícone com base no modo atual
+        elements.darkModeIcon.setAttribute('data-icon', isDarkMode ? 'mdi:weather-night' : 'mdi:white-balance-sunny');
+
+        // Salva a preferência do usuário no localStorage
+        localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+
+        // Remove a classe 'rotate' após a animação
+        setTimeout(() => elements.darkModeToggle.classList.remove('rotate'), 300);
+    };
+
+    const loadUserPreference = () => {
+        const darkModeSetting = localStorage.getItem('darkMode');
+
+        // Aplica o modo escuro se a configuração for 'enabled' ou se for a primeira visita
+        if (darkModeSetting === 'enabled' || darkModeSetting === null) {
+            document.body.classList.add('dark-mode');
+            elements.darkModeIcon.setAttribute('data-icon', 'mdi:weather-night');
+        } else {
+            document.body.classList.remove('dark-mode');
+            elements.darkModeIcon.setAttribute('data-icon', 'mdi:white-balance-sunny');
+        }
+    };
+
+    // Adiciona o listener de eventos ao botão de alternância do modo escuro
+    elements.darkModeToggle.addEventListener('click', toggleDarkMode);
+
+    // Carrega a preferência do usuário ao iniciar
+    loadUserPreference();
+
+    /**
+     * Troca de Idioma
+     * ---------------
+     * Gerencia a funcionalidade de troca de idioma, destacando o idioma atual.
+     */
+    const currentPage = window.location.href;
+
+    // Função para remover a classe 'active' de todos os links
+    function removeActiveClass() {
+        elements.languageLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+    }
+
+    // Adiciona 'active' ao link correspondente à página atual
+    elements.languageLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        // Verifica se a URL atual corresponde exatamente ao href do link
+        if (currentPage.endsWith(linkHref)) {
+            link.classList.add('active');
+        }
+
+        // Adiciona o evento de clique a cada link
+        link.addEventListener('click', () => {
+            removeActiveClass(); // Remove a classe 'active' de todos os links
+            link.classList.add('active'); // Adiciona 'active' ao link clicado
+        });
+    });
+
+    /**
+     * Inicialização de Componentes
+     * ----------------------------
+     * Inicializa os carrosséis, gerenciador de skills e modais, se os elementos necessários existirem.
+     */
+
+    // Carrossel de Imagens
+    if (elements.carouselTrack) {
+        new ImageCarousel();
+    }
+
+    // Carrossel de Arte Digital
+    if (elements.artCarouselTrack) {
+        new ArtImageCarousel();
+    }
+
+    // Gerenciador de Skills
+    if (elements.skillsContent) {
+        new SkillsManager();
+    }
+
+    // Gerenciador de Modais
+    if (elements.servicesSection) {
+        new ModalManager();
+    }
+
+    // Carrossel de Depoimentos
+    if (elements.testimonialsTrack) {
+        new TestimonialsCarousel();
+    }
+});

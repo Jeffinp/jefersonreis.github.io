@@ -42,13 +42,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./src/css/import.css">
+    <link rel="stylesheet" href="./src/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="/src/js/script.js" defer></script>
     <script src="/src/js/Particles.js" defer></script>
-    
 
     <link rel="canonical" href="https://jefersonreis-github-io.vercel.app/">
 
@@ -73,27 +73,25 @@
     </script>
 </head>
 <body>
-
     <header role="banner" class="header">
         <div class="container header__container">
             <a href="#" class="header__logo" aria-label="Logo de Jeferson Reis">JR</a>
-    
+
             <button class="header__menu-toggle" aria-label="Abrir menu">
                 <span class="header__menu-icon"></span>
             </button>
-    
+
             <nav class="header__nav" aria-label="Navegação principal">
                 <ul class="header__nav-list">
                     <li class="header__nav-item"><a href="#home" class="header__nav-link">Início</a></li>
                     <li class="header__nav-item"><a href="#about" class="header__nav-link">Sobre</a></li>
-                    <li class="header__nav-item"><a href="#habilidades" class="header__nav-link">Habilidades</a></li>
-                    <li class="header__nav-item"><a href="#services" class="header__nav-link">Serviços</a></li>
-                    <li class="header__nav-item"><a href="#Portfolio" class="header__nav-link">Portfólio</a></li>
-                    <li class="header__nav-item"><a href="#certificates" class="header__nav-link">Certificados</a></li>
-                    <li class="header__nav-item"><a href="#Contatos" class="header__nav-link">Contatos</a></li>
+                    <li class="header__nav-item"><a href="#skills" class="header__nav-link">Habilidades e Competências</a></li>
+                    <li class="header__nav-item"><a href="#portfolio" class="header__nav-link">Portfólio</a></li>
+                    <li class="header__nav-item"><a href="#resume" class="header__nav-link">Currículo</a></li>
+                    <li class="header__nav-item"><a href="#contact" class="header__nav-link">Contato</a></li>
                 </ul>
             </nav>
-    
+
             <div class="header__actions">
                 <div class="language-switch">
                     <a href="index.html" data-lang="pt" aria-label="Português" class="language-switch__link">
@@ -116,14 +114,14 @@
             <div class="container hero__container">
                 <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="hero__profile-pic" loading="lazy">
                 <h1 id="heroTitle" class="hero__title" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack</p>
+                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">Desenvolvedor Full-Stack | Apaixonado por React e Node.js | Criando Experiências Web Incríveis</p>
                 <div class="hero__cta-buttons" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#Portfolio" class="button button--primary">
+                    <a href="#portfolio" class="button">
                         <span class="iconify" data-icon="akar-icons:arrow-right" aria-hidden="true"></span> Ver Projetos
                     </a>
-                    <a href="#Contatos" class="button button--secondary">
-                        <span class="iconify" data-icon="mdi:email-outline" aria-hidden="true"></span> Entre em contato
-                    </a>
+                    <button class="button button--secondary">
+                    <span class="iconify" data-icon="mdi:email-outline" aria-hidden="true"></span> Entrar em Contato
+                </button>
                 </div>
             </div>
         </section>
@@ -131,9 +129,9 @@
         <section id="digital-portfolio" class="section" aria-labelledby="portfolio-title">
             <div class="container">
                 <h2 id="portfolio-title" class="section__title">Portfólio de Arte Digital e Design Gráfico</h2>
-                <p class="section__subtitle">Explore minha coleção de projetos inovadores em design gráfico e arte digital, demonstrando criatividade e habilidades técnicas avançadas.</p>
-                <a href="Artistadigital.html" class="button button--primary" rel="noopener noreferrer">
-                Explorar Portfólio Completo
+                <p class="section__subtitle">Explore minha coleção de projetos inovadores em design gráfico e arte digital, demonstrando criatividade e habilidades técnicas avançadas em ferramentas como Adobe Photoshop, Illustrator e CorelDRAW. Confira trabalhos de criação de logotipos, banners, flyers e materiais publicitários.</p>
+                <a href="/Artistadigital-en.html" class="button button--primary" rel="noopener noreferrer">
+                    Explorar Portfólio Completo
                 </a>
             </div>
         </section>
@@ -146,28 +144,21 @@
                         <span class="iconify about__icon" data-icon="mdi:account" aria-hidden="true"></span>
                         <div class="about__item-content">
                             <h3 class="about__item-title">Quem Sou Eu</h3>
-                            <p class="about__item-description">👋 Olá! Sou Jeferson Reis, um entusiasta de tecnologia de 18 anos, natural de Camaçari, Bahia. Desde os 3 anos de idade, mergulhei no fascinante mundo da informática, sempre movido pela curiosidade e pela sede de conhecimento.</p>
+                            <p class="about__item-description">👋 Olá! Sou Jeferson Reis, um entusiasta de tecnologia de 18 anos, natural de Camaçari, Bahia. Desde os 3 anos de idade, mergulhei no fascinante mundo da informática, <strong>movido pela curiosidade e pela sede de conhecimento</strong>. Comecei criando jogos em <strong>C#</strong>, o que me levou a uma jornada incrível de descobertas no universo da codificação.</p>
                         </div>
                     </article>
                     <article class="about__item">
                         <span class="iconify about__icon" data-icon="mdi:code-braces" aria-hidden="true"></span>
                         <div class="about__item-content">
                             <h3 class="about__item-title">Minha Paixão</h3>
-                            <p class="about__item-description">💻 A programação é a minha verdadeira paixão. Comecei criando jogos em C#, o que me levou a uma jornada incrível de descobertas no universo da codificação. Atualmente, atuo como Desenvolvedor Full-Stack, criando soluções inovadoras que tornam a vida mais fácil e conectada.</p>
-                        </div>
-                    </article>
-                    <article class="about__item">
-                        <span class="iconify about__icon" data-icon="mdi:laptop" aria-hidden="true"></span>
-                        <div class="about__item-content">
-                            <h3 class="about__item-title">Experiência e Tecnologias</h3>
-                            <p class="about__item-description">🚀 Minha trajetória me proporcionou experiência em diversas tecnologias, incluindo HTML5, CSS3, JavaScript, React, PHP, Vue.js, Bootstrap, Node.js, jQuery, MySQL, PostgreSQL e MongoDB. Tenho um olhar apurado para UX Design, buscando sempre aprimorar a experiência do usuário em cada projeto.</p>
+                            <p class="about__item-description">💻 Atualmente, atuo como <strong>Desenvolvedor Full-Stack</strong>, criando soluções inovadoras que tornam a vida mais fácil e conectada. Sou apaixonado por <strong>React</strong> e <strong>Node.js</strong>, e busco sempre aprimorar a experiência do usuário (UX) em cada projeto.</p>
                         </div>
                     </article>
                     <article class="about__item">
                         <span class="iconify about__icon" data-icon="mdi:palette" aria-hidden="true"></span>
                         <div class="about__item-content">
-                            <h3 class="about__item-title">Design Gráfico</h3>
-                            <p class="about__item-description">🎨 Minha experiência como designer gráfico me permitiu criar banners e logotipos personalizados para uma variedade de clientes. Como artista digital, busco sempre unir criatividade e técnica, transformando ideias em realidades visuais impactantes.</p>
+                            <h3 class="about__item-title">Design Gráfico e Arte Digital</h3>
+                            <p class="about__item-description">🎨 Minha experiência como designer gráfico me permitiu criar <strong>banners e logotipos personalizados</strong> para uma variedade de clientes. Como artista digital, busco sempre unir criatividade e técnica, transformando ideias em realidades visuais impactantes.</p>
                         </div>
                     </article>
                     <article class="about__item">
@@ -181,9 +172,9 @@
             </div>
         </section>
 
-        <section id="habilidades" class="section skills" aria-label="Minhas Habilidades">
+        <section id="skills" class="section skills" aria-label="Minhas Habilidades">
             <div class="container skills__container">
-                <h2 class="skills__title">Minhas Habilidades</h2>
+                <h2 class="skills__title section__title">Minhas Habilidades e Competências</h2>
                 <div class="skills__grid">
                     <div class="skills__content">
                         <div class="skills__header">
@@ -191,157 +182,153 @@
                                 <span class="iconify skill__icon" data-icon="akar-icons:html-fill"></span>
                             </div>
                             <div class="skill__info">
-                                <h3 class="skill__category">Desenvolvedor Frontend</h3>
+                                <h3 class="skill__category">Desenvolvimento Frontend</h3>
                                 <span class="skill__experience">Mais de 4 anos de experiência</span>
                             </div>
-                            <span class="iconify skills__arrow" data-icon="uil:angle-down"></span>
-                        </div>
-        
-                        <div class="skills__list">
-                            <div class="skill__item">
+                            <span class="iconify skills__arrow" data-icon="uil:angle-down"></span></div>
+
+                            <div class="skills__list">
+                                <div class="skill__item">
+                                    <div class="skill__name-wrapper">
+                                        <span class="skill__name">HTML</span>
+                                    </div>
+                                    <div class="skill__bar">
+                                        <div class="skill__progress" data-percentage="100"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill__item">
+                                    <div class="skill__name-wrapper">
+                                        <span class="skill__name">CSS</span>
+                                    </div>
+                                    <div class="skill__bar">
+                                        <div class="skill__progress" data-percentage="100"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill__item">
+                                    <div class="skill__name-wrapper">
+                                        <span class="skill__name">JavaScript</span>
+                                    </div>
+                                    <div class="skill__bar">
+                                        <div class="skill__progress" data-percentage="100"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill__item">
+                                    <div class="skill__name-wrapper">
+                                        <span class="skill__name">React</span>
+                                    </div>
+                                    <div class="skill__bar">
+                                        <div class="skill__progress" data-percentage="95"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill__item">
                                 <div class="skill__name-wrapper">
-                                    <span class="skill__name">HTML</span>
-                                    <span class="skill__percentage">100%</span>
-                                </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="100"></div>
-                                </div>
-                            </div>
-        
-                            <div class="skill__item">
-                                <div class="skill__name-wrapper">
-                                    <span class="skill__name">CSS</span>
-                                    <span class="skill__percentage">100%</span>
-                                </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="100"></div>
-                                </div>
-                            </div>
-        
-                            <div class="skill__item">
-                                <div class="skill__name-wrapper">
-                                    <span class="skill__name">JavaScript</span>
-                                    <span class="skill__percentage">100%</span>
-                                </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="100"></div>
-                                </div>
-                            </div>
-        
-                            <div class="skill__item">
-                                <div class="skill__name-wrapper">
-                                    <span class="skill__name">React</span>
-                                    <span class="skill__percentage">95%</span>
-                                </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="95"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="skills__content">
-                        <div class="skills__header">
-                            <div class="skill__icon-wrapper">
-                                <span class="iconify skill__icon" data-icon="bx:bxs-server"></span>
-                            </div>
-                            <div class="skill__info">
-                                <h3 class="skill__category">Desenvolvedor Backend</h3>
-                                <span class="skill__experience">Mais de 4 anos de experiência</span>
-                            </div>
-                            <span class="iconify skills__arrow" data-icon="uil:angle-down"></span>
-                        </div>
-        
-                        <div class="skills__list">
-                            <div class="skill__item">
-                                <div class="skill__name-wrapper">
-                                    <span class="skill__name">PHP</span>
-                                    <span class="skill__percentage">85%</span>
+                                    <span class="skill__name">Vue.js</span>
                                 </div>
                                 <div class="skill__bar">
                                     <div class="skill__progress" data-percentage="85"></div>
                                 </div>
                             </div>
-        
+
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
-                                    <span class="skill__name">Node.js</span>
-                                    <span class="skill__percentage">90%</span>
+                                    <span class="skill__name">Angular</span>
                                 </div>
                                 <div class="skill__bar">
                                     <div class="skill__progress" data-percentage="90"></div>
                                 </div>
                             </div>
-        
-                            <div class="skill__item">
-                                <div class="skill__name-wrapper">
-                                    <span class="skill__name">MySQL</span>
-                                    <span class="skill__percentage">90%</span>
-                                </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="90"></div>
-                                </div>
                             </div>
-        
-                            <div class="skill__item">
-                                <div class="skill__name-wrapper">
-                                    <span class="skill__name">Python</span>
-                                    <span class="skill__percentage">95%</span>
+                        </div>
+
+                        <div class="skills__content">
+                            <div class="skills__header">
+                                <div class="skill__icon-wrapper">
+                                    <span class="iconify skill__icon" data-icon="bx:bxs-server"></span>
                                 </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="95"></div>
+                                <div class="skill__info">
+                                    <h3 class="skill__category">Desenvolvimento Backend</h3>
+                                    <span class="skill__experience">Mais de 4 anos de experiência</span>
+                                </div>
+                                <span class="iconify skills__arrow" data-icon="uil:angle-down"></span>
+                            </div>
+
+                            <div class="skills__list">
+                                <div class="skill__item">
+                                    <div class="skill__name-wrapper">
+                                        <span class="skill__name">PHP</span>
+                                    </div>
+                                    <div class="skill__bar">
+                                        <div class="skill__progress" data-percentage="85"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill__item">
+                                    <div class="skill__name-wrapper">
+                                        <span class="skill__name">Node.js</span>
+                                    </div>
+                                    <div class="skill__bar">
+                                        <div class="skill__progress" data-percentage="90"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill__item">
+                                    <div class="skill__name-wrapper">
+                                        <span class="skill__name">Python</span>
+                                    </div>
+                                    <div class="skill__bar">
+                                        <div class="skill__progress" data-percentage="95"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-        
-                    <div class="skills__content">
+
+                        <div class="skills__content">
                         <div class="skills__header">
                             <div class="skill__icon-wrapper">
-                               <span class="iconify skill__icon" data-icon="ic:outline-design-services"></span>
+                                <span class="iconify skill__icon" data-icon="ic:outline-design-services"></span>
                             </div>
                             <div class="skill__info">
-                                <h3 class="skill__category">Ferramentas & Frameworks</h3>
+                                <h3 class="skill__category">Ferramentas & Outras Habilidades</h3>
                                 <span class="skill__experience">Diversas tecnologias</span>
                             </div>
                             <span class="iconify skills__arrow" data-icon="uil:angle-down"></span>
                         </div>
-        
+
                         <div class="skills__list">
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
-                                    <span class="skill__name">Vue.js</span>
-                                    <span class="skill__percentage">85%</span>
-                                </div>
-                                <div class="skill__bar">
-                                    <div class="skill__progress" data-percentage="85"></div>
-                                </div>
-                            </div>
-        
-                            <div class="skill__item">
-                                <div class="skill__name-wrapper">
-                                    <span class="skill__name">Angular</span>
-                                    <span class="skill__percentage">90%</span>
+                                    <span class="skill__name">MySQL</span>
                                 </div>
                                 <div class="skill__bar">
                                     <div class="skill__progress" data-percentage="90"></div>
                                 </div>
                             </div>
-        
+
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">Bootstrap</span>
-                                    <span class="skill__percentage">80%</span>
                                 </div>
                                 <div class="skill__bar">
                                     <div class="skill__progress" data-percentage="80"></div>
                                 </div>
                             </div>
-        
+
                             <div class="skill__item">
                                 <div class="skill__name-wrapper">
                                     <span class="skill__name">UX Design</span>
-                                    <span class="skill__percentage">100%</span>
+                                </div>
+                                <div class="skill__bar">
+                                    <div class="skill__progress" data-percentage="100"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill__item">
+                                <div class="skill__name-wrapper">
+                                    <span class="skill__name">Figma</span>
                                 </div>
                                 <div class="skill__bar">
                                     <div class="skill__progress" data-percentage="100"></div>
@@ -349,146 +336,144 @@
                             </div>
                         </div>
                     </div>
+                    </div>
+
+                    <div class="soft-skills__content">
+                    <h3 class="skills__title">Soft Skills</h3>
+                    <ul class="soft-skills__list grid">
+                        <li class="soft-skill__item">
+                            <span class="iconify soft-skill__icon" data-icon="eva:people-outline" aria-hidden="true"></span>
+                            <div class="soft-skill__content">
+                                <h4 class="soft-skill__title">Comunicação</h4>
+                                <p class="soft-skill__description">Capacidade de comunicar ideias de forma clara e eficaz.</p>
+                            </div>
+                        </li>
+                        <li class="soft-skill__item">
+                            <span class="iconify soft-skill__icon" data-icon="la:people-carry" aria-hidden="true"></span>
+                            <div class="soft-skill__content">
+                                <h4 class="soft-skill__title">Trabalho em Equipe</h4>
+                                <p class="soft-skill__description">Colaboração eficaz com membros da equipe para atingir objetivos comuns.</p>
+                            </div>
+                        </li>
+                        <li class="soft-skill__item">
+                            <span class="iconify soft-skill__icon" data-icon="ic:outline-lightbulb" aria-hidden="true"></span>
+                            <div class="soft-skill__content">
+                                <h4 class="soft-skill__title">Resolução de Problemas</h4>
+                                <p class="soft-skill__description">Habilidade para identificar e resolver desafios de forma criativa.</p>
+                            </div>
+                        </li>
+                        <li class="soft-skill__item">
+                            <span class="iconify soft-skill__icon" data-icon="ic:outline-person" aria-hidden="true"></span>
+                            <div class="soft-skill__content">
+                                <h4 class="soft-skill__title">Autogerenciamento</h4>
+                                <p class="soft-skill__description">Capacidade de trabalhar de forma independente e gerenciar a própria carga de trabalho.</p>
+                            </div>
+                        </li>
+                        <li class="soft-skill__item">
+                            <span class="iconify soft-skill__icon" data-icon="ic:outline-access-time" aria-hidden="true"></span>
+                            <div class="soft-skill__content">
+                                <h4 class="soft-skill__title">Gestão do Tempo</h4>
+                                <p class="soft-skill__description">Capacidade de gerenciar tarefas e cumprir prazos de forma eficiente.</p>
+                            </div>
+                        </li>
+                        <li class="soft-skill__item">
+                            <span class="iconify soft-skill__icon" data-icon="arcticons:my-brain" aria-hidden="true"></span>
+                            <div class="soft-skill__content">
+                                <h4 class="soft-skill__title">Pensamento Crítico</h4>
+                                <p class="soft-skill__description">Habilidade para analisar problemas de forma lógica e tomar decisões informadas.</p>
+                            </div>
+                        </li>
+                        <li class="soft-skill__item">
+                            <span class="iconify soft-skill__icon" data-icon="mdi:lightbulb-on-outline" aria-hidden="true"></span>
+                            <div class="soft-skill__content">
+                                <h4 class="soft-skill__title">Criatividade</h4>
+                                <p class="soft-skill__description">Habilidade para pensar fora da caixa e gerar novas ideias.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
-    
-        <section class="section soft-skills" aria-labelledby="softSkillsTitle">
-            <div class="container">
-                <h2 id="softSkillsTitle" class="section__title">Soft Skills</h2>
-                <ul class="soft-skills__list">
-                    <li class="soft-skill__item">
-                        <span class="iconify soft-skill__icon" data-icon="eva:people-outline" aria-hidden="true"></span>
-                        <div class="soft-skill__content">
-                            <h3 class="soft-skill__title">Comunicação</h3>
-                            <p class="soft-skill__description">Capacidade de comunicar ideias de forma clara e eficaz.</p>
-                        </div>
-                    </li>
-                    <li class="soft-skill__item">
-                        <span class="iconify soft-skill__icon" data-icon="la:people-carry" aria-hidden="true"></span>
-                        <div class="soft-skill__content">
-                            <h3 class="soft-skill__title">Trabalho em Equipe</h3>
-                            <p class="soft-skill__description">Colaboração eficaz com membros da equipe para atingir objetivos comuns.</p>
-                        </div>
-                    </li>
-                    <li class="soft-skill__item">
-                        <span class="iconify soft-skill__icon" data-icon="ic:outline-lightbulb" aria-hidden="true"></span>
-                        <div class="soft-skill__content">
-                            <h3 class="soft-skill__title">Resolução de Problemas</h3>
-                            <p class="soft-skill__description">Habilidade para identificar e resolver desafios de forma criativa.</p>
-                        </div>
-                    </li>
-                    <li class="soft-skill__item">
-                        <span class="iconify soft-skill__icon" data-icon="ic:outline-person" aria-hidden="true"></span>
-                        <div class="soft-skill__content">
-                            <h3 class="soft-skill__title">Autogerenciamento</h3>
-                            <p class="soft-skill__description">Capacidade de trabalhar de forma independente e gerenciar a própria carga de trabalho.</p>
-                        </div>
-                    </li>
-                    <li class="soft-skill__item">
-                        <span class="iconify soft-skill__icon" data-icon="ic:outline-access-time" aria-hidden="true"></span>
-                        <div class="soft-skill__content">
-                            <h3 class="soft-skill__title">Gestão do Tempo</h3>
-                            <p class="soft-skill__description">Capacidade de gerenciar tarefas e cumprir prazos de forma eficiente.</p>
-                        </div>
-                    </li>
-                    <li class="soft-skill__item">
-                        <span class="iconify soft-skill__icon" data-icon="arcticons:my-brain" aria-hidden="true"></span>
-                        <div class="soft-skill__content">
-                            <h3 class="soft-skill__title">Pensamento Crítico</h3>
-                            <p class="soft-skill__description">Habilidade para analisar problemas de forma lógica e tomar decisões informadas.</p>
-                        </div>
-                    </li>
-                    <li class="soft-skill__item">
-                        <span class="iconify soft-skill__icon" data-icon="mdi:lightbulb-on-outline" aria-hidden="true"></span>
-                        <div class="soft-skill__content">
-                            <h3 class="soft-skill__title">Criatividade</h3>
-                            <p class="soft-skill__description">Habilidade para pensar fora da caixa e gerar novas ideias.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </section>
 
         <section class="section services" id="services">
-            <div class="services__container">
-                <h2 class="section__title" id="servicesTitle">Meus Serviços</h2>
-                <p class="services__subtitle">Soluções profissionais personalizadas para suas necessidades</p>
+        <div class="services__container">
+            <h2 class="section__title" id="servicesTitle">Meus Serviços</h2>
+            <p class="services__subtitle">Soluções profissionais personalizadas para suas necessidades</p>
         
-                <div class="services__grid">
-                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
-                        <div class="services__icon-container">
-                            <span class="iconify services__icon" data-icon="uil:web-grid" aria-hidden="true"></span>
-                        </div>
-                        <h3 class="services__title" itemprop="name">Desenvolvimento Web</h3>
-                        <p class="services__description" itemprop="description">
-                            Criação de Landing Pages, Sites Institucionais, E-commerce e Blogs profissionais. Todos os sites são responsivos, otimizados para SEO e com design personalizado para sua marca.
-                        </p>
-                    </article>
+            <div class="services__grid">
+                <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                    <div class="services__icon-container">
+                        <span class="iconify services__icon" data-icon="uil:web-grid" aria-hidden="true"></span>
+                    </div>
+                    <h3 class="services__title" itemprop="name">Desenvolvimento Web</h3>
+                    <p class="services__description" itemprop="description">
+                        Criação de Landing Pages, Sites Institucionais, E-commerce e Blogs profissionais. Todos os sites são responsivos, otimizados para SEO e com design personalizado para sua marca.
+                    </p>
+                </article>
         
-                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
-                        <div class="services__icon-container">
-                            <span class="iconify services__icon" data-icon="uil:palette" aria-hidden="true"></span>
-                        </div>
-                        <h3 class="services__title" itemprop="name">Design & Identidade Visual</h3>
-                        <p class="services__description" itemprop="description">
-                            Desenvolvimento de logotipos, identidade visual completa, artes para redes sociais, banners, flyers e materiais publicitários que fortalecem sua marca no mercado.
-                        </p>
-                    </article>
+                <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                    <div class="services__icon-container">
+                        <span class="iconify services__icon" data-icon="uil:palette" aria-hidden="true"></span>
+                    </div>
+                    <h3 class="services__title" itemprop="name">Design & Identidade Visual</h3>
+                    <p class="services__description" itemprop="description">
+                        Desenvolvimento de logotipos, identidade visual completa, artes para redes sociais, banners, flyers e materiais publicitários que fortalecem sua marca no mercado.
+                    </p>
+                </article>
         
-                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
-                        <div class="services__icon-container">
-                            <span class="iconify services__icon" data-icon="uil:file-alt" aria-hidden="true"></span>
-                        </div>
-                        <h3 class="services__title" itemprop="name">Documentação Profissional</h3>
-                        <p class="services__description" itemprop="description">
-                            Elaboração de apresentações impactantes, documentos empresariais, planilhas avançadas, currículos e trabalhos acadêmicos com formatação ABNT profissional.
-                        </p>
-                    </article>
+                <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                    <div class="services__icon-container">
+                        <span class="iconify services__icon" data-icon="uil:file-alt" aria-hidden="true"></span>
+                    </div>
+                    <h3 class="services__title" itemprop="name">Documentação Profissional</h3>
+                    <p class="services__description" itemprop="description">
+                        Elaboração de apresentações impactantes, documentos empresariais, planilhas avançadas, currículos e trabalhos acadêmicos com formatação ABNT profissional.
+                    </p>
+                </article>
         
-                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
-                        <div class="services__icon-container">
-                            <span class="iconify services__icon" data-icon="uil:cube" aria-hidden="true"></span>
-                        </div>
-                        <h3 class="services__title" itemprop="name">Modelagem 3D</h3>
-                        <p class="services__description" itemprop="description">
-                            Criação de modelos e ambientes 3D, renderização fotorrealista, animações e assets para AR/VR. Projetos otimizados para impressão 3D e visualização profissional.
-                        </p>
-                    </article>
+                <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                    <div class="services__icon-container">
+                        <span class="iconify services__icon" data-icon="uil:cube" aria-hidden="true"></span>
+                    </div>
+                    <h3 class="services__title" itemprop="name">Modelagem 3D</h3>
+                    <p class="services__description" itemprop="description">
+                        Criação de modelos e ambientes 3D, renderização fotorrealista, animações e assets para AR/VR. Projetos otimizados para impressão 3D e visualização profissional.
+                    </p>
+                </article>
         
-                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
-                        <div class="services__icon-container">
-                            <span class="iconify services__icon" data-icon="uil:desktop" aria-hidden="true"></span>
-                        </div>
-                        <h3 class="services__title" itemprop="name">Suporte Técnico</h3>
-                        <p class="services__description" itemprop="description">
-                            Serviços de formatação, otimização, limpeza, recuperação de dados e manutenção preventiva. Atendimento remoto ou presencial para manter seu equipamento funcionando perfeitamente.
-                        </p>
-                    </article>
+                <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                    <div class="services__icon-container">
+                        <span class="iconify services__icon" data-icon="uil:desktop" aria-hidden="true"></span>
+                    </div>
+                    <h3 class="services__title" itemprop="name">Suporte Técnico</h3>
+                    <p class="services__description" itemprop="description">
+                        Serviços de formatação, otimização, limpeza, recuperação de dados e manutenção preventiva. Atendimento remoto ou presencial para manter seu equipamento funcionando perfeitamente.
+                    </p>
+                </article>
         
-                    <article class="services__card" itemscope itemtype="http://schema.org/Service">
-                        <div class="services__icon-container">
-                            <span class="iconify services__icon" data-icon="uil:rocket" aria-hidden="true"></span>
-                        </div>
-                        <h3 class="services__title" itemprop="name">Marketing Digital</h3>
-                        <p class="services__description" itemprop="description">
-                            Gestão completa de redes sociais, estratégias de marketing digital, otimização SEO, criação de conteúdo e gerenciamento de tráfego para impulsionar sua presença online.
-                        </p>
-                    </article>
-                </div>
-        
-                <div class="services__download">
-                    <a href="/src/Orçamento de Serviços.pdf" download class="services__download-btn" aria-label="Baixar PDF com serviços detalhados">
-                        <span class="iconify" data-icon="uil:file-download-alt" aria-hidden="true"></span>
-                        Baixar PDF com Serviços Detalhados
-                    </a>
-                    <p class="services__download-info">Confira todos os serviços e valores em nosso catálogo completo</p>
-                </div>
+                <article class="services__card" itemscope itemtype="http://schema.org/Service">
+                    <div class="services__icon-container">
+                        <span class="iconify services__icon" data-icon="uil:rocket" aria-hidden="true"></span>
+                    </div>
+                    <h3 class="services__title" itemprop="name">Marketing Digital</h3>
+                    <p class="services__description" itemprop="description">
+                        Gestão completa de redes sociais, estratégias de marketing digital, otimização SEO, criação de conteúdo e gerenciamento de tráfego para impulsionar sua presença online.
+                    </p>
+                </article>
             </div>
-        </section>
         
-        <section id="Portfolio" class="projects" aria-labelledby="projectsTitle">
-            <div class="project-container">
+            <div class="services__download">
+                <a href="/src/Orçamento de Serviços.pdf" download class="services__download-btn" aria-label="Baixar PDF com serviços detalhados">
+                    <span class="iconify" data-icon="uil:file-download-alt" aria-hidden="true"></span>
+                    Baixar PDF com Serviços Detalhados
+                </a>
+                <p class="services__download-info">Confira todos os serviços e valores em nosso catálogo completo</p>
+            </div>
+        </div>
+        </section>
+
+        <section id="portfolio" class="projects section" aria-labelledby="projectsTitle">
+            <div class="project-container container">
                 <h2 id="projectsTitle" class="section__title">Portfólio</h2>
                 <div class="carousel">
                     <div class="carousel-track">
@@ -499,23 +484,23 @@
                             </figure>
                             <div class="project-info">
                                 <h3 class="project-title">Curso de Desenho</h3>
-                                <p class="project-description">Um site que criei utilizando HTML, CSS e JavaScript para um cliente que é professor de desenho.</p>
+                                <p class="project-description">Site criado para um professor de desenho, utilizando HTML, CSS e JavaScript. O projeto destaca-se pela interface intuitiva e design responsivo, promovendo cursos de desenho de forma eficaz.</p>
                                 <a href="https://www.desenhosricardodias.com.br/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                             </div>
                         </div>
-    
+
                         <div class="carousel-item">
-                            <figure class="project-image">
-                                <img src="/src/image/Presente-Natal.webp" alt="Imagem Presente de Natal" loading="lazy">
-                                <figcaption class="project-label project-label--personal">Projeto Pessoal</figcaption>
-                            </figure>
-                            <div class="project-info">
-                                <h3 class="project-title">Presente de Natal</h3>
-                                <p class="project-description">Um site desenvolvido com HTML, CSS e JavaScript para promover o envio de presentes de Natal.</p>
-                                <a href="https://aterrsagemresponsiva.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
-                            </div>
+                        <figure class="project-image">
+                            <img src="/src/image/Presente-Natal.webp" alt="Imagem Presente de Natal" loading="lazy">
+                            <figcaption class="project-label project-label--personal">Projeto Pessoal</figcaption>
+                        </figure>
+                        <div class="project-info">
+                            <h3 class="project-title">Presente de Natal</h3>
+                            <p class="project-description">Site desenvolvido com HTML, CSS e JavaScript para envio de presentes de Natal. Interface simples e amigável, focada na experiência do usuário.</p>
+                            <a href="https://aterrsagemresponsiva.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-    
+                        </div>
+
                         <div class="carousel-item">
                             <figure class="project-image">
                                 <img src="/src/image/Screenshot_993.webp" alt="Imagem do projeto Justly" loading="lazy">
@@ -523,11 +508,11 @@
                             </figure>
                             <div class="project-info">
                                 <h3 class="project-title">Justly</h3>
-                                <p class="project-description">Mais um site de treinamento bem responsivo utilizando HTML e CSS.</p>
+                                <p class="project-description">Site responsivo desenvolvido com HTML e CSS para treinamento de habilidades em front-end. Design moderno e adaptável a diferentes dispositivos.</p>
                                 <a href="https://justly.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                             </div>
                         </div>
-    
+
                         <div class="carousel-item">
                             <figure class="project-image">
                                 <img src="/src/image/site.webp" alt="Imagem do projeto Meu Portfólio" loading="lazy">
@@ -535,23 +520,23 @@
                             </figure>
                             <div class="project-info">
                                 <h3 class="project-title">Meu Portfólio</h3>
-                                <p class="project-description">Meu próprio site onde estão meus projetos e tecnologias atuais conhecidas.</p>
+                                <p class="project-description">Meu próprio site, onde apresento meus projetos e tecnologias. Desenvolvido com atenção especial à responsividade e performance.</p>
                                 <a href="https://jefersonreis-github-io.vercel.app/index.html" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                             </div>
                         </div>
-    
+
                         <div class="carousel-item">
                             <figure class="project-image">
                                 <img src="/src/image/bookmark.webp" alt="Imagem do projeto Bookmark Project" loading="lazy">
                                 <figcaption class="project-label project-label--personal">Projeto Pessoal</figcaption>
                             </figure>
                             <div class="project-info">
-                                <h3 class="project-title">Bookmark Project</h3>
-                                <p class="project-description">Um gerenciador de favoritos simples e intuitivo, desenvolvido com HTML, CSS e JavaScript.</p>
+                                <h3 class="project-<h3 class="project-title">Bookmark Project</h3>
+                                <p class="project-description">Gerenciador de favoritos simples e intuitivo, desenvolvido com HTML, CSS e JavaScript. Permite adicionar, remover e acessar rapidamente sites favoritos.</p>
                                 <a href="https://bookmarkproject12.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                             </div>
                         </div>
-                        
+
                         <div class="carousel-item">
                             <figure class="project-image">
                                 <img src="/src/image/acsendoflex.webp" alt="Imagem do projeto Acsendoflex" loading="lazy">
@@ -559,11 +544,11 @@
                             </figure>
                             <div class="project-info">
                                 <h3 class="project-title">Acsendoflex</h3>
-                                <p class="project-description">Um site para promover um software de avaliação de desempenho para empresas.</p>
+                                <p class="project-description">Site desenvolvido para promover um software de avaliação de desempenho para empresas. Design limpo e profissional, focado na conversão de visitantes em leads.</p>
                                 <a href="https://ascendotraining.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                             </div>
                         </div>
-    
+
                         <div class="carousel-item">
                             <figure class="project-image">
                                 <img src="/src/image/Zomato.webp" alt="Imagem do projeto Zomato" loading="lazy">
@@ -571,57 +556,54 @@
                             </figure>
                             <div class="project-info">
                                 <h3 class="project-title">Zomato</h3>
-                                <p class="project-description">Uma landing page responsiva para um serviço de delivery de comida.</p>
+                                <p class="project-description">Landing page responsiva para um serviço de delivery de comida, desenvolvida com HTML, CSS e JavaScript. Design atrativo e navegação intuitiva.</p>
                                 <a href="https://zomato.com" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                             </div>
                         </div>
-                        
+
                         <div class="carousel-item">
-                            <figure class="project-image">
-                                <img src="/src/image/Screenshot_1023.webp" alt="Imagem do projeto Seca e Define" loading="lazy">
-                                <figcaption class="project-label project-label--contracted">Projeto Contratado</figcaption>
-                            </figure>
-                            <div class="project-info">
-                                <h3 class="project-title">Seca e Define</h3>
-                                <p class="project-description">Portfolio website desenvolvido com HTML, CSS, e JavaScript, apresentando um design moderno, responsivo e intuitivo que exibe minhas habilidades em front-end.</p>
-                                <a href="https://secaedefine.vercel.app" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
-                            </div>
+                        <figure class="project-image">
+                            <img src="/src/image/Screenshot_1023.webp" alt="Imagem do projeto Seca e Define" loading="lazy">
+                            <figcaption class="project-label project-label--contracted">Projeto Contratado</figcaption>
+                        </figure>
+                        <div class="project-info">
+                            <h3 class="project-title">Seca e Define</h3>
+                            <p class="project-description">Portfolio website desenvolvido com HTML, CSS, e JavaScript, apresentando um design moderno, responsivo e intuitivo que exibe minhas habilidades em front-end.</p>
+                            <a href="https://secaedefine.vercel.app" class="project-link" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
                         </div>
-    
+                    </div>
+
                     </div>
                     <button class="carousel-button prev" aria-label="Projeto anterior">&lt;</button>
                     <button class="carousel-button next" aria-label="Próximo projeto">&gt;</button>
                 </div>
             </div>
         </section>
-    
-        <!-- Certificados -->
+
         <section id="certificates" class="section certificates">
-            <div class="container">
-                <h2 class="section__title">Certificados</h2>
-                <div class="certificates__grid">
-                    <article class="certificate__item">
-                        <figure class="certificate__image-wrapper">
-                            <img src="./src/image/Certificado-TRUINFO.webp" alt="Certificado StartWeb" class="certificate__image" loading="lazy">
-                        </figure>
-                        <div class="certificate__info">
-                            <h3 class="certificate__title">StartWeb</h3>
-                            <p class="certificate__description">Curso intensivo de desenvolvimento web com foco em HTML, CSS e JavaScript.</p>
-                            <a href="./src/image/Certificado-TRUINFO.webp" class="button button--secondary-certificate" target="_blank" rel="noopener noreferrer">
-                                Ver Certificado
-                            </a>
-                        </div>
-                    </article>
-                </div>
+        <div class="container">
+            <h2 class="section__title">Certificado</h2>
+            <div class="certificates__grid">
+                <article class="certificate__item">
+                    <figure class="certificate__image-wrapper">
+                        <img src="./src/image/Certificado-TRUINFO.webp" alt="Certificado StartWeb" class="certificate__image" loading="lazy">
+                    </figure>
+                    <div class="certificate__info">
+                        <h3 class="certificate__title">StartWeb - Desenvolvimento Web</h3>
+                        <p class="certificate__description">Curso intensivo de desenvolvimento web com foco em HTML, CSS e JavaScript. (Triunfo, 2024)</p>
+                        <a href="./src/image/Certificado-TRUINFO.webp" class="button button--secondary-certificate" target="_blank" rel="noopener noreferrer">
+                            Ver Certificado
+                        </a>
+                    </div>
+                </article>
             </div>
+        </div>
         </section>
 
-        <section id="resume" class="resume">
-            <div class="container_resume">
-                <h1 class="resume__title">Meu Currículo</h1>
-    
+        <section id="resume" class="resume section">
+            <div class="container_resume container">
+                <h1 class="resume__title section__title">Meu Currículo</h1>
                 <article class="resume__content">
-    
                     <section class="resume__highlights resume__section">
                         <h2 class="resume__section-title">Destaques</h2>
                         <ul class="resume__section-list">
@@ -632,7 +614,7 @@
                             <li class="resume__section-item">Conhecimentos em Administração</li>
                         </ul>
                     </section>
-    
+
                     <section class="resume__experience resume__section">
                         <h2 class="resume__section-title">Experiência Profissional</h2>
                         <ul class="resume__section-list">
@@ -659,32 +641,29 @@
                             </li>
                         </ul>
                     </section>
-    
+
                     <section class="resume__education resume__section">
-                        <h2 class="resume__section-title">Formação Acadêmica</h2>
-                        <ul class="resume__section-list">
-                            <li class="resume__section-item">
-                                <h3 class="resume__section-item-title">Ensino Médio Completo</h3>
-                                <p class="resume__section-item-details">Colégio Estadual Professora Nadir Araújo Copque (2022 – 2024)</p>
-                            </li>
-                            <li class="resume__section-item">
-                                <h3 class="resume__section-item-title">Técnico em Meio Ambiente (Concluído)</h3>
-                                <p class="resume__section-item-details">Colégio Estadual Professora Nadir Araújo Copque (2022 – 2024)</p>
-                            </li>
-                        </ul>
-                    </section>
-    
-                    <section class="resume__certifications resume__section">
-                        <h2 class="resume__section-title">Certificações e Cursos</h2>
-                        <ul class="resume__section-list">
-                            <li class="resume__section-item">Informática - Millenuim (2018)</li>
-                            <li class="resume__section-item">Desenvolvimento Web - Triunfo (2024)</li>
-                            <li class="resume__section-item">Programação Web - Udemy (2024 - 2025)</li>
-                            <li class="resume__section-item">Inglês - School Vision (2023 - 2024)</li>
-                            <li class="resume__section-item">Computação Gráfica - School Vision (2023 - 2024)</li>
-                        </ul>
-                    </section>
-    
+                    <h2 class="resume__section-title">Formação Acadêmica</h2>
+                    <ul class="resume__section-list">
+                        <li class="resume__section-item">
+                            <h3 class="resume__section-item-title">Ensino Médio Completo</h3>
+                            <p class="resume__section-item-details">Colégio Estadual Professora Nadir Araújo Copque (2022 – 2024)</p>
+                        </li>
+                        <li class="resume__section-item">
+                            <h3 class="resume__section-item-title">Técnico em Meio Ambiente (Concluído)</h3>
+                            <p class="resume__section-item-details">Colégio Estadual Professora Nadir Araújo Copque (2022 – 2024)</p>
+                        </li>
+                        <li class="resume__section-item">
+                        <h3 class="resume__section-item-title">Desenvolvimento Web (Cursando)</h3>
+                        <p class="resume__section-item-details">Triunfo (2024 - Atual)</p>
+                    </li>
+                    <li class="resume__section-item">
+                        <h3 class="resume__section-item-title">Programação Web (Cursando)</h3>
+                        <p class="resume__section-item-details">Udemy (2024 - 2025)</p>
+                    </li>
+                    </ul>
+                </section>
+
                     <section class="resume__skills resume__section">
                         <h2 class="resume__section-title">Habilidades Técnicas</h2>
                         <ul class="resume__section-list">
@@ -710,7 +689,7 @@
                             </li>
                         </ul>
                     </section>
-    
+
                     <section class="resume__awards resume__section">
                         <h2 class="resume__section-title">Prêmios e Realizações</h2>
                         <ul class="resume__section-list">
@@ -720,7 +699,7 @@
                             <li class="resume__section-item">Líder de Turma até o 3º ano do Ensino Médio</li>
                         </ul>
                     </section>
-    
+
                     <section class="resume__contact resume__section">
                         <h2 class="resume__section-title">Contato</h2>
                         <ul class="resume__section-list">
@@ -732,240 +711,231 @@
                             <li class="resume__section-item"><a href="https://jefersonreis-github-io.vercel.app/" target="_blank" rel="noopener noreferrer" class="resume__contact-link">Site</a></li>
                         </ul>
                     </section>
-    
+
                     <section class="resume__soft-skills resume__section">
-                        <h2 class="resume__section-title">Soft Skills</h2>
-                        <ul class="resume__section-list">
-                            <li class="resume__section-item">Trabalho em equipe</li>
-                            <li class="resume__section-item">Resolução de problemas</li>
-                            <li class="resume__section-item">Comunicação eficaz</li>
-                            <li class="resume__section-item">Criatividade</li>
-                            <li class="resume__section-item">Proatividade</li>
-                            <li class="resume__section-item">Adaptabilidade</li>
-                            <li class="resume__section-item">Gestão de tempo</li>
-                        </ul>
-                    </section>
-    
+                    <h2 class="resume__section-title">Soft Skills</h2>
+                    <ul class="resume__section-list">
+                        <li class="resume__section-item">Trabalho em equipe</li>
+                        <li class="resume__section-item">Resolução de problemas</li>
+                        <li class="resume__section-item">Comunicação eficaz</li>
+                        <li class="resume__section-item">Criatividade</li>
+                        <li class="resume__section-item">Proatividade</li>
+                        <li class="resume__section-item">Adaptabilidade</li>
+                        <li class="resume__section-item">Gestão de tempo</li>
+                    </ul>
+                </section>
+
                     <section class="resume__objective resume__section">
                         <h2 class="resume__section-title">Objetivo Profissional</h2>
                         <p class="resume__section-item-details">Profissional motivado e dinâmico, com sólida experiência em Desenvolvimento Web, Design Gráfico e suporte técnico em informática. Especialista na criação de soluções criativas e funcionais, com foco em otimização de processos, melhoria da experiência do usuário e inovação tecnológica. Comprometido em aplicar habilidades técnicas, organização e colaboração em equipe para impulsionar o sucesso e o crescimento da empresa.</p>
                     </section>
-    
-                    <div class="resume__see-more-container">
-                        <button class="resume__see-more">Ver Mais <span class="iconify" data-icon="uil:arrow-down"></span></button>
-                    </div>
-    
+
                     <div class="resume__cta">
                         <p class="resume__cta-text">Para mais detalhes, baixe meu currículo completo:</p>
                         <a href="./src/Jeferson currículo.pdf" download class="button button--primary">
                             Baixar CV Completo
                         </a>
                     </div>
-    
                 </article>
             </div>
         </section>
 
-        <!-- Depoimentos -->
         <section id="depoimentos" class="section testimonials">
-            <div class="container">
-                <h2 class="section__title">Depoimentos</h2>
-                <div class="testimonials__carousel">
-                    <div class="testimonials-track">
-                        <div class="testimonial">
-                            <div class="testimonial-rating">
-                                <span class="star" data-rating="5">★★★★★</span>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>"O investimento no desenvolvimento do meu site valeu cada centavo! O design profissional e a otimização para conversões aumentaram e muito nas vendas dos meus cursos, sem a necessidade de grandes gastos com anúncios. Além disso, o serviço foi ágil e eficiente. Recomendo fortemente!"</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <img src="./src/image/RicardoDias.webp" alt="Foto de Ricardo Dias" class="testimonial-author__image" lazy="loading">
-                                <h4 class="testimonial-author__name">Ricardo Dias</h4>
-                                <p class="testimonial-author__title">Professor de Artes e Fundador, Ricardo Dias</p>
-                            </div>
+        <div class="container">
+            <h2 class="section__title">Depoimentos</h2>
+            <div class="testimonials__carousel">
+                <div class="testimonials-track">
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <span class="star" data-rating="5">★★★★★</span>
                         </div>
-                        <div class="testimonial">
-                            <div class="testimonial-rating">
-                                <span class="star" data-rating="5">★★★★★</span>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>"Como Diretora de Tecnologia da School Vision, posso afirmar que o Jeferson foi fundamental para a otimização dos nossos processos. Ele desenvolveu um sistema integrado que modernizou nossa gestão escolar e automatizou tarefas, gerando economia de tempo e recursos. Jeferson demonstrou grande competência técnica, entendeu nossas necessidades e esteve sempre disponível. Estamos muito satisfeitos com os resultados."</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4 class="testimonial-author__name">Camila Oliveira</h4>
-                                <p class="testimonial-author__title">Diretora de Tecnologia da School Vision</p>
-                            </div>
+                        <div class="testimonial-content"><p>"O investimento no desenvolvimento do meu site valeu cada centavo! O design profissional e a otimização para conversões aumentaram e muito nas vendas dos meus cursos, sem a necessidade de grandes gastos com anúncios. Além disso, o serviço foi ágil e eficiente. Recomendo fortemente!"</p>
                         </div>
-                        <div class="testimonial">
-                            <div class="testimonial-rating">
-                                <span class="star" data-rating="5">★★★★★</span>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>"Contratar o Jeferson para reformular nosso e-commerce foi a melhor decisão que tomamos. Ele não só criou um site moderno e intuitivo, como também implementou estratégias de SEO que nos colocaram na primeira página do Google. O resultado? Um aumento expressivo no tráfego orgânico e nas vendas online. Estamos extremamente satisfeitos com o profissionalismo e a expertise do Jeferson!"</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4 class="testimonial-author__name">Sofia Mendes</h4>
-                                <p class="testimonial-author__title">CEO, e-commerce Top Fashion</p>
-                            </div>
-                        </div>
-                        <div class="testimonial">
-                            <div class="testimonial-rating">
-                                <span class="star" data-rating="5">★★★★★</span>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>"Precisávamos de um sistema personalizado para gerenciar os atendimentos da nossa clínica e o Jeferson superou nossas expectativas. Ele desenvolveu uma plataforma completa e fácil de usar que otimizou nosso fluxo de trabalho, reduziu o tempo de espera dos pacientes e melhorou a comunicação interna. A dedicação, a atenção aos detalhes e o suporte pós-entrega do Jeferson foram impecáveis. Recomendo sem hesitar!"</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4 class="testimonial-author__name">Dr. Pedro Almeida</h4>
-                                <p class="testimonial-author__title">Diretor Clínico, Clínica Bem-Estar</p>
-                            </div>
-                        </div>
-        
-                        <div class="testimonial">
-                            <div class="testimonial-rating">
-                                <span class="star" data-rating="5">★★★★★</span>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>"Nosso site antigo estava desatualizado e não gerava resultados. O Jeferson não só modernizou completamente o design, como também tornou o site responsivo para dispositivos móveis. Isso foi crucial para melhorar a experiência do usuário e aumentar nosso alcance. Estamos impressionados com a habilidade do Jeferson em transformar nossa presença online!"</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4 class="testimonial-author__name">Isabela Costa</h4>
-                                <p class="testimonial-author__title">Gerente de Marketing, Agência Digital Up</p>
-                            </div>
-                        </div>
-        
-                        <div class="testimonial">
-                            <div class="testimonial-rating">
-                                <span class="star" data-rating="5">★★★★★</span>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>"O Jeferson é um desenvolvedor extremamente competente e comprometido. Ele criou um sistema de gestão de projetos sob medida para nossa startup que nos permitiu organizar melhor nossas tarefas, prazos e recursos. Ele sempre esteve disposto a ouvir nossas sugestões e adaptar o sistema às nossas necessidades em constante mudança. Foi um prazer trabalhar com ele!"</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4 class="testimonial-author__name">Marcos Fernandes</h4>
-                                <p class="testimonial-author__title">Cofundador, Startup Innovatech</p>
-                            </div>
-                        </div>
-        
-                        <div class="testimonial">
-                            <div class="testimonial-rating">
-                                <span class="star" data-rating="5">★★★★★</span>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>"Como pequeno empreendedor, eu precisava de um site profissional, mas tinha um orçamento limitado. O Jeferson entendeu minhas necessidades e me ofereceu uma solução personalizada que coube no meu bolso. Ele criou um site bonito, funcional e otimizado para os mecanismos de busca, que tem me ajudado a atrair mais clientes. Estou muito grato pelo seu trabalho!"</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4 class="testimonial-author__name">Lucas Oliveira</h4>
-                                <p class="testimonial-author__title">Proprietário, Barbearia Estilo Urbano</p>
-                            </div>
+                        <div class="testimonial-author">
+                            <img src="./src/image/RicardoDias.webp" alt="Foto de Ricardo Dias" class="testimonial-author__image" loading="lazy">
+                            <h4 class="testimonial-author__name">Ricardo Dias</h4>
+                            <p class="testimonial-author__title">Professor de Artes e Fundador, Ricardo Dias</p>
                         </div>
                     </div>
-                    <div class="navigation-wrapper">
-                        <div class="testimonial-dots">
-                            <button class="testimonial-dot active" aria-label="Go to testimonial 1"></button>
-                            <button class="testimonial-dot" aria-label="Go to testimonial 2"></button>
-                            <button class="testimonial-dot" aria-label="Go to testimonial 3"></button>
-                            <button class="testimonial-dot" aria-label="Go to testimonial 4"></button>
-                            <button class="testimonial-dot" aria-label="Go to testimonial 5"></button>
-                            <button class="testimonial-dot" aria-label="Go to testimonial 6"></button>
-                            <button class="testimonial-dot" aria-label="Go to testimonial 7"></button>
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <span class="star" data-rating="5">★★★★★</span>
                         </div>
-                        <div class="carousel-controls">
-                            <button class="prev-testimonial" aria-label="Depoimento anterior">❮</button>
-                            <button class="next-testimonial" aria-label="Próximo depoimento">❯</button>
+                        <div class="testimonial-content">
+                            <p>"Como Diretora de Tecnologia da School Vision, posso afirmar que o Jeferson foi fundamental para a otimização dos nossos processos. Ele desenvolveu um sistema integrado que modernizou nossa gestão escolar e automatizou tarefas, gerando economia de tempo e recursos. Jeferson demonstrou grande competência técnica, entendeu nossas necessidades e esteve sempre disponível. Estamos muito satisfeitos com os resultados."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 class="testimonial-author__name">Camila Oliveira</h4>
+                            <p class="testimonial-author__title">Diretora de Tecnologia da School Vision</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <span class="star" data-rating="5">★★★★★</span>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"Contratar o Jeferson para reformular nosso e-commerce foi a melhor decisão que tomamos. Ele não só criou um site moderno e intuitivo, como também implementou estratégias de SEO que nos colocaram na primeira página do Google. O resultado? Um aumento expressivo no tráfego orgânico e nas vendas online. Estamos extremamente satisfeitos com o profissionalismo e a expertise do Jeferson!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 class="testimonial-author__name">Sofia Mendes</h4>
+                            <p class="testimonial-author__title">CEO, e-commerce Top Fashion</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <span class="star" data-rating="5">★★★★★</span>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"Precisávamos de um sistema personalizado para gerenciar os atendimentos da nossa clínica e o Jeferson superou nossas expectativas. Ele desenvolveu uma plataforma completa e fácil de usar que otimizou nosso fluxo de trabalho, reduziu o tempo de espera dos pacientes e melhorou a comunicação interna. A dedicação, a atenção aos detalhes e o suporte pós-entrega do Jeferson foram impecáveis. Recomendo sem hesitar!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 class="testimonial-author__name">Dr. Pedro Almeida</h4>
+                            <p class="testimonial-author__title">Diretor Clínico, Clínica Bem-Estar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <span class="star" data-rating="5">★★★★★</span>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"Nosso site antigo estava desatualizado e não gerava resultados. O Jeferson não só modernizou completamente o design, como também tornou o site responsivo para dispositivos móveis. Isso foi crucial para melhorar a experiência do usuário e aumentar nosso alcance. Estamos impressionados com a habilidade do Jeferson em transformar nossa presença online!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 class="testimonial-author__name">Isabela Costa</h4>
+                            <p class="testimonial-author__title">Gerente de Marketing, Agência Digital Up</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <span class="star" data-rating="5">★★★★★</span>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"O Jeferson é um desenvolvedor extremamente competente e comprometido. Ele criou um sistema de gestão de projetos sob medida para nossa startup que nos permitiu organizar melhor nossas tarefas, prazos e recursos. Ele sempre esteve disposto a ouvir nossas sugestões e adaptar o sistema às nossas necessidades em constante mudança. Foi um prazer trabalhar com ele!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 class="testimonial-author__name">Marcos Fernandes</h4>
+                            <p class="testimonial-author__title">Cofundador, Startup Innovatech</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <span class="star" data-rating="5">★★★★★</span>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"Como pequeno empreendedor, eu precisava de um site profissional, mas tinha um orçamento limitado. O Jeferson entendeu minhas necessidades e me ofereceu uma solução personalizada que coube no meu bolso. Ele criou um site bonito, funcional e otimizado para os mecanismos de busca, que tem me ajudado a atrair mais clientes. Estou muito grato pelo seu trabalho!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 class="testimonial-author__name">Lucas Oliveira</h4>
+                            <p class="testimonial-author__title">Proprietário, Barbearia Estilo Urbano</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Contatos -->
-        <section class="section contact" id="Contatos">
-            <div class="container">
-            <h2 class="section__title">Contatos</h2>
-                <div class="contact__container grid">
-                    <div class="contact__info">
-                        <div class="contact__card">
-                            <span class="iconify contact__icon" data-icon="mdi:phone" aria-hidden="true"></span>
-                            <h3 class="contact__card-title">Me ligue</h3>
-                            <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" class="contact__card-link">+55 71 9 8439-3235</a>
-                        </div>
-
-                        <div class="contact__card">
-                            <span class="iconify contact__icon" data-icon="mdi:email" aria-hidden="true"></span>
-                            <h3 class="contact__card-title">E-mail</h3>
-                            <a href="mailto:jefersonreisalmeida8356@gmail.com" target="_blank" class="contact__card-link">jefersonreisalmeida8356@gmail.com</a>
-                        </div>
-
-                        <div class="contact__card">
-                            <span class="iconify contact__icon" data-icon="mdi:map-marker" aria-hidden="true"></span>
-                            <h3 class="contact__card-title">Localização</h3>
-                            <a href="https://maps.app.goo.gl/2LdnzkXaG4tmxrSC6" target="_blank" rel="noopener noreferrer" class="contact__card-link">Barra do Jacuipe - BA</a>
-                        </div>
+                <div class="navigation-wrapper">
+                    <div class="testimonial-dots">
+                        <button class="testimonial-dot active" aria-label="Depoimento 1"></button>
+                        <button class="testimonial-dot" aria-label="Depoimento 2"></button>
+                        <button class="testimonial-dot" aria-label="Depoimento 3"></button>
+                        <button class="testimonial-dot" aria-label="Depoimento 4"></button>
+                        <button class="testimonial-dot" aria-label="Depoimento 5"></button>
+                        <button class="testimonial-dot" aria-label="Depoimento 6"></button>
+                        <button class="testimonial-dot" aria-label="Depoimento 7"></button>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="prev-testimonial" aria-label="Depoimento anterior">❮</button>
+                        <button class="next-testimonial" aria-label="Próximo depoimento">❯</button>
                     </div>
                 </div>
-            </div>
-        </section>
-
-    </main>
-
-    <button id="scrollToTopBtn" aria-label="Voltar ao topo">
-        <span class="iconify" data-icon="ion:arrow-up-circle" data-width="24" data-height="24"></span>
-    </button>
-
-    <footer class="footer">
-        <div class="container footer__container">
-            <div class="footer__content">
-                <div class="footer__logo">
-                    <h2 class="footer__logo-text"><a href="#" class="footer__logo-link">Jeferson Reis</a></h2>
-                    <p class="footer__logo-subtitle">Desenvolvedor Web Full Stack</p>
-                </div>
-
-                <div class="footer__social">
-                    <h3 class="footer__social-title">Conecte-se</h3>
-                    <ul class="footer__social-list">
-                        <li class="footer__social-item">
-                            <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida" class="footer__social-link">
-                                <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
-                                <span class="sr-only">LinkedIn</span>
-                            </a>
-                        </li>
-                        <li class="footer__social-item">
-                            <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida" class="footer__social-link">
-                                <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
-                                <span class="sr-only">GitHub</span>
-                            </a>
-                        </li>
-                        <li class="footer__social-item">
-                            <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida" class="footer__social-link">
-                                <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
-                                <span class="sr-only">Instagram</span>
-                            </a>
-                        </li>
-                        <li class="footer__social-item">
-                            <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida" class="footer__social-link">
-                                <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
-                                <span class="sr-only">WhatsApp</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer__bottom">
-                <p class="footer__copy">&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
             </div>
         </div>
-    </footer>
+        </section>
 
-    <noscript>
-        <p class="noscript-message">Este site funciona melhor com JavaScript habilitado. Por favor, habilite JavaScript para uma experiência completa.</p>
-    </noscript>
+        <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section__title">Contato</h2>
+            <div class="contact__container grid">
+            <div class="contact__info">
+                <div class="contact__card">
+                    <span class="iconify contact__icon" data-icon="mdi:phone" aria-hidden="true"></span>
+                    <h3 class="contact__card-title">Me ligue</h3>
+                    <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" class="contact__card-link">+55 71 9 8439-3235</a>
+                </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+                <div class="contact__card">
+                    <span class="iconify contact__icon" data-icon="mdi:email" aria-hidden="true"></span>
+                    <h3 class="contact__card-title">E-mail</h3>
+                    <a href="mailto:jefersonreisalmeida8356@gmail.com" target="_blank" class="contact__card-link">jefersonreisalmeida8356@gmail.com</a>
+                </div>
+
+                <div class="contact__card">
+                    <span class="iconify contact__icon" data-icon="mdi:map-marker" aria-hidden="true"></span>
+                    <h3 class="contact__card-title">Localização</h3>
+                    <a href="https://maps.app.goo.gl/2LdnzkXaG4tmxrSC6" target="_blank" rel="noopener noreferrer" class="contact__card-link">Barra do Jacuipe - BA</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+    </main>
+
+        <button id="scrollToTopBtn" aria-label="Voltar ao topo">
+            <span class="iconify" data-icon="ion:arrow-up-circle" data-width="24" data-height="24"></span>
+        </button>
+    
+        <footer class="footer">
+            <div class="container footer__container">
+                <div class="footer__content">
+                    <div class="footer__logo">
+                        <h2 class="footer__logo-text"><a href="#" class="footer__logo-link">Jeferson Reis</a></h2>
+                        <p class="footer__logo-subtitle">Desenvolvedor Web Full Stack</p>
+                    </div>
+    
+                    <div class="footer__social">
+                        <h3 class="footer__social-title">Conecte-se</h3>
+                        <ul class="footer__social-list">
+                            <li class="footer__social-item">
+                                <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
+                                    <span class="sr-only">LinkedIn</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
+                                    <span class="sr-only">Instagram</span>
+                                </a>
+                            </li>
+                            <li class="footer__social-item">
+                                <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida" class="footer__social-link">
+                                    <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
+                                    <span class="sr-only">WhatsApp</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="footer__bottom">
+                    <p class="footer__copy">&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    
+        <noscript>
+            <p class="noscript-message">Este site funciona melhor com JavaScript habilitado. Por favor, habilite JavaScript para uma experiência completa.</p>
+        </noscript>
+    
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
 </body>
 </html>
