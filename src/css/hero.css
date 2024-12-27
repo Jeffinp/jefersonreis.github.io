@@ -1,1 +1,178 @@
-.button,.hero__title{text-transform:uppercase}.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(31,41,55,.8),rgba(31,41,55,.7)),url('/src/image/nebula-space-blue-12k-2v.webp') center center/cover no-repeat;position:relative;color:var(--resume-text-color-light)}.button::after,.button::before,.hero__particles{position:absolute;top:0;left:0;width:100%;height:100%}.hero__particles{z-index:0}.hero__container{position:relative;z-index:2;padding:0 var(--resume-spacing-lg);max-width:800px;margin:0 auto;width:100%}.hero__profile-pic{width:160px;height:160px;border-radius:var(--resume-border-radius-full);box-shadow:0 0 15px rgba(var(--resume-primary-color-rgb),.7);border:3px solid var(--resume-primary-color);margin-bottom:var(--resume-spacing-lg)}.hero__title{font-family:var(--resume-font-family-base);font-size:var(--resume-font-size-title);margin-bottom:var(--resume-spacing-md);color:#fff;text-shadow:2px 2px 6px rgba(0,0,0,.5);font-weight:var(--resume-font-weight-extrabold);animation:3s ease-out forwards text-fade-in-left}.button,.hero__subtitle{font-size:var(--resume-font-size-base)}.hero__subtitle{margin-bottom:var(--resume-spacing-lg);color:#fff;opacity:.9;text-shadow:1px 1px 3px rgba(0,0,0,.3)}.hero__cta-buttons{display:flex;gap:var(--resume-spacing-md);justify-content:center;flex-wrap:wrap}.button{display:inline-flex;align-items:center;gap:var(--resume-spacing-xs);padding:var(--resume-spacing-sm) var(--resume-spacing-xl);background-color:var(--resume-secondary-color);color:var(--resume-background-color);text-decoration:none;border-radius:var(--resume-border-radius-md);font-weight:var(--resume-font-weight-semibold);position:relative;overflow:hidden;letter-spacing:.5px;border:2px solid transparent;box-shadow:0 4px 8px rgba(0,0,0,.2)}.button--secondary{background-color:transparent;border-color:var(--resume-secondary-color);color:#fff}.button::after,.button::before{content:''}.button::before{background:linear-gradient(45deg,rgba(255,255,255,.1),rgba(255,255,255,.2));transform:translateY(100%)}.button::after{background:linear-gradient(45deg,rgba(255,255,255,.2),rgba(255,255,255,.1));transform:translateY(-100%)}.button .iconify{font-size:1.1rem}@keyframes text-fade-in-left{from{width:0;opacity:0}to{width:100%;opacity:1}}@media (max-width:768px){.hero__title{font-size:2.5rem}.button,.hero__subtitle{font-size:var(--resume-font-size-base)}.hero__profile-pic{width:150px;height:150px}.button{padding:var(--resume-spacing-xs) var(--resume-spacing-lg)}.hero__container{max-width:90%}}@media (max-width:480px){.hero__title{font-size:2rem}.button,.hero__subtitle{font-size:var(--resume-font-size-base)}.hero__profile-pic{width:120px;height:120px}.button{padding:var(--resume-spacing-xs) var(--resume-spacing-md)}.hero__container{max-width:95%}}
+.button,
+.hero__title {
+    text-transform: uppercase
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(31, 41, 55, .8), rgba(31, 41, 55, .7)), url('/src/image/nebula-space-blue-12k-2v.webp') center center/cover no-repeat;
+    position: relative;
+    color: var(--resume-text-color-light)
+}
+
+.button::after,
+.button::before,
+.hero__particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+.hero__particles {
+    z-index: 0
+}
+
+.hero__container {
+    position: relative;
+    z-index: 2;
+    padding: 0 var(--resume-spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%
+}
+
+.hero__profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: var(--resume-border-radius-full);
+    box-shadow: 0 0 15px rgba(var(--resume-primary-color-rgb), .7);
+    border: 3px solid var(--resume-primary-color);
+    margin-bottom: var(--resume-spacing-lg)
+}
+
+.hero__title {
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-title);
+    margin-bottom: var(--resume-spacing-md);
+    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, .5);
+    font-weight: var(--resume-font-weight-extrabold);
+    animation: 3s ease-out forwards text-fade-in-left
+}
+
+.button,
+.hero__subtitle {
+    font-size: var(--resume-font-size-base)
+}
+
+.hero__subtitle {
+    margin-bottom: var(--resume-spacing-lg);
+    color: #fff;
+    opacity: .9;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, .3)
+}
+
+.hero__cta-buttons {
+    display: flex;
+    gap: var(--resume-spacing-md);
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--resume-spacing-xs);
+    padding: var(--resume-spacing-sm) var(--resume-spacing-xl);
+    background-color: var(--resume-secondary-color);
+    color: var(--resume-background-color);
+    text-decoration: none;
+    border-radius: var(--resume-border-radius-md);
+    font-weight: var(--resume-font-weight-semibold);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: .5px;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2)
+}
+
+.button--secondary {
+    background-color: transparent;
+    border-color: var(--resume-secondary-color);
+    color: #fff
+}
+
+.button::after,
+.button::before {
+    content: ''
+}
+
+.button::before {
+    background: linear-gradient(45deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .2));
+    transform: translateY(100%)
+}
+
+.button::after {
+    background: linear-gradient(45deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .1));
+    transform: translateY(-100%)
+}
+
+.button .iconify {
+    font-size: 1.1rem
+}
+
+@keyframes text-fade-in-left {
+    from {
+        width: 0;
+        opacity: 0
+    }
+
+    to {
+        width: 100%;
+        opacity: 1
+    }
+}
+
+@media (max-width:768px) {
+    .hero__title {
+        font-size: 2.5rem
+    }
+
+    .button,
+    .hero__subtitle {
+        font-size: var(--resume-font-size-base)
+    }
+
+    .hero__profile-pic {
+        width: 150px;
+        height: 150px
+    }
+
+    .button {
+        padding: var(--resume-spacing-xs) var(--resume-spacing-lg)
+    }
+
+    .hero__container {
+        max-width: 90%
+    }
+}
+
+@media (max-width:480px) {
+    .hero__title {
+        font-size: 2rem
+    }
+
+    .button,
+    .hero__subtitle {
+        font-size: var(--resume-font-size-base)
+    }
+
+    .hero__profile-pic {
+        width: 120px;
+        height: 120px
+    }
+
+    .button {
+        padding: var(--resume-spacing-xs) var(--resume-spacing-md)
+    }
+
+    .hero__container {
+        max-width: 95%
+    }
+}
