@@ -3,45 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeferson Reis - Illustrator & Designer</title>
+    <title>Jeferson Reis - Ilustrador & Designer</title>
     <meta name="author" content="Jeferson Reis Almeida">
-    <meta name="description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras.">
-    <meta name="keywords" content="Artista Digital, Ilustrador, Arte, Design Gráfico, Criatividade, Portfólio de Arte Digital, Jeferson Reis, Bahia, Camaçari, Freelancer, Web Design, Graphic Design, Ilustrações, Pintura Digital">
+    <meta name="description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras, incluindo design gráfico e arte digital.">
+    <meta name="keywords" content="Artista Digital, Ilustrador, Arte, Design Gráfico, Criatividade, Portfólio de Arte Digital, Jeferson Reis, Bahia, Camaçari, Freelancer, Web Design, Graphic Design, Ilustrações, Pintura Digital, arte digital, ilustrador digital, portfólio de arte">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jefersonreis-github-io.vercel.app/Artistadigital.html">
-    <meta property="og:title" content="Jeferson Reis - Illustrator & Designer">
-    <meta property="og:description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras.">
+    <meta property="og:title" content="Jeferson Reis - Ilustrador & Designer">
+    <meta property="og:description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras, incluindo design gráfico e arte digital.">
     <meta property="og:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
     <meta property="og:image:alt" content="Foto de Jeferson Reis">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://jefersonreis-github-io.vercel.app/Artistadigital.html">
-    <meta name="twitter:title" content="Jeferson Reis - Illustrator & Designer">
-    <meta name="twitter:description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras.">
+    <meta name="twitter:title" content="Jeferson Reis - Ilustrador & Designer">
+    <meta name="twitter:description" content="Explore o portfólio de Jeferson Reis, um artista digital e ilustrador especializado em criações visuais inovadoras, incluindo design gráfico e arte digital.">
     <meta name="twitter:image" content="https://jefersonreis-github-io.vercel.app/src/image/Linkedin-foto.webp">
     <meta name="twitter:image:alt" content="Foto de Jeferson Reis">
 
     <link rel="icon" href="./src/image/icon/Iconsite.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="./src/image/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="./src/css/import.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://code.iconify.design">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/css/import.css">
+
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="/src/js/script.js" defer></script>
     <script src="/src/js/Particles.js" defer></script>
+
+
     <link rel="canonical" href="https://jefersonreis-github-io.vercel.app/Artistadigital.html">
 </head>
 <body>
-    <header class="header">
+    <header role="banner" class="header">
         <div class="container header__container">
             <a href="./index.html" class="header__logo" aria-label="Logo de Jeferson Reis">JR</a>
             <nav class="header__nav" aria-label="Navegação principal">
                 <ul class="header__nav-list">
                     <li class="header__nav-item"><a href="./index.html#home" class="header__nav-link">Início</a></li>
-                    <li class="header__nav-item"><a href="#sobre" class="header__nav-link">Sobre</a></li>
+                    <li class="header__nav-item"><a href="./index.html#about" class="header__nav-link">Sobre</a></li>
                     <li class="header__nav-item"><a href="#galeria" class="header__nav-link">Galeria</a></li>
                 </ul>
             </nav>
@@ -62,13 +70,17 @@
     </header>
 
     <main>
-        <section id="home" class="hero parallax" aria-label="Home">
+        <section id="home" class="hero parallax" aria-labelledby="heroTitle">
             <div id="particles-js" class="hero__particles"></div>
             <div class="container hero__container">
-                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="hero__profile-pic" loading="lazy" width="100" height="210">
+                <img src="./src/image/Linkedin-foto.webp" alt="Jeferson Reis" class="hero__profile-pic" loading="lazy">
                 <h1 id="heroTitle" class="hero__title" data-aos="fade-up">Jeferson Reis Almeida</h1>
-                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">Ilustrador e Designer</p>
-                <a href="#galeria" class="button button--primary" data-aos="fade-up" data-aos-delay="400">Ver galeria</a>
+                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">Designer gráfico e artista digital</p>
+                <div class="hero__cta-buttons" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#galeria" class="button">
+                        <span class="iconify" data-icon="akar-icons:arrow-right" aria-hidden="true"></span> Ver galeria
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -208,7 +220,7 @@
                                 <img src="./src/image/Artes/Annie.webp" alt="Annie" loading="lazy">
                             </figure>
                         </div>
-                        </div>
+                    </div>
 
                     <button class="art-carousel__button art-carousel__button--prev" aria-label="Anterior">❮</button>
                     <button class="art-carousel__button art-carousel__button--next" aria-label="Próximo">❯</button>
@@ -235,48 +247,46 @@
                     <h2 class="footer__logo-text"><a href="#" class="footer__logo-link">Jeferson Reis</a></h2>
                     <p class="footer__logo-subtitle">Desenvolvedor Web Full Stack</p>
                 </div>
-
+    
                 <div class="footer__social">
                     <h3 class="footer__social-title">Conecte-se</h3>
                     <ul class="footer__social-list">
                         <li class="footer__social-item">
                             <a href="https://www.linkedin.com/in/jeferson-reis-877a942b7/" target="_blank" rel="noopener" title="LinkedIn de Jeferson Reis Almeida" class="footer__social-link">
                                 <span class="iconify" data-icon="mdi:linkedin" aria-hidden="true"></span>
-                                <span class="sr-only">LinkedIn</span>
                             </a>
                         </li>
                         <li class="footer__social-item">
                             <a href="https://github.com/Jeffinp" target="_blank" rel="noopener" title="GitHub de Jeferson Reis Almeida" class="footer__social-link">
                                 <span class="iconify" data-icon="mdi:github" aria-hidden="true"></span>
-                                <span class="sr-only">GitHub</span>
                             </a>
                         </li>
                         <li class="footer__social-item">
                             <a href="https://www.instagram.com/jeffinx___/" target="_blank" rel="noopener" title="Instagram de Jeferson Reis Almeida" class="footer__social-link">
                                 <span class="iconify" data-icon="mdi:instagram" aria-hidden="true"></span>
-                                <span class="sr-only">Instagram</span>
                             </a>
                         </li>
                         <li class="footer__social-item">
                             <a href="https://wa.me/qr/KW2XXA46XAXNH1" target="_blank" rel="noopener" title="WhatsApp de Jeferson Reis Almeida" class="footer__social-link">
                                 <span class="iconify" data-icon="mdi:whatsapp" aria-hidden="true"></span>
-                                <span class="sr-only">WhatsApp</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-
+    
             <div class="footer__bottom">
                 <p class="footer__copy">&copy; 2024 Jeferson Reis. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-    
-        <button id="scrollToTopBtn" class="scroll-to-top" title="Ir para o topo" aria-label="Voltar ao topo">↑</button>
-    
-        <noscript>
-            <p>Este site funciona melhor com JavaScript habilitado. Por favor, habilite o JavaScript para uma experiência completa.</p>
-        </noscript>
-    </body>
-    </html>
+
+    <button id="scrollToTopBtn" aria-label="Voltar ao topo">
+        <span class="iconify" data-icon="ion:arrow-up-circle" data-width="24" data-height="24"></span>
+    </button>
+
+    <noscript>
+        <p>Este site funciona melhor com JavaScript habilitado. Por favor, habilite o JavaScript para uma experiência completa.</p>
+    </noscript>
+</body>
+</html>
