@@ -12,9 +12,12 @@ html {
 }
 
 :root {
+    /* Cores - Modo Claro */
     --resume-primary-color: #2563EB;
+    --resume-primary-color-rgb: 37, 99, 235;
     --resume-secondary-color: #60A5FA;
     --resume-accent-color: #EAB308;
+    --resume-accent-color-rgb: 234, 179, 8;
     --resume-text-color: #4B5563;
     --resume-text-color-secondary: #6B7280;
     --resume-background-color: #F3F4F6;
@@ -24,6 +27,7 @@ html {
     --resume-active-color: #1E3A8A;
     --resume-focus-color: #3B82F6;
     --resume-success-color: #10B981;
+    --resume-success-color-rgb: 16, 185, 129;
     --resume-warning-color: #F59E0B;
     --resume-error-color: #EF4444;
     --resume-info-color: #3B82F6;
@@ -57,24 +61,27 @@ html {
     --resume-border-radius-lg: 0.5rem;
     --resume-border-radius-full: 9999px;
     --resume-background-color-rgb: 243, 244, 246;
-    --resume-accent-color-rgb: 234, 179, 8;
     --resume-primary-color-rgb: 37, 99, 235;
-    --resume-success-color-rgb: 16, 185, 129
+    --resume-success-color-rgb: 16, 185, 129;
 }
 
+/* Variáveis para o Modo Escuro */
 body.dark-mode {
     --resume-primary-color: #1DB954;
+    --resume-primary-color-rgb: 29, 185, 84;
     --resume-secondary-color: #10B981;
     --resume-accent-color: #059669;
+    --resume-accent-color-rgb: 5, 150, 105;
     --resume-text-color: #E5E7EB;
     --resume-text-color-secondary: #D1D5DB;
-    --resume-background-color: #121416;
+    --resume-background-color: #121212;
     --resume-background-color-light: #181818;
     --resume-card-background: #212121;
     --resume-hover-color: #22C55E;
     --resume-active-color: #16A34A;
     --resume-focus-color: #34D399;
     --resume-success-color: #6EE7B7;
+    --resume-success-color-rgb: 110, 231, 183;
     --resume-warning-color: #FCD34D;
     --resume-error-color: #F87171;
     --resume-info-color: #60A5FA;
@@ -84,9 +91,6 @@ body.dark-mode {
     --resume-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.18);
     --resume-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
     --resume-background-color-rgb: 18, 20, 22;
-    --resume-accent-color-rgb: 5, 150, 105;
-    --resume-primary-color-rgb: 29, 185, 84;
-    --resume-success-color-rgb: 110, 231, 183
 }
 
 * {
