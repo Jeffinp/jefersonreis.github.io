@@ -124,12 +124,14 @@ class ImageCarousel {
 
         // Eventos de arrastar (toque e mouse)
         this.track.addEventListener('mousedown', this.handleDragStart.bind(this));
-        this.track.addEventListener('touchstart', this.handleDragStart.bind(this));
         this.track.addEventListener('mousemove', this.handleDrag.bind(this));
-        this.track.addEventListener('touchmove', this.handleDrag.bind(this));
         this.track.addEventListener('mouseup', this.handleDragEnd.bind(this));
         this.track.addEventListener('mouseleave', this.handleDragEnd.bind(this));
-        this.track.addEventListener('touchend', this.handleDragEnd.bind(this));
+
+        // Adicionando passive: true para os eventos de toque
+        this.track.addEventListener('touchstart', this.handleDragStart.bind(this), { passive: true });
+        this.track.addEventListener('touchmove', this.handleDrag.bind(this), { passive: false });
+        this.track.addEventListener('touchend', this.handleDragEnd.bind(this), { passive: true });
 
         // Eventos de teclado
         document.addEventListener('keydown', (e) => {
@@ -251,12 +253,14 @@ class ArtImageCarousel {
         this.prevButton.addEventListener('click', () => this.moveToSlide(this.currentIndex - 1));
 
         this.track.addEventListener('mousedown', this.dragStart.bind(this));
-        this.track.addEventListener('touchstart', this.dragStart.bind(this));
         this.track.addEventListener('mouseup', this.dragEnd.bind(this));
         this.track.addEventListener('mouseleave', this.dragEnd.bind(this));
-        this.track.addEventListener('touchend', this.dragEnd.bind(this));
         this.track.addEventListener('mousemove', this.drag.bind(this));
-        this.track.addEventListener('touchmove', this.drag.bind(this));
+
+        // Adicionando passive: true para os eventos de toque
+        this.track.addEventListener('touchstart', this.dragStart.bind(this), { passive: true });
+        this.track.addEventListener('touchmove', this.drag.bind(this), { passive: false });
+        this.track.addEventListener('touchend', this.dragEnd.bind(this), { passive: true });
     }
 
     moveToSlide(index) {
@@ -462,7 +466,7 @@ class TestimonialsCarousel {
         this.track.parentElement.addEventListener('mouseleave', () => this.startAutoplay());
         this.nextButton.addEventListener('click', () => this.moveToNextSlide());
         this.prevButton.addEventListener('click', () => this.moveToPrevSlide());
-        window.window.addEventListener('resize', () => this.updateSlideWidth());
+        window.addEventListener('resize', () => this.updateSlideWidth());
 
         let touchStartX = 0;
         let touchEndX = 0;
@@ -544,96 +548,6 @@ class TestimonialsCarousel {
     }
 }
 
-/**
- * Funções Utilitárias
- * ====================
- * Funções auxiliares para tarefas comuns.
- */
-
-/**
- * Debounce - Limita a taxa de execução de uma função.
- * @param {function} func - A função a ser executada após o atraso.
- * @param {number} wait - O atraso em milissegundos.
- * @returns {function} - Função com debounce.
- */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-/**
- * Rola suavemente até um elemento.
- * @param {HTMLElement} element - O elemento alvo para o qual rolar.
- */
-function smoothScrollToElement(element) {
-    if (element) {
-        const offsetTop = element.offsetTop;
-        smoothScroll(offsetTop);
-    }
-}
-
-/**
- * Rola suavemente até uma posição específica na página.
- * @param {number} to - A posição alvo para rolar (em pixels).
- * @param {number} duration - A duração da animação de rolagem (em milissegundos).
- */
-function smoothScroll(to, duration = 600) {
-    const start = window.pageYOffset;
-    const change = to - start;
-    const startTime = performance.now();
-
-    function animateScroll(currentTime) {
-        const elapsedTime = currentTime - startTime;
-        const newPosition = easeInOutQuad(elapsedTime, start, change, duration);
-        window.scrollTo(0, newPosition);
-        if (elapsedTime < duration) {
-            requestAnimationFrame(animateScroll);
-        }
-    }
-
-    // Função de easing para uma animação suave
-    function easeInOutQuad(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t + b;
-        t--;
-        return -c / 2 * (t * (t - 2) - 1) + b;
-    }
-
-    requestAnimationFrame(animateScroll);
-}
-
-/**
- * Alterna a visibilidade do botão "Voltar ao Topo" com base na posição de rolagem.
- */
-function toggleScrollToTopButton() {
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollToTopBtn.classList.add("show");
-    } else {
-        scrollToTopBtn.classList.remove("show");
-    }
-}
-
-/**
- * Componentes
- * ===========
- * Classes para gerenciar componentes individuais da página.
- */
-
-// ... (Classes ImageCarousel, ArtImageCarousel, SkillsManager, ModalManager, TestimonialsCarousel - CÓDIGO EXATAMENTE COMO NA RESPOSTA ANTERIOR) ...
-
-/**
- * Inicialização
- * =============
- * Configuração inicial após o DOM ser carregado.
- */
 document.addEventListener('DOMContentLoaded', () => {
     /**
      * Elementos do DOM
@@ -742,7 +656,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * ------------------------------
      * Controla a expansão e retração do conteúdo do currículo.
      */
-    if (elements.seeMoreButton) {
+     if (elements.seeMoreButton) {
         elements.seeMoreButton.addEventListener("click", () => {
             elements.resumeContent.classList.toggle("expanded");
 
@@ -767,7 +681,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Atualiza o ícone com base no modo atual
         elements.darkModeIcon.setAttribute('data-icon', isDarkMode ? 'mdi:weather-night' : 'mdi:white-balance-sunny');
-
+        
         // Salva a preferência do usuário no localStorage
         localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 
