@@ -544,6 +544,96 @@ class TestimonialsCarousel {
     }
 }
 
+/**
+ * Funções Utilitárias
+ * ====================
+ * Funções auxiliares para tarefas comuns.
+ */
+
+/**
+ * Debounce - Limita a taxa de execução de uma função.
+ * @param {function} func - A função a ser executada após o atraso.
+ * @param {number} wait - O atraso em milissegundos.
+ * @returns {function} - Função com debounce.
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+/**
+ * Rola suavemente até um elemento.
+ * @param {HTMLElement} element - O elemento alvo para o qual rolar.
+ */
+function smoothScrollToElement(element) {
+    if (element) {
+        const offsetTop = element.offsetTop;
+        smoothScroll(offsetTop);
+    }
+}
+
+/**
+ * Rola suavemente até uma posição específica na página.
+ * @param {number} to - A posição alvo para rolar (em pixels).
+ * @param {number} duration - A duração da animação de rolagem (em milissegundos).
+ */
+function smoothScroll(to, duration = 600) {
+    const start = window.pageYOffset;
+    const change = to - start;
+    const startTime = performance.now();
+
+    function animateScroll(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const newPosition = easeInOutQuad(elapsedTime, start, change, duration);
+        window.scrollTo(0, newPosition);
+        if (elapsedTime < duration) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+
+    // Função de easing para uma animação suave
+    function easeInOutQuad(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animateScroll);
+}
+
+/**
+ * Alterna a visibilidade do botão "Voltar ao Topo" com base na posição de rolagem.
+ */
+function toggleScrollToTopButton() {
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollToTopBtn.classList.add("show");
+    } else {
+        scrollToTopBtn.classList.remove("show");
+    }
+}
+
+/**
+ * Componentes
+ * ===========
+ * Classes para gerenciar componentes individuais da página.
+ */
+
+// ... (Classes ImageCarousel, ArtImageCarousel, SkillsManager, ModalManager, TestimonialsCarousel - CÓDIGO EXATAMENTE COMO NA RESPOSTA ANTERIOR) ...
+
+/**
+ * Inicialização
+ * =============
+ * Configuração inicial após o DOM ser carregado.
+ */
 document.addEventListener('DOMContentLoaded', () => {
     /**
      * Elementos do DOM
@@ -558,7 +648,8 @@ document.addEventListener('DOMContentLoaded', () => {
         darkModeToggle: document.getElementById("darkModeToggle"),
         darkModeIcon: document.getElementById('darkModeIcon'),
         languageLinks: document.querySelectorAll('.language-switch a'),
-        // Seletores para os componentes (se forem ser usados)
+        resumeContent: document.querySelector('.resume__content'),
+        seeMoreButton: document.querySelector('.resume__see-more'),
         carouselTrack: document.querySelector('.carousel-track'),
         artCarouselTrack: document.querySelector('.art-carousel__track'),
         skillsContent: document.querySelector('.skills__content'),
@@ -645,6 +736,25 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', debounce(toggleScrollToTopButton, 100));
         elements.scrollToTopBtn.addEventListener("click", () => smoothScroll(0)); // Rola para o topo da página
     }
+
+    /**
+     * Botão "Ver Mais" do Currículo
+     * ------------------------------
+     * Controla a expansão e retração do conteúdo do currículo.
+     */
+    if (elements.seeMoreButton) {
+        elements.seeMoreButton.addEventListener("click", () => {
+            elements.resumeContent.classList.toggle("expanded");
+
+            // Atualiza o texto e o ícone do botão
+            if (elements.resumeContent.classList.contains("expanded")) {
+                elements.seeMoreButton.innerHTML = 'Ver Menos <span class="iconify" data-icon="uil:arrow-up"></span>';
+            } else {
+                elements.seeMoreButton.innerHTML = 'Ver Mais <span class="iconify" data-icon="uil:arrow-down"></span>';
+            }
+        });
+    }
+
 
     /**
      * Modo Escuro/Claro
