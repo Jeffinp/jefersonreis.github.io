@@ -474,101 +474,288 @@ class ModalManager {
     }
 }
 
-/**
- * Testimonials Carousel - Gerencia o carrossel de depoimentos.
- */
 class TestimonialsCarousel {
-    constructor() {
-        this.track = document.querySelector('.testimonials-track');
-        this.slides = Array.from(this.track.children);
-        this.nextButton = document.querySelector('.next-testimonial');
-        this.prevButton = document.querySelector('.prev-testimonial');
-        this.dotsContainer = document.querySelector('.testimonial-dots');
-        this.activeSlideIndex = 0;
-        this.autoplayInterval = null;
-        this.autoplayDelay = 5000;
+    constructor(options = {}) {
+        this.config = {
+            autoplayDelay: options.autoplayDelay || 5000,
+            swipeThreshold: options.swipeThreshold || 50,
+            animationDuration: options.animationDuration || 300,
+            selectors: {
+                track: '.testimonials__track',
+                nextButton: '.next-testimonial',
+                prevButton: '.prev-testimonial',
+                dotsContainer: '.testimonial__dots',
+                carousel: '.testimonials__carousel'
+            }
+        };
+
+        this.elements = {
+            track: document.querySelector(this.config.selectors.track),
+            nextButton: document.querySelector(this.config.selectors.nextButton),
+            prevButton: document.querySelector(this.config.selectors.prevButton),
+            dotsContainer: document.querySelector(this.config.selectors.dotsContainer),
+            carousel: document.querySelector(this.config.selectors.carousel)
+        };
+
+        this.state = {
+            activeSlideIndex: 0,
+            slides: [],
+            isDragging: false,
+            startPos: 0,
+            currentTranslate: 0,
+            prevTranslate: 0,
+            animationID: null,
+            autoplayInterval: null,
+            currentWidth: 0
+        };
 
         this.init();
     }
 
     init() {
-        this.dotsContainer.innerHTML = '';
+        if (!this.validateElements()) {
+            console.error('Essential carousel elements not found.');
+            return;
+        }
 
-        this.slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.className = `testimonial-dot ${index === 0 ? 'active' : ''}`;
-            dot.setAttribute('aria-label', `Ir para depoimento ${index + 1}`);
-            dot.addEventListener('click', () => this.goToSlide(index));
-            this.dotsContainer.appendChild(dot);
-        });
-
-        this.updateSlideWidth();
+        this.state.slides = Array.from(this.elements.track.children);
+        this.updateDimensions();
+        this.createDots();
+        this.setupEventListeners();
+        this.updateSlidePosition();
         this.startAutoplay();
 
-        this.track.parentElement.addEventListener('mouseenter', () => this.stopAutoplay());
-        this.track.parentElement.addEventListener('mouseleave', () => this.startAutoplay());
-        this.nextButton.addEventListener('click', () => this.moveToNextSlide());
-        this.prevButton.addEventListener('click', () => this.moveToPrevSlide());
-        window.addEventListener('resize', () => this.updateSlideWidth());
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        this.track.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        this.track.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            this.handleSwipe(touchStartX, touchEndX);
-        }, { passive: true });
+        setTimeout(() => {
+            this.elements.track.classList.add('testimonials__track--initialized');
+        }, 100);
     }
 
-    updateSlideWidth() {
-        const containerWidth = this.track.parentElement.offsetWidth;
-        this.slides.forEach(slide => {
-            slide.style.width = `${containerWidth}px`;
+    validateElements() {
+        return Object.values(this.elements).every(element => element !== null);
+    }
+
+    createDots() {
+        if (!this.elements.dotsContainer || !this.state.slides.length) return;
+        
+        this.elements.dotsContainer.innerHTML = this.state.slides
+            .map((_, index) => `
+                <button
+                    class="testimonial__dot${index === 0 ? ' active' : ''}"
+                    aria-label="Go to testimonial ${index + 1}"
+                    aria-selected="${index === 0 ? 'true' : 'false'}"
+                    role="tab"
+                ></button>
+            `)
+            .join('');
+    }
+
+    setupEventListeners() {
+        this.handleTouchStart = this.handleTouchStart.bind(this);
+        this.handleTouchMove = this.handleTouchMove.bind(this);
+        this.handleTouchEnd = this.handleTouchEnd.bind(this);
+        this.handleDragStart = this.handleDragStart.bind(this);
+        this.handleDragMove = this.handleDragMove.bind(this);
+        this.handleDragEnd = this.handleDragEnd.bind(this);
+        this.handleResize = this.debounce(this.handleResize.bind(this), 250);
+
+        if (this.elements.nextButton) {
+            this.elements.nextButton.addEventListener('click', () => this.moveToNextSlide());
+        }
+        if (this.elements.prevButton) {
+            this.elements.prevButton.addEventListener('click', () => this.moveToPrevSlide());
+        }
+
+        if (this.elements.dotsContainer) {
+            this.elements.dotsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('testimonial__dot')) {
+                    const index = Array.from(e.target.parentNode.children).indexOf(e.target);
+                    this.goToSlide(index);
+                }
+            });
+        }
+
+        this.elements.track.addEventListener('touchstart', this.handleTouchStart, { passive: true });
+        this.elements.track.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+        this.elements.track.addEventListener('touchend', this.handleTouchEnd);
+
+        this.elements.track.addEventListener('mousedown', this.handleDragStart);
+        window.addEventListener('mousemove', this.handleDragMove);
+        window.addEventListener('mouseup', this.handleDragEnd);
+
+        this.elements.carousel.addEventListener('mouseenter', () => this.stopAutoplay());
+        this.elements.carousel.addEventListener('mouseleave', () => this.startAutoplay());
+
+        window.addEventListener('resize', this.handleResize);
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                this.stopAutoplay();
+            } else {
+                this.startAutoplay();
+            }
         });
-        this.updateSlidePosition();
     }
 
-    updateSlidePosition() {
-        const slideWidth = this.slides[0].offsetWidth;
-        this.track.style.transform = `translateX(${-slideWidth * this.activeSlideIndex}px)`;
+    handleTouchStart(e) {
+        this.state.isDragging = true;
+        this.state.startPos = e.touches[0].clientX;
+        this.stopAutoplay();
+        this.elements.track.style.cursor = 'grabbing';
+    }
 
-        const dots = this.dotsContainer.children;
-        Array.from(dots).forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.activeSlideIndex);
+    handleTouchMove(e) {
+        if (!this.state.isDragging) return;
+
+        const currentPosition = e.touches[0].clientX;
+        const diff = currentPosition - this.state.startPos;
+
+        if (Math.abs(diff) > 10) {
+            e.preventDefault();
+        }
+
+        this.state.currentTranslate = this.state.prevTranslate + diff;
+        this.updateSlidePosition(false);
+    }
+
+    handleTouchEnd() {
+        if (!this.state.isDragging) return;
+
+        const movedBy = this.state.currentTranslate - this.state.prevTranslate;
+
+        if (Math.abs(movedBy) > this.config.swipeThreshold) {
+            if (movedBy < 0) {
+                this.moveToNextSlide();
+            } else {
+                this.moveToPrevSlide();
+            }
+        } else {
+            this.goToSlide(this.state.activeSlideIndex);
+        }
+
+        this.state.isDragging = false;
+        this.elements.track.style.cursor = '';
+        this.startAutoplay();
+    }
+
+    handleDragStart(e) {
+        this.state.isDragging = true;
+        this.state.startPos = e.clientX;
+        this.stopAutoplay();
+        this.elements.track.style.cursor = 'grabbing';
+    }
+
+    handleDragMove(e) {
+        if (!this.state.isDragging) return;
+
+        const currentPosition = e.clientX;
+        const diff = currentPosition - this.state.startPos;
+
+        this.state.currentTranslate = this.state.prevTranslate + diff;
+        this.updateSlidePosition(false);
+    }
+
+    handleDragEnd() {
+        if (!this.state.isDragging) return;
+
+        const movedBy = this.state.currentTranslate - this.state.prevTranslate;
+
+        if (Math.abs(movedBy) > this.config.swipeThreshold) {
+            if (movedBy < 0) {
+                this.moveToNextSlide();
+            } else {
+                this.moveToPrevSlide();
+            }
+        } else {
+            this.goToSlide(this.state.activeSlideIndex);
+        }
+
+        this.state.isDragging = false;
+        this.elements.track.style.cursor = '';
+        this.startAutoplay();
+    }
+
+    updateDimensions() {
+        if (!this.elements.track || !this.state.slides.length) return;
+
+        const newWidth = this.elements.carousel.offsetWidth;
+        
+        if (newWidth !== this.state.currentWidth) {
+            this.state.currentWidth = newWidth;
+            
+            this.state.slides.forEach(slide => {
+                slide.style.width = `${newWidth}px`;
+                slide.style.flex = '0 0 auto';
+            });
+
+            this.elements.track.style.width = `${newWidth * this.state.slides.length}px`;
+            this.goToSlide(this.state.activeSlideIndex, false);
+        }
+    }
+
+    updateSlidePosition(withAnimation = true) {
+        if (!this.elements.track) return;
+
+        const position = withAnimation
+            ? -this.state.activeSlideIndex * this.state.currentWidth
+            : this.state.currentTranslate;
+
+        if (withAnimation) {
+            this.elements.track.style.transition = `transform ${this.config.animationDuration}ms ease-out`;
+        } else {
+            this.elements.track.style.transition = 'none';
+        }
+
+        this.elements.track.style.transform = `translateX(${position}px)`;
+        
+        if (withAnimation) {
+            setTimeout(() => {
+                this.elements.track.style.transition = 'none';
+            }, this.config.animationDuration);
+        }
+
+        this.updateDots();
+        this.updateAriaLabels();
+    }
+
+    updateAriaLabels() {
+        this.state.slides.forEach((slide, index) => {
+            slide.setAttribute('aria-hidden', String(index !== this.state.activeSlideIndex));
         });
     }
 
-    goToSlide(index) {
-        this.activeSlideIndex = index;
-        this.updateSlidePosition();
-        this.resetAutoplay();
+    updateDots() {
+        const dots = Array.from(this.elements.dotsContainer.children);
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.state.activeSlideIndex);
+            dot.setAttribute('aria-selected', String(index === this.state.activeSlideIndex));
+        });
     }
 
     moveToNextSlide() {
-        this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
-        this.updateSlidePosition();
-        this.resetAutoplay();
+        this.goToSlide((this.state.activeSlideIndex + 1) % this.state.slides.length);
     }
 
     moveToPrevSlide() {
-        this.activeSlideIndex = (this.activeSlideIndex - 1 + this.slides.length) % this.slides.length;
-        this.updateSlidePosition();
+        this.goToSlide((this.state.activeSlideIndex - 1 + this.state.slides.length) % this.state.slides.length);
+    }
+
+    goToSlide(index, withAnimation = true) {
+        this.state.activeSlideIndex = index;
+        this.state.prevTranslate = -index * this.state.currentWidth;
+        this.state.currentTranslate = this.state.prevTranslate;
+        this.updateSlidePosition(withAnimation);
         this.resetAutoplay();
     }
 
     startAutoplay() {
-        if (this.autoplayInterval) return;
-        this.autoplayInterval = setInterval(() => this.moveToNextSlide(), this.autoplayDelay);
+        if (this.state.autoplayInterval) return;
+        this.state.autoplayInterval = setInterval(() => this.moveToNextSlide(), this.config.autoplayDelay);
     }
 
     stopAutoplay() {
-        if (this.autoplayInterval) {
-            clearInterval(this.autoplayInterval);
-            this.autoplayInterval = null;
+        if (this.state.autoplayInterval) {
+            clearInterval(this.state.autoplayInterval);
+            this.state.autoplayInterval = null;
         }
     }
 
@@ -577,19 +764,48 @@ class TestimonialsCarousel {
         this.startAutoplay();
     }
 
-    handleSwipe(touchStartX, touchEndX) {
-        const swipeThreshold = 50;
-        const difference = touchStartX - touchEndX;
+    handleResize() {
+        this.updateDimensions();
+    }
 
-        if (Math.abs(difference) > swipeThreshold) {
-            if (difference > 0) {
-                this.moveToNextSlide();
-            } else {
-                this.moveToPrevSlide();
-            }
-        }
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    destroy() {
+        this.stopAutoplay();
+        
+        window.removeEventListener('resize', this.handleResize);
+        this.elements.track.removeEventListener('touchstart', this.handleTouchStart);
+        this.elements.track.removeEventListener('touchmove', this.handleTouchMove);
+        this.elements.track.removeEventListener('touchend', this.handleTouchEnd);
+        this.elements.track.removeEventListener('mousedown', this.handleDragStart);
+        window.removeEventListener('mousemove', this.handleDragMove);
+        window.removeEventListener('mouseup', this.handleDragEnd);
+        
+        this.elements.track.style = '';
+        this.state.slides.forEach(slide => {
+            slide.style = '';
+        });
+        
+        this.elements = null;
+        this.state = null;
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    new TestimonialsCarousel();
+});
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     /**
@@ -611,7 +827,6 @@ document.addEventListener('DOMContentLoaded', () => {
         artCarouselTrack: document.querySelector('.art-carousel__track'),
         skillsContent: document.querySelector('.skills__content'),
         servicesSection: document.querySelector(".services.section"),
-        testimonialsTrack: document.querySelector('.testimonials-track'),
     };
 
     /**

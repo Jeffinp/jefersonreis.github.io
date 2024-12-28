@@ -1,8 +1,3 @@
-:root,
-body.dark-mode {
-    --resume-text-color-muted: #9CA3AF;
-    --resume-info-color-rgb: 96, 165, 250
-}
 
 *,
 body,
@@ -72,7 +67,7 @@ body.dark-mode {
     --resume-accent-color-rgb: 249, 115, 22;
     --resume-text-color: #D1D5DB; /* Cinza claro */
     --resume-text-color-secondary: #9CA3AF; /* Cinza médio */
-    --resume-background-color: #111827; /* Fundo escuro */
+    --resume-background-color: #0c111b; /* Fundo escuro */
     --resume-background-color-light: #1F2937; /* Cinza escuro */
     --resume-card-background: #2D3748; /* Fundo de card escuro */
     --resume-hover-color: #3B82F6; /* Azul mais claro */
