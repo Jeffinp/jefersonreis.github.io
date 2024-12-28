@@ -1,8 +1,8 @@
- // Configuração aprimorada para particles.js
+// Configuração aprimorada para particles.js
 const particlesConfig = {
     particles: {
         number: {
-            value: 60, // Aumentei um pouco, mas você pode ajustar
+            value: 60, // Número de partículas
             density: {
                 enable: true,
                 value_area: 800
@@ -12,14 +12,17 @@ const particlesConfig = {
             value: ["#2EB67D", "#ECB22E", "#E01E5B", "#36C5F0"] // Cores vibrantes
         },
         shape: {
-            type: ["circle", "triangle"], // Mistura círculos e triângulos
+            type: ["circle", "triangle", "polygon", "star"], // Formatos suportados
             stroke: {
                 width: 0,
                 color: "#000000"
             },
             polygon: {
-                nb_sides: 5
+                nb_sides: 5 // Configuração para polígonos (5 lados por padrão)
             },
+            star: {
+                nb_points: 5 // Configuração para estrelas (5 pontas por padrão)
+            }
         },
         opacity: {
             value: 0.7,
@@ -32,7 +35,7 @@ const particlesConfig = {
             }
         },
         size: {
-            value: 4, // Tamanho um pouco maior
+            value: 4, // Tamanho inicial
             random: true,
             anim: {
                 enable: true,
@@ -44,7 +47,7 @@ const particlesConfig = {
         line_linked: {
             enable: true,
             distance: 150,
-            color: "#ffffff", // Cor da linha para branco
+            color: "#ffffff", // Cor das linhas de conexão
             opacity: 0.4,
             width: 1
         },
@@ -54,12 +57,12 @@ const particlesConfig = {
             direction: "none",
             random: true,
             straight: false,
-            out_mode: "bounce", // Comportamento de "bounce" nas bordas
+            out_mode: "bounce", // Comportamento ao atingir bordas
             bounce: true,
             attract: {
                 enable: true,
-                rotateX: 600, // Rotação no eixo X
-                rotateY: 1200 // Rotação no eixo Y
+                rotateX: 600,
+                rotateY: 1200
             }
         }
     },
@@ -68,7 +71,7 @@ const particlesConfig = {
         events: {
             onhover: {
                 enable: true,
-                mode: "repulse" // Efeito "repulse" no hover
+                mode: "repulse" // Efeito de afastamento no hover
             },
             onclick: {
                 enable: true,
@@ -85,10 +88,10 @@ const particlesConfig = {
             },
             repulse: {
                 distance: 200, // Aumenta a distância do efeito "repulse"
-                duration: 0.6 // Aumenta a duração do efeito
+                duration: 0.6
             },
             push: {
-                particles_nb: 4 // Adiciona mais partículas no clique
+                particles_nb: 4 // Adiciona partículas no clique
             }
         }
     },
