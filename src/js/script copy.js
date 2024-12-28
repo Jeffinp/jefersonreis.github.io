@@ -89,17 +89,18 @@ class ImageCarousel {
         // Configuração com valores padrão
         this.transitionDuration = options.transitionDuration || 500;
         this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
-        this.touchSensitivity = options.touchSensitivity || 100; // Aumentei a sensibilidade
+        this.touchSensitivity = options.touchSensitivity || 100;
 
         // Estado
         this.currentIndex = 0;
         this.isDragging = false;
-        this.dragStartX = 0;
-        this.dragDiff = 0;
+        this.startPos = 0;
+        this.currentTranslate = 0;
+        this.prevTranslate = 0;
         this.autoAdvanceTimer = null;
 
         // Elementos do DOM
-        this.carousel = document.querySelector('.project-container'); // Selecionando o container correto
+        this.carousel = document.querySelector('.project-container');
         this.track = document.querySelector('.carousel-track');
         this.items = document.querySelectorAll('.carousel-item');
         this.prevButton = document.querySelector('.carousel-button.prev');
@@ -112,10 +113,23 @@ class ImageCarousel {
     }
 
     init() {
+        this.itemWidth = this.items[0].offsetWidth; // Adicionado para calcular a largura do item
         this.setupEventListeners();
         this.showSlide(this.currentIndex);
         this.startAutoAdvance();
+
+        // Adiciona o ResizeObserver
+        this.resizeObserver = new ResizeObserver(this.handleResize.bind(this));
+        this.resizeObserver.observe(this.track);
     }
+
+    handleResize = () => {
+        // Recalcula o tamanho do item
+        this.itemWidth = this.items[0].offsetWidth;
+        // Atualiza a posição do carrossel
+        const offset = -this.currentIndex * this.itemWidth;
+        this.track.style.transform = `translateX(${offset}px)`;
+    };
 
     setupEventListeners() {
         // Eventos de clique nos botões
@@ -145,8 +159,8 @@ class ImageCarousel {
         if (index < 0 || index >= this.items.length) return;
 
         this.currentIndex = index;
-        const offset = -index * 100;
-        this.track.style.transform = `translateX(${offset}%)`;
+        const offset = -index * this.itemWidth; // Alterado para usar itemWidth
+        this.track.style.transform = `translateX(${offset}px)`;
 
         this.resetAutoAdvance();
     }
@@ -167,7 +181,8 @@ class ImageCarousel {
     handleDragStart(e) {
         this.isDragging = true;
         this.track.style.cursor = 'grabbing';
-        this.dragStartX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        this.startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        this.prevTranslate = this.currentTranslate; // Armazena a posição anterior
         this.pauseAutoAdvance();
     }
 
@@ -177,9 +192,10 @@ class ImageCarousel {
         e.preventDefault();
 
         const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        this.dragDiff = x - this.dragStartX;
-        const newOffset = -this.currentIndex * 100 + (this.dragDiff / this.carousel.offsetWidth * 100);
-        this.track.style.transform = `translateX(${newOffset}%)`;
+        const dragDiff = x - this.startPos;
+        this.currentTranslate = this.prevTranslate + dragDiff; // Atualiza com base na posição anterior
+
+        this.track.style.transform = `translateX(${this.currentTranslate}px)`;
     }
 
     // Finaliza o arrastar
@@ -188,9 +204,12 @@ class ImageCarousel {
         this.isDragging = false;
         this.track.style.cursor = 'grab';
 
+        // Calcula a distância arrastada em pixels
+        const movedBy = this.currentTranslate - this.prevTranslate;
+
         // Determina se deve mover para o próximo ou anterior com base na distância do arrasto
-        if (Math.abs(this.dragDiff) > this.touchSensitivity) {
-            if (this.dragDiff > 0) {
+        if (Math.abs(movedBy) > this.touchSensitivity) {
+            if (movedBy > 0) {
                 this.prevSlide();
             } else {
                 this.nextSlide();
@@ -199,7 +218,6 @@ class ImageCarousel {
             this.showSlide(this.currentIndex); // Retorna ao slide atual
         }
 
-        this.dragDiff = 0;
         this.resetAutoAdvance();
     }
 
@@ -222,7 +240,7 @@ class ImageCarousel {
 }
 
 /**
- * Art Image Carousel - Gerencia o carrossel de arte digital.
+ * ArtImageCarousel - Gerencia o carrossel de arte digital.
  */
 class ArtImageCarousel {
     constructor() {
@@ -235,21 +253,23 @@ class ArtImageCarousel {
         this.startPos = 0;
         this.currentTranslate = 0;
         this.prevTranslate = 0;
+
+        // Configurar o ResizeObserver
+        this.resizeObserver = new ResizeObserver(() => this.handleResize());
+        this.resizeObserver.observe(this.track);
+
         window.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('load', () => {
                 this.init();
             });
         });
     }
-    
 
     init() {
-        // Agora podemos calcular o itemWidth com segurança
         this.itemWidth = this.items[0].offsetWidth;
         this.setupEventListeners();
-        this.items[0].classList.add('active');
+        this.updateActiveItem();
     }
-
 
     setupEventListeners() {
         this.nextButton.addEventListener('click', () => this.moveToSlide(this.currentIndex + 1));
@@ -260,7 +280,6 @@ class ArtImageCarousel {
         this.track.addEventListener('mouseleave', this.dragEnd.bind(this));
         this.track.addEventListener('mousemove', this.drag.bind(this));
 
-        // Adicionando passive: true para os eventos de toque
         this.track.addEventListener('touchstart', this.dragStart.bind(this), { passive: true });
         this.track.addEventListener('touchmove', this.drag.bind(this), { passive: false });
         this.track.addEventListener('touchend', this.dragEnd.bind(this), { passive: true });
@@ -272,11 +291,10 @@ class ArtImageCarousel {
         } else if (index >= this.items.length) {
             index = 0;
         }
-        this.track.style.transform = `translateX(-${this.itemWidth * index}px)`;
-        this.currentIndex = index;
 
-        this.items.forEach(item => item.classList.remove('active'));
-        this.items[this.currentIndex].classList.add('active');
+        this.currentIndex = index;
+        this.track.style.transform = `translateX(-${this.itemWidth * this.currentIndex}px)`;
+        this.updateActiveItem();
     }
 
     dragStart(e) {
@@ -297,12 +315,34 @@ class ArtImageCarousel {
         this.isDragging = false;
         this.track.style.cursor = 'grab';
         const movedBy = this.currentTranslate - this.prevTranslate;
-        if (movedBy < -100 && this.currentIndex < this.items.length - 1) {
+        const threshold = this.itemWidth * 0.25;
+
+        if (movedBy < -threshold && this.currentIndex < this.items.length - 1) {
             this.currentIndex += 1;
-        } else if (movedBy > 100 && this.currentIndex > 0) {
+        } else if (movedBy > threshold && this.currentIndex > 0) {
             this.currentIndex -= 1;
         }
         this.moveToSlide(this.currentIndex);
+    }
+
+    // Método para lidar com redimensionamento
+    handleResize() {
+        // Recalcular o tamanho do item
+        this.itemWidth = this.items[0].offsetWidth;
+
+        // Atualizar a posição do carrossel
+        this.track.style.transform = `translateX(-${this.itemWidth * this.currentIndex}px)`;
+    }
+
+    // Método para atualizar o item ativo
+    updateActiveItem() {
+        this.items.forEach((item, index) => {
+            if (index === this.currentIndex) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
     }
 }
 

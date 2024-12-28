@@ -1,9 +1,7 @@
 /* --- Galeria de Arte --- */
 .art-gallery {
     padding: var(--resume-spacing-xl) 0;
-    background-color: rgba(var(--resume-background-color-rgb), 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: var(--resume-background-color);
 }
 
 .gallery-container {
@@ -14,20 +12,58 @@
 
 /* Título da Galeria */
 .art-gallery .section__title {
-    font-family: var(--resume-font-family-base);
+    font-family: var(--resume-font-family-base, 'Nunito Sans');
     text-transform: uppercase;
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: var(--resume-font-size-title, 1.8rem);
     letter-spacing: -0.02em;
     text-align: center;
-    font-weight: var(--resume-font-weight-extrabold);
-    margin-bottom: var(--resume-spacing-xl);
-    background: linear-gradient(135deg, var(--resume-primary-color), var(--resume-accent-color));
+    font-weight: var(--resume-font-weight-extrabold, 800);
+    margin-bottom: var(--resume-spacing-xl, 30px);
+    background: linear-gradient(45deg, var(--resume-primary-color, #2563eb), var(--resume-accent-color, #eab308));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Animação do título */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleUnderline {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80px;
+    }
+}
+
+.art-gallery .section__title::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    margin: var(--resume-spacing-md, 15px) auto 0;
+    transition: width var(--resume-transition-normal, .3s ease);
+    background: linear-gradient(to right, var(--resume-primary-color, #2563eb), var(--resume-secondary-color, #60a5fa));
+    border-radius: var(--resume-border-radius-full, 9999px);
+    animation: titleUnderline 1s forwards;
+}
+
+.art-gallery .section__title:hover::after {
+    width: 120px;
 }
 
 /* Carrossel de Artes */
@@ -37,9 +73,6 @@
     max-width: 1200px;
     margin: 0 auto;
     border-radius: var(--resume-border-radius-lg);
-    background-color: rgba(var(--resume-background-color-rgb), 0.5);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
@@ -48,6 +81,7 @@
 .art-carousel__track {
     display: flex;
     will-change: transform;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Itens do Carrossel */
@@ -66,6 +100,7 @@
     justify-content: center;
 }
 
+/* Estilo das imagens */
 .artwork-image {
     width: 100%;
     margin: 0;
@@ -74,7 +109,7 @@
     justify-content: center;
 }
 
-/* Estilo das imagens */
+/* Transição suave para a imagem */
 .art-carousel__item figure img {
     display: block;
     max-width: 100%;
@@ -83,7 +118,7 @@
     object-fit: contain;
     border-radius: var(--resume-border-radius-md);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
     user-select: none;
     -webkit-user-drag: none;
 }
@@ -109,14 +144,16 @@
     color: var(--accent-color);
 }
 
-/* Imagens ativas */
+/* Imagens ativas - Leve efeito de escala */
 .art-carousel__item.active .artwork-image img {
     opacity: 1;
+    transform: scale(1.05);
 }
 
 /* Imagens inativas */
 .art-carousel__item:not(.active) .artwork-image img {
     opacity: 0.5;
+    transform: scale(1);
 }
 
 /* Botões de navegação do carrossel */
@@ -188,19 +225,6 @@
 .gallery-download .button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(var(--resume-primary-color-rgb), 0.4);
-}
-
-/* Animação do título */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Responsividade - tela menor que 768px */
