@@ -100,11 +100,11 @@
 
 .skills__header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: center; /* Mantém o alinhamento vertical ao centro */
     cursor: pointer;
     position: relative;
-    text-align: center;
+    text-align: left; /* Mantém o alinhamento do texto à esquerda */
+    flex-direction: row; /* Mantém a direção do flex como row */
 }
 
 .skill__icon-wrapper {
@@ -115,8 +115,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0;
-    margin-bottom: var(--resume-spacing-sm);
+    margin-right: var(--resume-spacing-md); /* Mantém a margem à direita */
+    margin-bottom: 0; /* Remove a margem inferior */
     transition: background-color var(--resume-transition-normal), transform var(--resume-transition-normal);
 }
 
@@ -138,7 +138,7 @@
 
 .skill__info {
     flex-grow: 0;
-    width: 100%;
+    width: auto; /* Ajusta a largura automaticamente */
 }
 
 .skill__category {
