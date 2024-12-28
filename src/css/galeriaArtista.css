@@ -1,1 +1,238 @@
-.art-gallery .section__title,.gallery-download .button{font-family:var(--resume-font-family-base);font-weight:500;text-transform:uppercase}.art-gallery{padding:var(--resume-spacing-xl) 0;background-color:var(--resume-background-color)}.gallery-container{max-width:1200px;margin:0 auto;padding:0 var(--resume-spacing-lg)}.art-carousel,.art-carousel__item img{max-width:900px;box-shadow:var(--resume-shadow-md)}.art-gallery .section__title{font-size:var(--resume-font-size-title);text-align:center;margin-bottom:var(--resume-spacing-xl);background:linear-gradient(45deg,var(--resume-primary-color),var(--resume-accent-color));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;position:relative}.art-gallery .section__title::after{content:'';display:block;width:80px;height:3px;background:linear-gradient(to right,var(--resume-primary-color),var(--resume-secondary-color));border-radius:var(--resume-border-radius-full);margin:var(--resume-spacing-md) auto 0;transition:width var(--resume-transition-normal)}.art-gallery .section__title:hover::after{width:120px}.art-carousel{position:relative;overflow:hidden;border-radius:var(--resume-border-radius-lg);background-color:var(--resume-card-background);margin:0 auto}.art-carousel__track{display:flex;transition:transform .6s cubic-bezier(.65, 0, .35, 1);will-change:transform;width:fit-content}.art-carousel__item{min-width:100%;display:flex;justify-content:center;padding:var(--resume-spacing-lg) 0}.art-carousel__item img{display:block;width:100%;height:auto;max-height:506px;object-fit:contain;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;cursor:grab;border-radius:var(--resume-border-radius-md);backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:opacity var(--resume-transition-normal),transform var(--resume-transition-normal)}.art-carousel__item.active img{opacity:1!important;transform:scale(1)!important}.art-carousel__item img.loading{opacity:.5!important}.art-carousel__button{position:absolute;top:50%;transform:translateY(-50%);background:0 0;border:none;font-size:2rem;color:var(--resume-text-color);cursor:pointer;padding:0;z-index:10;opacity:.7;width:40px;height:40px;display:flex;align-items:center;justify-content:center;transition:opacity var(--resume-transition-normal)}.art-carousel__button:hover{opacity:1}.art-carousel__button:focus-visible{outline:2px solid var(--resume-secondary-color);outline-offset:2px}.art-carousel__button--prev{left:var(--resume-spacing-lg)}.art-carousel__button--next{right:var(--resume-spacing-lg)}.gallery-download{text-align:center;margin-top:var(--resume-spacing-xl)}.gallery-download .button{display:inline-block;font-size:var(--resume-font-size-base);letter-spacing:.5px;padding:var(--resume-spacing-sm) var(--resume-spacing-lg);border-radius:var(--resume-border-radius-md);text-decoration:none;background-color:var(--resume-primary-color);color:var(--resume-card-background);box-shadow:var(--resume-shadow-sm);transition:all var(--resume-transition-normal);overflow:hidden;border:none}.gallery-download .button:hover{transform:translateY(-3px);box-shadow:var(--resume-shadow-md);background-color:var(--resume-hover-color)}.gallery-download .button::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transition:left var(--resume-transition-slow);z-index:-1}.gallery-download .button:hover::before{left:100%}.gallery-download .button .iconify{color:var(--resume-card-background);font-size:1.2em;vertical-align:middle;margin-left:5px}@media (max-width:768px){.art-gallery{padding:var(--resume-spacing-lg) 0}.art-gallery .section__title{font-size:var(--resume-font-size-section-title);margin-bottom:var(--resume-spacing-lg)}.art-carousel{border-radius:var(--resume-border-radius-md)}.art-carousel__item{padding:var(--resume-spacing-md) 0}.art-carousel__item img{max-height:400px}.art-carousel__button{font-size:1.5rem;width:35px;height:35px}.art-carousel__button--prev{left:var(--resume-spacing-sm)}.art-carousel__button--next{right:var(--resume-spacing-sm)}}@media (max-width:480px){.art-gallery .section__title{font-size:var(--resume-font-size-item-title)}}
+/* --- Galeria de Arte --- */
+.art-gallery {
+    padding: var(--resume-spacing-xl) 0;
+    background-color: rgba(var(--resume-background-color-rgb), 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.gallery-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--resume-spacing-lg);
+}
+
+/* Título da Galeria */
+.art-gallery .section__title {
+    font-family: var(--resume-font-family-base);
+    text-transform: uppercase;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em;
+    text-align: center;
+    font-weight: var(--resume-font-weight-extrabold);
+    margin-bottom: var(--resume-spacing-xl);
+    background: linear-gradient(135deg, var(--resume-primary-color), var(--resume-accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Carrossel de Artes */
+.art-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: var(--resume-border-radius-lg);
+    background-color: rgba(var(--resume-background-color-rgb), 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Faixa do Carrossel */
+.art-carousel__track {
+    display: flex;
+    will-change: transform;
+}
+
+/* Itens do Carrossel */
+.art-carousel__item {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: var(--resume-spacing-lg);
+}
+
+.art-carousel__item figure {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.artwork-image {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo das imagens */
+.art-carousel__item figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: var(--resume-border-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Legenda das Imagens */
+.art-gallery figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--resume-text-color);
+    background-color: var(--card-background);
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    opacity: 0.9;
+    font-style: italic;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo ao passar o mouse sobre a legenda */
+.art-gallery figcaption:hover {
+    background-color: var(--button-hover-color);
+    color: var(--accent-color);
+}
+
+/* Imagens ativas */
+.art-carousel__item.active .artwork-image img {
+    opacity: 1;
+}
+
+/* Imagens inativas */
+.art-carousel__item:not(.active) .artwork-image img {
+    opacity: 0.5;
+}
+
+/* Botões de navegação do carrossel */
+.art-carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(var(--resume-background-color-rgb), 0.8);
+    border: 2px solid rgba(var(--resume-primary-color-rgb), 0.2);
+    color: var(--resume-text-color);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--resume-transition-normal);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 10;
+}
+
+/* Hover nos botões de navegação */
+.art-carousel__button:hover {
+    background: rgba(var(--resume-primary-color-rgb), 0.1);
+    border-color: var(--resume-primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Posição do botão anterior */
+.art-carousel__button--prev {
+    left: var(--resume-spacing-lg);
+}
+
+/* Posição do botão próximo */
+.art-carousel__button--next {
+    right: var(--resume-spacing-lg);
+}
+
+/* Download das imagens */
+.gallery-download {
+    text-align: center;
+    margin-top: var(--resume-spacing-xl);
+    padding: 0 var(--resume-spacing-lg);
+}
+
+/* Estilo do botão de download */
+.gallery-download .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--resume-font-family-base);
+    font-size: var(--resume-font-size-base);
+    font-weight: var(--resume-font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1rem 2rem;
+    border-radius: var(--resume-border-radius-full);
+    background: linear-gradient(135deg, var(--resume-primary-color), var(--resume-secondary-color));
+    color: var(--resume-card-background);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 15px rgba(var(--resume-primary-color-rgb), 0.2);
+}
+
+/* Hover no botão de download */
+.gallery-download .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(var(--resume-primary-color-rgb), 0.4);
+}
+
+/* Animação do título */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade - tela menor que 768px */
+@media (max-width: 768px) {
+    .art-carousel__item {
+        padding: var(--resume-spacing-md);
+    }
+
+    .artwork-image img {
+        max-height: 60vh;
+    }
+
+    .art-carousel__button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .gallery-download {
+        padding: 0 var(--resume-spacing-md);
+    }
+}
+
+/* Responsividade - tela menor que 480px */
+@media (max-width: 480px) {
+    .art-gallery .section__title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .art-carousel__button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}

@@ -235,18 +235,21 @@ class ArtImageCarousel {
         this.startPos = 0;
         this.currentTranslate = 0;
         this.prevTranslate = 0;
-
-        this.init();
-    }
-
-    init() {
-        // Espera as imagens carregarem antes de calcular a largura do item
-        Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
-            this.itemWidth = this.items[0].offsetWidth;
-            this.setupEventListeners();
-            this.items[0].classList.add('active');
+        window.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('load', () => {
+                this.init();
+            });
         });
     }
+    
+
+    init() {
+        // Agora podemos calcular o itemWidth com segurança
+        this.itemWidth = this.items[0].offsetWidth;
+        this.setupEventListeners();
+        this.items[0].classList.add('active');
+    }
+
 
     setupEventListeners() {
         this.nextButton.addEventListener('click', () => this.moveToSlide(this.currentIndex + 1));
@@ -656,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * ------------------------------
      * Controla a expansão e retração do conteúdo do currículo.
      */
-     if (elements.seeMoreButton) {
+    if (elements.seeMoreButton) {
         elements.seeMoreButton.addEventListener("click", () => {
             elements.resumeContent.classList.toggle("expanded");
 
@@ -681,7 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Atualiza o ícone com base no modo atual
         elements.darkModeIcon.setAttribute('data-icon', isDarkMode ? 'mdi:weather-night' : 'mdi:white-balance-sunny');
-        
+
         // Salva a preferência do usuário no localStorage
         localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 
