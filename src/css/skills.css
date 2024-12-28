@@ -1,95 +1,4 @@
-/* --- Variáveis (Modo Claro) --- */
-:root {
-    /* Cores */
-    --resume-primary-color: #1D4ED8; /* Azul vibrante */
-    --resume-primary-color-rgb: 29, 78, 216;
-    --resume-secondary-color: #10B981; /* Verde vibrante */
-    --resume-accent-color: #F97316; /* Laranja (complementar ao azul) */
-    --resume-accent-color-rgb: 249, 115, 22;
-    --resume-text-color: #1F2937; /* Cinza escuro */
-    --resume-text-color-secondary: #4B5563; /* Cinza médio */
-    --resume-background-color: #F3F4F6; /* Fundo claro suave */
-    --resume-background-color-light: #E5E7EB; /* Cinza claro */
-    --resume-card-background: #FFFFFF; /* Branco */
-    --resume-hover-color: #2563EB; /* Azul mais intenso */
-    --resume-active-color: #1E40AF; /* Azul mais escuro */
-    --resume-focus-color: #3B82F6; /* Azul claro */
-    --resume-success-color: #10B981; /* Verde suave */
-    --resume-success-color-rgb: 16, 185, 129;
-    --resume-warning-color: #F59E0B; /* Amarelo quente */
-    --resume-error-color: #EF4444; /* Vermelho vibrante */
-    --resume-info-color: #60A5FA; /* Azul suave */
-    --resume-border-color: #E5E7EB; /* Cinza claro */
-    --resume-border-color-light: #D1D5DB; /* Cinza mais claro */
-    --resume-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --resume-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --resume-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-    /* Espaçamentos */
-    --resume-spacing-unit: 0.5rem;
-    --resume-spacing-xs: var(--resume-spacing-unit);
-    --resume-spacing-sm: calc(var(--resume-spacing-unit) * 2);
-    --resume-spacing-md: calc(var(--resume-spacing-unit) * 3);
-    --resume-spacing-lg: calc(var(--resume-spacing-unit) * 4);
-    --resume-spacing-xl: calc(var(--resume-spacing-unit) * 6);
-    --resume-spacing-xxl: calc(var(--resume-spacing-unit) * 8);
-
-    /* Tipografia */
-    --resume-font-family-base: 'Nunito Sans', sans-serif;
-    --resume-font-size-base: 0.9rem;
-    --resume-font-size-title: 1.8rem;
-    --resume-font-size-section-title: 1.3rem;
-    --resume-font-size-item-title: 1.1rem;
-    --resume-font-weight-regular: 400;
-    --resume-font-weight-semibold: 600;
-    --resume-font-weight-bold: 700;
-    --resume-font-weight-extrabold: 800;
-    --resume-line-height-base: 1.6;
-
-    /* Transições */
-    --resume-transition-fast: 0.2s ease;
-    --resume-transition-normal: 0.3s ease;
-    --resume-transition-slow: 0.5s ease;
-
-    /* Bordas */
-    --resume-border-radius-sm: 0.125rem;
-    --resume-border-radius-md: 0.375rem;
-    --resume-border-radius-lg: 0.5rem;
-    --resume-border-radius-full: 9999px;
-
-    /* Cores RGB */
-    --resume-background-color-rgb: 243, 244, 246;
-}
-
-/* --- Variáveis (Modo Escuro) --- */
-body.dark-mode {
-    --resume-primary-color: #2563EB; /* Azul vibrante */
-    --resume-primary-color-rgb: 37, 99, 235;
-    --resume-secondary-color: #10B981; /* Verde vibrante */
-    --resume-accent-color: #F97316; /* Laranja vibrante */
-    --resume-accent-color-rgb: 249, 115, 22;
-    --resume-text-color: #D1D5DB; /* Cinza claro */
-    --resume-text-color-secondary: #9CA3AF; /* Cinza médio */
-    --resume-background-color: #0c111b; /* Fundo escuro */
-    --resume-background-color-light: #1F2937; /* Cinza escuro */
-    --resume-card-background: #2D3748; /* Fundo de card escuro */
-    --resume-hover-color: #3B82F6; /* Azul mais claro */
-    --resume-active-color: #1E40AF; /* Azul escuro */
-    --resume-focus-color: #3B82F6; /* Azul claro */
-    --resume-success-color: #10B981; /* Verde suave */
-    --resume-success-color-rgb: 16, 185, 129;
-    --resume-warning-color: #F59E0B; /* Amarelo quente */
-    --resume-error-color: #EF4444; /* Vermelho vibrante */
-    --resume-info-color: #60A5FA; /* Azul suave */
-    --resume-border-color: #374151; /* Cinza escuro */
-    --resume-border-color-light: #4B5563; /* Cinza médio */
-    --resume-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-    --resume-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.18);
-    --resume-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
-    --resume-background-color-rgb: 17, 24, 39;
-}
-
-/* --- Seção de Habilidades (Hard Skills) --- */
+/* Hard Skills Section */
 .skill__category,
 .skills,
 .skills__title.section__title,
@@ -302,7 +211,7 @@ body.dark-mode {
     transition: width 1s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* --- Seção de Soft Skills --- */
+/* Soft Skills Section */
 .soft-skills__content {
     margin-top: var(--resume-spacing-lg);
 }
@@ -320,8 +229,8 @@ body.dark-mode {
     border-radius: var(--resume-border-radius-lg);
     padding: var(--resume-spacing-lg);
     transition: transform var(--resume-transition-normal), box-shadow var(--resume-transition-normal);
-    animation: .6s ease-out forwards fadeInUp; /* Adiciona a animação fadeInUp */
-    opacity: 0; /* Começa com opacidade 0 */
+    animation: .6s ease-out forwards fadeInUp;
+    opacity: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -374,7 +283,7 @@ body.dark-mode {
     background: linear-gradient(to right, var(--resume-primary-color), var(--resume-secondary-color));
 }
 
-/* --- Animação --- */
+/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -415,9 +324,7 @@ body.dark-mode {
     animation-delay: .7s;
 }
 
-/* --- Media Queries (Responsividade) --- */
-
-/* Dispositivos Médios (Tablets - até 768px) */
+/* Media Queries */
 @media (max-width: 768px) {
     .skills {
         padding: var(--resume-spacing-lg) 0;
@@ -512,7 +419,6 @@ body.dark-mode {
     }
 }
 
-/* Dispositivos Pequenos (Celulares - até 480px) */
 @media (max-width: 480px) {
     .soft-skills__list {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
