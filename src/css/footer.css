@@ -1,10 +1,25 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    /* added line */
+    border: 0;
+}
+
 .footer {
     background-color: var(--resume-background-color-light, #e5e7eb);
-    padding: var(--resume-spacing-xl, 30px) 0; /* Espaçamento com variável */
+    padding: var(--resume-spacing-xl, 30px) 0;
+    /* Espaçamento com variável */
     font-family: var(--resume-font-family-base, 'Nunito Sans');
     /* Sombra mais suave e sutil, com spread radius */
-    box-shadow: 0px -2px 8px 0px rgba(0, 0, 0, 0.08); 
-    border-top: 1px solid var(--resume-border-color, #e5e7eb); /* Adiciona borda superior */
+    box-shadow: 0px -2px 8px 0px rgba(0, 0, 0, 0.08);
+    border-top: 1px solid var(--resume-border-color, #e5e7eb);
+    /* Adiciona borda superior */
 }
 
 .footer::before {
@@ -25,10 +40,12 @@
     text-align: center;
 }
 
-.footer__logo { /* Adicionado para melhor organização */
+.footer__logo {
+    /* Adicionado para melhor organização */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center;
+    /* Centraliza o conteúdo verticalmente */
 }
 
 .footer__logo-link {
@@ -54,11 +71,15 @@
     color: var(--resume-text-color, #1f2937);
 }
 
-.footer__social { /* Novo seletor para o container pai */
+.footer__social {
+    /* Novo seletor para o container pai */
     display: flex;
-    flex-direction: column; /* Alinha verticalmente em telas menores */
-    align-items: center; /* Centraliza horizontalmente em telas menores */
-    gap: var(--resume-spacing-md, 15px); /* Espaçamento entre o título e a lista */
+    flex-direction: column;
+    /* Alinha verticalmente em telas menores */
+    align-items: center;
+    /* Centraliza horizontalmente em telas menores */
+    gap: var(--resume-spacing-md, 15px);
+    /* Espaçamento entre o título e a lista */
 }
 
 .footer__social-list {
@@ -66,8 +87,10 @@
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center; /* Centraliza os ícones */
-    gap: var(--resume-spacing-lg, 20px); /* Espaçamento entre os ícones */
+    justify-content: center;
+    /* Centraliza os ícones */
+    gap: var(--resume-spacing-lg, 20px);
+    /* Espaçamento entre os ícones */
 }
 
 .footer__social-link {
@@ -77,10 +100,13 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background-color: var(--resume-card-background, #fff); /* Usando variável */
-    box-shadow: var(--resume-shadow-sm); /* Usando variável para sombra mais consistente */
+    background-color: var(--resume-card-background, #fff);
+    /* Usando variável */
+    box-shadow: var(--resume-shadow-sm);
+    /* Usando variável para sombra mais consistente */
     transition: background-color var(--resume-transition-normal, 0.3s ease), transform var(--resume-transition-normal, 0.3s ease);
-    color: var(--resume-text-color-secondary, #4b5563); /* Cor consistente com o subtítulo */
+    color: var(--resume-text-color-secondary, #4b5563);
+    /* Cor consistente com o subtítulo */
 }
 
 .footer__social-link:hover {
@@ -91,7 +117,8 @@
 
 .footer__social-link .iconify {
     font-size: 1.8rem;
-    transition: color var(--resume-transition-normal, 0.3s ease); /* Transição na cor do ícone */
+    transition: color var(--resume-transition-normal, 0.3s ease);
+    /* Transição na cor do ícone */
 }
 
 .footer__bottom {
@@ -99,7 +126,8 @@
     text-align: center;
     font-size: var(--resume-font-size-base, 0.9rem);
     color: var(--resume-text-color-secondary, #4b5563);
-    border-top: 1px solid var(--resume-border-color, #e5e7eb); /* Usando variável */
+    border-top: 1px solid var(--resume-border-color, #e5e7eb);
+    /* Usando variável */
 }
 
 /* Media Query para telas maiores */
@@ -111,11 +139,12 @@
 
     .footer__logo {
         text-align: left;
-        align-items: flex-start; /* Alinha o conteúdo ao topo em telas maiores */
+        align-items: flex-start;
+        /* Alinha o conteúdo ao topo em telas maiores */
     }
 
     .footer__social-list {
         justify-content: flex-end;
-        
+
     }
 }
