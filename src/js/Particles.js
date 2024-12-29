@@ -11,7 +11,7 @@ particlesJS('particles-js', {
             value: '#ffffff'
         },
         shape: {
-            type: ['circle', 'star', 'edge', 'polygon'], // Adicionando "star" e "edge" para estrelas e diamantes [1]
+            type: ['circle', 'star', 'edge', 'polygon'],
             stroke: {
                 width: 0,
                 color: '#000000'
