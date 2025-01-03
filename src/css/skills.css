@@ -402,6 +402,7 @@
     .soft-skill__icon {
         font-size: 1.8rem;
         margin-bottom: 0;
+        margin-right: 10px;
     }
 
     .soft-skill__description {
