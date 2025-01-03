@@ -86,20 +86,23 @@ function toggleScrollToTopButton() {
  */
 class ImageCarousel {
     constructor(options = {}) {
-        this.transitionDuration = options.transitionDuration || 500;
-        this.autoAdvanceInterval = options.autoAdvanceInterval || 5000;
-        this.touchSensitivity = options.touchSensitivity || 100;
+        // Configurações padrão com fallback para valores definidos no construtor
+        this.transitionDuration = options.transitionDuration || 200; // Duração da transição em ms
+        this.autoAdvanceInterval = options.autoAdvanceInterval || 4000; // Intervalo de avanço automático em ms
+        this.touchSensitivity = options.touchSensitivity || 100; // Sensibilidade ao toque em px
 
-        this.currentIndex = 0;
-        this.isDragging = false;
-        this.startPos = 0;
-        this.currentTranslate = 0;
-        this.prevTranslate = 0;
-        this.animationId = null;
-        this.autoAdvanceTimer = null;
-        this.isHovering = false;
-        this.isTransitioning = false;
+        // Estado inicial do carrossel
+        this.currentIndex = 0; // Índice do slide atual
+        this.isDragging = false; // Indica se o usuário está arrastando o carrossel
+        this.startPos = 0; // Posição inicial do mouse/toque
+        this.currentTranslate = 0; // Translado atual do carrossel
+        this.prevTranslate = 0; // Translado anterior do carrossel
+        this.animationId = null; // ID da animação atual para controle de requestAnimationFrame
+        this.autoAdvanceTimer = null; // Timer para avanço automático
+        this.isHovering = false; // Indica se o mouse está sobre o carrossel
+        this.isTransitioning = false; // Indica se uma transição está em andamento
 
+        // Seletores para os elementos do carrossel no DOM
         this.carousel = document.querySelector('.carousel');
         this.track = document.querySelector('.carousel-track');
         this.items = Array.from(document.querySelectorAll('.carousel-item'));
@@ -107,12 +110,15 @@ class ImageCarousel {
         this.nextButton = document.querySelector('.carousel-button.next');
         this.filterButtons = document.querySelectorAll('.filter-button');
 
+        // Verifica se os elementos essenciais do carrossel foram encontrados
         if (!this.validateElements()) return;
 
+        // Largura inicial do item é calculada após a validação dos elementos
         this.itemWidth = this.items[0].offsetWidth;
         this.init();
     }
 
+    // Valida a presença dos elementos essenciais do carrossel no DOM
     validateElements() {
         if (!this.carousel || !this.track || this.items.length === 0) {
             console.error('Elementos essenciais do carrossel não encontrados');
@@ -121,30 +127,39 @@ class ImageCarousel {
         return true;
     }
 
+    // Inicializa o carrossel
     init() {
+        // Configura o estado inicial dos itens do carrossel
         this.items.forEach(item => {
-            item.style.display = 'flex';
-            item.classList.add('active');
+            item.style.display = 'flex'; // Define a exibição como flex
+            item.classList.add('active'); // Adiciona a classe 'active' a todos os itens inicialmente
         });
 
+        // Configura os event listeners
         this.setupEventListeners();
+        // Atualiza a lista de itens visíveis
         this.updateVisibleItems();
+        // Mostra o primeiro slide
         this.showSlide(0);
+        // Inicia o avanço automático dos slides
         this.startAutoAdvance();
 
+        // Cria um observer para observar mudanças no tamanho do contêiner do carrossel
         this.resizeObserver = new ResizeObserver(entries => {
             this.handleResize(entries);
         });
+        // Começa a observar o contêiner do carrossel
         this.resizeObserver.observe(this.track);
     }
 
+    // Atualiza a lista de itens visíveis com base no display atual
     updateVisibleItems() {
-        this.visibleItems = this.items.filter(item => 
-            item.style.display !== 'none' && 
+        this.visibleItems = this.items.filter(item =>
+            item.style.display !== 'none' &&
             window.getComputedStyle(item).display !== 'none'
         );
-        
-        // Atualiza os botões de navegação
+
+        // Atualiza a exibição dos botões de navegação
         if (this.prevButton && this.nextButton) {
             const shouldShowButtons = this.visibleItems.length > 1;
             this.prevButton.style.display = shouldShowButtons ? '' : 'none';
@@ -152,17 +167,17 @@ class ImageCarousel {
         }
     }
 
+    // Lida com o redimensionamento do contêiner do carrossel
     handleResize(entries) {
         if (this.isTransitioning) return;
-        
+
         this.updateVisibleItems();
-        
+
         if (this.visibleItems.length > 0) {
             this.itemWidth = this.visibleItems[0].offsetWidth;
-            
-            // Garante que o índice atual é válido
+
             this.currentIndex = Math.min(this.currentIndex, this.visibleItems.length - 1);
-            
+
             const offset = -this.currentIndex * this.itemWidth;
             this.track.style.transition = 'none';
             this.track.style.transform = `translateX(${offset}px)`;
@@ -171,8 +186,9 @@ class ImageCarousel {
         }
     }
 
+    // Configura os event listeners para interação do usuário
     setupEventListeners() {
-        // Botões de navegação com debounce
+        // Adiciona listeners para os botões de navegação com debounce
         if (this.prevButton) {
             this.prevButton.addEventListener('click', this.debounce(() => this.prevSlide(), 250));
         }
@@ -180,19 +196,10 @@ class ImageCarousel {
             this.nextButton.addEventListener('click', this.debounce(() => this.nextSlide(), 250));
         }
 
-        // Eventos de arrastar com verificação de estado
+        // Configura eventos de arrastar para mouse e toque
         const dragEvents = {
-            mouse: {
-                start: 'mousedown',
-                move: 'mousemove',
-                end: 'mouseup',
-                leave: 'mouseleave'
-            },
-            touch: {
-                start: 'touchstart',
-                move: 'touchmove',
-                end: 'touchend'
-            }
+            mouse: { start: 'mousedown', move: 'mousemove', end: 'mouseup', leave: 'mouseleave' },
+            touch: { start: 'touchstart', move: 'touchmove', end: 'touchend' }
         };
 
         Object.values(dragEvents).forEach(eventSet => {
@@ -204,7 +211,7 @@ class ImageCarousel {
             }
         });
 
-        // Navegação por teclado com debounce
+        // Adiciona navegação por teclado com debounce
         document.addEventListener('keydown', this.debounce(e => {
             if (!this.isTransitioning) {
                 if (e.key === 'ArrowLeft') this.prevSlide();
@@ -212,18 +219,18 @@ class ImageCarousel {
             }
         }, 250));
 
-        // Filtros com atualização de estado
+        // Configura os listeners para os botões de filtro
         this.filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const category = button.dataset.filter;
                 this.filterProjects(category);
-                
+
                 this.filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
             });
         });
 
-        // Eventos de hover
+        // Pausa o avanço automático quando o mouse está sobre o carrossel
         if (this.carousel) {
             this.carousel.addEventListener('mouseenter', () => {
                 this.isHovering = true;
@@ -236,7 +243,7 @@ class ImageCarousel {
             });
         }
 
-        // Eventos de transição
+        // Adiciona listeners para eventos de transição
         this.track.addEventListener('transitionstart', () => {
             this.isTransitioning = true;
         });
@@ -246,37 +253,37 @@ class ImageCarousel {
         });
     }
 
+    // Exibe o slide especificado pelo índice
     showSlide(index) {
         this.updateVisibleItems();
-        
-        if (this.visibleItems.length === 0) return;
-        if (this.isTransitioning) return;
 
-        // Ajusta o índice para loop circular
+        if (this.visibleItems.length === 0 || this.isTransitioning) return;
+
         index = ((index % this.visibleItems.length) + this.visibleItems.length) % this.visibleItems.length;
         this.currentIndex = index;
 
-        // Atualiza classes ativas
         this.visibleItems.forEach((item, i) => {
             item.classList.toggle('active', i === index);
         });
 
-        // Aplica transformação
-        const offset = -index * this.itemWidth;
+        const offset = -this.currentIndex * this.itemWidth;
         this.currentTranslate = offset;
         this.track.style.transform = `translateX(${offset}px)`;
     }
 
+    // Move para o próximo slide
     nextSlide() {
         if (this.isTransitioning) return;
         this.showSlide(this.currentIndex + 1);
     }
 
+    // Move para o slide anterior
     prevSlide() {
         if (this.isTransitioning) return;
         this.showSlide(this.currentIndex - 1);
     }
 
+    // Função de debounce para limitar a frequência de eventos
     debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -289,9 +296,10 @@ class ImageCarousel {
         };
     }
 
+    // Inicia o arrastar
     handleDragStart(e) {
         if (this.isTransitioning) return;
-        
+
         this.isDragging = true;
         this.track.style.cursor = 'grabbing';
         this.startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
@@ -301,10 +309,11 @@ class ImageCarousel {
         this.pauseAutoAdvance();
     }
 
+    // Move o carrossel durante o arrastar
     handleDrag(e) {
         if (!this.isDragging || this.isTransitioning) return;
         e.preventDefault();
-        
+
         const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
         const diff = currentPosition - this.startPos;
         this.currentTranslate = this.prevTranslate + diff;
@@ -314,14 +323,15 @@ class ImageCarousel {
         });
     }
 
+    // Finaliza o arrastar
     handleDragEnd() {
         if (!this.isDragging) return;
-        
+
         this.isDragging = false;
         this.track.style.cursor = '';
-        
+
         const movedBy = this.currentTranslate - this.prevTranslate;
-        
+
         if (Math.abs(movedBy) > this.touchSensitivity) {
             if (movedBy > 0) {
                 this.prevSlide();
@@ -337,6 +347,7 @@ class ImageCarousel {
         }
     }
 
+    // Filtra os projetos com base na categoria
     filterProjects(category) {
         this.items.forEach(item => {
             const itemCategory = item.dataset.category;
@@ -344,12 +355,12 @@ class ImageCarousel {
             item.style.display = shouldShow ? 'flex' : 'none';
         });
 
-        // Reseta para o primeiro item após atualizar visibilidade
         this.updateVisibleItems();
         this.currentIndex = 0;
         this.showSlide(0);
     }
 
+    // Inicia o avanço automático
     startAutoAdvance() {
         this.autoAdvanceTimer = setInterval(() => {
             if (!this.isHovering && !this.isTransitioning) {
@@ -358,21 +369,22 @@ class ImageCarousel {
         }, this.autoAdvanceInterval);
     }
 
+    // Pausa o avanço automático
     pauseAutoAdvance() {
         clearInterval(this.autoAdvanceTimer);
     }
 
+    // Reinicia o avanço automático
     resetAutoAdvance() {
         this.pauseAutoAdvance();
         this.startAutoAdvance();
     }
 }
 
-// Inicialização
+// Inicializa o carrossel quando o documento estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     new ImageCarousel();
 });
-
 
 /**
  * Skills Manager - Gerencia as seções de habilidades, incluindo a animação das barras de progresso.
@@ -636,7 +648,6 @@ document.addEventListener('DOMContentLoaded', () => {
         resumeContent: document.querySelector('.resume__content'),
         seeMoreButton: document.querySelector('.resume__see-more'),
         carouselTrack: document.querySelector('.carousel-track'),
-        artCarouselTrack: document.querySelector('.art-carousel__track'),
         skillsContent: document.querySelector('.skills__content'),
         servicesSection: document.querySelector(".services.section"),
         testimonialsTrack: document.querySelector('.testimonials-track'),
