@@ -98,6 +98,7 @@ class ImageCarousel {
         this.animationId = null;
         this.autoAdvanceTimer = null;
         this.isHovering = false;
+        this.isTransitioning = false;
 
         this.carousel = document.querySelector('.carousel');
         this.track = document.querySelector('.carousel-track');
@@ -106,111 +107,157 @@ class ImageCarousel {
         this.nextButton = document.querySelector('.carousel-button.next');
         this.filterButtons = document.querySelectorAll('.filter-button');
 
-        if (this.items.length === 0) return;
+        if (!this.validateElements()) return;
 
         this.itemWidth = this.items[0].offsetWidth;
         this.init();
     }
 
+    validateElements() {
+        if (!this.carousel || !this.track || this.items.length === 0) {
+            console.error('Elementos essenciais do carrossel não encontrados');
+            return false;
+        }
+        return true;
+    }
+
     init() {
-        // Configuração inicial
         this.items.forEach(item => {
             item.style.display = 'flex';
             item.classList.add('active');
         });
 
         this.setupEventListeners();
+        this.updateVisibleItems();
         this.showSlide(0);
         this.startAutoAdvance();
 
-        // Observador de redimensionamento
         this.resizeObserver = new ResizeObserver(entries => {
             this.handleResize(entries);
         });
         this.resizeObserver.observe(this.track);
     }
 
-    handleResize(entries) {
-        const visibleItems = this.items.filter(item => 
-            item.style.display !== 'none' && item.classList.contains('active')
+    updateVisibleItems() {
+        this.visibleItems = this.items.filter(item => 
+            item.style.display !== 'none' && 
+            window.getComputedStyle(item).display !== 'none'
         );
         
-        if (visibleItems.length > 0) {
-            this.itemWidth = visibleItems[0].offsetWidth;
+        // Atualiza os botões de navegação
+        if (this.prevButton && this.nextButton) {
+            const shouldShowButtons = this.visibleItems.length > 1;
+            this.prevButton.style.display = shouldShowButtons ? '' : 'none';
+            this.nextButton.style.display = shouldShowButtons ? '' : 'none';
+        }
+    }
+
+    handleResize(entries) {
+        if (this.isTransitioning) return;
+        
+        this.updateVisibleItems();
+        
+        if (this.visibleItems.length > 0) {
+            this.itemWidth = this.visibleItems[0].offsetWidth;
+            
+            // Garante que o índice atual é válido
+            this.currentIndex = Math.min(this.currentIndex, this.visibleItems.length - 1);
+            
             const offset = -this.currentIndex * this.itemWidth;
             this.track.style.transition = 'none';
             this.track.style.transform = `translateX(${offset}px)`;
-            // Força um reflow
-            this.track.offsetHeight;
-            this.track.style.transition = '';
+            this.track.offsetHeight; // Força reflow
+            this.track.style.transition = `transform ${this.transitionDuration}ms ease`;
         }
     }
 
     setupEventListeners() {
-        // Botões de navegação
-        this.prevButton?.addEventListener('click', () => this.prevSlide());
-        this.nextButton?.addEventListener('click', () => this.nextSlide());
+        // Botões de navegação com debounce
+        if (this.prevButton) {
+            this.prevButton.addEventListener('click', this.debounce(() => this.prevSlide(), 250));
+        }
+        if (this.nextButton) {
+            this.nextButton.addEventListener('click', this.debounce(() => this.nextSlide(), 250));
+        }
 
-        // Eventos de arrastar
-        this.track.addEventListener('mousedown', e => this.handleDragStart(e));
-        this.track.addEventListener('mousemove', e => this.handleDrag(e));
-        this.track.addEventListener('mouseup', () => this.handleDragEnd());
-        this.track.addEventListener('mouseleave', () => this.handleDragEnd());
+        // Eventos de arrastar com verificação de estado
+        const dragEvents = {
+            mouse: {
+                start: 'mousedown',
+                move: 'mousemove',
+                end: 'mouseup',
+                leave: 'mouseleave'
+            },
+            touch: {
+                start: 'touchstart',
+                move: 'touchmove',
+                end: 'touchend'
+            }
+        };
 
-        // Eventos de toque
-        this.track.addEventListener('touchstart', e => this.handleDragStart(e));
-        this.track.addEventListener('touchmove', e => this.handleDrag(e));
-        this.track.addEventListener('touchend', () => this.handleDragEnd());
-
-        // Navegação por teclado
-        document.addEventListener('keydown', e => {
-            if (e.key === 'ArrowLeft') this.prevSlide();
-            if (e.key === 'ArrowRight') this.nextSlide();
+        Object.values(dragEvents).forEach(eventSet => {
+            this.track.addEventListener(eventSet.start, e => !this.isTransitioning && this.handleDragStart(e));
+            this.track.addEventListener(eventSet.move, e => this.handleDrag(e));
+            this.track.addEventListener(eventSet.end, () => this.handleDragEnd());
+            if (eventSet.leave) {
+                this.track.addEventListener(eventSet.leave, () => this.handleDragEnd());
+            }
         });
 
-        // Filtros
+        // Navegação por teclado com debounce
+        document.addEventListener('keydown', this.debounce(e => {
+            if (!this.isTransitioning) {
+                if (e.key === 'ArrowLeft') this.prevSlide();
+                if (e.key === 'ArrowRight') this.nextSlide();
+            }
+        }, 250));
+
+        // Filtros com atualização de estado
         this.filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const category = button.dataset.filter;
                 this.filterProjects(category);
                 
-                this.filterButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                });
+                this.filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
             });
         });
 
-        // Hover
-        this.carousel?.addEventListener('mouseenter', () => {
-            this.isHovering = true;
-            this.pauseAutoAdvance();
+        // Eventos de hover
+        if (this.carousel) {
+            this.carousel.addEventListener('mouseenter', () => {
+                this.isHovering = true;
+                this.pauseAutoAdvance();
+            });
+
+            this.carousel.addEventListener('mouseleave', () => {
+                this.isHovering = false;
+                this.resetAutoAdvance();
+            });
+        }
+
+        // Eventos de transição
+        this.track.addEventListener('transitionstart', () => {
+            this.isTransitioning = true;
         });
 
-        this.carousel?.addEventListener('mouseleave', () => {
-            this.isHovering = false;
-            this.resetAutoAdvance();
+        this.track.addEventListener('transitionend', () => {
+            this.isTransitioning = false;
         });
     }
 
     showSlide(index) {
-        const visibleItems = this.items.filter(item => 
-            item.style.display !== 'none'
-        );
-
-        if (visibleItems.length === 0) return;
+        this.updateVisibleItems();
+        
+        if (this.visibleItems.length === 0) return;
+        if (this.isTransitioning) return;
 
         // Ajusta o índice para loop circular
-        if (index < 0) {
-            index = visibleItems.length - 1;
-        } else if (index >= visibleItems.length) {
-            index = 0;
-        }
-
+        index = ((index % this.visibleItems.length) + this.visibleItems.length) % this.visibleItems.length;
         this.currentIndex = index;
 
         // Atualiza classes ativas
-        visibleItems.forEach((item, i) => {
+        this.visibleItems.forEach((item, i) => {
             item.classList.toggle('active', i === index);
         });
 
@@ -221,22 +268,30 @@ class ImageCarousel {
     }
 
     nextSlide() {
-        const visibleItems = this.items.filter(item => 
-            item.style.display !== 'none'
-        );
-        const nextIndex = (this.currentIndex + 1) % visibleItems.length;
-        this.showSlide(nextIndex);
+        if (this.isTransitioning) return;
+        this.showSlide(this.currentIndex + 1);
     }
 
     prevSlide() {
-        const visibleItems = this.items.filter(item => 
-            item.style.display !== 'none'
-        );
-        const prevIndex = (this.currentIndex - 1 + visibleItems.length) % visibleItems.length;
-        this.showSlide(prevIndex);
+        if (this.isTransitioning) return;
+        this.showSlide(this.currentIndex - 1);
+    }
+
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
     }
 
     handleDragStart(e) {
+        if (this.isTransitioning) return;
+        
         this.isDragging = true;
         this.track.style.cursor = 'grabbing';
         this.startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
@@ -247,7 +302,7 @@ class ImageCarousel {
     }
 
     handleDrag(e) {
-        if (!this.isDragging) return;
+        if (!this.isDragging || this.isTransitioning) return;
         e.preventDefault();
         
         const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
@@ -289,14 +344,15 @@ class ImageCarousel {
             item.style.display = shouldShow ? 'flex' : 'none';
         });
 
-        // Reset para o primeiro item visível
+        // Reseta para o primeiro item após atualizar visibilidade
+        this.updateVisibleItems();
+        this.currentIndex = 0;
         this.showSlide(0);
-        this.handleResize([{ target: this.track }]);
     }
 
     startAutoAdvance() {
         this.autoAdvanceTimer = setInterval(() => {
-            if (!this.isHovering) {
+            if (!this.isHovering && !this.isTransitioning) {
                 this.nextSlide();
             }
         }, this.autoAdvanceInterval);
